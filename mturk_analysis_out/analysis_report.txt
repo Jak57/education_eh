@@ -1,0 +1,52 @@
+Loaded 130 assignments (79 rejected + 0 without a reason dropped, 51 kept) | 41 HITs | 44 workers
+
+Quality flags: 0 incomplete, 0 straightliners, 0 faster than 120s -> 0/51 assignments flagged
+
+=== Entailment (faithfulness) comparison: A vs B vs C ===
+-- faithfulness/entailment --
+       A (child): mean 0.799  std 0.324  median 1.00  (n=51 answers)
+       B (child): mean 0.882  std 0.266  median 1.00  (n=51 answers)
+   C (candidate): mean 0.417  std 0.423  median 0.25  (n=51 answers)
+  A (child) vs B (child): mean diff -0.034 (Wilcoxon p=0.5989, n=41 items)
+  A (child) vs C (candidate): mean diff +0.433 (Wilcoxon p=0.0000*, n=41 items)
+  B (child) vs C (candidate): mean diff +0.466 (Wilcoxon p=0.0000*, n=41 items)
+-- informativeness --
+       A (child): mean 0.397  std 0.256  median 0.25  (n=51 answers)
+       B (child): mean 0.471  std 0.248  median 0.50  (n=51 answers)
+   C (candidate): mean 0.162  std 0.199  median 0.00  (n=51 answers)
+  A (child) vs B (child): mean diff -0.057 (Wilcoxon p=0.2108, n=41 items)
+  A (child) vs C (candidate): mean diff +0.255 (Wilcoxon p=0.0000*, n=41 items)
+  B (child) vs C (candidate): mean diff +0.312 (Wilcoxon p=0.0000*, n=41 items)
+  Reading: A and B are the summary's real children; C is the outside
+  candidate. If the hierarchy is sound, A and B should score high and
+  similar, C clearly lower -- unless C truly belongs under the summary.
+
+=== Human vs LLM (item-level, human = mean over workers) ===
+             human                        llm    n   pearson  spearman     MAE
+      human_faith1          llm_faithfulness1   41    0.383*    0.441*   0.160
+      human_faith2          llm_faithfulness2   41    0.421*    0.420*   0.279
+       human_info1       llm_informativeness1   41    0.467*    0.465*   0.178
+       human_info2       llm_informativeness2   41    0.478*    0.487*   0.187
+      human_faith1               llm_entail_1   41    0.102     0.134    0.555
+      human_faith2               llm_entail_2   41    0.232     0.230    0.551
+  human_spec_faith      llm_spec_faithfulness   41    0.553*    0.550*   0.178
+   human_spec_info   llm_spec_informativeness   41    0.169     0.298    0.211
+  human_spec_faith            llm_specificity   41    0.015     0.070    0.437
+   faith_candidate            llm_specificity   41   -0.135    -0.054    0.385
+  (* = p < 0.05)
+
+=== Blinding / position-bias checks ===
+ faith | mean by SLOT  A: 0.740  B: 0.740  third: 0.618
+       | mean by ROLE  base_A: 0.799  base_B: 0.882  candidate: 0.417
+  info | mean by SLOT  A: 0.363  B: 0.382  third: 0.284
+       | mean by ROLE  base_A: 0.397  base_B: 0.471  candidate: 0.162
+candidate faith by the slot it landed in (should be ~equal if workers are truly blind):
+    slot     A: mean 0.357  (n=14)
+    slot     B: mean 0.484  (n=16)
+    slot third: mean 0.405  (n=21)
+
+=== Inter-rater agreement (HITs with >= 2 assignments) ===
+ faith | Krippendorff alpha (interval): 0.675 | mean pairwise |diff|: 0.182 (over 33 pairs)
+  info | Krippendorff alpha (interval): 0.603 | mean pairwise |diff|: 0.129 (over 33 pairs)
+
+Wrote mturk_analysis_out/per_assignment_long.csv (153 rows) and mturk_analysis_out/per_item_summary.csv (41 rows)

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Entailment Tree Viewer</title>
+
+  <!-- ===== size dial: swap 380px for any width you like =============== -->
+  <style>
+    :root {
+      --side: 15%;
+    }
+
+    /* ----- layout ---------------------------------------------------- */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9f9f9;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #full-text-box {
+      width: 100%;
+      overflow-wrap: break-word;
+      font-size: 1em;
+    }
+
+    #side {
+      flex: 0 0 var(--side);
+      font-size: clamp(12px, 0.8vw + 0.5rem, 16px);
+      line-height: 1.35;
+      /* min-width: 220px; */
+      /* max-width: 480px; */
+      border-right: 1px solid #e5e5e5;
+      background: #fff;
+      overflow: auto;
+    }
+
+
+    #tree-container {
+      flex: 1;
+      position: relative;
+      overflow: auto;
+    }
+
+    #tree-container svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ----- legend ---------------------------------------------------- */
+    #legend {
+      padding: 12px 16px 8px;
+      border-bottom: 1px solid #e5e5e5;
+      font-size: 3em;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      border: 1px solid #999;
+      vertical-align: middle;
+    }
+
+    .swatch.high {
+      background: #2ca02c
+    }
+
+    .swatch.med {
+      background: #ff7f0e
+    }
+
+    .swatch.low {
+      background: #d62728
+    }
+
+    .swatch.na {
+      background: #ccc;
+      border-color: #ccc
+    }
+
+    /* ----- tooltip --------------------------------------------------- */
+    .tooltip {
+      position: absolute;
+      background: rgba(255, 255, 255, .95);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 12px;
+      pointer-events: none;
+      max-width: 300px;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+      opacity: 0;
+      transition: opacity .15s;
+    }
+
+    /* ----- nodes / links -------------------------------------------- */
+    .link {
+      fill: none;
+      stroke: #bbb;
+      stroke-width: 2px;
+    }
+
+    .node circle {
+      /* stroke: steelblue; */
+      stroke-width: 2px;
+      transition: r .15s;
+    }
+
+    .node:hover circle {
+      r: 7;
+      cursor: pointer;
+    }
+
+    /* clicked node */
+    .node.selected circle {
+      stroke: #000;
+      stroke-width: 1px;
+    }
+
+    /* direct parents & children */
+    .node.related circle {
+      stroke: #1f77b4;
+      stroke-width: 1px;
+    }
+
+    .node.dimmed {
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- sticky panel -->
+  <div id="side">
+    <div id="full-text-box" style="padding:16px;white-space:pre-wrap;"></div>
+  </div>
+
+  <!-- search box -->
+  <input id="searchBox" placeholder="Search full text..."
+    style="position:absolute;top:10px;left:10px;z-index:10;padding:4px;" />
+  <!-- tree container -->
+  <div
+    style="position: absolute; top: 10px; right: 20px; z-index: 1000; background: white; padding: 6px 10px; border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,0.1);">
+    <label for="score-select">Score:</label>
+    <select id="score-select"></select>
+  </div>
+
+  <div id="tree-container"></div>
+  <div id="tooltip" class="tooltip"></div>
+  <button id="resetBtn" style="position:absolute;bottom:10px;right:10px;z-index:10;">Reset</button>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/d3-dag@0.6"></script>
+  <script>
+    /* canvas size */
+    const margin = { top: 80, right: 80, bottom: 80, left: 80 };
+    const NODE_R = 5;                   // base node radius
+    const MAX_INITIAL_SCALE = 1         // auto-fit won’t zoom past this
+    const TARGET_SCALE = 1.8;   // how far we zoom in on a click
+    let currentZoom = 1;                 // track live scale for tooltip
+    const BASE = 200;   // horizontal room for deeper layers
+    const STEP = 200;
+    const V_GAP = 120;   // vertical gap between layers (unchanged)
+
+
+    let selectedScoreField = ''; // populated after data loads
+
+    /** Collect score field names from wb_scores dict and legacy top-level fields. */
+    function collectScoreFields(data) {
+      const keys = new Set();
+      for (const node of data) {
+        if (node.wb_scores && typeof node.wb_scores === 'object') {
+          Object.keys(node.wb_scores).forEach(k => keys.add(k));
+        }
+        if (node.wb_score_mistral != null && node.wb_score_mistral !== '-') keys.add('wb_score_mistral');
+        if (node.wb_score_llama != null && node.wb_score_llama !== '-') keys.add('wb_score_llama');
+      }
+      return [...keys];
+    }
+
+    function getScoreValue(node, field) {
+      const fromDict = node?.wb_scores?.[field];
+      if (fromDict != null && fromDict !== '-') return fromDict;
+      const legacy = node?.[field];
+      if (legacy != null && legacy !== '-') return legacy;
+      return null;
+    }
+
+    const colour = d => {
+      const raw = getScoreValue(d.data, selectedScoreField);
+      const score = +raw;
+      if (isNaN(score)) return '#ccc';
+
+      // Normalize to 0–1 range
+      const normalized = Math.max(0, Math.min(1, score / 10)); // assume 0–10 scale
+
+      // Define diverging color scale
+      const colorScale = d3.scaleLinear()
+        .domain([0, 0.33, 0.66, 1]) // 4 stops
+        .range(["darkred", "lightcoral", "lightblue", "darkblue"])
+        .interpolate(d3.interpolateLab); // smoother transitions
+
+      return colorScale(normalized);
+    };
+    /* helper for node colour */
+    // const colour = sim =>
+    //   sim == null || isNaN(sim) ? '#ccc'
+    //     : sim > 0.8 ? '#2ca02c'
+    //       : sim > 0.6 ? '#ff7f0e'
+    //         : '#d62728';
+
+    /* ── globals we update ──────────────────────────────────── */
+    const container = document.getElementById('tree-container');
+    let svg, g, zoomBehaviour, tooltip, txtBox, root, fitted = false;
+
+    /** DAG JSON via ?data=...: a basename (served from visualisation/) or a
+     *  repo-relative path like demo_trees/foo.json (served from the repo root).
+     *  Traversal/absolute/unsafe values fall back to tree_data.json. */
+    function resolveViewerDataFile() {
+      const raw = new URLSearchParams(location.search).get('data');
+      const fallback = 'tree_data.json';
+      if (!raw || raw.includes('..') || raw.startsWith('/') || raw.includes('\\')
+          || !/^[\w][\w.\/-]*\.json$/.test(raw)) {
+        return fallback;
+      }
+      // paths resolve from the served repo root; bare basenames stay relative
+      // to viewer.html (i.e. inside visualisation/)
+      return raw.includes('/') ? '/' + raw : raw;
+    }
+
+    /* ── build everything once ──────────────────────────────── */
+    function init() {
+      svg = d3.select(container).append('svg');
+      g = svg.append('g');
+
+      tooltip = d3.select('#tooltip');
+      txtBox = d3.select('#full-text-box');
+
+      const dataFile = resolveViewerDataFile();
+      d3.json(dataFile).then(data => {
+        const scoreKeys = collectScoreFields(data);
+        const sel = document.getElementById('score-select');
+        sel.innerHTML = scoreKeys.map(k =>
+          `<option value="${k}">${k.replace(/^score_/, '').replace(/^wb_score_/, '')}</option>`
+        ).join('');
+        selectedScoreField = scoreKeys[0] ?? '';
+
+        const stratify = d3.dagStratify()
+          .id(d => d.id)
+          .parentIds(d => d.parentIds || []);
+        root = stratify(data);
+        const layout = d3.sugiyama().size([container.clientWidth - margin.left - margin.right,
+        container.clientHeight - margin.top - margin.bottom]);
+        layout(root);
+        update();
+      });
+
+      // blank-click = clear side panel
+      d3.select(container).on('click', e => {
+        if (e.target.tagName !== 'circle') {
+          txtBox.html('');
+          g.selectAll('.node').classed('dimmed selected related', false);
+        }
+      });
+
+      // on window resize, redraw & refit
+      window.addEventListener('resize', () => {
+        fitted = false;
+        update();
+      });
+      document.getElementById('score-select').addEventListener('change', function () {
+        selectedScoreField = this.value;
+        update(); // re-color nodes
+      });
+
+    }
+
+    function update() {
+      if (!root) return;
+
+      const W = container.clientWidth;
+      const H = container.clientHeight;
+      const w = W - margin.left - margin.right;
+      const h = H - margin.top - margin.bottom;
+
+      const bottomLayer = d3.max(root.descendants(), n => n.layer);
+
+      // d3-dag layout
+      const layout = d3.sugiyama()
+        .size([w, h])
+        .layering(d3.layeringSimplex())
+        .decross(d3.decrossTwoLayer())
+        .nodeSize(n => {
+          const layersAboveLeaf = bottomLayer - n.layer;
+          const width = layersAboveLeaf === 0
+            ? BASE
+            : BASE * Math.pow(2, layersAboveLeaf);
+          return [width, V_GAP];
+        })
+        .coord(d3.coordCenter());
+      layout(root);
+
+      // zoom behaviour (re-attach each draw)
+      zoomBehaviour = d3.zoom()
+        .extent([[0, 0], [W, H]])
+        .scaleExtent([0.1, 4])
+        .filter(e => !(e.type === 'wheel' && !e.ctrlKey))
+        .on('zoom', e => {
+          currentZoom = e.transform.k;
+          g.attr('transform', e.transform);
+          g.selectAll('.node foreignObject > div')
+            .style('font-size', `${Math.max(5, 5 / currentZoom)}px`);
+        });
+      svg.call(zoomBehaviour);
+
+      /* links */
+      const link = g.selectAll('.link')
+        .data(root.links(), d => d.target.data.id || d.target.data.name);
+
+      const linkVertical = d3.linkVertical()
+        .x(d => d.x)
+        .y(d => d.y)
+
+      link.join(
+        enter => enter.append('path').attr('class', 'link'),
+        update => update,
+        exit => exit.remove()
+      )
+        .attr('d', d => linkVertical({ source: d.source, target: d.target }))
+        .style('stroke-width', d => {
+          // Use child (target) node's per-edge eval score; map 0..1 -> 1..6 px
+          const s = (d && d.target && typeof d.target.data?.evalScore === 'number')
+            ? Math.max(0, Math.min(1, d.target.data.evalScore))
+            : null;
+          return s == null ? 2 : (1 + 5 * s);
+        });
+
+      /* nodes */
+      const node = g.selectAll('.node')
+        .data(root.descendants(), d => d.data.id || d.data.prompt || '');
+
+      const nodeEnter = node.enter().append('g').attr('class', 'node');
+
+      nodeEnter.append('circle').attr('r', NODE_R);
+
+      // label (prompt text, truncated)
+      nodeEnter.append('foreignObject')
+        .attr('x', -60).attr('y', NODE_R + 0.5)
+        .attr('width', 120).attr('height', 40)
+        .append('xhtml:div')
+        .style('font-size', '5px')
+        .style('text-align', 'center')
+        .style('word-wrap', 'break-word')
+        .style('width', '120px');
+
+      nodeEnter.merge(node)
+        .attr('transform', d => `translate(${d.x},${d.y})`)
+        .on('mouseover', (e, d) => {
+          //console.log("Hovered node:", d.data);
+          tooltip.style('opacity', 1)
+            .html(`<strong>Similarity:</strong> ${d.data.similarity ?? '-'}<br>
+                    <strong>Eval:</strong> ${d.data.evalScore ?? '-'}<br>
+                    <strong>Entail-1:</strong> ${d.data.entail1}<br>
+                    <strong>Entail-2:</strong> ${d.data.entail2}<br>
+                    <strong>Faithfulness-1:</strong> ${d.data.faithfulness1 ?? '-'}<br>
+                    <strong>Faithfulness-2:</strong> ${d.data.faithfulness2 ?? '-'}<br>
+                    <strong>Informativeness-1:</strong> ${d.data.informativeness1 ?? '-'}<br>
+                    <strong>Informativeness-2:</strong> ${d.data.informativeness2 ?? '-'}<br>
+                    <strong>Spec-Faithful:</strong> ${d.data.specificity_faithfulness ?? '-'}<br>
+                    <strong>Spec-Informative:</strong> ${d.data.specificity_informativeness ?? '-'}<br>
+                    <strong>Summary Blocked:</strong> ${d.data.summary_blocked}<br>
+                    <strong>${selectedScoreField.replace(/^score_/, '').replace(/^wb_score_/, '')} Score:</strong> ${getScoreValue(d.data, selectedScoreField) ?? 'n/a'}`)
+            .style('left', (e.pageX + 10) + 'px')
+            .style('top', (e.pageY + 5) + 'px')
+            .style('transform-origin', 'top left')
+            .style('transform', `scale(${currentZoom})`);
+        })
+        .on('mouseout', () => tooltip.style('opacity', 0))
+        .on('click', (e, d) => {
+
+          /* -------- side-panel text -------- */
+          txtBox.html(
+            `<strong>Full Text:</strong><br>${(d.data.full_text || '')
+              .replace(/\n/g, '<br>')}`
+          );
+          nodeEnter.merge(node).select('circle')
+            .attr('fill', d => colour(d));
+          //above for colored nodes.
+          // .attr('fill', d => "#ccc");
+
+          /* -------- zoom to the node -------- */
+          const W = container.clientWidth;
+          const H = container.clientHeight;
+
+          const scale = Math.min(TARGET_SCALE, zoomBehaviour.scaleExtent()[1]);
+          const x = d.x * scale;
+          const y = d.y * scale;
+
+          const transform = d3.zoomIdentity
+            .translate(W / 2 - x, H / 2 - y)
+            .scale(scale);
+
+          svg.transition()
+            .duration(750)
+            .call(zoomBehaviour.transform, transform);
+
+          /* -------- highlight logic -------- */
+          // clear any previous highlights
+          g.selectAll('.node').classed('selected related', false);
+
+          // mark the clicked node itself
+          d3.select(e.currentTarget).classed('selected', true);
+
+          const related = new Set();
+          root.links().forEach(l => {
+            if (l.source === d) related.add(l.target); // child
+            if (l.target === d) related.add(l.source); // parent
+          });
+
+          // mark direct parents and children
+          g.selectAll('.node')
+            .filter(n => related.has(n))
+            .classed('related', true);
+
+          // Dimming all nodes first
+          g.selectAll('.node').classed('dimmed', true);
+
+          // Keep selected and related nodes fully visible
+          g.selectAll('.node.selected, .node.related').classed('dimmed', false);
+
+          document.getElementById('searchBox').value = '';
+
+          txtBox.html(`<strong>Full Text:</strong><br>${(d.data.full_text || '').replace(/\n/g, '<br>')}`);
+        })
+
+
+      nodeEnter.merge(node).select('circle')
+        .attr('fill', d => colour(d));
+
+      nodeEnter.merge(node).select('foreignObject > div')
+        .html(d => {
+          const t = d.data.prompt || d.data.name || '';
+          return t.length > 40 ? t.slice(0, 40) + '…' : t;
+        });
+
+      node.exit().remove();
+
+      /* auto-fit once per draw (or after resize) */
+      if (!fitted) {
+        fitToScreen(W, H);
+        fitted = true;
+      }
+    }
+
+    /* ── auto-fit whole tree to viewport ─────────────────────── */
+    function fitToScreen(W, H) {
+      const bbox = g.node().getBBox();
+      const scale = Math.min(
+        (W - margin.left - margin.right) / bbox.width,
+        (H - margin.top - margin.bottom) / bbox.height,
+        MAX_INITIAL_SCALE
+      );
+      const xOff = (W - bbox.width * scale) / 2 - bbox.x * scale;
+      const yOff = (H - bbox.height * scale) / 2 - bbox.y * scale;
+
+      const t = d3.zoomIdentity.translate(xOff, yOff).scale(scale);
+      svg.call(zoomBehaviour.transform, t);
+      currentZoom = scale;
+    }
+
+    init();
+    // Search logic
+    document.getElementById('searchBox').addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+      g.selectAll('.node')
+        .classed('dimmed', d => {
+          const text = (d.data.full_text || '').toLowerCase();
+          return !text.includes(term);
+        });
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      const W = container.clientWidth;
+      const H = container.clientHeight;
+      document.getElementById('searchBox').value = '';
+      g.selectAll('.node').classed('dimmed selected related', false);
+      g.selectAll('.link').classed('highlighted dimmed', false);
+      txtBox.html('');
+      fitToScreen(W, H);
+    });
+  </script>
+</body>
+
+</html>

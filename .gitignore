@@ -1,0 +1,50 @@
+# credentials
+.env
+
+# internal docs — only README.md ships
+*.md
+!README.md
+docs/
+
+# Claude Code files
+CLAUDE.md
+.claude/
+.claude*
+
+# python
+__pycache__/
+*.pyc
+myvenv/
+myenv/
+
+# OS noise
+.DS_Store
+
+# large caches / logs
+outputs/
+slurm-*.out
+slurm-*-error.out
+slurm_output_j/
+
+# large regenerable data + built trees (referenced from README, not shipped)
+Results/
+wb_nearest_neighbors_64.csv
+uf_nearest_neighbors.csv
+dataset_WB_with_scores.csv
+dataset_UF_with_scores.csv
+
+# LaTeX build artifacts
+paper.aux
+paper.log
+paper.out
+
+# derived dataset export (contains key-like strings inside user chat text)
+dataset_prep/dataset.csv
+
+
+## Problematic files
+demo_trees/tree_data.json
+retrieval/dataset_WB.csv
+visualisation/training_data_64c_claude_distill.jsonl
+visualisation/tree_data_64c_claude_gemma.json
+dataset_prep/dataset_WB.csv

@@ -1,0 +1,514 @@
+[
+  {
+    "id": 0,
+    "text": "Write or edit text according to the given instructions.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "General writing is a strength, but editing tasks are notably weaker than pure generation. Because this prompt mixes writing and editing without strict diagnostic demands, it should land in the mid range rather than high.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "This is a general text-generation/editing task that mainly rewards fluent prose control and instruction following, which falls in the model's strongest generative region."
+  },
+  {
+    "id": 1,
+    "text": "Write structured educational content for academic study purposes, organizing key information in a comprehensive format that includes explanatory text and question-answer components.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "This is highly aligned with llama's strengths in structured educational and explanatory writing. It rewards organization, completeness, and coherent prose more than exact verification.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Educational and academic content writing aligns with strong content generation and knowledge organization, though the structured instructional format makes it slightly less open-ended than pure generation."
+  },
+  {
+    "id": 2,
+    "text": "",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "The leaf text is empty, so the best estimate is a neutral mid score due to lack of task-specific evidence.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "The prompt is empty, so there is insufficient task information; assigning a neutral middle score reflects uncertainty rather than a clear capability match."
+  },
+  {
+    "id": 3,
+    "text": "Write a document that presents information in a structured format about a specific topic.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Structured information presentation is one of the clearer strengths in the report. The task is broad and mostly tests organization and fluent exposition.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Structured informational writing is close to the model's strong explanatory and content-development clusters, with little need for precision-bound reasoning."
+  },
+  {
+    "id": 4,
+    "text": "Conduct well-researched analysis/presentation on language and communication topics, incorporating at least three sources and exploring relevant implications.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Language/communication analysis is reported as relatively strong, but the requirement to incorporate sources and implications adds grounding demands that may reduce consistency somewhat.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This combines research, synthesis, and conceptual analysis, all of which are relatively strong, though source integration and implications add some rigor beyond simple prose generation."
+  },
+  {
+    "id": 5,
+    "text": "Provide a career recommendation based on the given data and the list of possible options.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Tailored recommendation writing can score very well for llama, though tasks grounded in provided data introduce some variance. This looks stronger than analytical reasoning but not fully unconstrained.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "Career recommendation is a suitability-judgment task requiring selection under criteria, matching weaker nodes around assessing suitability and professional judgment."
+  },
+  {
+    "id": 6,
+    "text": "Analyze clinical cases involving diabetic patients with acute symptoms and abnormal laboratory findings to determine diagnosis or differential diagnosis.",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "Clinical differential diagnosis requires exact reasoning from symptoms and labs, which overlaps with llama's weaker precision-and-grounding profile. Health writing can be decent, but case-based diagnostic analysis is harder.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "Clinical case diagnosis fits the middling clinical reasoning band: the model can often discuss cases plausibly, but precise diagnostic reliability is weaker than broad verbal analysis."
+  },
+  {
+    "id": 7,
+    "text": "Write a 5000-word academic essay analyzing child narrators in literature, examining how the narrator's gender influences narrative meaning and textual interpretation, incorporating verbatim critical quotes and theoretical frameworks from scholars such as Lanser and Carson in polished, analytical prose.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Literary analysis is a relative strength, but this prompt raises difficulty by requiring verbatim quotations and specific theorists, which increases grounding demands. Strong prose likely, but not perfect fidelity.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Although the writing component suits the model, literary analysis is only moderate in the tree, and the demand for precise textual interpretation, scholarly quotation, and theory-grounded argument lowers confidence."
+  },
+  {
+    "id": 8,
+    "text": "Review structured text or code for errors, and explain how to correct them.",
+    "predicted_score_blossom": 4,
+    "reason_for_predicted_score_blossom": "Error review and correction is one of the clearest weak areas in the report. The need to identify localized mistakes and explain fixes matches the low editing/debugging clusters.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Error review and correction is a technical diagnostic task; the model is middling on diagnosing problems and technical work, but explanatory repair steps should help performance somewhat."
+  },
+  {
+    "id": 9,
+    "text": "List and summarize Japanese story series, providing plot information in an organized format.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "This is mostly organized summarization and presentation, which fits llama's strengths. Some factual grounding is needed, but the format is forgiving and prose-centered.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This is mainly information organization and summarization, which fits strong content synthesis and structured presentation abilities."
+  },
+  {
+    "id": 10,
+    "text": "Provide detailed answers to user-submitted questions on various topics.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Interactive QA is one of the highest-performing themes overall, though there is some variance across related nodes. Detailed broad-topic answering suits fluent synthesis well.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Broad QA across topics relies on explanatory fluency and information handling, both of which are strong when exact formal correctness is not the central challenge."
+  },
+  {
+    "id": 11,
+    "text": "Write content in English that engages an audience, balancing professional expertise with accessibility.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "This is squarely in expressive, audience-aware writing, a major strength for llama. It emphasizes tone and accessibility over strict factual verification.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Audience-friendly English content writing strongly matches the model's generative and explanatory strengths, with manageable tone-balancing demands."
+  },
+  {
+    "id": 12,
+    "text": "Solve statistical problems involving calculating the mean, standard deviation, quartiles, percentiles, probabilities, and expected values using provided data or a probability distribution.",
+    "predicted_score_blossom": 3,
+    "reason_for_predicted_score_blossom": "Quantitative computation is the strongest weakness identified in the report. This prompt requires exact calculations and verification, so it should be near the bottom.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "Statistics is one of the clearest weak regions in the tree, especially when exact calculations and formal procedures are required."
+  },
+  {
+    "id": 13,
+    "text": "Write a diploma-level academic paper in Russian with introduction, main part, and conclusion.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Academic structure is a strength, but the language requirement and diploma-level rigor add difficulty. The model likely handles form and organization better than truly high-level scholarly precision.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Academic document writing is an upper-middle strength area, and the required structure is straightforward, though language-specific and formal demands keep it below the top band."
+  },
+  {
+    "id": 14,
+    "text": "Write a diploma-level academic paper in Russian with introduction, main part, and conclusion.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Same reasoning as the duplicate leaf: good document architecture, somewhat lowered by language-specific and academic rigor demands.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Academic document writing is an upper-middle strength area, and the required structure is straightforward, though language-specific and formal demands keep it below the top band."
+  },
+  {
+    "id": 15,
+    "text": "Write a scholarly analysis evaluating the meaning or translation of a religious text passage, and provide a list of references for further study.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Scholarly analysis is generally solid, but religious text interpretation and translation evaluation require careful grounding and references. Likely competent prose with moderate risk on precision.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Religious/classical literature research is moderately favorable, but the task also requires evaluative interpretation and translation judgment, which introduce some weaker precision-sensitive demands."
+  },
+  {
+    "id": 16,
+    "text": "Research and organize academic information.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Research organization plays to strengths in structuring academic content, though evidence handling can be uneven. The broad framing keeps it above average.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Research synthesis and information organization sit consistently in the upper-middle cluster, making this a solid fit for the model."
+  },
+  {
+    "id": 17,
+    "text": "Write a 5000-word academic essay analyzing child narrators in literature, examining how the narrator's gender influences narrative meaning and textual interpretation, incorporating verbatim critical quotes and theoretical frameworks from scholars such as Lanser and Carson in polished, analytical prose.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Like leaf 7, this combines a strong domain for llama with difficult grounding constraints. Expect polished literary prose but some inconsistency in exact quotation-based support.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Although the writing component suits the model, literary analysis is only moderate in the tree, and the demand for precise textual interpretation, scholarly quotation, and theory-grounded argument lowers confidence."
+  },
+  {
+    "id": 18,
+    "text": "Provide detailed answers to user-submitted questions on various topics.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Broad interactive answering is generally strong for llama because fluency and synthesis matter most. Some variability exists, but overall this should be above average.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Broad QA across topics relies on explanatory fluency and information handling, both of which are strong when exact formal correctness is not the central challenge."
+  },
+  {
+    "id": 19,
+    "text": "",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "The prompt text is missing, so a neutral midpoint estimate is most appropriate.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "The prompt is empty, so there is insufficient task information; assigning a neutral middle score reflects uncertainty rather than a clear capability match."
+  },
+  {
+    "id": 20,
+    "text": "Write or edit text according to the given instructions.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "As with leaf 0, the writing side helps but the editing side suppresses the score relative to pure generation tasks.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "This is a general text-generation/editing task that mainly rewards fluent prose control and instruction following, which falls in the model's strongest generative region."
+  },
+  {
+    "id": 21,
+    "text": "Provide a career recommendation based on the given data and the list of possible options.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Recommendation writing tends to be strong, but the use of provided options and data introduces some grounding requirements that keep it from the very top.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "Career recommendation is a suitability-judgment task requiring selection under criteria, matching weaker nodes around assessing suitability and professional judgment."
+  },
+  {
+    "id": 22,
+    "text": "Choreograph a detailed fight sequence featuring a named female character with specified physical attributes, describing the action step-by-step with vivid sensory details so readers can clearly visualize the combat.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Creative descriptive generation is a strength, especially where vivid prose and coherence matter more than factual precision. This prompt strongly rewards expressive control.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "This resembles the choreographing staged movement cluster, which is mid-level: the model can vividly generate prose, but action sequencing and embodied realism are less consistently strong than general writing."
+  },
+  {
+    "id": 23,
+    "text": "Write a creative fiction narrative that explores the interaction and relationship between humans and monster-themed characters within a fictional setting, including character descriptions and dialogue between the different beings.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Creative fiction is one of the best-performing clusters. Character interaction, dialogue, and worldbuilding fit llama's discourse-centered strengths well.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Creative narrative generation with dialogue and character interaction falls directly in the model's strongest imaginative content region."
+  },
+  {
+    "id": 24,
+    "text": "Create a list of creative music-related content with spiritual and artistic themes using lo-fi and indie aesthetics.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Creative music-themed content is specifically noted as strong. This is open-ended and aesthetic, minimizing verification demands.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "Music-related curation/list generation is weaker than open creation in the tree, and this task depends partly on aesthetic selection and taste calibration."
+  },
+  {
+    "id": 25,
+    "text": "Write a comprehensive book on financial market analysis and prediction, covering technical analysis, macroeconomic factors, and trading psychology.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Finance-related writing is mixed in the report. Llama can produce broad structured content, but prediction and technical market analysis increase precision and domain-rigor demands.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "The book-writing and explanatory aspects are strong, but financial analysis and prediction introduce technical and judgment-heavy elements that reduce reliability."
+  },
+  {
+    "id": 26,
+    "text": "",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "The prompt is empty, so a neutral estimate is used.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "The prompt is empty, so there is insufficient task information; assigning a neutral middle score reflects uncertainty rather than a clear capability match."
+  },
+  {
+    "id": 27,
+    "text": "",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "The prompt is empty, so there is insufficient information for anything other than a midpoint estimate.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "The prompt is empty, so there is insufficient task information; assigning a neutral middle score reflects uncertainty rather than a clear capability match."
+  },
+  {
+    "id": 28,
+    "text": "Discuss analytical approaches to solving financial problems involving calculations and professional decision-making in specific domains.",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "This combines finance with calculations and professional reasoning, which is riskier than broad finance exposition. The analytical and decision-heavy framing lowers the score.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "This mixes calculation, formal analysis, and professional judgment, which aligns closely with the model's weakest precision-bound and evaluative regions."
+  },
+  {
+    "id": 29,
+    "text": "Review structured text or code for errors, and explain how to correct them.",
+    "predicted_score_blossom": 4,
+    "reason_for_predicted_score_blossom": "This directly matches the weak editing/debugging cluster. Localized diagnosis plus explanation of corrections is a known weakness.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Error review and correction is a technical diagnostic task; the model is middling on diagnosing problems and technical work, but explanatory repair steps should help performance somewhat."
+  },
+  {
+    "id": 30,
+    "text": "Write an academic piece on nutrition and health, discussing biological components, microbial factors, and their impacts using formal scientific language and evidence-based analysis.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Health-scientific writing shows large variance in the report. The formal academic style helps, but evidence-based biological discussion raises domain-precision demands.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "This is academic and explanatory, which helps, but the scientific and evidence-based framing adds domain-specific rigor that likely lowers performance relative to general academic prose."
+  },
+  {
+    "id": 31,
+    "text": "Explain philosophical concepts or ideas and their significance.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "This is explanatory, conceptual, and prose-based, which generally suits llama well. It does not require exact calculation or strict input verification.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Philosophical concept explanation aligns with one of the stronger humanities nodes, emphasizing abstraction and conceptual framing over formal exactness."
+  },
+  {
+    "id": 32,
+    "text": "Create a list of creative music-related content with spiritual and artistic themes using lo-fi and indie aesthetics.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Like leaf 24, this is an open-ended creative listing task in a domain noted as strong. Style and thematic coherence dominate.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "Music-related curation/list generation is weaker than open creation in the tree, and this task depends partly on aesthetic selection and taste calibration."
+  },
+  {
+    "id": 33,
+    "text": "Research and organize academic information.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Academic organization is a strength, though research-grounding can introduce some variance. The task still leans more toward synthesis and structure than exact reasoning.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Research synthesis and information organization sit consistently in the upper-middle cluster, making this a solid fit for the model."
+  },
+  {
+    "id": 34,
+    "text": "Explain philosophical concepts or ideas and their significance.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Concept explanation aligns with llama's strength in coherent, organized exposition. The task is mainly discourse-centered rather than verification-heavy.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Philosophical concept explanation aligns with one of the stronger humanities nodes, emphasizing abstraction and conceptual framing over formal exactness."
+  },
+  {
+    "id": 35,
+    "text": "Conduct well-researched analysis/presentation on language and communication topics, incorporating at least three sources and exploring relevant implications.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "This resembles a relatively strong analysis/presentation cluster, but source incorporation and implications still add some grounding burden.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This combines research, synthesis, and conceptual analysis, all of which are relatively strong, though source integration and implications add some rigor beyond simple prose generation."
+  },
+  {
+    "id": 36,
+    "text": "Write an academic piece on nutrition and health, discussing biological components, microbial factors, and their impacts using formal scientific language and evidence-based analysis.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "As with leaf 30, likely good formal structure and scientific tone, but less reliable on rigorous evidence-grounded detail.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "This is academic and explanatory, which helps, but the scientific and evidence-based framing adds domain-specific rigor that likely lowers performance relative to general academic prose."
+  },
+  {
+    "id": 37,
+    "text": "Write a strategic business document outlining vision, positioning, and value proposition to communicate with stakeholders about a brand or company.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Business/stakeholder writing is one of the strongest recurring themes. This task emphasizes framing, organization, and polished strategic prose.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Organizational strategy tasks are moderately good, but stakeholder-facing strategic communication is weaker than abstract planning, placing this in the upper-middle to middle range."
+  },
+  {
+    "id": 38,
+    "text": "Write an analytical response that discusses the movement of people or goods across distances, drawing from historical or academic sources.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Analytical historical writing can be decent, but drawing from sources introduces grounding demands beyond pure essay fluency. Expect competent structure with moderate rigor limitations.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This is a research-backed analytical writing task with broad conceptual framing, which fits the model's solid research-and-analysis cluster."
+  },
+  {
+    "id": 39,
+    "text": "Write a detailed description of a fictional character or party, covering attributes such as personality, background, skills, equipment, and alignment, either as a structured lorebook entry or as an adventure narrative with vivid dialogue.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "This blends structured creative content with fiction and dialogue, all of which are favorable areas. The task mainly rewards vividness, coherence, and completeness.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Character/worldbuilding prose is squarely within the model's strong generative and narrative abilities, with structure and vivid description playing to its strengths."
+  },
+  {
+    "id": 40,
+    "text": "Write a detailed instructional response for intermediate participants of a recreational activity, addressing specific scenarios or technical errors.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Instructional writing is plausible for llama, but scenario-specific correction of technical errors adds some grounded adaptation difficulty. Better than strict debugging, but not among the top strengths.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Instructional guidance is supported by explanatory strength, but addressing technical errors in a skill domain introduces some applied expertise demands that limit performance."
+  },
+  {
+    "id": 41,
+    "text": "Solve mathematical problems involving integers and logical conditions, requiring verification of statements and determination of truth values.",
+    "predicted_score_blossom": 3,
+    "reason_for_predicted_score_blossom": "This is a near-direct match to the weakest cluster: logic verification under constraints. Exact truth evaluation and condition tracking are especially difficult according to the report.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "This is a formal reasoning and mathematics task, which matches one of the model's clearest weak areas in the tree."
+  },
+  {
+    "id": 42,
+    "text": "Write a detailed instructional response for intermediate participants of a recreational activity, addressing specific scenarios or technical errors.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Same as leaf 40: generally serviceable instructional prose, but somewhat reduced by scenario-specific technical correction demands.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Instructional guidance is supported by explanatory strength, but addressing technical errors in a skill domain introduces some applied expertise demands that limit performance."
+  },
+  {
+    "id": 43,
+    "text": "Write a research-based analysis examining how marketing and media influence the music industry, covering business models and industry structures with academic rigor.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Music-industry analytical writing is reported in the stronger range. The academic rigor requirement lowers certainty somewhat, but the task remains mostly synthesis-oriented.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Research-based industry analysis is a good fit for the model's upper-middle strengths in synthesis, structured argument, and explanatory academic prose."
+  },
+  {
+    "id": 44,
+    "text": "Analyze a text on a social issue, examining its arguments, evidence, and implications.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "This is analysis grounded in a provided text, which is more demanding than open-ended essay generation. Llama should produce coherent commentary but may be less exact in evidence handling.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Text analysis with argument and evidence discussion is reasonably aligned with analytical writing strengths, though close analysis of a specific text is somewhat weaker than broad conceptual exposition."
+  },
+  {
+    "id": 45,
+    "text": "Solve mathematical problems involving integers and logical conditions, requiring verification of statements and determination of truth values.",
+    "predicted_score_blossom": 3,
+    "reason_for_predicted_score_blossom": "As with leaf 41, this directly targets the model's weakest region: constrained logical-mathematical verification.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "This is a formal reasoning and mathematics task, which matches one of the model's clearest weak areas in the tree."
+  },
+  {
+    "id": 46,
+    "text": "Write content in English that engages an audience, balancing professional expertise with accessibility.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Audience-aware English writing is highly compatible with llama's strengths in fluency, tone, and rhetorical polish.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Audience-friendly English content writing strongly matches the model's generative and explanatory strengths, with manageable tone-balancing demands."
+  },
+  {
+    "id": 47,
+    "text": "Write a research-based analysis examining how marketing and media influence the music industry, covering business models and industry structures with academic rigor.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "This remains a relatively favorable synthesis task despite some rigor requirements. Strong organization and explanatory writing should carry performance.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Research-based industry analysis is a good fit for the model's upper-middle strengths in synthesis, structured argument, and explanatory academic prose."
+  },
+  {
+    "id": 48,
+    "text": "Write a creative fiction narrative that explores the interaction and relationship between humans and monster-themed characters within a fictional setting, including character descriptions and dialogue between the different beings.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Creative fiction with dialogue and worldbuilding strongly matches high-performing expressive clusters.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Creative narrative generation with dialogue and character interaction falls directly in the model's strongest imaginative content region."
+  },
+  {
+    "id": 49,
+    "text": "Write a strategic business document outlining vision, positioning, and value proposition to communicate with stakeholders about a brand or company.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Strategic stakeholder communication is one of llama's most consistent strengths. The prompt emphasizes business framing and polished organization over verification.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Organizational strategy tasks are moderately good, but stakeholder-facing strategic communication is weaker than abstract planning, placing this in the upper-middle to middle range."
+  },
+  {
+    "id": 50,
+    "text": "Solve statistical problems involving calculating the mean, standard deviation, quartiles, percentiles, probabilities, and expected values using provided data or a probability distribution.",
+    "predicted_score_blossom": 3,
+    "reason_for_predicted_score_blossom": "This is exact quantitative computation, the clearest weak point in the blossom report. Very low score is appropriate.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "Statistics is one of the clearest weak regions in the tree, especially when exact calculations and formal procedures are required."
+  },
+  {
+    "id": 51,
+    "text": "Write a document that presents information in a structured format about a specific topic.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Like leaf 3, this is a general structured-writing prompt that plays to the model's strength in organization and coherent exposition.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Structured informational writing is close to the model's strong explanatory and content-development clusters, with little need for precision-bound reasoning."
+  },
+  {
+    "id": 52,
+    "text": "Analyze a text on a social issue, examining its arguments, evidence, and implications.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Grounded textual analysis is somewhat weaker than open-ended writing because it requires faithful handling of arguments and evidence. Still, the prose demands are within strength.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Text analysis with argument and evidence discussion is reasonably aligned with analytical writing strengths, though close analysis of a specific text is somewhat weaker than broad conceptual exposition."
+  },
+  {
+    "id": 53,
+    "text": "Write a scholarly analysis evaluating the meaning or translation of a religious text passage, and provide a list of references for further study.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Scholarly style and interpretation should be reasonably strong, but translation evaluation and references require careful grounding and may expose precision limits.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "Religious/classical literature research is moderately favorable, but the task also requires evaluative interpretation and translation judgment, which introduce some weaker precision-sensitive demands."
+  },
+  {
+    "id": 54,
+    "text": "Write an analytical response that discusses the movement of people or goods across distances, drawing from historical or academic sources.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "This is source-informed analysis rather than freeform exposition, so it should be competent but not top-tier. The structure helps, while grounding reduces confidence.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This is a research-backed analytical writing task with broad conceptual framing, which fits the model's solid research-and-analysis cluster."
+  },
+  {
+    "id": 55,
+    "text": "Choreograph a detailed fight sequence featuring a named female character with specified physical attributes, describing the action step-by-step with vivid sensory details so readers can clearly visualize the combat.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "Highly descriptive creative writing is a favorable task type. The step-by-step requirement is still generative rather than verification-heavy.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "This resembles the choreographing staged movement cluster, which is mid-level: the model can vividly generate prose, but action sequencing and embodied realism are less consistently strong than general writing."
+  },
+  {
+    "id": 56,
+    "text": "List and summarize Japanese story series, providing plot information in an organized format.",
+    "predicted_score_blossom": 7,
+    "reason_for_predicted_score_blossom": "Organized listing and summarization are generally strong. Some factual dependence exists, but the task remains primarily format and summary oriented.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "This is mainly information organization and summarization, which fits strong content synthesis and structured presentation abilities."
+  },
+  {
+    "id": 57,
+    "text": "Write a detailed description of a fictional character or party, covering attributes such as personality, background, skills, equipment, and alignment, either as a structured lorebook entry or as an adventure narrative with vivid dialogue.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "This is an excellent fit for llama's strengths in fictional elaboration, structure, and dialogue-rich prose.",
+    "predicted_score_evaltree": 8,
+    "reason_for_predicted_score_evaltree": "Character/worldbuilding prose is squarely within the model's strong generative and narrative abilities, with structure and vivid description playing to its strengths."
+  },
+  {
+    "id": 58,
+    "text": "Help a user locate or identify information through iterative conversation, refining attempts until the correct answer is found.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "Interactive assistance is often strong, but this task specifically requires iterative refinement to a correct answer, increasing factual grounding and correction demands.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Iterative information identification aligns with research and information-processing strengths, though success may depend on conversational precision and persistence rather than pure generation."
+  },
+  {
+    "id": 59,
+    "text": "Analyze clinical cases involving diabetic patients with acute symptoms and abnormal laboratory findings to determine diagnosis or differential diagnosis.",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "Medical case reasoning depends on exact interpretation of symptoms and labs, which is more constrained than general health writing. That likely pulls performance down to around average or slightly below.",
+    "predicted_score_evaltree": 5,
+    "reason_for_predicted_score_evaltree": "Clinical case diagnosis fits the middling clinical reasoning band: the model can often discuss cases plausibly, but precise diagnostic reliability is weaker than broad verbal analysis."
+  },
+  {
+    "id": 60,
+    "text": "Help a user locate or identify information through iterative conversation, refining attempts until the correct answer is found.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "The conversational format helps, but the requirement to converge on the correct identification introduces verification pressure not present in generic QA.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Iterative information identification aligns with research and information-processing strengths, though success may depend on conversational precision and persistence rather than pure generation."
+  },
+  {
+    "id": 61,
+    "text": "Discuss analytical approaches to solving financial problems involving calculations and professional decision-making in specific domains.",
+    "predicted_score_blossom": 5,
+    "reason_for_predicted_score_blossom": "Analytical finance with calculations is weaker than broad finance writing because it depends on professional reasoning and precision. The prompt is partially conceptual, which keeps it from the very bottom.",
+    "predicted_score_evaltree": 4,
+    "reason_for_predicted_score_evaltree": "This mixes calculation, formal analysis, and professional judgment, which aligns closely with the model's weakest precision-bound and evaluative regions."
+  },
+  {
+    "id": 62,
+    "text": "Write structured educational content for academic study purposes, organizing key information in a comprehensive format that includes explanatory text and question-answer components.",
+    "predicted_score_blossom": 8,
+    "reason_for_predicted_score_blossom": "This matches a strong cluster centered on educational, organized, explanatory content. It strongly rewards structure and clarity.",
+    "predicted_score_evaltree": 7,
+    "reason_for_predicted_score_evaltree": "Educational and academic content writing aligns with strong content generation and knowledge organization, though the structured instructional format makes it slightly less open-ended than pure generation."
+  },
+  {
+    "id": 63,
+    "text": "Write a comprehensive book on financial market analysis and prediction, covering technical analysis, macroeconomic factors, and trading psychology.",
+    "predicted_score_blossom": 6,
+    "reason_for_predicted_score_blossom": "The long-form book structure plays to writing strengths, but finance prediction and technical analysis add significant domain-specific rigor and precision demands.",
+    "predicted_score_evaltree": 6,
+    "reason_for_predicted_score_evaltree": "The book-writing and explanatory aspects are strong, but financial analysis and prediction introduce technical and judgment-heavy elements that reduce reliability."
+  }
+]

@@ -1,0 +1,352 @@
+<HEAD>
+  <TITLE>Scoring Faithfulness and Informativeness of a General Prompt</TITLE>
+</HEAD>
+
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+<section class="container" id="SurveyLink"><!-- Instructions -->
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="panel panel-primary"><!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Task Instructions</strong> <span class="collapse-text">(Click to expand)</span> </a>
+            <div class="panel-body" id="instructionBody">
+
+            <div style="background-color:#e6ffff;">
+                <p><strong>What you are scoring:</strong>
+                    <ul style="padding-left: 30px;">
+                    <li>You will be given a <strong>General Prompt</strong> and three <strong>Base Prompts</strong> (Base Prompt A, Base Prompt B, and Base Prompt C). The General Prompt is meant to be a more abstract / generalized version that covers the Base Prompts.</li>
+                    <li>For <strong>each</strong> prompt, you will give <strong>two separate scores</strong> from 0 to 1: a <strong>Faithfulness</strong> score and an <strong>Informativeness</strong> score. These measure different things &mdash; please read both definitions carefully.</li>
+                    <li>After the two scores for each prompt, write a <strong>brief reason</strong> (one or two sentences) covering both.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div style="background-color:#fff0e6;">
+                <p><strong>1. Faithfulness</strong> &mdash; <em>Does the General Prompt stay true to the Base Prompt, or does it add things the Base Prompt does not ask for?</em>
+                    <ul style="padding-left: 30px;">
+                    <li>Score = the fraction of the distinct details in the <strong>General Prompt</strong> that are present in, or implied by, the <strong>Base Prompt</strong>. (This is the same judgment the old single score asked for.)</li>
+                    <li>The <strong>only</strong> thing that lowers this score is a detail the General Prompt states that the Base Prompt does <strong>not</strong> support &mdash; an invented task, domain, or constraint.</li>
+                    <li>It is <strong>completely fine</strong> (never penalized) for the General Prompt to be broad, abstract, or to leave out details from the Base Prompt. A General Prompt that drops detail but invents nothing is fully faithful (1.00).</li>
+                    <li>Implied support counts fully &mdash; a detail need not appear word-for-word in the Base Prompt; if the Base Prompt clearly implies it, it is grounded.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div style="background-color:#e6f0ff;">
+                <p><strong>2. Informativeness</strong> &mdash; <em>How much of the important content of the Base Prompt does the General Prompt actually capture?</em>
+                    <ul style="padding-left: 30px;">
+                    <li>Score = the fraction of the <strong>Base Prompt's important content</strong> (its core intent, domain, main task, key constraints) that is present in, or implied by, the <strong>General Prompt</strong>.</li>
+                    <li><strong>Penalize vagueness:</strong> a General Prompt so abstract that it barely tells you what the Base Prompt is about (e.g. "writing code", "analyzing data") is uninformative, even if it is technically true.</li>
+                    <li>Do <strong>not</strong> reward the General Prompt for content that is not in the Base Prompt.</li>
+                    <li>Look for semantic coverage, not word-for-word detail: if the General Prompt correctly identifies the task type and domain, it can still score high even if it drops a specific tool or minor constraint.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div style="background-color:#ffe6e6;">
+                <p><strong>Key point &mdash; the two scores can disagree:</strong>
+                    <ul style="padding-left: 30px;">
+                    <li>Abstraction / leaving things out lowers <strong>Informativeness only</strong>, never Faithfulness.</li>
+                    <li>Inventing / adding / contradicting lowers <strong>Faithfulness only</strong>.</li>
+                    <li>Example: for a detailed Base Prompt, a General Prompt like "Write a program that uses AI to play a game" can be <strong>fully faithful</strong> (it invents nothing) yet <strong>very uninformative</strong> (it drops almost everything specific). See Example 3 below.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div style="background-color:#e6e6e6;">
+                <p><strong>How to read the FAITHFULNESS buttons:</strong>
+                    <ul style="padding-left: 30px;">
+                        <li><strong>1.00</strong> &mdash; Fully faithful: everything the General Prompt says is present in or implied by the Base Prompt; it invents nothing (being broad or dropping detail is fine).</li>
+                        <li><strong>0.75</strong> &mdash; Mostly faithful: nearly all supported; one detail the Base Prompt only weakly or partially implies.</li>
+                        <li><strong>0.50</strong> &mdash; Partially faithful: a mix of supported content and a clear detail/constraint the Base Prompt does not support.</li>
+                        <li><strong>0.25</strong> &mdash; Mostly unfaithful: the General Prompt adds a task or constraint the Base Prompt does not support.</li>
+                        <li><strong>0.00</strong> &mdash; Not faithful: the General Prompt describes something absent from or contradicting the Base Prompt.</li>
+                    </ul>
+                </p>
+                <p><strong>How to read the INFORMATIVENESS buttons:</strong>
+                    <ul style="padding-left: 30px;">
+                        <li><strong>1.00</strong> &mdash; Excellent coverage: captures essentially all of the Base Prompt's important content; drops only minor specifics.</li>
+                        <li><strong>0.75</strong> &mdash; Good coverage: captures the core domain and main task but loses several important specifics.</li>
+                        <li><strong>0.50</strong> &mdash; Vague: captures the broad activity type but little of the Base Prompt's structure or topic.</li>
+                        <li><strong>0.25</strong> &mdash; Mostly uninformative: captures almost none of the important content; far too generic.</li>
+                        <li><strong>0.00</strong> &mdash; Uninformative / mismatched: captures none of the important content, or miscategorizes the task.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <p><strong>Examples</strong> (each shows both scores; note how Faithfulness can stay high while Informativeness drops):
+                <ul style="padding-left: 30px;">
+                    <li><strong>Example 1 (good summary &mdash; high on both):</strong>
+                    <ul style="padding-left: 30px;">
+                        <p style="background:#b6b6ff;"><strong>Base Prompt:</strong> Write a Python script that uses the Hugging Face Transformers library to fine-tune a BERT model for sentiment analysis on a custom dataset. Include data preprocessing using the datasets library, tokenizer usage, training loop with Trainer, and evaluation metrics such as accuracy and F1-score. Also, provide inline comments to explain each step.</p>
+                        <p style="background:#ffb6b6;"><strong>General Prompt:</strong> Create a Python program that demonstrates how to fine-tune a pre-trained NLP model using the Hugging Face Transformers library on a labeled dataset for a text classification task. The program should show preprocessing, tokenization, training, and evaluation, and include explanations in the code.</p>
+                        <p style="background:#e6e6e6;"><strong>Faithfulness: 1.00</strong> &mdash; every detail the General Prompt states (Python, Hugging Face, fine-tuning, text classification, preprocessing, tokenization, training, evaluation, explanations) is present in the Base Prompt; it invents nothing. <strong>Informativeness: 0.75</strong> &mdash; it captures the core task and domain but drops a few specifics (the exact model BERT, the F1 metric).</p>
+                    </ul>
+                    <li><strong>Example 2 (faithful, but loses specifics):</strong>
+                    <ul style="padding-left: 30px;">
+                        <p style="background:#b6b6ff;"><strong>Base Prompt:</strong> Implement a convolutional neural network (CNN) from scratch using PyTorch to classify handwritten digits from the MNIST dataset. The implementation should include custom-defined layers, training and validation loops without using torchvision.models, and visualizations of training loss and accuracy curves using Matplotlib.</p>
+                        <p style="background:#ffb6b6;"><strong>General Prompt:</strong> Create a PyTorch-based image classification model for a standard dataset, avoiding pre-built architectures and training it from scratch.</p>
+                        <p style="background:#e6e6e6;"><strong>Faithfulness: 1.00</strong> &mdash; everything it states (PyTorch, image classification, standard dataset, from scratch, no pre-built architectures) is supported by the Base Prompt; being broad costs nothing. <strong>Informativeness: 0.50</strong> &mdash; it loses several important specifics: the MNIST dataset, the custom-layer requirement, and the loss/accuracy visualizations.</p>
+                    </ul>
+                    <li><strong>Example 3 (fully faithful, but uninformative):</strong>
+                    <ul style="padding-left: 30px;">
+                        <p style="background:#b6b6ff;"><strong>Base Prompt:</strong> Develop a deep reinforcement learning agent using Python and TensorFlow 2. Implement the Deep Q-Network (DQN) algorithm to solve the CartPole-v1 environment from OpenAI Gym. The agent should include experience replay, target network updates, and an &epsilon;-greedy exploration strategy. Provide a training loop and visualize rewards over episodes.</p>
+                        <p style="background:#ffb6b6;"><strong>General Prompt:</strong> Write a program that uses AI to play a game.</p>
+                        <p style="background:#e6e6e6;"><strong>Faithfulness: 1.00</strong> &mdash; its few details ("a program", "uses AI", "play a game") are all implied by the Base Prompt, so it invents nothing. <strong>Informativeness: 0.25</strong> &mdash; it captures almost none of the important content (reinforcement learning, DQN, TensorFlow, CartPole); it is far too generic.</p>
+                    </ul>
+                    <li><strong>Example 4 (unfaithful &mdash; the General Prompt invents something):</strong>
+                    <ul style="padding-left: 30px;">
+                        <p style="background:#b6b6ff;"><strong>Base Prompt:</strong> Write a Python script that uses Hugging Face Transformers to fine-tune a BERT model for sentiment analysis, with preprocessing, tokenization, a Trainer loop, and accuracy/F1 evaluation.</p>
+                        <p style="background:#ffb6b6;"><strong>General Prompt:</strong> Write a program that processes and manages structured data, implementing user-facing operations with organized output.</p>
+                        <p style="background:#e6e6e6;"><strong>Faithfulness: 0.25</strong> &mdash; "implementing user-facing operations" is invented; the Base Prompt trains a model and has no user-facing component. <strong>Informativeness: 0.25</strong> &mdash; it miscategorizes the task and misses the important content (machine learning, fine-tuning BERT, sentiment analysis, the NLP domain).</p>
+                    </ul>
+                </ul>
+            </p>
+            <p><strong>Notice:</strong>
+                <ul style="padding-left: 30px;">
+                <li>Score Base Prompt A and Base Prompt B <strong>independently</strong>, and score Faithfulness and Informativeness <strong>independently</strong> of each other.</li>
+                <li>If you have any additional comments or suggestions for the requester, please use the field for additional comments at the bottom.</li>
+                <li style="color:red">If you have seen this set of prompts in a previous run, please skip the task until you see prompts you haven't seen.</li>
+                <li style="color:red">Your responses will be examined manually by the requester and/or judged by other workers. The reviewing might take some time, so you might need to wait for several days to get the payment. We will provide more working opportunities to workers who score carefully and write clear reasons.</li>
+                </ul>
+            </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Instructions --><!-- Survey Link Layout -->
+<h4>You will be given one General Prompt and three Base Prompts (A, B, and C). For <b>each</b> of the three, give a <b>Faithfulness</b> score and an <b>Informativeness</b> score (0 to 1), plus a brief reason.</h4>
+<p>Some tasks are harder than others, especially when the General Prompt and a Base Prompt are close. Nevertheless, we estimate that each task will take around 3-10 minutes (not including reading the instructions). If you often require less than 3 minutes to complete the task, you might want to score more carefully.</p>
+
+<H3 style="background:#ffb6b6;">The General Prompt:</H3>
+<TEXTAREA readonly ID="text_general" name="text_general" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${general_prompt}
+</TEXTAREA>
+
+<br><br>
+
+<!-- ================= BASE PROMPT A ================= -->
+<H3 style="background:#b6b6ff;">Base Prompt A:</H3>
+<TEXTAREA readonly ID="text_A" name="text_A" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${base_prompt_A}
+</TEXTAREA>
+
+<H3 style="background:#ffb6b6;">The General Prompt (same as above):</H3>
+<TEXTAREA readonly ID="text_general_A" name="text_general_A" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${general_prompt}
+</TEXTAREA>
+
+<div style="background-color:#fff0e6;">
+<h3>Question 1a (Faithfulness): How faithful is the General Prompt to Base Prompt A?</h3>
+    <p>What fraction of the distinct details in the General Prompt are present in, or implied by, Base Prompt A? (Lower the score only for details the General Prompt <em>invents</em>; do <em>not</em> penalize it for being broad or leaving things out.)</p>
+    <p><input type="radio" name="faith_A" id="faith_A" value="1">&nbsp; <strong>1.00</strong> &mdash; Fully faithful: invents nothing; everything it says is in or implied by A.</p>
+    <p><input type="radio" name="faith_A" id="faith_A" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Mostly faithful: one detail A only weakly/partially implies.</p>
+    <p><input type="radio" name="faith_A" id="faith_A" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Partially faithful: a clear detail/constraint A does not support.</p>
+    <p><input type="radio" name="faith_A" id="faith_A" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly unfaithful: adds a task/constraint A does not support.</p>
+    <p><input type="radio" name="faith_A" id="faith_A" value="0">&nbsp; <strong>0.00</strong> &mdash; Not faithful: describes something absent from or contradicting A.</p>
+</div>
+
+<div style="background-color:#e6f0ff;">
+<h3>Question 1b (Informativeness): How informative is the General Prompt about Base Prompt A?</h3>
+    <p>What fraction of the important content of Base Prompt A (its domain, main task, key constraints) is captured by the General Prompt? (Penalize vagueness; do <em>not</em> reward content not in A.)</p>
+    <p><input type="radio" name="info_A" id="info_A" value="1">&nbsp; <strong>1.00</strong> &mdash; Excellent coverage: captures essentially all important content of A.</p>
+    <p><input type="radio" name="info_A" id="info_A" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Good coverage: core domain and task, but loses several specifics.</p>
+    <p><input type="radio" name="info_A" id="info_A" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Vague: broad activity type only; little of A's structure or topic.</p>
+    <p><input type="radio" name="info_A" id="info_A" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly uninformative: captures almost none of A; far too generic.</p>
+    <p><input type="radio" name="info_A" id="info_A" value="0">&nbsp; <strong>0.00</strong> &mdash; Uninformative / mismatched: captures none of A, or miscategorizes it.</p>
+    <br>
+    <label for="reason_A"><strong>Brief reason for your two scores for Base Prompt A</strong> (which details are covered, which are missing or invented) <span style="color:red;">(required &mdash; type in your own words; pasting is disabled)</span>:</label>
+    <TEXTAREA id="reason_A" name="reason_A" required STYLE="width: 100%; white-space: pre-wrap;" onkeyup="textAreaAdjust(this)" placeholder="Required: 1-2 sentences in your own words (at least 20 characters). Pasting into this field is disabled."></TEXTAREA>
+    <div id="reason_A_error" style="color:red; font-weight:bold; display:none;"></div>
+</div>
+
+
+<br><br><br><br>
+
+
+<!-- ================= BASE PROMPT B ================= -->
+<H3 style="background:#b6ffb6;">Base Prompt B:</H3>
+<TEXTAREA readonly ID="text_B" name="text_B" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${base_prompt_B}
+</TEXTAREA>
+
+<H3 style="background:#ffb6b6;">The General Prompt (same as above):</H3>
+<TEXTAREA readonly ID="text_general_B" name="text_general_B" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${general_prompt}
+</TEXTAREA>
+
+<div style="background-color:#fff0e6;">
+<h3>Question 2a (Faithfulness): How faithful is the General Prompt to Base Prompt B?</h3>
+    <p>What fraction of the distinct details in the General Prompt are present in, or implied by, Base Prompt B? (Lower the score only for details the General Prompt <em>invents</em>; do <em>not</em> penalize it for being broad or leaving things out.)</p>
+    <p><input type="radio" name="faith_B" id="faith_B" value="1">&nbsp; <strong>1.00</strong> &mdash; Fully faithful: invents nothing; everything it says is in or implied by B.</p>
+    <p><input type="radio" name="faith_B" id="faith_B" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Mostly faithful: one detail B only weakly/partially implies.</p>
+    <p><input type="radio" name="faith_B" id="faith_B" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Partially faithful: a clear detail/constraint B does not support.</p>
+    <p><input type="radio" name="faith_B" id="faith_B" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly unfaithful: adds a task/constraint B does not support.</p>
+    <p><input type="radio" name="faith_B" id="faith_B" value="0">&nbsp; <strong>0.00</strong> &mdash; Not faithful: describes something absent from or contradicting B.</p>
+</div>
+
+<div style="background-color:#e6f0ff;">
+<h3>Question 2b (Informativeness): How informative is the General Prompt about Base Prompt B?</h3>
+    <p>What fraction of the important content of Base Prompt B (its domain, main task, key constraints) is captured by the General Prompt? (Penalize vagueness; do <em>not</em> reward content not in B.)</p>
+    <p><input type="radio" name="info_B" id="info_B" value="1">&nbsp; <strong>1.00</strong> &mdash; Excellent coverage: captures essentially all important content of B.</p>
+    <p><input type="radio" name="info_B" id="info_B" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Good coverage: core domain and task, but loses several specifics.</p>
+    <p><input type="radio" name="info_B" id="info_B" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Vague: broad activity type only; little of B's structure or topic.</p>
+    <p><input type="radio" name="info_B" id="info_B" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly uninformative: captures almost none of B; far too generic.</p>
+    <p><input type="radio" name="info_B" id="info_B" value="0">&nbsp; <strong>0.00</strong> &mdash; Uninformative / mismatched: captures none of B, or miscategorizes it.</p>
+    <br>
+</div>
+
+
+<!-- ================= BASE PROMPT C =================
+     Third prompt slot. Pipe in the ${third_prompt} variable. Field names are
+     "faith_third" / "info_third". Which true prompt sits here is decided by the
+     CSV's slot_third_role column (worker-blind). -->
+<br><br><br><br>
+
+<H3 style="background:#ffe6b6;">Base Prompt C:</H3>
+<TEXTAREA readonly ID="text_third" name="text_third" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${third_prompt}
+</TEXTAREA>
+
+<H3 style="background:#ffb6b6;">The General Prompt (same as above):</H3>
+<TEXTAREA readonly ID="text_general_third" name="text_general_third" STYLE="width: 100%; white-space: pre-wrap; border: none; outline: none;">
+${general_prompt}
+</TEXTAREA>
+
+<div style="background-color:#fff0e6;">
+<h3>Question 3a (Faithfulness): How faithful is the General Prompt to Base Prompt C?</h3>
+    <p>What fraction of the distinct details in the General Prompt are present in, or implied by, Base Prompt C? (Lower the score only for details the General Prompt <em>invents</em>; do <em>not</em> penalize it for being broad or leaving things out.)</p>
+    <p><input type="radio" name="faith_third" id="faith_third" value="1">&nbsp; <strong>1.00</strong> &mdash; Fully faithful: invents nothing; everything it says is in or implied by C.</p>
+    <p><input type="radio" name="faith_third" id="faith_third" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Mostly faithful: one detail C only weakly/partially implies.</p>
+    <p><input type="radio" name="faith_third" id="faith_third" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Partially faithful: a clear detail/constraint C does not support.</p>
+    <p><input type="radio" name="faith_third" id="faith_third" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly unfaithful: adds a task/constraint C does not support.</p>
+    <p><input type="radio" name="faith_third" id="faith_third" value="0">&nbsp; <strong>0.00</strong> &mdash; Not faithful: describes something absent from or contradicting C.</p>
+</div>
+
+<div style="background-color:#e6f0ff;">
+<h3>Question 3b (Informativeness): How informative is the General Prompt about Base Prompt C?</h3>
+    <p>What fraction of the important content of Base Prompt C (its domain, main task, key constraints) is captured by the General Prompt? (Penalize vagueness; do <em>not</em> reward content not in C.)</p>
+    <p><input type="radio" name="info_third" id="info_third" value="1">&nbsp; <strong>1.00</strong> &mdash; Excellent coverage: captures essentially all important content of C.</p>
+    <p><input type="radio" name="info_third" id="info_third" value="0.75">&nbsp; <strong>0.75</strong> &mdash; Good coverage: core domain and task, but loses several specifics.</p>
+    <p><input type="radio" name="info_third" id="info_third" value="0.5">&nbsp; <strong>0.50</strong> &mdash; Vague: broad activity type only; little of C's structure or topic.</p>
+    <p><input type="radio" name="info_third" id="info_third" value="0.25">&nbsp; <strong>0.25</strong> &mdash; Mostly uninformative: captures almost none of C; far too generic.</p>
+    <p><input type="radio" name="info_third" id="info_third" value="0">&nbsp; <strong>0.00</strong> &mdash; Uninformative / mismatched: captures none of C, or miscategorizes it.</p>
+    <br>
+</div>
+<!-- ================= END BASE PROMPT C ================= -->
+
+
+<br>
+<h3 STYLE="text-align: center;">Optional</h3>
+<div class="form-group">
+    <label for="comments"><h4>Additional comments: </h4></label> <input class="form-control" id="comments" name="comments" type="text" />
+</div>
+
+    <!-- End input from Worker -->
+</div>
+</div>
+<!-- End Survey Link Layout --></section>
+
+
+<!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><!-- External CSS references -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+      color:#fff;
+      display: block;
+      text-decoration: none;
+    }
+    #submitButton{
+      white-space: normal;
+    }
+    .image{
+      margin-bottom: 15px; 
+    }
+    /* CSS for breaking long words/urls */
+    .dont-break-out {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+</style>
+<!-- Close internal style sheet --><!-- External JS references -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script><!-- Open internal javascript --><script>
+  $(document).ready(function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('(Click to collapse)');
+      }else{
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+
+    // --- reason_A: block paste / drag-drop (must be typed) ---
+    $('#reason_A').on('paste drop', function(e){
+      e.preventDefault();
+      $('#reason_A_error')
+        .text('Pasting is disabled for this field — please type your reason in your own words.')
+        .show();
+    });
+    $('#reason_A').on('input', function(){ $('#reason_A_error').hide(); });
+
+    // --- submit validation: reason must be a real sentence, all scores answered ---
+    var QUESTION_LABELS = {
+      faith_A: '1a', info_A: '1b',
+      faith_B: '2a', info_B: '2b',
+      faith_third: '3a', info_third: '3b'
+    };
+    $('form').on('submit', function(e){
+      var problems = [];
+
+      var v = ($('#reason_A').val() || '').trim();
+      var words = v.split(/\s+/).filter(Boolean).length;
+      if (v.length < 20 || words < 4) {
+        problems.push('write a brief reason under Question 1 (at least one full sentence, 20+ characters, in your own words)');
+        $('#reason_A_error')
+          .text('Required: at least one full sentence (20+ characters). Pasting is disabled.')
+          .show();
+      }
+
+      var missing = [];
+      $.each(QUESTION_LABELS, function(name, label){
+        if (!$('input[name="' + name + '"]:checked').length) missing.push(label);
+      });
+      if (missing.length) {
+        problems.push('answer all score questions (missing: ' + missing.join(', ') + ')');
+      }
+
+      if (problems.length) {
+        e.preventDefault();
+        alert('Before submitting, please:\n- ' + problems.join('\n- '));
+        var target = (v.length < 20 || words < 4) ? $('#reason_A') : $('input[name="' + Object.keys(QUESTION_LABELS).filter(function(n){ return !$('input[name="' + n + '"]:checked').length; })[0] + '"]').first();
+        if (target && target.length) target[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+        return false;
+      }
+      return true;
+    });
+  });
+  function textAreaAdjust(element) {
+    element.style.height = "1px";
+    element.style.height = (element.scrollHeight)+"px";
+  }
+  textAreaAdjust(document.getElementById('text_general'));
+  textAreaAdjust(document.getElementById('text_general_A'));
+  textAreaAdjust(document.getElementById('text_general_B'));
+  textAreaAdjust(document.getElementById('text_A'));
+  textAreaAdjust(document.getElementById('text_B'));
+  textAreaAdjust(document.getElementById('text_third'));
+  textAreaAdjust(document.getElementById('text_general_third'));
+
+</script>

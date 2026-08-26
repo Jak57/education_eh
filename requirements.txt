@@ -1,0 +1,12 @@
+sentence-transformers
+faiss-cpu
+pandas
+openpyxl
+pandas
+networkx
+matplotlib
+openai
+anthropic
+numpy
+editdistance
+datasets

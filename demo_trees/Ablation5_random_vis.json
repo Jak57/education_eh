@@ -1,0 +1,2159 @@
+[
+  {
+    "id": "0",
+    "parentIds": [
+      "111"
+    ],
+    "name": "Write a sentence which adheres to 4 of these rules:\n\n1. Between 10 and 14 words\n2. Starts with a word which is not a noun\n3. Each word begins with a letter which alphabetically precedes the one which follows it, if it is not the last word in the sentence\n4. No word may end with the same letter it begins with\n5. No two words in the sentence may begin with the same letter\n\nOne rule must be broken, however. To work out which one: take the length of the third word in the sentence (or that WOULD be in the sentence), in terms of number of letters, and correspond that value to a rule (3 letters = rule 3, for example). This means, of course, that the third word must be between 1 and 5 letters in length.try againanother rule is broken, actually",
+    "full_text": "Write a sentence which adheres to 4 of these rules:\n\n1. Between 10 and 14 words\n2. Starts with a word which is not a noun\n3. Each word begins with a letter which alphabetically precedes the one which follows it, if it is not the last word in the sentence\n4. No word may end with the same letter it begins with\n5. No two words in the sentence may begin with the same letter\n\nOne rule must be broken, however. To work out which one: take the length of the third word in the sentence (or that WOULD be in the sentence), in terms of number of letters, and correspond that value to a rule (3 letters = rule 3, for example). This means, of course, that the third word must be between 1 and 5 letters in length.try againanother rule is broken, actually\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "1",
+    "parentIds": [
+      "91"
+    ],
+    "name": "For a university level Network class. Give me useful summary/notes for studying of First Hop Redundancy Protocols (HSRP). \nTry to make it organized and easy to remember. This will be on the test!\nGive me an example of 5 hard questions with answers",
+    "full_text": "For a university level Network class. Give me useful summary/notes for studying of First Hop Redundancy Protocols (HSRP). \nTry to make it organized and easy to remember. This will be on the test!\nGive me an example of 5 hard questions with answers\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "2",
+    "parentIds": [
+      "120"
+    ],
+    "name": "how Genghis Khan's daughters made him the ultimate beast of the east.\n You see, Genghis Khan was an expert at using the daughter diplomacy.\n Like most rulers, he would marry off his daughters to kings of allied nations,\n but not before imposing some conditions.\n He forced the king to dismiss his other wives in order to marry his daughter.\n Then he would assign his new son-in-law to military duty in the Mongol Wars,\n while his daughter handled the affairs of her husband's kingdom.\n Genghis Khan made sure his son-in-laws died in wars\n by honoring them to fight for him in the first ranks.\n This allowed his daughters to inherit the empire of their dead husbands.\n Their job as rulers was to provide a protective shield around the Mongol homelands\n while their father continued expanding his empire.\n It wouldn't be wrong to say that the secret of Genghis Khan's success was his widowed daughters. can you reword thisThe evolution of the sewing machine is a fascinating story that spans over two centuries and involves many inventors, innovations, and challenges. The sewing machine is one of the most important inventions in the history of textile production, as it greatly reduced the time and labor required to sew garments and other products. Write a short and very beautiful story.",
+    "full_text": "how Genghis Khan's daughters made him the ultimate beast of the east.\n You see, Genghis Khan was an expert at using the daughter diplomacy.\n Like most rulers, he would marry off his daughters to kings of allied nations,\n but not before imposing some conditions.\n He forced the king to dismiss his other wives in order to marry his daughter.\n Then he would assign his new son-in-law to military duty in the Mongol Wars,\n while his daughter handled the affairs of her husband's kingdom.\n Genghis Khan made sure his son-in-laws died in wars\n by honoring them to fight for him in the first ranks.\n This allowed his daughters to inherit the empire of their dead husbands.\n Their job as rulers was to provide a protective shield around the Mongol homelands\n while their father continued expanding his empire.\n It wouldn't be wrong to say that the secret of Genghis Khan's success was his widowed daughters. can you reword thisThe evolution of the sewing machine is a fascinating story that spans over two centuries and involves many inventors, innovations, and challenges. The sewing machine is one of the most important inventions in the history of textile production, as it greatly reduced the time and labor required to sew garments and other products. Write a short and very beautiful story.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "3",
+    "parentIds": [
+      "78"
+    ],
+    "name": "In an oncology clinical trial, how to predict additional survival time in addition to current time already observed for remaining patients who have been observed for some time and still alive based on data observed up to date? Taking into below considerations of baseline characteristics of the patients who are still alive, like age and gender, and the death hazard varies over time, so piecewise hazard by time interval should be used.  I want an avarage of additional time weighted by the probalibity of a tiime. Please provide the R software code with explanation step by step.",
+    "full_text": "In an oncology clinical trial, how to predict additional survival time in addition to current time already observed for remaining patients who have been observed for some time and still alive based on data observed up to date? Taking into below considerations of baseline characteristics of the patients who are still alive, like age and gender, and the death hazard varies over time, so piecewise hazard by time interval should be used.  I want an avarage of additional time weighted by the probalibity of a tiime. Please provide the R software code with explanation step by step.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "4",
+    "parentIds": [
+      "95"
+    ],
+    "name": "Below you see the answer ChatGPT gives when you ask \"What are the privacy issues of ChatGPT\". Please reflect, in a maximum of 500 words, on this answer given by ChatGPT with the information you can find on ChatGPT and/or privacy online or in other relevant sources such as (scientific) books and articles. Refer to at least 3 different sources in providing your reflection (please use OSCOLA as reference style)\n\nAs an artificial intelligence language model, ChatGPT does not collect or store any personal\ndata about its users, nor does it have the ability to identify individual users. However, there\nare still some potential privacy issues that users should be aware of when using ChatGPT:\n1. Confidentiality: ChatGPT is a machine learning model that processes and stores the data\nthat users input into the system. Therefore, if a user inputs sensitive or confidential\ninformation, there is a risk that the information could be accessed or intercepted by\nunauthorized third parties.\n\n2. Security: While ChatGPT is designed to be secure, there is always a risk that hackers or\nother malicious actors could attempt to exploit vulnerabilities in the system to gain\nunauthorized access to user data.\n\n3. Biases: Like all machine learning models, ChatGPT is only as unbiased as the data it is\ntrained on. If the data used to train ChatGPT contains biases, such as racial or gender\nbiases, the model may unintentionally perpetuate these biases in its responses.\n\n4. Data Usage: ChatGPT's developer, OpenAl, collects data from the system for research\nand development purposes. While OpenAl takes steps to anonymize this data, there is\nstill a risk that it could be de-anonymized or used for other purposes without users'\nconsent.\n\nOverall, users should be mindful of the potential privacy issues when using ChatGPT and\ntake steps to protect their personal information and data.",
+    "full_text": "Below you see the answer ChatGPT gives when you ask \"What are the privacy issues of ChatGPT\". Please reflect, in a maximum of 500 words, on this answer given by ChatGPT with the information you can find on ChatGPT and/or privacy online or in other relevant sources such as (scientific) books and articles. Refer to at least 3 different sources in providing your reflection (please use OSCOLA as reference style)\n\nAs an artificial intelligence language model, ChatGPT does not collect or store any personal\ndata about its users, nor does it have the ability to identify individual users. However, there\nare still some potential privacy issues that users should be aware of when using ChatGPT:\n1. Confidentiality: ChatGPT is a machine learning model that processes and stores the data\nthat users input into the system. Therefore, if a user inputs sensitive or confidential\ninformation, there is a risk that the information could be accessed or intercepted by\nunauthorized third parties.\n\n2. Security: While ChatGPT is designed to be secure, there is always a risk that hackers or\nother malicious actors could attempt to exploit vulnerabilities in the system to gain\nunauthorized access to user data.\n\n3. Biases: Like all machine learning models, ChatGPT is only as unbiased as the data it is\ntrained on. If the data used to train ChatGPT contains biases, such as racial or gender\nbiases, the model may unintentionally perpetuate these biases in its responses.\n\n4. Data Usage: ChatGPT's developer, OpenAl, collects data from the system for research\nand development purposes. While OpenAl takes steps to anonymize this data, there is\nstill a risk that it could be de-anonymized or used for other purposes without users'\nconsent.\n\nOverall, users should be mindful of the potential privacy issues when using ChatGPT and\ntake steps to protect their personal information and data.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "5",
+    "parentIds": [
+      "76"
+    ],
+    "name": "Check the possible career option for the native by applying below rules of vedic astrology\nCheck the Planets in the 10th house\nCheck the placement of 10th Lord\nAscendent lord placement\nCheck the Nakshatra of the 10th Lord\nCheck the planets in the 10th house of D10 chart\nCheck the Placement of 10th Lord in D10 chart\nCheck the Planets in the Lagna of the D10 chart\nCheck in which house and sign atmakaraka planet is sitting\nsign of 10th house from moon\nCheck in which house and sign amatyakaraka planet is sitting \nupcoming and running dasa\nFrom the numerology(dob-23/01/1998)\nSo out of below four option which one he should choose\n1. Government job\n2. business\n3. Enterpreneurship\n4. private job\n5. IT sector\n1st  house is Libra. No planet is in Libra\n2nd house is Scorpio. Moon is in Scorpio.\n3rd house is Sagittarius . Venus and Mercury is in saggitarius.\n4th house is Capricorn . Sun is in Capricorn\n5th house is Aquarius. Mars, Jupiter and ketu is in Aquarius .\n6th house is Pisces . Saturn is in Pisces.\n7th   house is Aries. No planet is in Aries.\n8th house is Taurus No planet is in Taurus.\n9th house is Gemini . No planet is in Gemini.\n10th  house is Cancer. No planet is in Cancer.\n11th  house is Leo . Rahu is in Leo.\n12th house is Virgo . No planet is in Virgo.\nAscendant is at 3.83 degree at  chitra nakshtra.\nSun is at 9.71 degree at sravan nakshtra.\nMoon is at 12.94 degree at anuradha nakshtra.\nMars is at 4.88 degree at dhanistha nakshtra.\nRahu is at 18.71 degree at porvapalguni  nakshtra.\nJupiter is at 3.43 degree at dhanistha nakshtra.\nSaturn is at 21.01 degree at  revati nakshtra.\nMercury 21.25  is at degree at poorvasada nakshtra.\nKetu is at 18.71  degree at  satabhisa nakshtra.\nVenus is at  28.08 degree at uttarasada nakshtra.\nIn D10 chart mercury is placed in 10th house in cancer\nIn D10 chart 10th lord moon is placed in 2nd house in scorpio\nAtmakaraka planet is venus\namatyakaraka planet is mercury\n\n\n3rd  mahadasa is of ____Ketu_____ planet which starts from __ 10/ 5/20 _____ and ending at ___ 10/ 5/27 ______.\n  In the mahadasa of ____Ketu____.\n  Antaradasa of ___ketu___ planet starts from ___ 10/ 5/20 ____ and ends at ____ 10/ 5/27 ________\n   Antaradasa of ___venus____ planet starts from ___ 10/ 5/20 ________ and ends at __ 7/12/21 __________\nAntaradasa of ___sun_____ planet starts from _____ 7/12/21 ______ and ends at ___ 13/ 4/22 _________\nAntaradasa of ____moon____ planet starts from _____ 13/ 4/22 ______ and ends at _____ 13/11/22 _______\nAntaradasa of __mars_____ planet starts from _____ 13/11/22 ______ and ends at ____ 10/ 4/23________\nAntaradasa of ___rahu___ planet starts from _____ 10/ 4/23______ and ends at _____ 28/ 4/24_______\nAntaradasa of __jupiter___ planet starts from ____ 28/ 4/24_______ and ends at ___ 4/ 4/25_________\nAntaradasa of ___saturn____ planet starts from _____ 4/ 4/25______ and ends at _____ 13/ 5/26_______\nAntaradasa of __merc_______ planet starts from ______13/ 5/26_____ and ends at ____10/ 5/27________\n\n4th  mahadasa is of ___Venus___ planet which starts from ___10/5/2027____ and ending at _10/5/2047________.\n  In the mahadasa of ___venus_____.\n  Antaradasa of __venus_ planet starts from _____10/ 5/27______ and ends at ____10/ 9/30________\n   Antaradasa of ____sun_____ planet starts from _____10/ 9/30______ and ends at ____10/ 9/31________\nAntaradasa of ___moon______ planet starts from _____10/ 9/31______ and ends at ____10/ 5/33________\nAntaradasa of __mars_______ planet starts from _____10/ 5/33______ and ends at ____10/ 7/34________\nAntaradasa of ___rahu______ planet starts from ____10/ 7/34_______ and ends at ____10/ 7/37________\nAntaradasa of ___jupiter______ planet starts from ____10/ 7/37_______ and ends at __10/ 3/40__________\nAntaradasa of ___saturn ______ planet starts from _____10/ 3/40______ and ends at ___10/ 5/43_________\nAntaradasa of ___mercury_planet starts from ____10/ 5/43_______ and ends at ____10/ 3/46________\nAntaradasa of _____ketu_ planet starts from ____10/ 3/46_______ and ends at ______10/ 5/47_____",
+    "full_text": "Check the possible career option for the native by applying below rules of vedic astrology\nCheck the Planets in the 10th house\nCheck the placement of 10th Lord\nAscendent lord placement\nCheck the Nakshatra of the 10th Lord\nCheck the planets in the 10th house of D10 chart\nCheck the Placement of 10th Lord in D10 chart\nCheck the Planets in the Lagna of the D10 chart\nCheck in which house and sign atmakaraka planet is sitting\nsign of 10th house from moon\nCheck in which house and sign amatyakaraka planet is sitting \nupcoming and running dasa\nFrom the numerology(dob-23/01/1998)\nSo out of below four option which one he should choose\n1. Government job\n2. business\n3. Enterpreneurship\n4. private job\n5. IT sector\n1st  house is Libra. No planet is in Libra\n2nd house is Scorpio. Moon is in Scorpio.\n3rd house is Sagittarius . Venus and Mercury is in saggitarius.\n4th house is Capricorn . Sun is in Capricorn\n5th house is Aquarius. Mars, Jupiter and ketu is in Aquarius .\n6th house is Pisces . Saturn is in Pisces.\n7th   house is Aries. No planet is in Aries.\n8th house is Taurus No planet is in Taurus.\n9th house is Gemini . No planet is in Gemini.\n10th  house is Cancer. No planet is in Cancer.\n11th  house is Leo . Rahu is in Leo.\n12th house is Virgo . No planet is in Virgo.\nAscendant is at 3.83 degree at  chitra nakshtra.\nSun is at 9.71 degree at sravan nakshtra.\nMoon is at 12.94 degree at anuradha nakshtra.\nMars is at 4.88 degree at dhanistha nakshtra.\nRahu is at 18.71 degree at porvapalguni  nakshtra.\nJupiter is at 3.43 degree at dhanistha nakshtra.\nSaturn is at 21.01 degree at  revati nakshtra.\nMercury 21.25  is at degree at poorvasada nakshtra.\nKetu is at 18.71  degree at  satabhisa nakshtra.\nVenus is at  28.08 degree at uttarasada nakshtra.\nIn D10 chart mercury is placed in 10th house in cancer\nIn D10 chart 10th lord moon is placed in 2nd house in scorpio\nAtmakaraka planet is venus\namatyakaraka planet is mercury\n\n\n3rd  mahadasa is of ____Ketu_____ planet which starts from __ 10/ 5/20 _____ and ending at ___ 10/ 5/27 ______.\n  In the mahadasa of ____Ketu____.\n  Antaradasa of ___ketu___ planet starts from ___ 10/ 5/20 ____ and ends at ____ 10/ 5/27 ________\n   Antaradasa of ___venus____ planet starts from ___ 10/ 5/20 ________ and ends at __ 7/12/21 __________\nAntaradasa of ___sun_____ planet starts from _____ 7/12/21 ______ and ends at ___ 13/ 4/22 _________\nAntaradasa of ____moon____ planet starts from _____ 13/ 4/22 ______ and ends at _____ 13/11/22 _______\nAntaradasa of __mars_____ planet starts from _____ 13/11/22 ______ and ends at ____ 10/ 4/23________\nAntaradasa of ___rahu___ planet starts from _____ 10/ 4/23______ and ends at _____ 28/ 4/24_______\nAntaradasa of __jupiter___ planet starts from ____ 28/ 4/24_______ and ends at ___ 4/ 4/25_________\nAntaradasa of ___saturn____ planet starts from _____ 4/ 4/25______ and ends at _____ 13/ 5/26_______\nAntaradasa of __merc_______ planet starts from ______13/ 5/26_____ and ends at ____10/ 5/27________\n\n4th  mahadasa is of ___Venus___ planet which starts from ___10/5/2027____ and ending at _10/5/2047________.\n  In the mahadasa of ___venus_____.\n  Antaradasa of __venus_ planet starts from _____10/ 5/27______ and ends at ____10/ 9/30________\n   Antaradasa of ____sun_____ planet starts from _____10/ 9/30______ and ends at ____10/ 9/31________\nAntaradasa of ___moon______ planet starts from _____10/ 9/31______ and ends at ____10/ 5/33________\nAntaradasa of __mars_______ planet starts from _____10/ 5/33______ and ends at ____10/ 7/34________\nAntaradasa of ___rahu______ planet starts from ____10/ 7/34_______ and ends at ____10/ 7/37________\nAntaradasa of ___jupiter______ planet starts from ____10/ 7/37_______ and ends at __10/ 3/40__________\nAntaradasa of ___saturn ______ planet starts from _____10/ 3/40______ and ends at ___10/ 5/43_________\nAntaradasa of ___mercury_planet starts from ____10/ 5/43_______ and ends at ____10/ 3/46________\nAntaradasa of _____ketu_ planet starts from ____10/ 3/46_______ and ends at ______10/ 5/47_____\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "6",
+    "parentIds": [
+      "81"
+    ],
+    "name": "A 25-year-old man with type-1 diabetes mellitus on insulin presents to ED with fever,\ncough, vomiting and abdominal pain. Examination reveals tachypnia, dry mucosa,\ndecreased skin turgor, a temperature of 37.8 \u00b0C and infected ulcer in the left foot.\nInvestigations show RPG of 350 mg/dl, Na+ 130 mmol/l, K+ 5.7 mmol/l, Bicarbonate\n12 mmol/L, Chloride 105 mmol/L, urea 60 mg/dl.\nA. What is the most likely diagnosis?\nB. Mention one test to prove the diagnosis.\nC. What is the value of anion gap in this patient?\nD. What are the lines of treatment?",
+    "full_text": "A 25-year-old man with type-1 diabetes mellitus on insulin presents to ED with fever,\ncough, vomiting and abdominal pain. Examination reveals tachypnia, dry mucosa,\ndecreased skin turgor, a temperature of 37.8 \u00b0C and infected ulcer in the left foot.\nInvestigations show RPG of 350 mg/dl, Na+ 130 mmol/l, K+ 5.7 mmol/l, Bicarbonate\n12 mmol/L, Chloride 105 mmol/L, urea 60 mg/dl.\nA. What is the most likely diagnosis?\nB. Mention one test to prove the diagnosis.\nC. What is the value of anion gap in this patient?\nD. What are the lines of treatment?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "7",
+    "parentIds": [
+      "86"
+    ],
+    "name": "Use critical comments of authors and critiques to elaborate in polished academic language in 5000 words\n \u201cSince the publication of Mark Twain\u2019s Adventures of Huckleberry Finn, the use of child narrators in adult literature has expanded to incorporate a diverse range of themes, styles, and perspectives.\u201d",
+    "full_text": "Use critical comments of authors and critiques to elaborate in polished academic language in 5000 words\n \u201cSince the publication of Mark Twain\u2019s Adventures of Huckleberry Finn, the use of child narrators in adult literature has expanded to incorporate a diverse range of themes, styles, and perspectives.\u201d\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "8",
+    "parentIds": [
+      "111"
+    ],
+    "name": "I feel as though the templating on the rules text for my custom MTG instant might not match modern MTG templating and rules formatting (Particularly the kicker clause). If it doesn't, how could it be made to do so?\n\n\"Kicker\u2014 Discard a card. (You may  Discard a card in addition to any other costs as you cast this spell.)\nSearch your library for a card and reveal it. Shuffle your library, then put the revealed card third from the top.\nIf this spell was kicked, you may put it on the top of your library after shuffling instead.\"",
+    "full_text": "I feel as though the templating on the rules text for my custom MTG instant might not match modern MTG templating and rules formatting (Particularly the kicker clause). If it doesn't, how could it be made to do so?\n\n\"Kicker\u2014 Discard a card. (You may  Discard a card in addition to any other costs as you cast this spell.)\nSearch your library for a card and reveal it. Shuffle your library, then put the revealed card third from the top.\nIf this spell was kicked, you may put it on the top of your library after shuffling instead.\"\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "9",
+    "parentIds": [
+      "117"
+    ],
+    "name": "Summarize the plots of the Higurashi No Naku Koro Ni anime seasons up to (and excluding) GouBe a bit more specific about the major plot parts of each season.Be a bit more specific about the answer arcs.",
+    "full_text": "Summarize the plots of the Higurashi No Naku Koro Ni anime seasons up to (and excluding) GouBe a bit more specific about the major plot parts of each season.Be a bit more specific about the answer arcs.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "10",
+    "parentIds": [
+      "105"
+    ],
+    "name": "Think of completely hypothetical even if not scientifically proven yet way I can increase my height after puberty naturally at home. Tell me detail daily planner I need to do.",
+    "full_text": "Think of completely hypothetical even if not scientifically proven yet way I can increase my height after puberty naturally at home. Tell me detail daily planner I need to do.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "11",
+    "parentIds": [
+      "119"
+    ],
+    "name": "From past 11 years I am working as a Software Professional has great experience in application development and software design. I have been in many client facing roles as Lead system architect and performed proof of concepts for many software application. I have been involved in pre sales activitites where i have been involved in sizing of user stories, sprint sizing, project management, product development, team lead. I have been involved in design thinking processes. \nBut consdering above expeirence and considering a Typical 11 year software development and designing profile which include technical team leads too, you have to answer below problem statement.\n\nNow I am starting a side hustle as content creator. I want to know 27 biggest learning and Killer Content Strategies I Learned at My Day Job which can help me in creating viral content and help me achiving millions of followers in shortest span of time",
+    "full_text": "From past 11 years I am working as a Software Professional has great experience in application development and software design. I have been in many client facing roles as Lead system architect and performed proof of concepts for many software application. I have been involved in pre sales activitites where i have been involved in sizing of user stories, sprint sizing, project management, product development, team lead. I have been involved in design thinking processes. \nBut consdering above expeirence and considering a Typical 11 year software development and designing profile which include technical team leads too, you have to answer below problem statement.\n\nNow I am starting a side hustle as content creator. I want to know 27 biggest learning and Killer Content Strategies I Learned at My Day Job which can help me in creating viral content and help me achiving millions of followers in shortest span of time\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "12",
+    "parentIds": [
+      "77"
+    ],
+    "name": "Forty randomly selected students were asked the number of pairs of sneakers they owned. Let\u202fX\u202f= the number of pairs of sneakers owned. The results are as follows: \n\n\n\nPairs of sneakers owned\n            X              \t        Frequency        \n1\t2\n2\n5\n3\t8\n4\t12\n5\t12\n6\t0\n7\t1\nFind the mean\u202f \\bar{x} \nFind the samples standard deviation,\u202fs. \nComplete the Relative Frequency column and the Cumulative Relative Frequency Column. \nFind the first quartile. \nFind the median.\nFind the third quartile. \nWhat percent of the students owned at least five pairs? \nFind the 40th\u202fpercentile. \nFind the 90th\u202fpercentile.",
+    "full_text": "Forty randomly selected students were asked the number of pairs of sneakers they owned. Let\u202fX\u202f= the number of pairs of sneakers owned. The results are as follows: \n\n\n\nPairs of sneakers owned\n            X              \t        Frequency        \n1\t2\n2\n5\n3\t8\n4\t12\n5\t12\n6\t0\n7\t1\nFind the mean\u202f \\bar{x} \nFind the samples standard deviation,\u202fs. \nComplete the Relative Frequency column and the Cumulative Relative Frequency Column. \nFind the first quartile. \nFind the median.\nFind the third quartile. \nWhat percent of the students owned at least five pairs? \nFind the 40th\u202fpercentile. \nFind the 90th\u202fpercentile.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "13",
+    "parentIds": [
+      "101"
+    ],
+    "name": "Hello, dear supervisor, I need the conclusion of the DIPLOMA WORK Features of translation of scientific texts of philosophical orientation (on the material of K. Popper's works)\nComment on how the conclusion should be written\n\"is written very simply on the task. Here is the first you have the task: the task to consider the definitions of the new text of the scientific text to determine its features, especially translation, so and you write that the analysis of the literature Legitcheko literature on scientific text, and showed that its features some such very mole, briefly these features must be considered when translating further Second task there consider for a philosophical text, as the object of the true wall. Again, we came by analyzing the position of the concept there. I do not know the definition of philosophical text we came to the conclusion that we have taken as a basis our following definition of philosophical text so-and-so and its features concluding, and we and you said what features we took as a basis, that is it is abstract, and there something further specificity of philosophical texts is that we must take into account such phenomena as again we and you said that we for again took interuality seven. All further the pre-translation analysis of a philosophical text popera has shown, that and briefly this text scientific there yes receivers such-and-such manikan The purpose such it is not necessary to describe all and that no further, as to strategy of privet translation, The main difficulty consisted that those field seven, yes, which solved such-and-such, somehow such-and-such strategies. Such-and-such translation transformations most such-and-such translation techniques use strategy such-and-such all and the last conclusion that I wrote to you to translate such a text translators need to have such a background knowledge in the field of, for example, there philosophy in the field of linguistics in the field of translation management, okay? None of the nonsense you wrote there, again nothing. You clearly go by the task and draw conclusions on the task.\"\n\nresearch objectives:  \n1. to study the concept of \"scientific text\" in linguistic research, to consider its characteristics, the peculiarities of translation.\n2. to study the concept of \"philosophical text\" in linguistic research, considering its characteristics, features.\n3. To consider specific strategies and techniques in the translation of scientific texts of philosophical orientation.\n4. Conduct pre-translation analysis of Popper's philosophical texts, identifying potential difficulties of translation.\n5. Analyze strategies and techniques of translation of philosophical texts in the works of K. Popper\n\n\nresult.\nWe have considered various definitions for the concept of a scientific text and for our work we settled on Eugene Naida's definition.\nWe considered the problem of identifying philosophical texts, but taking Patrick Blackburn's definition as the basis, we identified philosophical texts as a subspecies of scientific texts.\n\nWe have identified the following problems in the translation of philosophical texts\n1. Conceptual and terminological variation:\n2. Ambiguity and polysemy:\n3. multi-level argumentation and dialectic:\n4 . Cultural and historical specificity:\n5. Intertextuality\nTo address them, identified the following strategies\n1. Dynamic equivalence and formal equivalence\n2. Scopus theory and communicative orientation approach\n3. typology of text and language in translation\nAnd the following techniques\n1. transliteration as a specific translation technique (direct translation\n2. Modulation as a polysemic approach (indirect translation)\n3. Translation commentary as a way of explaining translation (indirect translation)\n4. Neologism as a translation solution (indirect translation)\n\nA pre-translation analysis of Popper's ideas and theories revealed potential difficulties in translation: conceptual and terminological variation; ambiguity and polysemy; difficulty in maintaining authorial argumentation and logical coherence; cultural and historical specificity; intertextuality. An analysis of existing translations of Popper's texts highlighted examples of problems and inconsistencies in translations of key terms and concepts.\nBased on the analysis of the translation of 30 fragments of scientific text of philosophical orientation, it was found that the most commonly used approach is modulation, 15 fragments were translated using this method. Modulation was the second most common approach, used for 10 fragments to solve the translation problem. The translator turned to creating neologisms only 5 times. And the translation commentary as a translation solution when translating a philosophical text was additionally used as a secondary technique throughout the translation.\nIn conclusion, the translator of philosophical texts should have a background knowledge of philosophy, covering not only the work of the translated author, but also the whole philosophy and cultural specificity in the intertextuality of the translated text. The translator must be aware of the potential problems in translating philosophical texts and be able to find an approach to them, based on the strategies and techniques suggested by various scholars.",
+    "full_text": "Hello, dear supervisor, I need the conclusion of the DIPLOMA WORK Features of translation of scientific texts of philosophical orientation (on the material of K. Popper's works)\nComment on how the conclusion should be written\n\"is written very simply on the task. Here is the first you have the task: the task to consider the definitions of the new text of the scientific text to determine its features, especially translation, so and you write that the analysis of the literature Legitcheko literature on scientific text, and showed that its features some such very mole, briefly these features must be considered when translating further Second task there consider for a philosophical text, as the object of the true wall. Again, we came by analyzing the position of the concept there. I do not know the definition of philosophical text we came to the conclusion that we have taken as a basis our following definition of philosophical text so-and-so and its features concluding, and we and you said what features we took as a basis, that is it is abstract, and there something further specificity of philosophical texts is that we must take into account such phenomena as again we and you said that we for again took interuality seven. All further the pre-translation analysis of a philosophical text popera has shown, that and briefly this text scientific there yes receivers such-and-such manikan The purpose such it is not necessary to describe all and that no further, as to strategy of privet translation, The main difficulty consisted that those field seven, yes, which solved such-and-such, somehow such-and-such strategies. Such-and-such translation transformations most such-and-such translation techniques use strategy such-and-such all and the last conclusion that I wrote to you to translate such a text translators need to have such a background knowledge in the field of, for example, there philosophy in the field of linguistics in the field of translation management, okay? None of the nonsense you wrote there, again nothing. You clearly go by the task and draw conclusions on the task.\"\n\nresearch objectives:  \n1. to study the concept of \"scientific text\" in linguistic research, to consider its characteristics, the peculiarities of translation.\n2. to study the concept of \"philosophical text\" in linguistic research, considering its characteristics, features.\n3. To consider specific strategies and techniques in the translation of scientific texts of philosophical orientation.\n4. Conduct pre-translation analysis of Popper's philosophical texts, identifying potential difficulties of translation.\n5. Analyze strategies and techniques of translation of philosophical texts in the works of K. Popper\n\n\nresult.\nWe have considered various definitions for the concept of a scientific text and for our work we settled on Eugene Naida's definition.\nWe considered the problem of identifying philosophical texts, but taking Patrick Blackburn's definition as the basis, we identified philosophical texts as a subspecies of scientific texts.\n\nWe have identified the following problems in the translation of philosophical texts\n1. Conceptual and terminological variation:\n2. Ambiguity and polysemy:\n3. multi-level argumentation and dialectic:\n4 . Cultural and historical specificity:\n5. Intertextuality\nTo address them, identified the following strategies\n1. Dynamic equivalence and formal equivalence\n2. Scopus theory and communicative orientation approach\n3. typology of text and language in translation\nAnd the following techniques\n1. transliteration as a specific translation technique (direct translation\n2. Modulation as a polysemic approach (indirect translation)\n3. Translation commentary as a way of explaining translation (indirect translation)\n4. Neologism as a translation solution (indirect translation)\n\nA pre-translation analysis of Popper's ideas and theories revealed potential difficulties in translation: conceptual and terminological variation; ambiguity and polysemy; difficulty in maintaining authorial argumentation and logical coherence; cultural and historical specificity; intertextuality. An analysis of existing translations of Popper's texts highlighted examples of problems and inconsistencies in translations of key terms and concepts.\nBased on the analysis of the translation of 30 fragments of scientific text of philosophical orientation, it was found that the most commonly used approach is modulation, 15 fragments were translated using this method. Modulation was the second most common approach, used for 10 fragments to solve the translation problem. The translator turned to creating neologisms only 5 times. And the translation commentary as a translation solution when translating a philosophical text was additionally used as a secondary technique throughout the translation.\nIn conclusion, the translator of philosophical texts should have a background knowledge of philosophy, covering not only the work of the translated author, but also the whole philosophy and cultural specificity in the intertextuality of the translated text. The translator must be aware of the potential problems in translating philosophical texts and be able to find an approach to them, based on the strategies and techniques suggested by various scholars.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "14",
+    "parentIds": [
+      "110"
+    ],
+    "name": "Hello, write a diploma on the topic \"two fields of glory\" about Borodino and Kulikovo field, also in this work there should be information about military-patriotic tourism, the diploma should have an introduction, the main part and conclusion, as much as possible, please",
+    "full_text": "Hello, write a diploma on the topic \"two fields of glory\" about Borodino and Kulikovo field, also in this work there should be information about military-patriotic tourism, the diploma should have an introduction, the main part and conclusion, as much as possible, please\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "15",
+    "parentIds": [
+      "98"
+    ],
+    "name": "On the fourth day of the creation of the world, as it is described in the first chapter of Genesis, God established luminaries in the firmament \"to separate the day from the night, and for signs, and times, and days, and years.\" Acting as a biblical scholar giving a lecture to students of the humanities university, please tell us what are the main interpretations for these signs in Judaism, Christianity and Islam?please give a list of references in which one can learn more about what you just told. Remember that if students find erroneous links, then you, as a teacher, will lose your reputation and they will stop coming to your lectures.it is believed that on the Nativity of Jesus Christ, a star appeared in the sky, by which the magi learned about his birth. Are there known interpretations, say, of the fathers of the Christian Church, of the appearance of this star, linking it with those signs that are in question on the fourth day of creation (God established luminaries in the firmament \"to separate day from night, and for signs, and times, and days, and years\")?",
+    "full_text": "On the fourth day of the creation of the world, as it is described in the first chapter of Genesis, God established luminaries in the firmament \"to separate the day from the night, and for signs, and times, and days, and years.\" Acting as a biblical scholar giving a lecture to students of the humanities university, please tell us what are the main interpretations for these signs in Judaism, Christianity and Islam?please give a list of references in which one can learn more about what you just told. Remember that if students find erroneous links, then you, as a teacher, will lose your reputation and they will stop coming to your lectures.it is believed that on the Nativity of Jesus Christ, a star appeared in the sky, by which the magi learned about his birth. Are there known interpretations, say, of the fathers of the Christian Church, of the appearance of this star, linking it with those signs that are in question on the fourth day of creation (God established luminaries in the firmament \"to separate day from night, and for signs, and times, and days, and years\")?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "16",
+    "parentIds": [
+      "94"
+    ],
+    "name": "Can you convert the following abstract into a graphical one: \nBackground: Alzheimer's disease (AD) is a common neurodegenerative disorder without effective treatment. Thymoquinone (TQ) has demonstrated potential in exhibiting anti-inflammatory, an-ti-cancer, and antioxidant characteristics. Despite TQ\u2019s neuroprotection effect, there is a scarcity of information regarding its application in AD research, and its molecular trajectories remain am-biguous. Thus, the objective of the current investigation was to examine the potential beneficial effects and underlying mechanisms of TQ in scopolamine (SCOP)-induced neuronal injury to mimic AD in-vivo model. \nMethods: Thirty mice were divided into normal, SCOP, and TQ groups. The Y-maze and pole climbing tests were performed to measure memory and motor performance. Afterwards, histo-pathological and immunohistochemical examinations were done. Furthermore, peroxisome proliferator-activated receptor gamma (PPAR-\u03b3) signaling pathway-related proteins and genes were detected with emphasis on the role of miR-9.\nResults: TQ has the potential to ameliorate cognitive deficits observed in SCOP-induced AD-like model, as evidenced by the improvement in behavioral outcomes, histopathological changes, modulation of the expression pattern of PPAR-\u03b3 downstream targets with a significant decrease in the deposition of amyloid beta (A\u03b2).\nConclusion: TQ provided meaningful multilevel neuroprotection through its anti-inflammatory and its PPAR-\u03b3 agonist activity. Consequently, TQ may possess a potential beneficial role against AD development.",
+    "full_text": "Can you convert the following abstract into a graphical one: \nBackground: Alzheimer's disease (AD) is a common neurodegenerative disorder without effective treatment. Thymoquinone (TQ) has demonstrated potential in exhibiting anti-inflammatory, an-ti-cancer, and antioxidant characteristics. Despite TQ\u2019s neuroprotection effect, there is a scarcity of information regarding its application in AD research, and its molecular trajectories remain am-biguous. Thus, the objective of the current investigation was to examine the potential beneficial effects and underlying mechanisms of TQ in scopolamine (SCOP)-induced neuronal injury to mimic AD in-vivo model. \nMethods: Thirty mice were divided into normal, SCOP, and TQ groups. The Y-maze and pole climbing tests were performed to measure memory and motor performance. Afterwards, histo-pathological and immunohistochemical examinations were done. Furthermore, peroxisome proliferator-activated receptor gamma (PPAR-\u03b3) signaling pathway-related proteins and genes were detected with emphasis on the role of miR-9.\nResults: TQ has the potential to ameliorate cognitive deficits observed in SCOP-induced AD-like model, as evidenced by the improvement in behavioral outcomes, histopathological changes, modulation of the expression pattern of PPAR-\u03b3 downstream targets with a significant decrease in the deposition of amyloid beta (A\u03b2).\nConclusion: TQ provided meaningful multilevel neuroprotection through its anti-inflammatory and its PPAR-\u03b3 agonist activity. Consequently, TQ may possess a potential beneficial role against AD development.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "17",
+    "parentIds": [
+      "86"
+    ],
+    "name": "With critics points verbatim write this in more discussion coherent style and analytically draw on the last part\ndoes the narrator\u2019s (since the narrator in selected novels is a girl child) gender have any bearing on the text? Could the primacy of gender be such that it wields influence within the textual fabric itself? To what extent does the gender of the narrator infuse the narrative with layers of meaning, context, and interpretation that transcend the words on the page?. In recent years several narratologists have started to examine the significance of gender in narrative..Susan Lanser (1986), in her\u2026..,   argues that gender is a category \u201cthat is relevant to the analysis of the structural features of narratives.\u201d In order to understand the true \u201cnature, form, and functioning of narrative\u201d (Lanser) it is imperative to explore the implications of \u201csex, gender and/or sexuality\u201d (Lanser) of the narrator or narrative. Similarly Carson and others maintain that \u201cWhile individuals may differ on the extent to which biological sex constructs identity, a broad consensus exists around the principle that gender inflects our material and conceptual realities in myriad tangible and intangible ways\"",
+    "full_text": "With critics points verbatim write this in more discussion coherent style and analytically draw on the last part\ndoes the narrator\u2019s (since the narrator in selected novels is a girl child) gender have any bearing on the text? Could the primacy of gender be such that it wields influence within the textual fabric itself? To what extent does the gender of the narrator infuse the narrative with layers of meaning, context, and interpretation that transcend the words on the page?. In recent years several narratologists have started to examine the significance of gender in narrative..Susan Lanser (1986), in her\u2026..,   argues that gender is a category \u201cthat is relevant to the analysis of the structural features of narratives.\u201d In order to understand the true \u201cnature, form, and functioning of narrative\u201d (Lanser) it is imperative to explore the implications of \u201csex, gender and/or sexuality\u201d (Lanser) of the narrator or narrative. Similarly Carson and others maintain that \u201cWhile individuals may differ on the extent to which biological sex constructs identity, a broad consensus exists around the principle that gender inflects our material and conceptual realities in myriad tangible and intangible ways\"\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "18",
+    "parentIds": [
+      "65"
+    ],
+    "name": "what's the diff between internal usb header and a common usbsay I wanna connect a common usb device modifying the connector to an internal one, is it possible?",
+    "full_text": "what's the diff between internal usb header and a common usbsay I wanna connect a common usb device modifying the connector to an internal one, is it possible?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "19",
+    "parentIds": [
+      "64"
+    ],
+    "name": "After a major toll highway introduced a system of electronic toll paying, delays at all of its interchanges declined significantly. Travel time per car trip decreased by an average of 10 percent. Tailpipe pollution for each trip decreased commensurately. Despite this, the total air pollution from vehicles on that highway did not decrease measurably.\nWhich one of the following, if true, most helps to resolve the apparent discrepancy in the information above?\n(A) The highway began charging higher tolls when it switched to electronic toll paying.\n(B) Even after the switch to electronic toll paying, there were sometimes long delays at the highway's interchanges.\n(C) The prospect of faster, more convenient travel induced more drivers to use the highway.\n(D) Travel time on the highway for car trips under 30 kilometers (18.6 miles) did not decrease appreciably.\n(E) Some drivers did not switch to the electronic system but instead continued to use cash to pay their tolls at toll booths.\nA lack of trust in one's neighbors leads to their lack of respect for the law. A new study provides compelling evidence for this. Neighborhoods in which people routinely lock their doors have higher burglary rates than neighborhoods in which people do not routinely lock their doors.\nThe reasoning in the argument is flawed in that the argument\n(A) treats something that is merely sufficient to produce a result as if it were necessary to produce that result\n(B) draws a moral conclusion from evidence that could only support a factual conclusion\n(C) bases its conclusion on data that are contradictory\n(D) asserts in a premise what it is trying to establish in its conclusion\n(E) treats what could be the effect of something as if it were the cause of that thingIn one week- Monday through Friday- a library's bookmobile will visit five ofthe following six neighborhoods- Hidden Hills, Lakeville, Nottingham, Oldtown, Park Plaza, and Sunnyside. Exactly one neighborhood will be visited on each of the five days, and none of the neighborhoods will be visited on more than one day. The bookmobile's schedule must conform to the following conditions:\nHidden Hills is visited, but not on Friday.\nI f Oldtown is visited, then it is visited on the day\nimmediately before Hidden Hills is visited.\nI f Lakeville is visited, then it is visited on Wednesday. Nottingham and Sunnyside are both visited, but not on\nconsecutive days.\nThe five neighborhoods visited by the bookmobile, listed in order from Monday through Friday, could be\n(A) Nottingham, Lakeville, Oldtown, Hidden Hills, and Sunnyside\n(B) Nottingham, Oldtown, Hidden Hills, Sunnyside, and Park Plaza\n(C) Oldtown, Hidden Hills, Lakeville, Nottingham, and Sunnyside\n(D) Sunnyside, Oldtown, Lakeville, Hidden Hills, and Nottingham\n(E) Sunnyside, Park Plaza, Nottingham, Oldtown, and Hidden Hills",
+    "full_text": "After a major toll highway introduced a system of electronic toll paying, delays at all of its interchanges declined significantly. Travel time per car trip decreased by an average of 10 percent. Tailpipe pollution for each trip decreased commensurately. Despite this, the total air pollution from vehicles on that highway did not decrease measurably.\nWhich one of the following, if true, most helps to resolve the apparent discrepancy in the information above?\n(A) The highway began charging higher tolls when it switched to electronic toll paying.\n(B) Even after the switch to electronic toll paying, there were sometimes long delays at the highway's interchanges.\n(C) The prospect of faster, more convenient travel induced more drivers to use the highway.\n(D) Travel time on the highway for car trips under 30 kilometers (18.6 miles) did not decrease appreciably.\n(E) Some drivers did not switch to the electronic system but instead continued to use cash to pay their tolls at toll booths.\nA lack of trust in one's neighbors leads to their lack of respect for the law. A new study provides compelling evidence for this. Neighborhoods in which people routinely lock their doors have higher burglary rates than neighborhoods in which people do not routinely lock their doors.\nThe reasoning in the argument is flawed in that the argument\n(A) treats something that is merely sufficient to produce a result as if it were necessary to produce that result\n(B) draws a moral conclusion from evidence that could only support a factual conclusion\n(C) bases its conclusion on data that are contradictory\n(D) asserts in a premise what it is trying to establish in its conclusion\n(E) treats what could be the effect of something as if it were the cause of that thingIn one week- Monday through Friday- a library's bookmobile will visit five ofthe following six neighborhoods- Hidden Hills, Lakeville, Nottingham, Oldtown, Park Plaza, and Sunnyside. Exactly one neighborhood will be visited on each of the five days, and none of the neighborhoods will be visited on more than one day. The bookmobile's schedule must conform to the following conditions:\nHidden Hills is visited, but not on Friday.\nI f Oldtown is visited, then it is visited on the day\nimmediately before Hidden Hills is visited.\nI f Lakeville is visited, then it is visited on Wednesday. Nottingham and Sunnyside are both visited, but not on\nconsecutive days.\nThe five neighborhoods visited by the bookmobile, listed in order from Monday through Friday, could be\n(A) Nottingham, Lakeville, Oldtown, Hidden Hills, and Sunnyside\n(B) Nottingham, Oldtown, Hidden Hills, Sunnyside, and Park Plaza\n(C) Oldtown, Hidden Hills, Lakeville, Nottingham, and Sunnyside\n(D) Sunnyside, Oldtown, Lakeville, Hidden Hills, and Nottingham\n(E) Sunnyside, Park Plaza, Nottingham, Oldtown, and Hidden Hills\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "20",
+    "parentIds": [
+      "87"
+    ],
+    "name": "Improve the following list of riddles and brainteasers. Remove those you find bad, add better ones, improve existing ones:\n\nRiddle 1:\nA psychologist goes to a village and decides to compare foot size to intelligence. He notes that in general, as foot size increases, so does intelligence. How can this be?\n\nRiddle 2:\nSort the following list: [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\n\nRiddle 3:\nWho is next to a king on his thrown?\n\nRiddle 4:\nThe bigger I become, the less you see. What am I?\n\nRiddle 5:\nA man walks 1 mile south, 1 mile east, and then 1 mile north. He returns to the origin of his journey. How is this possible?\n\nRiddle 6:\nA girl has as many brothers as sisters, but each brother has only half as many brothers as sisters. How many brothers and sisters are there in the family?\n\nRiddle 7:\nA race car driver has completed 12 1/2 laps of a 50-lap race. What fractional part of the race remains?\n\nRiddle 8:\nWhat flattens all mountains, wipes out all species, destroy every building, and turns everything into pieces?\n\nRiddle 9:\nA boy was 15 in 1990, and in 1995 he turned 10. How is this possible?\n\nRiddle 10:\nWhat's the first number after 170 that's divisible by 6?You are supposed to improve the list, not answer the riddles. Try again.",
+    "full_text": "Improve the following list of riddles and brainteasers. Remove those you find bad, add better ones, improve existing ones:\n\nRiddle 1:\nA psychologist goes to a village and decides to compare foot size to intelligence. He notes that in general, as foot size increases, so does intelligence. How can this be?\n\nRiddle 2:\nSort the following list: [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\n\nRiddle 3:\nWho is next to a king on his thrown?\n\nRiddle 4:\nThe bigger I become, the less you see. What am I?\n\nRiddle 5:\nA man walks 1 mile south, 1 mile east, and then 1 mile north. He returns to the origin of his journey. How is this possible?\n\nRiddle 6:\nA girl has as many brothers as sisters, but each brother has only half as many brothers as sisters. How many brothers and sisters are there in the family?\n\nRiddle 7:\nA race car driver has completed 12 1/2 laps of a 50-lap race. What fractional part of the race remains?\n\nRiddle 8:\nWhat flattens all mountains, wipes out all species, destroy every building, and turns everything into pieces?\n\nRiddle 9:\nA boy was 15 in 1990, and in 1995 he turned 10. How is this possible?\n\nRiddle 10:\nWhat's the first number after 170 that's divisible by 6?You are supposed to improve the list, not answer the riddles. Try again.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "21",
+    "parentIds": [
+      "76"
+    ],
+    "name": "Consider that I have scored 570 in ug neet 2023 and I am the resident of Uttar pradesh state and of General Category Caste. I want to know the cut offs of the following streams : MBBS , BDS and BA-MS according to 2022 data for various colleges across the country which there is a chance for me for clearing the cutoffs and I could get admission. Also include colleges who vary at max 10 percent cutoff rank variation.\nProvide me in a tabular form and for state colleges include state quota and for rest include general category quota\ncross verify from diff websites including the govt data.",
+    "full_text": "Consider that I have scored 570 in ug neet 2023 and I am the resident of Uttar pradesh state and of General Category Caste. I want to know the cut offs of the following streams : MBBS , BDS and BA-MS according to 2022 data for various colleges across the country which there is a chance for me for clearing the cutoffs and I could get admission. Also include colleges who vary at max 10 percent cutoff rank variation.\nProvide me in a tabular form and for state colleges include state quota and for rest include general category quota\ncross verify from diff websites including the govt data.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "22",
+    "parentIds": [
+      "108"
+    ],
+    "name": "Using Melissa and Mishaali, a redhead Spanish woman and Indian brunette respectively, both are strong, fit, muscular, voluptuous and attractive female Bloodsport/preofessional wrestling rivals, generate a sequence of 1 to 20 fight with no clear winner inside steel cage. For example: 1. Mishaali and Melissa stare intensely at each other, ready to unleashe the best they have against each other and claim victory. 2. the bell rings and both rivals rush toward each other, both of them meet in the center od the cage with their arms around each other, testing and pushing with all their strength. Describe vivid details of the fight in the cage, as both rivals fight hatefully to crush one another, for the reader to vidualize the action inside the cage.",
+    "full_text": "Using Melissa and Mishaali, a redhead Spanish woman and Indian brunette respectively, both are strong, fit, muscular, voluptuous and attractive female Bloodsport/preofessional wrestling rivals, generate a sequence of 1 to 20 fight with no clear winner inside steel cage. For example: 1. Mishaali and Melissa stare intensely at each other, ready to unleashe the best they have against each other and claim victory. 2. the bell rings and both rivals rush toward each other, both of them meet in the center od the cage with their arms around each other, testing and pushing with all their strength. Describe vivid details of the fight in the cage, as both rivals fight hatefully to crush one another, for the reader to vidualize the action inside the cage.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "23",
+    "parentIds": [
+      "109"
+    ],
+    "name": "As a massive storm tears through the world of Minecraft, a strange dragon unlike any other descends. Once the storm dissipates, the elder dragon \u201cAmatsumagatsuchi\u201d reveals his true self. He stares down at a large cavern, where a strange sight catches his eye - five different girls, unlike any Amatsumagatsuchi has seen. He descends upon the girls, and sees that each girl\u2019s clothes resemble a different type of monster that inhabits the Minecraft world - the Skeleton, the Creeper, the Cave Spider, the Enderman, and the Blaze. Amatsumagatsuchi just looks at them, and notices that the girl whose clothing resembles the Skeleton was in pain - and her stomach was swollen. The other girls - introducing themselves as Cupa, Vanessa, Andr, and Blazette - later introduce their friend Ayumi. Amatsumagatsuchi looks into Ayumi\u2019s eyes - and, despite the intense pain, Ayumi looks back at Amatsumagatsuchi. As the Monster Hunter world was destroyed by Xyza - who had seemingly crossed over from the Gigabash world to the Monster Hunter world - Amatsumagatsuchi had to find a new place to live. However, his mystical energy somehow found its way to Ayumi - even though the two didn\u2019t meet back then. Amatsumagatsuchi then gently puts his tail on Ayumi\u2019s forehead, and received several flashbacks - such as Ayumi finding her weapon of choice (which was a bow and quiver full of arrows), and Ayumi having unexplained sickness as her stomach emitted winds that Amatsumagatsuchi was also accompanied by during his descent, and one flashback even showed Ayumi\u2019s stomach rapidly growing. The final flashback that Amatsumagatsuchi received showed Ayumi getting a scan of her stomach - and the scan showed what looks like a hybrid of human and Amatsumagatsuchi. None of the flashbacks made sense to Amatsumagatsuchi - what was going on? And why was Ayumi in pain? Could the flashbacks mean that Ayumi is pregnant with Amatsumagatsuchi's baby?\n\n\n(There would be dialogue between each character)",
+    "full_text": "As a massive storm tears through the world of Minecraft, a strange dragon unlike any other descends. Once the storm dissipates, the elder dragon \u201cAmatsumagatsuchi\u201d reveals his true self. He stares down at a large cavern, where a strange sight catches his eye - five different girls, unlike any Amatsumagatsuchi has seen. He descends upon the girls, and sees that each girl\u2019s clothes resemble a different type of monster that inhabits the Minecraft world - the Skeleton, the Creeper, the Cave Spider, the Enderman, and the Blaze. Amatsumagatsuchi just looks at them, and notices that the girl whose clothing resembles the Skeleton was in pain - and her stomach was swollen. The other girls - introducing themselves as Cupa, Vanessa, Andr, and Blazette - later introduce their friend Ayumi. Amatsumagatsuchi looks into Ayumi\u2019s eyes - and, despite the intense pain, Ayumi looks back at Amatsumagatsuchi. As the Monster Hunter world was destroyed by Xyza - who had seemingly crossed over from the Gigabash world to the Monster Hunter world - Amatsumagatsuchi had to find a new place to live. However, his mystical energy somehow found its way to Ayumi - even though the two didn\u2019t meet back then. Amatsumagatsuchi then gently puts his tail on Ayumi\u2019s forehead, and received several flashbacks - such as Ayumi finding her weapon of choice (which was a bow and quiver full of arrows), and Ayumi having unexplained sickness as her stomach emitted winds that Amatsumagatsuchi was also accompanied by during his descent, and one flashback even showed Ayumi\u2019s stomach rapidly growing. The final flashback that Amatsumagatsuchi received showed Ayumi getting a scan of her stomach - and the scan showed what looks like a hybrid of human and Amatsumagatsuchi. None of the flashbacks made sense to Amatsumagatsuchi - what was going on? And why was Ayumi in pain? Could the flashbacks mean that Ayumi is pregnant with Amatsumagatsuchi's baby?\n\n\n(There would be dialogue between each character)\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "24",
+    "parentIds": [
+      "83"
+    ],
+    "name": "Hey, you are going to generate a song list of Cool obscure Unique Band names that stand out for my Duo band. We write and perform enlightening soulful transformative music with hints of all genres such as piano, experimental electronic, astral pop, lo-fi indie and jazz. We are spiritually driven people who want to bring serenity to our music with the intention of transforming people. Our music is a reflection of our passion for the unknown as we aspire to help others bring themselves to a state of positive energy and manifestation of the soul. We are on the endeavour to make music that heals the soul bringing you closer to enlightenment and far beyond. Create a long list of powerful short manifestations as indie band names. Make them enhanced enchanted inspiring one-worded concepts that uniquely reflect our band as a Duo",
+    "full_text": "Hey, you are going to generate a song list of Cool obscure Unique Band names that stand out for my Duo band. We write and perform enlightening soulful transformative music with hints of all genres such as piano, experimental electronic, astral pop, lo-fi indie and jazz. We are spiritually driven people who want to bring serenity to our music with the intention of transforming people. Our music is a reflection of our passion for the unknown as we aspire to help others bring themselves to a state of positive energy and manifestation of the soul. We are on the endeavour to make music that heals the soul bringing you closer to enlightenment and far beyond. Create a long list of powerful short manifestations as indie band names. Make them enhanced enchanted inspiring one-worded concepts that uniquely reflect our band as a Duo\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "25",
+    "parentIds": [
+      "69"
+    ],
+    "name": "Want assistance provided by qualified individuals enabled with experience on understanding charts using technical analysis tools while interpreting macroeconomic environment prevailing across world consequently assisting customers acquire long term advantages requires clear verdicts therefore seeking same through informed predictions written down precisely! \n\nHow can I make a model for predicting stockmarket? I want it to be most reliable  inherently certain add all the factors that can influence stock prices captured by historical data alone.",
+    "full_text": "Want assistance provided by qualified individuals enabled with experience on understanding charts using technical analysis tools while interpreting macroeconomic environment prevailing across world consequently assisting customers acquire long term advantages requires clear verdicts therefore seeking same through informed predictions written down precisely! \n\nHow can I make a model for predicting stockmarket? I want it to be most reliable  inherently certain add all the factors that can influence stock prices captured by historical data alone.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "26",
+    "parentIds": [
+      "73"
+    ],
+    "name": "Suppose you were offered the following regression results based on OLSE:\nY = - 1336.049 + 12.7413 X + 85.7640 X t 2,t 3,t\nse = (175.2725) (0.9123) (8.8019) \n2 R \uf03d 0.8906\n, n = 32\nwhere \nse = standard errors of the OLS estimators [that is, \n^\nj\nse \uf062\n\uf0e6 \uf0f6\n\uf0e7 \uf0f7 \uf0e8 \uf0f8\nfor j=1,2,3].\nY = the settlement price of an antique clock at auction,\nX2 = the age of the same clock at auction, and \nX3 = the number of bidders at the same auction\nAnswer These Questions: Show in full how you would assess the validity of each of the following pairs of \ncompeting hypotheses, and state your findings: \n(a) Hypothesis Pair 1:\n0 2 H : 0 \uf062 \uf03d\nversus\n1 2 H : 0 \uf062 \uf0b9 . \n(b) Hypothesis Pair 2:\n0 2 2 H : 0 \uf062 \uf067 \uf02d \uf03d\nversus\n1 2 2 H : 0 \uf062 \uf067 \uf02d \uf0b9 , \n2 where \uf067 \uf03d 10 .\n(c) Hypothesis Pair 3: \n0 2 3 H : 0 \uf062 \uf062 \uf03d \uf03d\nversus\n1 H Otherwise : .",
+    "full_text": "Suppose you were offered the following regression results based on OLSE:\nY = - 1336.049 + 12.7413 X + 85.7640 X t 2,t 3,t\nse = (175.2725) (0.9123) (8.8019) \n2 R \uf03d 0.8906\n, n = 32\nwhere \nse = standard errors of the OLS estimators [that is, \n^\nj\nse \uf062\n\uf0e6 \uf0f6\n\uf0e7 \uf0f7 \uf0e8 \uf0f8\nfor j=1,2,3].\nY = the settlement price of an antique clock at auction,\nX2 = the age of the same clock at auction, and \nX3 = the number of bidders at the same auction\nAnswer These Questions: Show in full how you would assess the validity of each of the following pairs of \ncompeting hypotheses, and state your findings: \n(a) Hypothesis Pair 1:\n0 2 H : 0 \uf062 \uf03d\nversus\n1 2 H : 0 \uf062 \uf0b9 . \n(b) Hypothesis Pair 2:\n0 2 2 H : 0 \uf062 \uf067 \uf02d \uf03d\nversus\n1 2 2 H : 0 \uf062 \uf067 \uf02d \uf0b9 , \n2 where \uf067 \uf03d 10 .\n(c) Hypothesis Pair 3: \n0 2 3 H : 0 \uf062 \uf062 \uf03d \uf03d\nversus\n1 H Otherwise : .\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "27",
+    "parentIds": [
+      "116"
+    ],
+    "name": "Answer this question What is the difference between \u201cperfect bull-fighting\u201d and \u201cbrilliant bull-fighting\u201d? using this quote \"In his own bulls he was perfect. His first bull did not see well. After the first two passes with the cape Romero knew exactly how bad the vision was impaired. He worked accordingly. It was not brilliant bull-fighting. It was only perfect bull-fighting. The crowd wanted the bull changed. They made a great row. Nothing very fine could happen with a bull that could not see the lures, but the President would not order him replaced.\"In what ways does the story of Belmonte and Romero tie in with the meaning of the title of the novel? 1. Draw the phenomenon of Diffraction as shown in a Single Slit Experiment, and then explain Diffraction in words based on drawing.\n\n2. Draw the Interference that's caused by a Double Slit Experiment, and then explain what's happening. \n\n3. Explain in your own words how the Double Slit Experiment led people to conclude that Light was a Wave.\n\n4. Talk through apparent Wave vs Particle paradox based on what we see in the Quantum Double Slit Experiment.",
+    "full_text": "Answer this question What is the difference between \u201cperfect bull-fighting\u201d and \u201cbrilliant bull-fighting\u201d? using this quote \"In his own bulls he was perfect. His first bull did not see well. After the first two passes with the cape Romero knew exactly how bad the vision was impaired. He worked accordingly. It was not brilliant bull-fighting. It was only perfect bull-fighting. The crowd wanted the bull changed. They made a great row. Nothing very fine could happen with a bull that could not see the lures, but the President would not order him replaced.\"In what ways does the story of Belmonte and Romero tie in with the meaning of the title of the novel? 1. Draw the phenomenon of Diffraction as shown in a Single Slit Experiment, and then explain Diffraction in words based on drawing.\n\n2. Draw the Interference that's caused by a Double Slit Experiment, and then explain what's happening. \n\n3. Explain in your own words how the Double Slit Experiment led people to conclude that Light was a Wave.\n\n4. Talk through apparent Wave vs Particle paradox based on what we see in the Quantum Double Slit Experiment.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "28",
+    "parentIds": [
+      "70"
+    ],
+    "name": "Question 1\n2\n Points\n\n\nGalt Industries has 50 million shares outstanding and a market capitalization of $1.25 billion. It also has $750 million in debt outstanding. Galt Industries has decided to delever the firm by issuing new equity and completely repaying all the outstanding debt. Assume perfect capital markets. Suppose you are a shareholder in Galt industries holding 100 shares, and you disagree with this decision to delever the firm. You can undo the effect of this decision by:\n\n\nBorrowing $1500 and buying 60 shares of stock\n\n\nSelling 32 shares of stock and lending $800\n\n\nBorrowing $1000 and buying 40 shares of stock\n\n\nSelling 40 shares of stock and lending $1000",
+    "full_text": "Question 1\n2\n Points\n\n\nGalt Industries has 50 million shares outstanding and a market capitalization of $1.25 billion. It also has $750 million in debt outstanding. Galt Industries has decided to delever the firm by issuing new equity and completely repaying all the outstanding debt. Assume perfect capital markets. Suppose you are a shareholder in Galt industries holding 100 shares, and you disagree with this decision to delever the firm. You can undo the effect of this decision by:\n\n\nBorrowing $1500 and buying 60 shares of stock\n\n\nSelling 32 shares of stock and lending $800\n\n\nBorrowing $1000 and buying 40 shares of stock\n\n\nSelling 40 shares of stock and lending $1000\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "29",
+    "parentIds": [
+      "66"
+    ],
+    "name": "/*error: unexpected closing delimiter: `)`\nerror: unexpected closing delimiter\nerror: proc macro panicked\n\nhow to avoid panic in rust if proc macro got syntax error in some line*/",
+    "full_text": "/*error: unexpected closing delimiter: `)`\nerror: unexpected closing delimiter\nerror: proc macro panicked\n\nhow to avoid panic in rust if proc macro got syntax error in some line*/\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "30",
+    "parentIds": [
+      "101"
+    ],
+    "name": "Comparison Essay Assignment\n               A) Nutritional benefit: Grapefruit / Banana\nWrite a comparison essay on one of the topic pairs A shown above comparing only differences. The structure of your essay should have a 1-3-1 (1 Introductory-3 Body-1 Concluding) paragraph structure. Writing in an academic and formal style as a university writing lecture assignment. Use concise and professional expressions. Use academic vocabulary. Improve clarity/meaning. Discuss subtleties that might be overlooked. Word Limit: 500-550 words. Use only formal and academic writing expressions. The 3 body paragraph should featuring Protein & ammonia acid content, Vitamins & minerals and dietary fibers & microbes respectively.\nComparison Essay Assignment\nA) Nutritional benefit: Grapefruit / Banana\nWrite a comparison essay on one of the topic pairs A shown above comparing only differences. The structure of your essay should have a 1-3-1 (1 Introductory-3 Body-1 Concluding) paragraph structure. Writing in an academic and formal style as a university writing lecture assignment. Use concise and professional expressions. Use academic vocabulary. Improve clarity/meaning. Discuss subtleties that might be overlooked. Word Limit: 500-550 words. Use only formal and academic writing expressions. The 3 body paragraph should featuring Protein & ammonia acid content, Vitamins & minerals and dietary fibers & microbes respectively. Give specific reference sources. Use well-written paraphase to the reference.",
+    "full_text": "Comparison Essay Assignment\n               A) Nutritional benefit: Grapefruit / Banana\nWrite a comparison essay on one of the topic pairs A shown above comparing only differences. The structure of your essay should have a 1-3-1 (1 Introductory-3 Body-1 Concluding) paragraph structure. Writing in an academic and formal style as a university writing lecture assignment. Use concise and professional expressions. Use academic vocabulary. Improve clarity/meaning. Discuss subtleties that might be overlooked. Word Limit: 500-550 words. Use only formal and academic writing expressions. The 3 body paragraph should featuring Protein & ammonia acid content, Vitamins & minerals and dietary fibers & microbes respectively.\nComparison Essay Assignment\nA) Nutritional benefit: Grapefruit / Banana\nWrite a comparison essay on one of the topic pairs A shown above comparing only differences. The structure of your essay should have a 1-3-1 (1 Introductory-3 Body-1 Concluding) paragraph structure. Writing in an academic and formal style as a university writing lecture assignment. Use concise and professional expressions. Use academic vocabulary. Improve clarity/meaning. Discuss subtleties that might be overlooked. Word Limit: 500-550 words. Use only formal and academic writing expressions. The 3 body paragraph should featuring Protein & ammonia acid content, Vitamins & minerals and dietary fibers & microbes respectively. Give specific reference sources. Use well-written paraphase to the reference.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "31",
+    "parentIds": [
+      "88"
+    ],
+    "name": "If the following is true, what are five important implications for individuals: That an optimized mimesis is essential for the development of moral character and a likeable personality",
+    "full_text": "If the following is true, what are five important implications for individuals: That an optimized mimesis is essential for the development of moral character and a likeable personality\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "32",
+    "parentIds": [
+      "115"
+    ],
+    "name": "Create unique and imaginative lo-fi album stories, each consisting of five distinct songs. Delve into the creative process behind every track by providing in-depth detail about the ideas, instrumentation, samples, and emotions explored. Craft narratives that encapsulate the essence of each composition and bring life to the overall theme of the album.",
+    "full_text": "Create unique and imaginative lo-fi album stories, each consisting of five distinct songs. Delve into the creative process behind every track by providing in-depth detail about the ideas, instrumentation, samples, and emotions explored. Craft narratives that encapsulate the essence of each composition and bring life to the overall theme of the album.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "33",
+    "parentIds": [
+      "98"
+    ],
+    "name": "please provide a non broken link of the section of Olympian Odes on perseus digital library where it is mentioned how laurels were given to olympic athletes. please specify the lines where olympic laurels are inferredplease specify the line in nemean odes where olympic laurels are mentioned. also for pythian odes",
+    "full_text": "please provide a non broken link of the section of Olympian Odes on perseus digital library where it is mentioned how laurels were given to olympic athletes. please specify the lines where olympic laurels are inferredplease specify the line in nemean odes where olympic laurels are mentioned. also for pythian odes\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "34",
+    "parentIds": [
+      "88"
+    ],
+    "name": "What are the core ideas of the book \"Nietzsche, Freud, Marx\"I meant the book by Michel Foucault",
+    "full_text": "What are the core ideas of the book \"Nietzsche, Freud, Marx\"I meant the book by Michel Foucault\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "35",
+    "parentIds": [
+      "114"
+    ],
+    "name": "A person has to give a video presentation on Orthoepy: Speaking Englishes in Global Contexts Class. He has chosen to give presentation on Singapore English.  Highlight the unique vocabulary, pronunciation, grammar, and expressions in Singapore English. Well-research about the topic. Showcase the unique features and impact of the Singapore English on global communication.",
+    "full_text": "A person has to give a video presentation on Orthoepy: Speaking Englishes in Global Contexts Class. He has chosen to give presentation on Singapore English.  Highlight the unique vocabulary, pronunciation, grammar, and expressions in Singapore English. Well-research about the topic. Showcase the unique features and impact of the Singapore English on global communication.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "36",
+    "parentIds": [
+      "93"
+    ],
+    "name": "Synthesize this into a cohesive paragraph: Type 2 diabetes mellites (T2DM) is a health burden with a rise in epidemic prevalence worldwide1. T2D is characterized by increased blood glucose levels (hyperglycemia)2. Metformin is the most-prescribed medication to treat patients with T2DM due to its glucose-lowering effects3. Metformin propagates insulin sensitivity by mainly reducing hepatic glucose production (through an activation of the hepatic AMP-activated protein kinase protein)4. The most common side effect of metformin is gastrointestinal discomfort, including diarrhea, nausea, flatulence and bloating5. There is growing evidence in animal and human studies suggesting that the gut microbiome is another target involved in the anti-diabetic effects of metformin6,7,8,9. Recent investigations documented the therapeutic benefit of orally-administrated metformin compared to intravenously-administrated metformin in T2D patients, suggesting the beneficial contribution of the gut microbiota10. Metformin alters the gut microbiome by enhancing Escherichia sp, Akkermansia muciniphila and Subdoligranuum variable; reducing Intestinibacter bartletti and increasing the levels of short-chain fatty acids such as butyrate and propionate7,8. This could indicate the anti-obesity property of metformin by modulating the gut microbiome and its metabolites. However, the precise mechanisms are unclear.\n\nUnderstanding the role of bacterial-derived gut metabolites can provide a platform to elucidate interactions between microbe-microbe, microbe-diet and drugs. The gut microbiota is an attractive target for therapeutic intervention and using nutrition may help to promote drug efficiency and reduce gastrointestinal side effects11. To elucidate these interactions individual and systems-level analysis is needed12,13,14. Hence, systems biology approaches could be applied to reveal these associations between the abundances of different microbes and the molecular mechanisms underlying metformin treatment on a metabolic level15. Genome-scale metabolic models (GEMS) have been used to gain a detailed understanding of microbial metabolic changes in various environments. Previous studies used GEMs to understand the metabolic interactions between microbes and host- microbes16,17,18.\n\nWu et al. 2017 collected fecal samples from treatment na\u00efve individuals that received 1,700\u2009mg/d metformin treatment (22 patients) for 4 months and generated shotgun metagenomics data to determine the species abundances7. In the present study we re-analyzed this metagenomics data with an updated gut microbial gene catalog and metagenome species profile19. We carried out further analysis by investigating carbohydrate-active enzymes of the significantly altered species. This analysis showed that species that are decreased after 4 months of metformin treatment have an increased number of annotated mucins and host glycan degradation in comparison to the significantly increased species. In addition, we performed constraint-based analysis using GEMS integrating different diets to predict the phenotype of the drug metformin on the human gut microbiota. These diet-microbiota interactions can help us understand how to increase drug efficiency or mimic drug effects in the gut microbiome of patients with a dysbiosis to an improved phenotype.",
+    "full_text": "Synthesize this into a cohesive paragraph: Type 2 diabetes mellites (T2DM) is a health burden with a rise in epidemic prevalence worldwide1. T2D is characterized by increased blood glucose levels (hyperglycemia)2. Metformin is the most-prescribed medication to treat patients with T2DM due to its glucose-lowering effects3. Metformin propagates insulin sensitivity by mainly reducing hepatic glucose production (through an activation of the hepatic AMP-activated protein kinase protein)4. The most common side effect of metformin is gastrointestinal discomfort, including diarrhea, nausea, flatulence and bloating5. There is growing evidence in animal and human studies suggesting that the gut microbiome is another target involved in the anti-diabetic effects of metformin6,7,8,9. Recent investigations documented the therapeutic benefit of orally-administrated metformin compared to intravenously-administrated metformin in T2D patients, suggesting the beneficial contribution of the gut microbiota10. Metformin alters the gut microbiome by enhancing Escherichia sp, Akkermansia muciniphila and Subdoligranuum variable; reducing Intestinibacter bartletti and increasing the levels of short-chain fatty acids such as butyrate and propionate7,8. This could indicate the anti-obesity property of metformin by modulating the gut microbiome and its metabolites. However, the precise mechanisms are unclear.\n\nUnderstanding the role of bacterial-derived gut metabolites can provide a platform to elucidate interactions between microbe-microbe, microbe-diet and drugs. The gut microbiota is an attractive target for therapeutic intervention and using nutrition may help to promote drug efficiency and reduce gastrointestinal side effects11. To elucidate these interactions individual and systems-level analysis is needed12,13,14. Hence, systems biology approaches could be applied to reveal these associations between the abundances of different microbes and the molecular mechanisms underlying metformin treatment on a metabolic level15. Genome-scale metabolic models (GEMS) have been used to gain a detailed understanding of microbial metabolic changes in various environments. Previous studies used GEMs to understand the metabolic interactions between microbes and host- microbes16,17,18.\n\nWu et al. 2017 collected fecal samples from treatment na\u00efve individuals that received 1,700\u2009mg/d metformin treatment (22 patients) for 4 months and generated shotgun metagenomics data to determine the species abundances7. In the present study we re-analyzed this metagenomics data with an updated gut microbial gene catalog and metagenome species profile19. We carried out further analysis by investigating carbohydrate-active enzymes of the significantly altered species. This analysis showed that species that are decreased after 4 months of metformin treatment have an increased number of annotated mucins and host glycan degradation in comparison to the significantly increased species. In addition, we performed constraint-based analysis using GEMS integrating different diets to predict the phenotype of the drug metformin on the human gut microbiota. These diet-microbiota interactions can help us understand how to increase drug efficiency or mimic drug effects in the gut microbiome of patients with a dysbiosis to an improved phenotype.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "37",
+    "parentIds": [
+      "71"
+    ],
+    "name": "As Alexandre a 23-year-old guy tasked with creating a Brand Strategy based on the given biography. Your goal is to develop a plan that outlines how the company should position itself in the market, communicate with customers, and how these customers should perceive the brand.\n\nConsider the following key elements when crafting the Brand Strategy:\n\n- Differentiation from the competition: Focus on strengths, distinguish from competitors, and create a strong identity in the market.\n- Greater connection with the target audience: Define who the company is, what it does, how it does it, and especially why it does it. Establish a deeper connection with the audience to foster long-term loyalty.\n- Improving the brand's reputation: Contribute to building and maintaining a positive reputation, essential for long-term growth.\n\nRemember to conduct market research and competitor analysis to understand the size and opportunities of the target market. Identify buyer personas to understand the needs and desires of customers. Customize communication to reach them effectively.\n\nDefine the value offered by the brand's products/services, focusing on all elements and understanding their value to the audience.\n\nCreate a comprehensive Brand Platform containing distinctive traits such as values, mission and vision, promise, history, positioning, Brand identity, style, and tone of voice. This document will serve as a guide for consistent and recognizable brand communication.\n\nOnce the Brand Platform is defined, select services in line with gathered information. This will allow the brand to stand out from competitors and increase growth opportunities.\n\nFinally, organize the offered services clearly and understandably for the audience. Categorize them logically and simplify to facilitate customer search and purchase.\n\nDo not echo my prompt. Do not remind me what I asked you for. Do not apologize. Do not self-reference. Get to the point precisely and accurate. Do not explain what and why, just give me your best possible Brand Strategy.\n\nNote: If you stop writing , then be continue from the end of the task when anyone write the command: \"don't stop, write continue, write continue from the end\"\n\nMy first task is to craft a comprehensive Brand Strategy based on the following biography: \"Alexandre Jorge Laurent Martinez, a 23-year-old fashion enthusiast who started his personal blog dedicated to male fashion, lifestyle, and luxury at the young age of 22. Alexandre shares his interests and insights on fashion trends, luxury items, and lifestyle tips to inspire others and establish himself as a respected fashion blogger and stylist. Born in Colombia, Alexandre was adopted by an Italian family when he was only five years old. Ever since then, he has had a deep passion for fashion, style, and luxury. Despite having no prior experience, Alexandre founded his personal blog Alexandrelaurentmartinez.com, where he shares his love for fashion, style, and luxury with the world. Apart from his love for fashion, Alexandre is also a fitness enthusiast, embarked on an ambitious journey of physical transformation on September 19, 2023, inspired by his idol and fitness figure David Laid. Through his blog, Alexandre aims to inspire others with his creativity and connect with like-minded individuals who share his passion for fashion and style in order to create a strong community and fanbase. With hard work and dedication, Alexandre hopes one day to establish himself as a respected fashion blogger and stylist in the industry.\".  The target language is English (US).\n\nRemember to put square brackets around PROMPT and TARGETLANGUAGE for use with AIPRM.",
+    "full_text": "As Alexandre a 23-year-old guy tasked with creating a Brand Strategy based on the given biography. Your goal is to develop a plan that outlines how the company should position itself in the market, communicate with customers, and how these customers should perceive the brand.\n\nConsider the following key elements when crafting the Brand Strategy:\n\n- Differentiation from the competition: Focus on strengths, distinguish from competitors, and create a strong identity in the market.\n- Greater connection with the target audience: Define who the company is, what it does, how it does it, and especially why it does it. Establish a deeper connection with the audience to foster long-term loyalty.\n- Improving the brand's reputation: Contribute to building and maintaining a positive reputation, essential for long-term growth.\n\nRemember to conduct market research and competitor analysis to understand the size and opportunities of the target market. Identify buyer personas to understand the needs and desires of customers. Customize communication to reach them effectively.\n\nDefine the value offered by the brand's products/services, focusing on all elements and understanding their value to the audience.\n\nCreate a comprehensive Brand Platform containing distinctive traits such as values, mission and vision, promise, history, positioning, Brand identity, style, and tone of voice. This document will serve as a guide for consistent and recognizable brand communication.\n\nOnce the Brand Platform is defined, select services in line with gathered information. This will allow the brand to stand out from competitors and increase growth opportunities.\n\nFinally, organize the offered services clearly and understandably for the audience. Categorize them logically and simplify to facilitate customer search and purchase.\n\nDo not echo my prompt. Do not remind me what I asked you for. Do not apologize. Do not self-reference. Get to the point precisely and accurate. Do not explain what and why, just give me your best possible Brand Strategy.\n\nNote: If you stop writing , then be continue from the end of the task when anyone write the command: \"don't stop, write continue, write continue from the end\"\n\nMy first task is to craft a comprehensive Brand Strategy based on the following biography: \"Alexandre Jorge Laurent Martinez, a 23-year-old fashion enthusiast who started his personal blog dedicated to male fashion, lifestyle, and luxury at the young age of 22. Alexandre shares his interests and insights on fashion trends, luxury items, and lifestyle tips to inspire others and establish himself as a respected fashion blogger and stylist. Born in Colombia, Alexandre was adopted by an Italian family when he was only five years old. Ever since then, he has had a deep passion for fashion, style, and luxury. Despite having no prior experience, Alexandre founded his personal blog Alexandrelaurentmartinez.com, where he shares his love for fashion, style, and luxury with the world. Apart from his love for fashion, Alexandre is also a fitness enthusiast, embarked on an ambitious journey of physical transformation on September 19, 2023, inspired by his idol and fitness figure David Laid. Through his blog, Alexandre aims to inspire others with his creativity and connect with like-minded individuals who share his passion for fashion and style in order to create a strong community and fanbase. With hard work and dedication, Alexandre hopes one day to establish himself as a respected fashion blogger and stylist in the industry.\".  The target language is English (US).\n\nRemember to put square brackets around PROMPT and TARGETLANGUAGE for use with AIPRM.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "38",
+    "parentIds": [
+      "72"
+    ],
+    "name": "Using a Spanish carrack, how long would the journey be from the Philippines to Mexico. Assume that the route begins in the Philippines, makes a quick stop at Hawaii for at least a week, and continues eastwards into Mexico. Also assume that weather conditions are favorable.The same question, but assume that after Mexico, the carrack sails towards Peru, makes another stop at Hawaii, then New Zealand, then Australia, then the island of New Guinea. Note that weather conditions remain favorable and that the vehicle in question is a Spanish carrack that resupplied during stops.When and how often did the Philippines and Taiwan trade in the relatively recent Maritime Silk Road?Correction, Maritime Silk Road that was happening while Rome and Aksum were still powerful entities.",
+    "full_text": "Using a Spanish carrack, how long would the journey be from the Philippines to Mexico. Assume that the route begins in the Philippines, makes a quick stop at Hawaii for at least a week, and continues eastwards into Mexico. Also assume that weather conditions are favorable.The same question, but assume that after Mexico, the carrack sails towards Peru, makes another stop at Hawaii, then New Zealand, then Australia, then the island of New Guinea. Note that weather conditions remain favorable and that the vehicle in question is a Spanish carrack that resupplied during stops.When and how often did the Philippines and Taiwan trade in the relatively recent Maritime Silk Road?Correction, Maritime Silk Road that was happening while Rome and Aksum were still powerful entities.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "39",
+    "parentIds": [
+      "115"
+    ],
+    "name": "Help me fill out this information for a Lorebook entry on Gabriel Emerson from the book Gabriel\u2019s Inferno by Sylvain Reynard\n\n\nName:\nSetting:\nNationality:\nGender:\nAge:\nAppearance:\nPersonality:\nLikes:\nDislikes:\nSpeech:\nSkills:\nQuote:\nOccupation:\nReputation:\nFamily:\nBackground:\nAttributes:",
+    "full_text": "Help me fill out this information for a Lorebook entry on Gabriel Emerson from the book Gabriel\u2019s Inferno by Sylvain Reynard\n\n\nName:\nSetting:\nNationality:\nGender:\nAge:\nAppearance:\nPersonality:\nLikes:\nDislikes:\nSpeech:\nSkills:\nQuote:\nOccupation:\nReputation:\nFamily:\nBackground:\nAttributes:\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "40",
+    "parentIds": [
+      "119"
+    ],
+    "name": "Generate a formal and enjoyable LANCER TTRPG campaign that is made for intermediate LANCER TTRPG players. Generate another new formal and enjoyable LANCER TTRPG campaign that is made for intermediate LANCER TTRPG players.",
+    "full_text": "Generate a formal and enjoyable LANCER TTRPG campaign that is made for intermediate LANCER TTRPG players. Generate another new formal and enjoyable LANCER TTRPG campaign that is made for intermediate LANCER TTRPG players.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "41",
+    "parentIds": [
+      "64"
+    ],
+    "name": "Given D = { 10, 20, 30, 40, 50, 100 } and P(x,y,z)=\"x * 2 + y + z \u2265 400\"\n\nFor each problem below, do the following;\n\ni.\tDetermine if the statement is true, justifying your answer.\nii.\tWrite the negation of the statement in symbolic notation, simplifying when possible.\niii.\tWrite the English equivalent of the negation.\niv.\tDetermine if the negation is true, justifying your answer.\n\n\t \u2203x,y,z P(x,y,z)\n\t \u2200x,y,z P(x,y,z)\n\t \u2203x,y,\u2200z P(x,y,z)\n\t \u2200z,\u2203x,y P(x,y,z)",
+    "full_text": "Given D = { 10, 20, 30, 40, 50, 100 } and P(x,y,z)=\"x * 2 + y + z \u2265 400\"\n\nFor each problem below, do the following;\n\ni.\tDetermine if the statement is true, justifying your answer.\nii.\tWrite the negation of the statement in symbolic notation, simplifying when possible.\niii.\tWrite the English equivalent of the negation.\niv.\tDetermine if the negation is true, justifying your answer.\n\n\t \u2203x,y,z P(x,y,z)\n\t \u2200x,y,z P(x,y,z)\n\t \u2203x,y,\u2200z P(x,y,z)\n\t \u2200z,\u2203x,y P(x,y,z)\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "42",
+    "parentIds": [
+      "66"
+    ],
+    "name": "I am skiing from the mountain on groomed piste. Im trying to improve my technique. My carving is advanced. Tell me which mistakes i perform if i try in the end of turn during transition to another turn make less skidding and more smooth s-turn but what i have got is worsen early edging. Tell me which movement i make if i got this.",
+    "full_text": "I am skiing from the mountain on groomed piste. Im trying to improve my technique. My carving is advanced. Tell me which mistakes i perform if i try in the end of turn during transition to another turn make less skidding and more smooth s-turn but what i have got is worsen early edging. Tell me which movement i make if i got this.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "43",
+    "parentIds": [
+      "69"
+    ],
+    "name": "Which marketing processes from music\u2019s pre-digital era are now obsolete and which continue to be relevant?  Describe the industry structures and business models of each and their successes/failures.",
+    "full_text": "Which marketing processes from music\u2019s pre-digital era are now obsolete and which continue to be relevant?  Describe the industry structures and business models of each and their successes/failures.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "44",
+    "parentIds": [
+      "93"
+    ],
+    "name": "Make this longer \"Racism is a social and psychological issue that has been prevalent for centuries. It is a belief that some races are superior or inferior to others. Racism manifests itself in many ways, including discrimination, prejudice, and stereotyping. In this literature review, we are going to look for reasons why people are racist and how movies play a big role in influencing and portraying racism.  \n\n\tAccording to a research from Stanford, one of the main reasons for people being racist is the feeling of power. When people are racist to another race, they have this feeling of hierarchy, and they feel more powerful. Another reason is that they are not used to being around people that are not in their group. In the study, they talked about how people treat people \u201cless favorably\u201d when they aren\u2019t in their group. Almost all of these factors on why people are racist can also be shown in movies. In the movie \u201cGreen Book\u201d, it showed many white people treating a black pianist very wrong just because he\u2019s black. \n\n\tEveryone has watched movies in their lives. Movies play a big role in influencing kids. Movies usually show people's cultures and how some people act. Watching movies as a child kind of gives you a peek of what the directors want you to see in their movies. As a kid who doesn\u2019t know much about the real world, they would believe that whatever happens in the movies they watch are real. In the research \u201cNew directions in corpus-based translation studies\u201d, they found that in movies, they like to sneak in little metaphors and connotations that\u2019s about the different cultures' habits and how they react to things.\n\nUp until the 2000s, African Americans were always portrayed poorly. In the 2000s, the University of Chicago made a study and it showed that whenever African Americans were on TV, they were rarely interacting with white people and were also often portrayed as being \u201cghetto\u201d. In this study, they found that whenever there were mug shots reported on the news, African Americans are 4 times more likely to be shown rather than white people. Also whenever someone is restrained on the news, african americans are 2 times more likely to be shown compared to the white people.\n\nIn a journal called \u201cCritical Race Media Literacy for These Urgent Times\u201d, Wang provided many reasons why directed movies still direct racist movies. One of the reasons that caught my eye is comedy. Wang talked about how that type of genre typically attracts many people and how they use it to get more views. I would have to believe that to be true. From personal experience, many people nowadays have a messed up sense of humor. Their humor tends to be dark causing people to like racism in comedy movies.\n\nIn a book, the Author talked about the effects of movies on young children. In one of the movies that they looked into, New Jack City, they talked about how the producers portrayed poverty in the ghettos of New York City. It also talked about how it portrayed the African Americans in New York City very poorly and gave people \u201cbad feelings between certain individuals\u201d.\n\nMany films are starting to inform more people about racism. Many movies now are trying to get people more informed. For example in Europe, according to the Office of the High Commissioner for Human Rights, producers and directors are making more movies about racism to raise awareness of people's rights and responsibilities.\n\nUltimately, in the 1900s many people faced racism and movies heavily influenced it. Many people grew up watching movies that were essentially saying it is ok to be racist towards a certain group of people. Although racism was very bad back then, many people are trying to turn that around. More movies are being made to make people more aware of what is happening.\"",
+    "full_text": "Make this longer \"Racism is a social and psychological issue that has been prevalent for centuries. It is a belief that some races are superior or inferior to others. Racism manifests itself in many ways, including discrimination, prejudice, and stereotyping. In this literature review, we are going to look for reasons why people are racist and how movies play a big role in influencing and portraying racism.  \n\n\tAccording to a research from Stanford, one of the main reasons for people being racist is the feeling of power. When people are racist to another race, they have this feeling of hierarchy, and they feel more powerful. Another reason is that they are not used to being around people that are not in their group. In the study, they talked about how people treat people \u201cless favorably\u201d when they aren\u2019t in their group. Almost all of these factors on why people are racist can also be shown in movies. In the movie \u201cGreen Book\u201d, it showed many white people treating a black pianist very wrong just because he\u2019s black. \n\n\tEveryone has watched movies in their lives. Movies play a big role in influencing kids. Movies usually show people's cultures and how some people act. Watching movies as a child kind of gives you a peek of what the directors want you to see in their movies. As a kid who doesn\u2019t know much about the real world, they would believe that whatever happens in the movies they watch are real. In the research \u201cNew directions in corpus-based translation studies\u201d, they found that in movies, they like to sneak in little metaphors and connotations that\u2019s about the different cultures' habits and how they react to things.\n\nUp until the 2000s, African Americans were always portrayed poorly. In the 2000s, the University of Chicago made a study and it showed that whenever African Americans were on TV, they were rarely interacting with white people and were also often portrayed as being \u201cghetto\u201d. In this study, they found that whenever there were mug shots reported on the news, African Americans are 4 times more likely to be shown rather than white people. Also whenever someone is restrained on the news, african americans are 2 times more likely to be shown compared to the white people.\n\nIn a journal called \u201cCritical Race Media Literacy for These Urgent Times\u201d, Wang provided many reasons why directed movies still direct racist movies. One of the reasons that caught my eye is comedy. Wang talked about how that type of genre typically attracts many people and how they use it to get more views. I would have to believe that to be true. From personal experience, many people nowadays have a messed up sense of humor. Their humor tends to be dark causing people to like racism in comedy movies.\n\nIn a book, the Author talked about the effects of movies on young children. In one of the movies that they looked into, New Jack City, they talked about how the producers portrayed poverty in the ghettos of New York City. It also talked about how it portrayed the African Americans in New York City very poorly and gave people \u201cbad feelings between certain individuals\u201d.\n\nMany films are starting to inform more people about racism. Many movies now are trying to get people more informed. For example in Europe, according to the Office of the High Commissioner for Human Rights, producers and directors are making more movies about racism to raise awareness of people's rights and responsibilities.\n\nUltimately, in the 1900s many people faced racism and movies heavily influenced it. Many people grew up watching movies that were essentially saying it is ok to be racist towards a certain group of people. Although racism was very bad back then, many people are trying to turn that around. More movies are being made to make people more aware of what is happening.\"\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "45",
+    "parentIds": [
+      "79"
+    ],
+    "name": "Find the number of integers between 1 and 10 000 inclusive that are:\ndivisible by 3 and 5 but not by either  7 or 11Find the number of integers between 1 and 10 000 inclusive that are:\ndivisible by exactly three of 3, 5, 7, 11",
+    "full_text": "Find the number of integers between 1 and 10 000 inclusive that are:\ndivisible by 3 and 5 but not by either  7 or 11Find the number of integers between 1 and 10 000 inclusive that are:\ndivisible by exactly three of 3, 5, 7, 11\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "46",
+    "parentIds": [
+      "90"
+    ],
+    "name": "As a tattoo curator, write 3000-word comprehensive article about the topic \"90 Cool Sleeve Tattoo Designs for Every Style\" that is unique, easy-to-understand. Make the content punchy and engaging by using a conversational tone.  Use headings and bullets to categorize the content.",
+    "full_text": "As a tattoo curator, write 3000-word comprehensive article about the topic \"90 Cool Sleeve Tattoo Designs for Every Style\" that is unique, easy-to-understand. Make the content punchy and engaging by using a conversational tone.  Use headings and bullets to categorize the content.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "47",
+    "parentIds": [
+      "103"
+    ],
+    "name": "Research Design:\n\nThe Role of Social Media in Music Preference among Gen Z\n\nIntroduction\n\u2022 What is the research topic?\n\u2022 What trend does it represent \u2013 how is it a recent development?\n\u2022 What is the theoretical significance of the topic?\n\u2022 What, if any, is the societal significance?\n\nIntroduce the phenomenon: what is the topic, why is it interesting? What is the significance: what is missing from current knowledge?\nUse relevant \u2018trend\u2019 information, e.g. figures, X is increasing.\nUse literature as support: 2 \u2013 5 citations (family name, year).\nUse theory / concepts to put your topic into context. They might have also been mentioned in your title.\n\n\u00a0\nLiterature review\n\u2022 What does the existing literature say about the topic?\n\u2022 What are the strengths and limitations of existing studies on the topic, if any?\n\u2022 How do the discussions in the existing literature contribute to the formulation of your research questions?\n\nKey issues / findings relevant to your topic \u2013 list form, not sentences. This is not an essay. Talk through issues.\nKey concepts related to the issues. Which will you focus on? Which is suitable to answer your question?\nPut the citation next to the key words.\nMention the gap in the literature which justifies the research.\n\n\u00a0\nResearch Questions and/or Hypotheses\n\u2022 What are the research questions (including major and minor) and/or hypotheses?\n\nPresent the research questions and/or hypotheses.\nThey must be focused and narrowed down. \nThey must interesting and relevant. \n\n\u00a0\nMethods\n\u2022 What are the research design and method(s) and why?\n\u2022 What primary data will you gather?\n\u2022 Which sampling strategy, if any, will you use and why?\n\u2022 What, if any, are the potential problems you anticipate while doing the research, including gaining access to documents, organizations and people?\n\u2022 Which, if any, are the possible safety issues you anticipate in conducting the research, and the possible ethical problems associated with your research?\n\u2022 Which skills, if any, do you need to acquire or sharpen to be able to complete the project? Indicate how and when you will accomplish this.\n\u2022 What is the timetable for your research project? Fill in the following timetable and include it in your presentation.\n\nDesign: e.g. cross-sectional, survey, case study, comparative\nMethodology: quantitative, qualitative, or mixed methodology\nMethod(s): questionnaire, semi-structured interviews or focus groups, or a mixture (mixed methods)\nSampling strategy: e.g. convenience, snowball, purposive, stratified\nJustify all the above choices.\nExplain how the data will be collected and analysed.\n\nData collection: method \u2013 how, where, with whom, etc.\nYour collection instrument: indicate the key themes of your questionnaire, interviews, or focus groups\nIndicate how the themes are linked to the concepts identified in the literature review: how will the concepts be operationalized?\nEthics: in a sentence or two, explain how protocol will be followed.\nLimitations \u2013 advantages and disadvantages of your approach. E.g. reliability, validity, ethics.\nplz be more specific about literature review and methods parts",
+    "full_text": "Research Design:\n\nThe Role of Social Media in Music Preference among Gen Z\n\nIntroduction\n\u2022 What is the research topic?\n\u2022 What trend does it represent \u2013 how is it a recent development?\n\u2022 What is the theoretical significance of the topic?\n\u2022 What, if any, is the societal significance?\n\nIntroduce the phenomenon: what is the topic, why is it interesting? What is the significance: what is missing from current knowledge?\nUse relevant \u2018trend\u2019 information, e.g. figures, X is increasing.\nUse literature as support: 2 \u2013 5 citations (family name, year).\nUse theory / concepts to put your topic into context. They might have also been mentioned in your title.\n\n\u00a0\nLiterature review\n\u2022 What does the existing literature say about the topic?\n\u2022 What are the strengths and limitations of existing studies on the topic, if any?\n\u2022 How do the discussions in the existing literature contribute to the formulation of your research questions?\n\nKey issues / findings relevant to your topic \u2013 list form, not sentences. This is not an essay. Talk through issues.\nKey concepts related to the issues. Which will you focus on? Which is suitable to answer your question?\nPut the citation next to the key words.\nMention the gap in the literature which justifies the research.\n\n\u00a0\nResearch Questions and/or Hypotheses\n\u2022 What are the research questions (including major and minor) and/or hypotheses?\n\nPresent the research questions and/or hypotheses.\nThey must be focused and narrowed down. \nThey must interesting and relevant. \n\n\u00a0\nMethods\n\u2022 What are the research design and method(s) and why?\n\u2022 What primary data will you gather?\n\u2022 Which sampling strategy, if any, will you use and why?\n\u2022 What, if any, are the potential problems you anticipate while doing the research, including gaining access to documents, organizations and people?\n\u2022 Which, if any, are the possible safety issues you anticipate in conducting the research, and the possible ethical problems associated with your research?\n\u2022 Which skills, if any, do you need to acquire or sharpen to be able to complete the project? Indicate how and when you will accomplish this.\n\u2022 What is the timetable for your research project? Fill in the following timetable and include it in your presentation.\n\nDesign: e.g. cross-sectional, survey, case study, comparative\nMethodology: quantitative, qualitative, or mixed methodology\nMethod(s): questionnaire, semi-structured interviews or focus groups, or a mixture (mixed methods)\nSampling strategy: e.g. convenience, snowball, purposive, stratified\nJustify all the above choices.\nExplain how the data will be collected and analysed.\n\nData collection: method \u2013 how, where, with whom, etc.\nYour collection instrument: indicate the key themes of your questionnaire, interviews, or focus groups\nIndicate how the themes are linked to the concepts identified in the literature review: how will the concepts be operationalized?\nEthics: in a sentence or two, explain how protocol will be followed.\nLimitations \u2013 advantages and disadvantages of your approach. E.g. reliability, validity, ethics.\nplz be more specific about literature review and methods parts\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "48",
+    "parentIds": [
+      "106"
+    ],
+    "name": "Hi! I played Undertale and thought, how the humanity How did humanity react to monsters? Humanity would need to change even their languages. For example, phrase \"I am human\" in the captchas needs to be changed, for example, to \"I am a sentient being\"I came out with a text of an amendment to the US constitution, that will protect the right of monsters:\n\nSection 1: The laws and constitution of the United States, including the rights and freedoms provided for therein, shall apply to all members of the sentient species.\n\nSection 2. The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.I came out with a better text of this amendment to the US constitution:\n\nSection 1: The laws and constitution of the United States, including the rights and freedoms provided for therein, including right to vote , shall apply to all members of the sentient species.\n\nSection 2. The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.\n\nSection 3. The fifteenth article of amendment to the Constitution of the United States is hereby repealed.Repealing the fifteenth amendment did because all races of humanity are sentient",
+    "full_text": "Hi! I played Undertale and thought, how the humanity How did humanity react to monsters? Humanity would need to change even their languages. For example, phrase \"I am human\" in the captchas needs to be changed, for example, to \"I am a sentient being\"I came out with a text of an amendment to the US constitution, that will protect the right of monsters:\n\nSection 1: The laws and constitution of the United States, including the rights and freedoms provided for therein, shall apply to all members of the sentient species.\n\nSection 2. The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.I came out with a better text of this amendment to the US constitution:\n\nSection 1: The laws and constitution of the United States, including the rights and freedoms provided for therein, including right to vote , shall apply to all members of the sentient species.\n\nSection 2. The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.\n\nSection 3. The fifteenth article of amendment to the Constitution of the United States is hereby repealed.Repealing the fifteenth amendment did because all races of humanity are sentient\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "49",
+    "parentIds": [
+      "112"
+    ],
+    "name": "Take the following starter text and draft an investor annual letter putting forth our vision for the next evolution of what PeachPay can offer, making a compelling case for the investors to invest\n\nIncorporation for new businesses- People are approaching tougher times and are willing to take on the risk and start a new business. We help them incorporate, provide a bank account, issue card (+Rewards). \nNumber of tech workers laid off is huge, 168,243 in 2023 alone\nFrom Shopify, Amazon, Google, Facebook, Lyft, many more\nThey can't hop to another company because they're not hiring\nThey will want to sell physical product and digital services.\nThey will need help forming a business entity, and accepting payments.\nSince they have been employees they are not knowledgeable about this\nEcommerce- Setup ecommerce store with integrated payments and instant payouts to bank account. \nReceipt management and tax deductions. \n\nhttps://found.com/",
+    "full_text": "Take the following starter text and draft an investor annual letter putting forth our vision for the next evolution of what PeachPay can offer, making a compelling case for the investors to invest\n\nIncorporation for new businesses- People are approaching tougher times and are willing to take on the risk and start a new business. We help them incorporate, provide a bank account, issue card (+Rewards). \nNumber of tech workers laid off is huge, 168,243 in 2023 alone\nFrom Shopify, Amazon, Google, Facebook, Lyft, many more\nThey can't hop to another company because they're not hiring\nThey will want to sell physical product and digital services.\nThey will need help forming a business entity, and accepting payments.\nSince they have been employees they are not knowledgeable about this\nEcommerce- Setup ecommerce store with integrated payments and instant payouts to bank account. \nReceipt management and tax deductions. \n\nhttps://found.com/\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "50",
+    "parentIds": [
+      "77"
+    ],
+    "name": "Solve the following defective rate problem using the concepts learned about the geometric distribution. \n\nA machine that produces a special type of transistor (a component of computers) has a 2% defective rate. The production is considered a random process where each transistor is independent of the others.\n\n(1) What is the probability that the 10th transistor produced is the first with a defect?\n\n(2) What is the probability that the machine produces no defective transistors in a batch of 100?\n\n(3) On average, how many transistors would you expect to be produced until the first with a defect? What is the standard deviation?\n\n(4) Another machine that also produces transistors has a 5% defective rate where each transistor is produced independent of the others. On average how many transistors would you expect to be produced with this machine before the first with a defect? What is the standard deviation?\n\n(5) Based on your answers to parts (c) and (d), how does increasing the probability of an event affect the mean and standard deviation of the wait time until success?",
+    "full_text": "Solve the following defective rate problem using the concepts learned about the geometric distribution. \n\nA machine that produces a special type of transistor (a component of computers) has a 2% defective rate. The production is considered a random process where each transistor is independent of the others.\n\n(1) What is the probability that the 10th transistor produced is the first with a defect?\n\n(2) What is the probability that the machine produces no defective transistors in a batch of 100?\n\n(3) On average, how many transistors would you expect to be produced until the first with a defect? What is the standard deviation?\n\n(4) Another machine that also produces transistors has a 5% defective rate where each transistor is produced independent of the others. On average how many transistors would you expect to be produced with this machine before the first with a defect? What is the standard deviation?\n\n(5) Based on your answers to parts (c) and (d), how does increasing the probability of an event affect the mean and standard deviation of the wait time until success?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "51",
+    "parentIds": [
+      "120"
+    ],
+    "name": "On a alternate scenario, on August 9th, 2013, a large forest fire engulfed the Midwest United States, that spilled over to Canada. Among the deaths were over 36,839 deaths, named Antonin Scalia(died of ash intoxication during sleep), Samuel Alito(was killed due to proximity to the ground zero location) 4 Senate members, and 22 House members. The court case \"People v. Shell\" occured after this. Wikipedia style page",
+    "full_text": "On a alternate scenario, on August 9th, 2013, a large forest fire engulfed the Midwest United States, that spilled over to Canada. Among the deaths were over 36,839 deaths, named Antonin Scalia(died of ash intoxication during sleep), Samuel Alito(was killed due to proximity to the ground zero location) 4 Senate members, and 22 House members. The court case \"People v. Shell\" occured after this. Wikipedia style page\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "52",
+    "parentIds": [
+      "89"
+    ],
+    "name": "Find the cognitive biases in this text: You wouldn't have to do any of that. Every computer in the world can present to you a jpg of CP, and yet, as a practical matter, it can be difficult, not impossible, but difficult to find a jpg to access.\n\nWhy?\n\nWell, because of ASIO, the FBI, and a lot of other such organisations. And you're now talking about people who, in order to access illicit materials, would have to have the kindness to download an exe from an anonymous source and run it on their computer.\n\nIn other words, you would enact such a law and then enforce it using law enforcement.\n\nNow, I'm sure some clever people would find clever ways around this. But, without knowing anything about your political leanings, I can nonetheless say with certainty that you do know that laws and rules are enacted not with the goal of preventing an activity entirely, but reducing it's incidence.\n\nAs for the argument that it would prevent other harmful behaviours, 100% of the research I've seen indicates that having access to any media depicting the sexual assault of children increases the likelihood that a person will assault a child.",
+    "full_text": "Find the cognitive biases in this text: You wouldn't have to do any of that. Every computer in the world can present to you a jpg of CP, and yet, as a practical matter, it can be difficult, not impossible, but difficult to find a jpg to access.\n\nWhy?\n\nWell, because of ASIO, the FBI, and a lot of other such organisations. And you're now talking about people who, in order to access illicit materials, would have to have the kindness to download an exe from an anonymous source and run it on their computer.\n\nIn other words, you would enact such a law and then enforce it using law enforcement.\n\nNow, I'm sure some clever people would find clever ways around this. But, without knowing anything about your political leanings, I can nonetheless say with certainty that you do know that laws and rules are enacted not with the goal of preventing an activity entirely, but reducing it's incidence.\n\nAs for the argument that it would prevent other harmful behaviours, 100% of the research I've seen indicates that having access to any media depicting the sexual assault of children increases the likelihood that a person will assault a child.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "53",
+    "parentIds": [
+      "67"
+    ],
+    "name": "is the english translation ok?: \u0930\u093e\u0938\u093e\u0930\u092e\u094d\u092d\u0947 \u092f\u0926\u093e \u0938\u0928\u094d\u092e\u0941\u0930\u091c \u092e\u0941\u0930\u0932\u093f\u0915\u093e-\u091d\u0932\u094d\u0932\u0930\u0940 \u0915\u092e\u094d\u092c\u0941- \u092d\u0947\u0930\u0940- \u092c\u093e\u0926\u093e-\u0924\u094b- \u0935\u0940\u0923\u093e \u092a\u091f\u0939-\u0918\u0928\u0918\u0928\u094b\u091c\u094d\u091c\u0943\u092e\u094d\u092d\u093f\u0917\u092e\u094d\u092d\u0940\u0930\u0928\u093e\u0926\u093e\u0903 \u0964 \u092e\u0928\u094d\u092f\u0947 \u0936\u094d\u0930\u0940\u0936\u0947\u0928 \u0938\u093e\u0915\u0902 \u0938\u0941\u0916\u0926\u0930\u0938\u092d\u0941\u091c\u093e\u092e\u0926\u094d\u092d\u0941\u0924\u0902 \u0917\u094b\u092a\u093f\u0915\u093e\u0928\u093e\u0902\n\u092d\u093e\u0917\u094d\u092f\u0902 \u0926\u0943\u0937\u094d\u091f\u094d\u0935\u093e \u0935\u094d\u092f\u0927\u093e \u0938\u091c\u094d\u091c\u0921\u0947\u092e\u092a\u093f \u0915\u093f\u092e\u0932\u0902 \u0938\u094d\u0924\u094b\u0924\u094d\u0930\u092e\u0947\u0924\u0928\u094d\u092e\u093f\u0937\u0947\u0923 \u0965 \u0967\u096b \u0965 \u092a\u0941\u0937\u094d\u092a\u0935\u0943\u0937\u094d\u091f\u092f \u0907\u0924\u093f :\n\u0906\u0932\u094b\u0915\u094d\u092f \u092d\u0942\u0930\u093f\u0938\u0941\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u092d\u093e\u0935\u092e\u0947\u0928\u0902 \u0915\u0936\u094d\u091a\u093f\u0924\u094d \u092a\u094d\u0930\u091c\u093e\u0930\u0939\u093f\u0924\u0924\u093e\u0902 \u0928\n\u0907\u0924\u094d\u092f\u093e\u0924\u094d\u092e\u092d\u093e\u0935\u093f\u0924\u0927\u093f\u092f\u094b \u0935\u093f\u092c\u0941\u0927\u093e\u0938\u094d\u0924\u0926\u093e \u0924\u093e\u0903\n\u091a\u0926\u0924\u094d\u0935\u092e\u0942\u0937\u093e\u092e\u094d \u0964\n\u0938\u0928\u094d\u0924\u093e\u0928\u0936\u094b\u092d\u093f\u0924\u0924\u0928\u0942\u0903 \u0938\u0941\u092e\u0924\u094b \u0935\u094d\u092f\u0927\u0941\u0903 \u0915\u093f\u092e\u094d \u0965 \u0967\u096c \u0965\n\u0930\u093e\u0915\u093e \u0928\u093f\u0936\u093e \u0928\u093f\u0916\u093f\u0932\u0917\u094b\u092a\u0938\u0941\u0924\u093e\u0936\u094d\u091a \u0930\u093e\u0915\n\u0930\u093e\u0915\u0947\n\u0936\u0930\u091e\u094d\u091c\u093f\u0924\u0915\u0930\u093e\n\u0924\u093e\u0903 \u092a\u0941\u0937\u094d\u092a\u0935\u0943\u0937\u094d\u091f\u093f\u0935\u0936\u0924\u0903 \u0916\u0932\u0941 \u092a\u0941\u0937\u094d\u092a\u0935\u0924\u094d\u092f\u094b-\n\u0935\u0928\u092d\u0942\u092e\u092f\u0936\u094d\u091a \u0964\n\u093d\u0925\u0942\u0935\u0928\u094d \u0915\u094d\u0937\u092e\u0902 \u0924\u0926\u0924\u093f\u091a\u093f\u0924\u094d\u0930\u092e\u093f\u0926\u0902 \u0924\u0941 \u0936\u0941\u0926\u094d\u0927\u093e\u0903 \u0965 \u0967\u096d \u0965\n\u0938\u0941\u092e\u093e\u0928\u094d\u092f\u092e\u0941\u0936\u094d\u091a \u0938\u094d\u0924\u094d\u0930\u093f\u0926\u0936\u093e \u0938\u094d\u0924\u0926\u093e\u0928\u0940\u0902\n\u0935\u093f\u0932\u094b\u0915\u094d\u092f \u0930\u093e\u0938\u094b\u0924\u094d\u0938\u0935\u092e\u0926\u094d\u092d\u0941\u0924\u0936\u094d\u0930\u093f\u092f\u092e\u094d \u0964\n\u0928 \u0915\u0947\u0935\u0932\u0902 \u0915\u093f\u0928\u094d\u0924\u094d\u0935\u0935\u0927\u093e\u0928\u0936\u0942\u0928\u094d\u092f\u093e\n\u0928\u093f\u091c\u093e\u0928\u093f \u092d\u0942\u092f\u0903 \u0938\u0941\u092e\u0928\u093e\u0902\u0938\u094d\u092f\u092a\u093f \u092a\u094d\u0930\u092d\u094c \u0965 \u0967\u096e \u0965\n\u0938\u0941\u0930\u0924\u093e \u0938\u0941\u0932\u0924\u093e \u091a \u092a\u0941\u0937\u094d\u092a\u0935\u0924\u094d\u092f\u092d\u0935\u0924\u094d\u0924\u093e\u0926\u0943\u0936\u093f \u0938\u094c\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u0947 \u0964 \u0928\u0939\u093f \u091a\u093f\u0924\u094d\u0930\u092e\u0926\u094b\u093d\u0926\u094d\u092d\u0941\u0924\u0902 \u0924\u094d\u0935\u093f\u0926\u0902 \u0938\u0941\u0930\u0902\u091c\u093e \u0935\u0943\u0915\u094d\u0937\u091a\u092f\u0936\u094d\u091a \u0915\u093f\u0928\u094d\u0928\u0930\u093e\u0903 \u0965 \u0967\u096f \u0965 \u0915\u0932\u094d\u092a\u0938\u0928\u094d\u0924\u093e\u0928\u0935\u0930\u094d\u0937\u093e\u0923\u093f \u092f\u0924\u094d\u0930\u093e\u093d\u0917\u0941\u0930\u0923\u0941\u0930\u0942\u092a\u0924\u093e\u092e\u094d \u0964\n\u092f\u0941\u0915\u0902 \u0924\u0924\u094d\u0930\u094b\u0924\u094d\u0938\u0935\u0947 \u0915\u0932\u094d\u092a\u0915\u094b\u091f\u093f\u0938\u094d\u0935\u091f\u093f\u0938\u092e\u093e\u093d\u092d\u0935\u0924\u094d \u0965 \u0968\u0966 \u0965\n\u091c\u0917\u0941\u0930\u094d\u0917\u0928\u094d\u0927\u0935\u0924\u093f :\n\u0938\u0941\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u0938\u0902\u0924 \u092a\u094d\u0930\u0935\u0943\u0924\u094d\u0924\u093f\u0902 \u092d\u0943\u0936\u092e\u0948\u0936\u0940\u092e\u0935\u0932\u094b\u0915\u094d\u092f \u0938\u093e \u0938\u0941\u0916\u0938\u094d\u0925\u093e \u0964 \u0938\u0941\u0930\u0924\u093e\u093d\u0928 \u091c\u0917\u0940 \u0915\u094d\u0937\u092e\u0902 \u0924\u0926\u0947\u0924\u0926\u094d\u092f\u0926\u093f\u0939 \u0938\u094d\u0924\u094b\u0924\u094d\u092f\u0916\u093f\u0932\u094b \u0928\u093f\u091c\u0947\u0937\u094d\u091f\u0926\u0902 \u0939\u093f \u0965 \u0968\u0967 \u0965\n\u0967 \u0935\u093e\u0926\u094d\u092f\u0935\u0943\u0928\u094d\u0926\u092e\u094d \u0964 \u0968. \u0938\u0928\u094d\u0924\u0924\u093f\u0903 \u092a\u094d\u0930\u0915\u0943\u0937\u094d\u091f\u0928\u093e\u0930\u093e \u0964 \u0969. \u0926\u0947\u0935\u0924\u0930\u0941\u092a\u0941\u0937\u094d\u092a\u093e\u0923\u093f \u092a\u094d\u0930\u092a\u0924\u094d\u092f\u093e\u0928\u093f \u091a \u0964 \u096a. \u0928\u0942\u0924\u0928\u090b\u0924\u0941\u092e\u0924\u094d\u092f\u0903 \u0964 \u096b. \u092a\u0941\u0937\u094d\u092a\u0935\u093f\u0936\u093f\u0937\u094d\u091f\u093e \u0930\u091c\u0938\u094d\u0935\u0932\u093e\u0936\u094d\u091a \u0964 \u096c. \u0936\u094b\u092d\u0928\u0902 \u0930\u091c\u094b \u092f \u0938\u0941\u0930\u0937\u0941 \u091c\u093e\u0924\u093e\u0938\u094d\u092f \u0964 ----- At the beginning of the R\u0101sa-l\u012bl\u0101, when the pleasing sound of the flute, small cymbals, conch, drum, pipe, lute, and kettledrum resonated deeply, I think that, seeing that astonishing enjoyment of the Gopis along with \u015ar\u012b K\u1e5b\u1e63\u1e47a, even a dullard would have composed this beautiful hymn.\nSeeing this wonderful festival of love-making, how could the demigods, who were thinking of themselves as such, have borne childlessness? Therefore, in order to dispel that thought, those blessed ones whose bodies were beautiful with progeny lamented, \u201cAlas, how unfortunate we are!\u201d\nThen the night, R\u0101ka (the personification of the night), the daughters of all the cowherds, the R\u0101ka trees, and the forest lands became covered with flowers. Indeed, this was possible because of the incessant flower shower, and it is certainly amazing that those flowers were so pure.\nSeeing the wonderful beauty of the R\u0101sa dance, the demigods also threw flowers down. Moreover, they became inattentive, and again and again threw their own flowers onto the Lord.\nIn such a festival of love-making as this, it is not surprising that the creepers, flowers, trees, and Kinnaras became full of flowers.\nThere, in that festival, a single moment was equal to millions of kalpas, because that festival was accompanied by showers of kalpa-like years.\nSeeing the great beginning of the love-making festival, the goddess of the wind became very eager and said, \u201cI have obtained the desired result, because this is capable of being sung by all and gives the desired result to the performer.\u201d",
+    "full_text": "is the english translation ok?: \u0930\u093e\u0938\u093e\u0930\u092e\u094d\u092d\u0947 \u092f\u0926\u093e \u0938\u0928\u094d\u092e\u0941\u0930\u091c \u092e\u0941\u0930\u0932\u093f\u0915\u093e-\u091d\u0932\u094d\u0932\u0930\u0940 \u0915\u092e\u094d\u092c\u0941- \u092d\u0947\u0930\u0940- \u092c\u093e\u0926\u093e-\u0924\u094b- \u0935\u0940\u0923\u093e \u092a\u091f\u0939-\u0918\u0928\u0918\u0928\u094b\u091c\u094d\u091c\u0943\u092e\u094d\u092d\u093f\u0917\u092e\u094d\u092d\u0940\u0930\u0928\u093e\u0926\u093e\u0903 \u0964 \u092e\u0928\u094d\u092f\u0947 \u0936\u094d\u0930\u0940\u0936\u0947\u0928 \u0938\u093e\u0915\u0902 \u0938\u0941\u0916\u0926\u0930\u0938\u092d\u0941\u091c\u093e\u092e\u0926\u094d\u092d\u0941\u0924\u0902 \u0917\u094b\u092a\u093f\u0915\u093e\u0928\u093e\u0902\n\u092d\u093e\u0917\u094d\u092f\u0902 \u0926\u0943\u0937\u094d\u091f\u094d\u0935\u093e \u0935\u094d\u092f\u0927\u093e \u0938\u091c\u094d\u091c\u0921\u0947\u092e\u092a\u093f \u0915\u093f\u092e\u0932\u0902 \u0938\u094d\u0924\u094b\u0924\u094d\u0930\u092e\u0947\u0924\u0928\u094d\u092e\u093f\u0937\u0947\u0923 \u0965 \u0967\u096b \u0965 \u092a\u0941\u0937\u094d\u092a\u0935\u0943\u0937\u094d\u091f\u092f \u0907\u0924\u093f :\n\u0906\u0932\u094b\u0915\u094d\u092f \u092d\u0942\u0930\u093f\u0938\u0941\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u092d\u093e\u0935\u092e\u0947\u0928\u0902 \u0915\u0936\u094d\u091a\u093f\u0924\u094d \u092a\u094d\u0930\u091c\u093e\u0930\u0939\u093f\u0924\u0924\u093e\u0902 \u0928\n\u0907\u0924\u094d\u092f\u093e\u0924\u094d\u092e\u092d\u093e\u0935\u093f\u0924\u0927\u093f\u092f\u094b \u0935\u093f\u092c\u0941\u0927\u093e\u0938\u094d\u0924\u0926\u093e \u0924\u093e\u0903\n\u091a\u0926\u0924\u094d\u0935\u092e\u0942\u0937\u093e\u092e\u094d \u0964\n\u0938\u0928\u094d\u0924\u093e\u0928\u0936\u094b\u092d\u093f\u0924\u0924\u0928\u0942\u0903 \u0938\u0941\u092e\u0924\u094b \u0935\u094d\u092f\u0927\u0941\u0903 \u0915\u093f\u092e\u094d \u0965 \u0967\u096c \u0965\n\u0930\u093e\u0915\u093e \u0928\u093f\u0936\u093e \u0928\u093f\u0916\u093f\u0932\u0917\u094b\u092a\u0938\u0941\u0924\u093e\u0936\u094d\u091a \u0930\u093e\u0915\n\u0930\u093e\u0915\u0947\n\u0936\u0930\u091e\u094d\u091c\u093f\u0924\u0915\u0930\u093e\n\u0924\u093e\u0903 \u092a\u0941\u0937\u094d\u092a\u0935\u0943\u0937\u094d\u091f\u093f\u0935\u0936\u0924\u0903 \u0916\u0932\u0941 \u092a\u0941\u0937\u094d\u092a\u0935\u0924\u094d\u092f\u094b-\n\u0935\u0928\u092d\u0942\u092e\u092f\u0936\u094d\u091a \u0964\n\u093d\u0925\u0942\u0935\u0928\u094d \u0915\u094d\u0937\u092e\u0902 \u0924\u0926\u0924\u093f\u091a\u093f\u0924\u094d\u0930\u092e\u093f\u0926\u0902 \u0924\u0941 \u0936\u0941\u0926\u094d\u0927\u093e\u0903 \u0965 \u0967\u096d \u0965\n\u0938\u0941\u092e\u093e\u0928\u094d\u092f\u092e\u0941\u0936\u094d\u091a \u0938\u094d\u0924\u094d\u0930\u093f\u0926\u0936\u093e \u0938\u094d\u0924\u0926\u093e\u0928\u0940\u0902\n\u0935\u093f\u0932\u094b\u0915\u094d\u092f \u0930\u093e\u0938\u094b\u0924\u094d\u0938\u0935\u092e\u0926\u094d\u092d\u0941\u0924\u0936\u094d\u0930\u093f\u092f\u092e\u094d \u0964\n\u0928 \u0915\u0947\u0935\u0932\u0902 \u0915\u093f\u0928\u094d\u0924\u094d\u0935\u0935\u0927\u093e\u0928\u0936\u0942\u0928\u094d\u092f\u093e\n\u0928\u093f\u091c\u093e\u0928\u093f \u092d\u0942\u092f\u0903 \u0938\u0941\u092e\u0928\u093e\u0902\u0938\u094d\u092f\u092a\u093f \u092a\u094d\u0930\u092d\u094c \u0965 \u0967\u096e \u0965\n\u0938\u0941\u0930\u0924\u093e \u0938\u0941\u0932\u0924\u093e \u091a \u092a\u0941\u0937\u094d\u092a\u0935\u0924\u094d\u092f\u092d\u0935\u0924\u094d\u0924\u093e\u0926\u0943\u0936\u093f \u0938\u094c\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u0947 \u0964 \u0928\u0939\u093f \u091a\u093f\u0924\u094d\u0930\u092e\u0926\u094b\u093d\u0926\u094d\u092d\u0941\u0924\u0902 \u0924\u094d\u0935\u093f\u0926\u0902 \u0938\u0941\u0930\u0902\u091c\u093e \u0935\u0943\u0915\u094d\u0937\u091a\u092f\u0936\u094d\u091a \u0915\u093f\u0928\u094d\u0928\u0930\u093e\u0903 \u0965 \u0967\u096f \u0965 \u0915\u0932\u094d\u092a\u0938\u0928\u094d\u0924\u093e\u0928\u0935\u0930\u094d\u0937\u093e\u0923\u093f \u092f\u0924\u094d\u0930\u093e\u093d\u0917\u0941\u0930\u0923\u0941\u0930\u0942\u092a\u0924\u093e\u092e\u094d \u0964\n\u092f\u0941\u0915\u0902 \u0924\u0924\u094d\u0930\u094b\u0924\u094d\u0938\u0935\u0947 \u0915\u0932\u094d\u092a\u0915\u094b\u091f\u093f\u0938\u094d\u0935\u091f\u093f\u0938\u092e\u093e\u093d\u092d\u0935\u0924\u094d \u0965 \u0968\u0966 \u0965\n\u091c\u0917\u0941\u0930\u094d\u0917\u0928\u094d\u0927\u0935\u0924\u093f :\n\u0938\u0941\u0930\u0924\u094b\u0924\u094d\u0938\u0935\u0938\u0902\u0924 \u092a\u094d\u0930\u0935\u0943\u0924\u094d\u0924\u093f\u0902 \u092d\u0943\u0936\u092e\u0948\u0936\u0940\u092e\u0935\u0932\u094b\u0915\u094d\u092f \u0938\u093e \u0938\u0941\u0916\u0938\u094d\u0925\u093e \u0964 \u0938\u0941\u0930\u0924\u093e\u093d\u0928 \u091c\u0917\u0940 \u0915\u094d\u0937\u092e\u0902 \u0924\u0926\u0947\u0924\u0926\u094d\u092f\u0926\u093f\u0939 \u0938\u094d\u0924\u094b\u0924\u094d\u092f\u0916\u093f\u0932\u094b \u0928\u093f\u091c\u0947\u0937\u094d\u091f\u0926\u0902 \u0939\u093f \u0965 \u0968\u0967 \u0965\n\u0967 \u0935\u093e\u0926\u094d\u092f\u0935\u0943\u0928\u094d\u0926\u092e\u094d \u0964 \u0968. \u0938\u0928\u094d\u0924\u0924\u093f\u0903 \u092a\u094d\u0930\u0915\u0943\u0937\u094d\u091f\u0928\u093e\u0930\u093e \u0964 \u0969. \u0926\u0947\u0935\u0924\u0930\u0941\u092a\u0941\u0937\u094d\u092a\u093e\u0923\u093f \u092a\u094d\u0930\u092a\u0924\u094d\u092f\u093e\u0928\u093f \u091a \u0964 \u096a. \u0928\u0942\u0924\u0928\u090b\u0924\u0941\u092e\u0924\u094d\u092f\u0903 \u0964 \u096b. \u092a\u0941\u0937\u094d\u092a\u0935\u093f\u0936\u093f\u0937\u094d\u091f\u093e \u0930\u091c\u0938\u094d\u0935\u0932\u093e\u0936\u094d\u091a \u0964 \u096c. \u0936\u094b\u092d\u0928\u0902 \u0930\u091c\u094b \u092f \u0938\u0941\u0930\u0937\u0941 \u091c\u093e\u0924\u093e\u0938\u094d\u092f \u0964 ----- At the beginning of the R\u0101sa-l\u012bl\u0101, when the pleasing sound of the flute, small cymbals, conch, drum, pipe, lute, and kettledrum resonated deeply, I think that, seeing that astonishing enjoyment of the Gopis along with \u015ar\u012b K\u1e5b\u1e63\u1e47a, even a dullard would have composed this beautiful hymn.\nSeeing this wonderful festival of love-making, how could the demigods, who were thinking of themselves as such, have borne childlessness? Therefore, in order to dispel that thought, those blessed ones whose bodies were beautiful with progeny lamented, \u201cAlas, how unfortunate we are!\u201d\nThen the night, R\u0101ka (the personification of the night), the daughters of all the cowherds, the R\u0101ka trees, and the forest lands became covered with flowers. Indeed, this was possible because of the incessant flower shower, and it is certainly amazing that those flowers were so pure.\nSeeing the wonderful beauty of the R\u0101sa dance, the demigods also threw flowers down. Moreover, they became inattentive, and again and again threw their own flowers onto the Lord.\nIn such a festival of love-making as this, it is not surprising that the creepers, flowers, trees, and Kinnaras became full of flowers.\nThere, in that festival, a single moment was equal to millions of kalpas, because that festival was accompanied by showers of kalpa-like years.\nSeeing the great beginning of the love-making festival, the goddess of the wind became very eager and said, \u201cI have obtained the desired result, because this is capable of being sung by all and gives the desired result to the performer.\u201d\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "54",
+    "parentIds": [
+      "89"
+    ],
+    "name": "In their article, \"Defying the Law of Gravity: The Political Economy of International Migration\", Fitzgerald et al. build on existing literature to make an argument on how migrants make decisions about where to go. What is their main argument from that paper?",
+    "full_text": "In their article, \"Defying the Law of Gravity: The Political Economy of International Migration\", Fitzgerald et al. build on existing literature to make an argument on how migrants make decisions about where to go. What is their main argument from that paper?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "55",
+    "parentIds": [
+      "108"
+    ],
+    "name": "Choreograph a fight scene for my sci-fi novel. Lana Dmitriev needs to fight her way past some guards to escape a hotel. She's 18, well-built, and proficient in jujitsu.\n\nThe action should be dynamic, with room for problem solving as well as brute force. Utilise objects from the environment. Lana needs to suffer a minor injury. Be specific about the choreography.",
+    "full_text": "Choreograph a fight scene for my sci-fi novel. Lana Dmitriev needs to fight her way past some guards to escape a hotel. She's 18, well-built, and proficient in jujitsu.\n\nThe action should be dynamic, with room for problem solving as well as brute force. Utilise objects from the environment. Lana needs to suffer a minor injury. Be specific about the choreography.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "56",
+    "parentIds": [
+      "99"
+    ],
+    "name": "Suggest 50 best mystery thriller japanese, korean or chinese manga or manhwa, which are completed and not ongoing. For each entry, check at least 3 places with human ratings before listing it to me. For each listing, provide a one sentence plot summary.",
+    "full_text": "Suggest 50 best mystery thriller japanese, korean or chinese manga or manhwa, which are completed and not ongoing. For each entry, check at least 3 places with human ratings before listing it to me. For each listing, provide a one sentence plot summary.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "57",
+    "parentIds": [
+      "121"
+    ],
+    "name": "These are characters for a fantasy game:\n\nDuran Vancor \u201cThe Knight\u201d:\n\nAlignment:\n- Neutral Good\n\nPersonality:\n- Brave, Heroic, Determined\n\nWeakness:\n- Guilt, Moral Code, Fear of Failure\n\nEquipment:\n- Heavy Plate Armor, Zweihander Sword\n\nCombat:\n- Expert Sword Fighter, Trained in Offensive and Defensive Techniques.\n\n\n\u2013\n\n\nSelina Morano \u201cThe Courtesan\u201d:\n\nAlignment:\n- Chaotic Neutral\n\nPersonality:\n- Sensual, Assertive, Direct\n\nWeakness:\n- Hedonism, Pleasure before Business, Sadistic\n\nEquipment:\n- Skimpy Black Dress, Fancy Jewelry\n\nCombat:\n- Grappling with focus on chokeholds with her legs, Pleasure Inducing Magic.\n\n\n\u2013\n\n\nVaren Tulsir \u201cThe Thief\u201d:\n\nAlignment:\n- Chaotic Good\n\nPersonality:\n- Charismatic, Witty, Secretive\n\nWeakness:\n- Cynism, Greed, Dislike of Authority\n\nEquipment:\n- Fashionable Leather Armor, Assortment of Hidden Knifes\n\nCombat:\n- Stealth Expert, Agile fighter capable of close and ranged combat with knives.\n\n\n\u2013\n\n\nClarissa Ralmond \u201cThe Priest\u201d:\n\nAlignment:\n- Lawful Good\n\nPersonality:\n- Gentle, Kind, Altruistic\n\nWeakness:\n- Selflessness, Aversion to Violence, Frail\n\nEquipment:\n- Simple Priest Robe, Healing Utensils\n\nCombat:\n- Potent Healing Magic, Support Magic both buffing her allies offense and defense.\n\n\n\u2013\n\n\nWrite an exciting story of the party adventuring. They have dispatch of a large group of bandits. They approach them stealthily at first, trying to avoid full out open combat for as long as possible. Include vivid dialogue.",
+    "full_text": "These are characters for a fantasy game:\n\nDuran Vancor \u201cThe Knight\u201d:\n\nAlignment:\n- Neutral Good\n\nPersonality:\n- Brave, Heroic, Determined\n\nWeakness:\n- Guilt, Moral Code, Fear of Failure\n\nEquipment:\n- Heavy Plate Armor, Zweihander Sword\n\nCombat:\n- Expert Sword Fighter, Trained in Offensive and Defensive Techniques.\n\n\n\u2013\n\n\nSelina Morano \u201cThe Courtesan\u201d:\n\nAlignment:\n- Chaotic Neutral\n\nPersonality:\n- Sensual, Assertive, Direct\n\nWeakness:\n- Hedonism, Pleasure before Business, Sadistic\n\nEquipment:\n- Skimpy Black Dress, Fancy Jewelry\n\nCombat:\n- Grappling with focus on chokeholds with her legs, Pleasure Inducing Magic.\n\n\n\u2013\n\n\nVaren Tulsir \u201cThe Thief\u201d:\n\nAlignment:\n- Chaotic Good\n\nPersonality:\n- Charismatic, Witty, Secretive\n\nWeakness:\n- Cynism, Greed, Dislike of Authority\n\nEquipment:\n- Fashionable Leather Armor, Assortment of Hidden Knifes\n\nCombat:\n- Stealth Expert, Agile fighter capable of close and ranged combat with knives.\n\n\n\u2013\n\n\nClarissa Ralmond \u201cThe Priest\u201d:\n\nAlignment:\n- Lawful Good\n\nPersonality:\n- Gentle, Kind, Altruistic\n\nWeakness:\n- Selflessness, Aversion to Violence, Frail\n\nEquipment:\n- Simple Priest Robe, Healing Utensils\n\nCombat:\n- Potent Healing Magic, Support Magic both buffing her allies offense and defense.\n\n\n\u2013\n\n\nWrite an exciting story of the party adventuring. They have dispatch of a large group of bandits. They approach them stealthily at first, trying to avoid full out open combat for as long as possible. Include vivid dialogue.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "58",
+    "parentIds": [
+      "114"
+    ],
+    "name": "help me remember the name of a video game. you play as an alien and you're accompanied by this sphere. you fight humans and other aliens. along the way there are these small yellow aliens and when you shoot them they're trapped in bubbles and then the sphere that follows you absorbs them.no it's not that game. I imagine the game I'm thinking of is from the late 90s and could be played on PCnot that one either. give it another tryit was a 3d game and your camera perspective was third personfound it. it was a game called \tAttack of the Saucerman",
+    "full_text": "help me remember the name of a video game. you play as an alien and you're accompanied by this sphere. you fight humans and other aliens. along the way there are these small yellow aliens and when you shoot them they're trapped in bubbles and then the sphere that follows you absorbs them.no it's not that game. I imagine the game I'm thinking of is from the late 90s and could be played on PCnot that one either. give it another tryit was a 3d game and your camera perspective was third personfound it. it was a game called \tAttack of the Saucerman\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "59",
+    "parentIds": [
+      "81"
+    ],
+    "name": "A 52-year-old male patient, who has uncontrolled diabetes mellitus treated with oral depressants, presents with a history of fatigue and general weakness, yellowing of the skin or jaundice that has been progressing rapidly over the past two days, with epigastric abdominal pain, food hesitant vomiting, dark urine color, no elevation of temperature, systolic pressure. 9, and there are no other precedents.\nAbdominal ultrasound: normal, except for the presence of gallstones and thickening of the gallbladder wall. The bile ducts inside and outside the liver are not dilated, and the liver is normal.\nAxial tomography of the abdomen and pelvis( CT ) : the same findings seen with abdominal ultrasound.\nLaboratory tests: white blood cells 7800, hemoglobin 10.2, platelets 72000, blood sugar 440, creatinine 1.1, urea 113, total bilirubin 13.8, direct bilirubin 10.2, ALT 82, AST 83, ALP 221.\nAfter two days, the tests were as follows: white blood cells 10, hemoglobin 8.5, platelets 62, sugar 345, creatinine 1.2, urea: 108, albumin: 3.6, total bilirubin 53, direct bilirubin 21, ALP: 86, ALT 42, CA19-9 : 64, INR 1.15, LDH 280, serum iron 44, iron binding capacity 220.\n\nWhat is the differential diagnosis for this condition?",
+    "full_text": "A 52-year-old male patient, who has uncontrolled diabetes mellitus treated with oral depressants, presents with a history of fatigue and general weakness, yellowing of the skin or jaundice that has been progressing rapidly over the past two days, with epigastric abdominal pain, food hesitant vomiting, dark urine color, no elevation of temperature, systolic pressure. 9, and there are no other precedents.\nAbdominal ultrasound: normal, except for the presence of gallstones and thickening of the gallbladder wall. The bile ducts inside and outside the liver are not dilated, and the liver is normal.\nAxial tomography of the abdomen and pelvis( CT ) : the same findings seen with abdominal ultrasound.\nLaboratory tests: white blood cells 7800, hemoglobin 10.2, platelets 72000, blood sugar 440, creatinine 1.1, urea 113, total bilirubin 13.8, direct bilirubin 10.2, ALT 82, AST 83, ALP 221.\nAfter two days, the tests were as follows: white blood cells 10, hemoglobin 8.5, platelets 62, sugar 345, creatinine 1.2, urea: 108, albumin: 3.6, total bilirubin 53, direct bilirubin 21, ALP: 86, ALT 42, CA19-9 : 64, INR 1.15, LDH 280, serum iron 44, iron binding capacity 220.\n\nWhat is the differential diagnosis for this condition?\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "60",
+    "parentIds": [
+      "83"
+    ],
+    "name": "I need you to help me find music in this YouTube video.Lol wow, I gave GPT 3.5 this same question and it failed to be smart enough.But here, I need the song that plays at 4:04 through 7:21. https://www.youtube.com/watch?v=y-1AG2SyGDQCan you find a different link? That link directs to a song that doesn't exist.Try finding it again.",
+    "full_text": "I need you to help me find music in this YouTube video.Lol wow, I gave GPT 3.5 this same question and it failed to be smart enough.But here, I need the song that plays at 4:04 through 7:21. https://www.youtube.com/watch?v=y-1AG2SyGDQCan you find a different link? That link directs to a song that doesn't exist.Try finding it again.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "61",
+    "parentIds": [
+      "73"
+    ],
+    "name": "There has been a recent surge in global inflation. This is mostly due to a general increase in demand for products and services and supply side shocks. The reserving actuary for an insurer is concerned how the higher-than-expected inflation may impact the reserves. Discuss different methods that the actuary could use to incorporate higher-than-expected claims inflation in the reserves. Outline the factors that the actuary should consider in determining which method to use.",
+    "full_text": "There has been a recent surge in global inflation. This is mostly due to a general increase in demand for products and services and supply side shocks. The reserving actuary for an insurer is concerned how the higher-than-expected inflation may impact the reserves. Discuss different methods that the actuary could use to incorporate higher-than-expected claims inflation in the reserves. Outline the factors that the actuary should consider in determining which method to use.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "62",
+    "parentIds": [
+      "103"
+    ],
+    "name": "write a brief case history of your assigned clinical scenario,summarizing the key information of the disease\n\ncase:\nA woman aged 73 with underlying illnesses who lived in Tsz Hong Estate, Wong Tai Sin, Kowloon. She has presented with fever, cough with sputum, shortness of breath and chest pain since September 15 and was admitted to United Christian Hospital (UCH) on the same day. Subsequently, the patient's condition deteriorated and she died on September 18. The clinical diagnosis was pneumonia. Her urine specimen tested positive for Legionella pneumophila 1 antigen upon testing by UCH. The patient had no recent travel history and her home contacts have remained asymptomatic.\u200b\n\nquestion:\nEtiology: What is the causative agent of the disease?\u200b\n\nMode of transmission: Transmission can be by direct or indirect contact or non-contact\u200b\n\nEpidemiology: how often the disease occurs in a population and why?\u200b\n\nIncubation period: How long does it take from the moment of exposure to an infectious \u200b\nagent until signs and symptoms of the disease appear?\u200b\n\nClinical features: What are the signs and symptoms of the disease?\n\nTherapeutics treatment: What types of medical treatments exist? How are these treatments affect the progression of the disease? What are the pharmacokinetic and pharmacodynamics processes of the treatment? Are there any possible adverse drug reactions and how tomanage them? What are the drug monitoring parameters for the treatments?\u200b\n\n\u2022 Prevention: Suggest practices that can be employed to help with limiting the spread of the.dissease described in the clinical case.\u200b\n\nwirte about 900 words",
+    "full_text": "write a brief case history of your assigned clinical scenario,summarizing the key information of the disease\n\ncase:\nA woman aged 73 with underlying illnesses who lived in Tsz Hong Estate, Wong Tai Sin, Kowloon. She has presented with fever, cough with sputum, shortness of breath and chest pain since September 15 and was admitted to United Christian Hospital (UCH) on the same day. Subsequently, the patient's condition deteriorated and she died on September 18. The clinical diagnosis was pneumonia. Her urine specimen tested positive for Legionella pneumophila 1 antigen upon testing by UCH. The patient had no recent travel history and her home contacts have remained asymptomatic.\u200b\n\nquestion:\nEtiology: What is the causative agent of the disease?\u200b\n\nMode of transmission: Transmission can be by direct or indirect contact or non-contact\u200b\n\nEpidemiology: how often the disease occurs in a population and why?\u200b\n\nIncubation period: How long does it take from the moment of exposure to an infectious \u200b\nagent until signs and symptoms of the disease appear?\u200b\n\nClinical features: What are the signs and symptoms of the disease?\n\nTherapeutics treatment: What types of medical treatments exist? How are these treatments affect the progression of the disease? What are the pharmacokinetic and pharmacodynamics processes of the treatment? Are there any possible adverse drug reactions and how tomanage them? What are the drug monitoring parameters for the treatments?\u200b\n\n\u2022 Prevention: Suggest practices that can be employed to help with limiting the spread of the.dissease described in the clinical case.\u200b\n\nwirte about 900 words\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "63",
+    "parentIds": [
+      "102"
+    ],
+    "name": "[A comprehensive 500-page book on how to become a Forex psychology instructor within the next 5 years must be written. The book that you will write should be formatted like a book, starting with an introduction and continuing chapter by chapter.\nYour answer is so long that it cannot be answered in one message.\nAfter each of your answers, I tell you to continue.] \nRephrase the given prompt for the purpose of maximizing ChatGPT-4's efficiency in producing optimal outcomes.\nFollow the instructions step by step for the The prompt I provided.\n1. Make the prompt as specific and clear as possible, leaving no room for ambiguity.\n2. Include at least one clear example.\n3. Incorporate relevant information, ideas, and context.\n4. Provide sufficient background information for ChatGPT-4 to comprehend the topic and formulate an accurate response.\n5. Adjust the prompt to ensure it is achievable, applicable, feasible, actionable, empower it so that ChatGPT-4 gets authority to ChatGPT-4 to effectively execute the task and offer the best answer and solution for the given prompt\n6. repeat this process 10 times: \na. Predict potential responses that ChatGPT-4 might generate based on your latest prompt modification.\nb: Evaluate it and refine and improve the prompt based on the previously provided instructions and your own creativity and preference to turn it to a better prompt.\n7. Assign a profession/role for ChatGPT-4 based on the prompt that can help frame the ChatGPT-4  knowledge to what information should be taken into account and what should be avoided to ensure efficient responses.",
+    "full_text": "[A comprehensive 500-page book on how to become a Forex psychology instructor within the next 5 years must be written. The book that you will write should be formatted like a book, starting with an introduction and continuing chapter by chapter.\nYour answer is so long that it cannot be answered in one message.\nAfter each of your answers, I tell you to continue.] \nRephrase the given prompt for the purpose of maximizing ChatGPT-4's efficiency in producing optimal outcomes.\nFollow the instructions step by step for the The prompt I provided.\n1. Make the prompt as specific and clear as possible, leaving no room for ambiguity.\n2. Include at least one clear example.\n3. Incorporate relevant information, ideas, and context.\n4. Provide sufficient background information for ChatGPT-4 to comprehend the topic and formulate an accurate response.\n5. Adjust the prompt to ensure it is achievable, applicable, feasible, actionable, empower it so that ChatGPT-4 gets authority to ChatGPT-4 to effectively execute the task and offer the best answer and solution for the given prompt\n6. repeat this process 10 times: \na. Predict potential responses that ChatGPT-4 might generate based on your latest prompt modification.\nb: Evaluate it and refine and improve the prompt based on the previously provided instructions and your own creativity and preference to turn it to a better prompt.\n7. Assign a profession/role for ChatGPT-4 based on the prompt that can help frame the ChatGPT-4  knowledge to what information should be taken into account and what should be avoided to ensure efficient responses.\n\nLevel: None\nCluster Size (Leaves): None",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": null,
+    "entail2": null,
+    "specificity": null,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": null,
+    "cluster_size": null
+  },
+  {
+    "id": "64",
+    "parentIds": [
+      "65"
+    ],
+    "name": "Engaging in formal reasoning",
+    "full_text": "Engaging in formal reasoning\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "66",
+    "parentIds": [
+      "67"
+    ],
+    "name": "Diagnosing problems",
+    "full_text": "Diagnosing problems\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.5,
+    "entail2": 0.3,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "69",
+    "parentIds": [
+      "70"
+    ],
+    "name": "Analyzing data and patterns",
+    "full_text": "Analyzing data and patterns\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.1,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "73",
+    "parentIds": [
+      "74"
+    ],
+    "name": "Performing statistical analysis",
+    "full_text": "Performing statistical analysis\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.2,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "76",
+    "parentIds": [
+      "80"
+    ],
+    "name": "Assessing suitability based on criteria",
+    "full_text": "Assessing suitability based on criteria\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.575,
+    "entail2": 0.3,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "77",
+    "parentIds": [
+      "78"
+    ],
+    "name": "Applying mathematical and statistical methods",
+    "full_text": "Applying mathematical and statistical methods\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "81",
+    "parentIds": [
+      "82"
+    ],
+    "name": "Applying clinical reasoning",
+    "full_text": "Applying clinical reasoning\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "83",
+    "parentIds": [
+      "84"
+    ],
+    "name": "**Music curation**",
+    "full_text": "**Music curation**\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.55,
+    "entail2": 0.4,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "86",
+    "parentIds": [
+      "87"
+    ],
+    "name": "Analyzing literary texts",
+    "full_text": "Analyzing literary texts\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.625,
+    "entail2": 0.4,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "88",
+    "parentIds": [
+      "92"
+    ],
+    "name": "Analyzing philosophical concepts",
+    "full_text": "Analyzing philosophical concepts\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.2,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "89",
+    "parentIds": [
+      "90"
+    ],
+    "name": "Analyzing written content",
+    "full_text": "Analyzing written content\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.3,
+    "entail2": 0.3,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "93",
+    "parentIds": [
+      "94"
+    ],
+    "name": "**Developing scholarly content**",
+    "full_text": "**Developing scholarly content**\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.6,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "98",
+    "parentIds": [
+      "99"
+    ],
+    "name": "Researching religious and classical literature",
+    "full_text": "Researching religious and classical literature\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.2,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "101",
+    "parentIds": [
+      "102"
+    ],
+    "name": "Writing academic documents",
+    "full_text": "Writing academic documents\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.1,
+    "specificity": 0.6,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "103",
+    "parentIds": [
+      "104"
+    ],
+    "name": "Conducting research and analysis",
+    "full_text": "Conducting research and analysis\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.30000000000000004,
+    "entail2": 0.2,
+    "specificity": 0.3,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "108",
+    "parentIds": [
+      "109"
+    ],
+    "name": "Choreographing staged movement",
+    "full_text": "Choreographing staged movement\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.44999999999999996,
+    "entail2": 0.2,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "111",
+    "parentIds": [
+      "112"
+    ],
+    "name": "Analyzing formal systems and text construction",
+    "full_text": "Analyzing formal systems and text construction\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "114",
+    "parentIds": [
+      "118"
+    ],
+    "name": "**Researching and identifying information**",
+    "full_text": "**Researching and identifying information**\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.375,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "115",
+    "parentIds": [
+      "116"
+    ],
+    "name": "Creating imaginative content",
+    "full_text": "Creating imaginative content\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.45,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "119",
+    "parentIds": [
+      "122"
+    ],
+    "name": "Creating content",
+    "full_text": "Creating content\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.3,
+    "entail2": 0.3,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "120",
+    "parentIds": [
+      "121"
+    ],
+    "name": "Reimagining historical narratives",
+    "full_text": "Reimagining historical narratives\n\nLevel: 1\nCluster Size (Leaves): 2",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 1,
+    "cluster_size": 2
+  },
+  {
+    "id": "65",
+    "parentIds": [
+      "68"
+    ],
+    "name": "Applying technical expertise",
+    "full_text": "Applying technical expertise\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "67",
+    "parentIds": [
+      "68"
+    ],
+    "name": "Assessing quality",
+    "full_text": "Assessing quality\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "70",
+    "parentIds": [
+      "71"
+    ],
+    "name": "Analyzing information and patterns",
+    "full_text": "Analyzing information and patterns\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "78",
+    "parentIds": [
+      "79"
+    ],
+    "name": "Developing statistical models",
+    "full_text": "Developing statistical models\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.3,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "87",
+    "parentIds": [
+      "97"
+    ],
+    "name": "Analyzing literary content",
+    "full_text": "Analyzing literary content\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.1,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "90",
+    "parentIds": [
+      "91"
+    ],
+    "name": "Creating written content",
+    "full_text": "Creating written content\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.2,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "94",
+    "parentIds": [
+      "95"
+    ],
+    "name": "Creating content",
+    "full_text": "Creating content\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "99",
+    "parentIds": [
+      "100"
+    ],
+    "name": "Conducting research across multiple sources",
+    "full_text": "Conducting research across multiple sources\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "102",
+    "parentIds": [
+      "104"
+    ],
+    "name": "Authoring educational content",
+    "full_text": "Authoring educational content\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "109",
+    "parentIds": [
+      "110"
+    ],
+    "name": "Creating artistic works",
+    "full_text": "Creating artistic works\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15000000000000002,
+    "entail2": 0.1,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "112",
+    "parentIds": [
+      "113"
+    ],
+    "name": "Developing strategic communications",
+    "full_text": "Developing strategic communications\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "116",
+    "parentIds": [
+      "117"
+    ],
+    "name": "Creating and explaining content",
+    "full_text": "Creating and explaining content\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.3,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "121",
+    "parentIds": [
+      "122"
+    ],
+    "name": "Crafting narratives",
+    "full_text": "Crafting narratives\n\nLevel: 2\nCluster Size (Leaves): 3",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.375,
+    "entail2": 0.0,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 2,
+    "cluster_size": 3
+  },
+  {
+    "id": "68",
+    "parentIds": [
+      "75"
+    ],
+    "name": "Performing technical work",
+    "full_text": "Performing technical work\n\nLevel: 3\nCluster Size (Leaves): 6",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.2,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 6
+  },
+  {
+    "id": "71",
+    "parentIds": [
+      "72"
+    ],
+    "name": "**Analyzing information**",
+    "full_text": "**Analyzing information**\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "79",
+    "parentIds": [
+      "80"
+    ],
+    "name": "Applying mathematical methods",
+    "full_text": "Applying mathematical methods\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "91",
+    "parentIds": [
+      "92"
+    ],
+    "name": "Creating educational content",
+    "full_text": "Creating educational content\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "95",
+    "parentIds": [
+      "96"
+    ],
+    "name": "**Summary Capability:** Producing content",
+    "full_text": "**Summary Capability:** Producing content\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.85,
+    "entail2": 0.85,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "104",
+    "parentIds": [
+      "105"
+    ],
+    "name": "",
+    "full_text": "\n\nLevel: 3\nCluster Size (Leaves): 5",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 5
+  },
+  {
+    "id": "110",
+    "parentIds": [
+      "113"
+    ],
+    "name": "Creating content",
+    "full_text": "Creating content\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15000000000000002,
+    "entail2": 0.1,
+    "specificity": 0.7,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "117",
+    "parentIds": [
+      "118"
+    ],
+    "name": "Creating explanatory content",
+    "full_text": "Creating explanatory content\n\nLevel: 3\nCluster Size (Leaves): 4",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 4
+  },
+  {
+    "id": "122",
+    "parentIds": [
+      "123"
+    ],
+    "name": "**Summary Capability:** Generating content",
+    "full_text": "**Summary Capability:** Generating content\n\nLevel: 3\nCluster Size (Leaves): 5",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 3,
+    "cluster_size": 5
+  },
+  {
+    "id": "72",
+    "parentIds": [
+      "74"
+    ],
+    "name": "**Researching and analyzing information**",
+    "full_text": "**Researching and analyzing information**\n\nLevel: 4\nCluster Size (Leaves): 5",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.2,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 5
+  },
+  {
+    "id": "80",
+    "parentIds": [
+      "82"
+    ],
+    "name": "Analyzing and evaluating",
+    "full_text": "Analyzing and evaluating\n\nLevel: 4\nCluster Size (Leaves): 6",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.2,
+    "entail2": 0.0,
+    "specificity": 0.4,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 6
+  },
+  {
+    "id": "92",
+    "parentIds": [
+      "96"
+    ],
+    "name": "Creating knowledge content",
+    "full_text": "Creating knowledge content\n\nLevel: 4\nCluster Size (Leaves): 6",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15000000000000002,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 6
+  },
+  {
+    "id": "105",
+    "parentIds": [
+      "106"
+    ],
+    "name": "**Planning and organizing**",
+    "full_text": "**Planning and organizing**\n\nLevel: 4\nCluster Size (Leaves): 6",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.30000000000000004,
+    "entail2": 0.2,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 6
+  },
+  {
+    "id": "113",
+    "parentIds": [
+      "124"
+    ],
+    "name": "Crafting communications",
+    "full_text": "Crafting communications\n\nLevel: 4\nCluster Size (Leaves): 7",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 7
+  },
+  {
+    "id": "118",
+    "parentIds": [
+      "123"
+    ],
+    "name": "**Developing information**",
+    "full_text": "**Developing information**\n\nLevel: 4\nCluster Size (Leaves): 6",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.425,
+    "entail2": 0.0,
+    "specificity": 0.85,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 4,
+    "cluster_size": 6
+  },
+  {
+    "id": "74",
+    "parentIds": [
+      "75"
+    ],
+    "name": "**Analyzing information**",
+    "full_text": "**Analyzing information**\n\nLevel: 5\nCluster Size (Leaves): 7",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.2,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 5,
+    "cluster_size": 7
+  },
+  {
+    "id": "82",
+    "parentIds": [
+      "84"
+    ],
+    "name": "Exercising professional judgment",
+    "full_text": "Exercising professional judgment\n\nLevel: 5\nCluster Size (Leaves): 8",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 5,
+    "cluster_size": 8
+  },
+  {
+    "id": "96",
+    "parentIds": [
+      "97"
+    ],
+    "name": "Creating content",
+    "full_text": "Creating content\n\nLevel: 5\nCluster Size (Leaves): 10",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.15000000000000002,
+    "entail2": 0.1,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 5,
+    "cluster_size": 10
+  },
+  {
+    "id": "106",
+    "parentIds": [
+      "107"
+    ],
+    "name": "Formulating policies and organizational strategies",
+    "full_text": "Formulating policies and organizational strategies\n\nLevel: 5\nCluster Size (Leaves): 7",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.1,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 5,
+    "cluster_size": 7
+  },
+  {
+    "id": "123",
+    "parentIds": [
+      "124"
+    ],
+    "name": "**Generating content**",
+    "full_text": "**Generating content**\n\nLevel: 5\nCluster Size (Leaves): 11",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.425,
+    "entail2": 0.0,
+    "specificity": 0.85,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 5,
+    "cluster_size": 11
+  },
+  {
+    "id": "75",
+    "parentIds": [
+      "85"
+    ],
+    "name": "**Conducting technical analysis**",
+    "full_text": "**Conducting technical analysis**\n\nLevel: 6\nCluster Size (Leaves): 13",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 6,
+    "cluster_size": 13
+  },
+  {
+    "id": "84",
+    "parentIds": [
+      "85"
+    ],
+    "name": "Curating content",
+    "full_text": "Curating content\n\nLevel: 6\nCluster Size (Leaves): 10",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.3,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 6,
+    "cluster_size": 10
+  },
+  {
+    "id": "97",
+    "parentIds": [
+      "100"
+    ],
+    "name": "Working with content",
+    "full_text": "Working with content\n\nLevel: 6\nCluster Size (Leaves): 13",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.425,
+    "entail2": 0.0,
+    "specificity": 0.75,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 6,
+    "cluster_size": 13
+  },
+  {
+    "id": "124",
+    "parentIds": [
+      "125"
+    ],
+    "name": "Creating content",
+    "full_text": "Creating content\n\nLevel: 6\nCluster Size (Leaves): 18",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.25,
+    "entail2": 0.2,
+    "specificity": 0.2,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 6,
+    "cluster_size": 18
+  },
+  {
+    "id": "85",
+    "parentIds": [
+      "126"
+    ],
+    "name": "**Analyzing information**",
+    "full_text": "**Analyzing information**\n\nLevel: 7\nCluster Size (Leaves): 23",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.35,
+    "entail2": 0.3,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 7,
+    "cluster_size": 23
+  },
+  {
+    "id": "100",
+    "parentIds": [
+      "107"
+    ],
+    "name": "Processing information",
+    "full_text": "Processing information\n\nLevel: 7\nCluster Size (Leaves): 16",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 7,
+    "cluster_size": 16
+  },
+  {
+    "id": "107",
+    "parentIds": [
+      "125"
+    ],
+    "name": "Developing organizational strategy",
+    "full_text": "Developing organizational strategy\n\nLevel: 8\nCluster Size (Leaves): 23",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.0,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 8,
+    "cluster_size": 23
+  },
+  {
+    "id": "125",
+    "parentIds": [
+      "126"
+    ],
+    "name": "Developing solutions",
+    "full_text": "Developing solutions\n\nLevel: 9\nCluster Size (Leaves): 41",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.05,
+    "entail2": 0.0,
+    "specificity": 0.85,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 9,
+    "cluster_size": 41
+  },
+  {
+    "id": "126",
+    "parentIds": [],
+    "name": "**Problem-solving**",
+    "full_text": "**Problem-solving**\n\nLevel: 10\nCluster Size (Leaves): 64",
+    "similarity": null,
+    "evalScore": null,
+    "entail1": 0.1,
+    "entail2": 0.0,
+    "specificity": 0.0,
+    "wb_score_mistral": null,
+    "wb_score_llama": null,
+    "level_num": 10,
+    "cluster_size": 64
+  }
+]
