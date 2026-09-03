@@ -42,8 +42,18 @@ from score_retrieval import (
 )
 
 # --------------------------------------------------------------------------- #
-DATA_FILE = Path("Results/UF_random_prompts_64_base.json")
-SCORE_FILE = "dataset_UF_with_scores.csv"   # for UltraFeedback: dataset_UF_with_scores.csv
+# DATA_FILE = Path("Results/UF_random_prompts_64_base.json")
+# SCORE_FILE = "dataset_UF_with_scores.csv"   # for UltraFeedback: dataset_UF_with_scores.csv
+
+
+# ------------------------------ WildBench -----------------------------------#
+## Tree json and Score file paths: Disimilar
+tree_json_filepath = "Results/Gemma/FINAL_random_prompts_64.json"
+score_filepath = "dataset_WB_with_scores.csv"
+
+DATA_FILE = Path(tree_json_filepath)
+SCORE_FILE = score_filepath
+
 VISUALISE = True                 # flip to False to skip viewer step
 MODEL_CONFIG = {
     "blossom": "claude",  # Options: "openai", "claude", "gemma", "gemini"

@@ -48,3 +48,20 @@ retrieval/dataset_WB.csv
 visualisation/training_data_64c_claude_distill.jsonl
 visualisation/tree_data_64c_claude_gemma.json
 dataset_prep/dataset_WB.csv
+
+## Science exercise dataset
+dataset_NT_with_scores_so.csv
+
+## Logs
+log
+
+## Tree data
+visualisation/tree_dataa.json
+
+## UF
+UF_Code.xlsx
+
+## Nemotron
+nt_nearest_neighbors.csv
+NT_Random_228.xlsx
+NT_Random_604.xlsx

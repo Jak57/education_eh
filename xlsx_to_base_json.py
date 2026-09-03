@@ -37,4 +37,11 @@ def excel_to_json(input_file, output_file):
 
 
 # Example usage:
-excel_to_json("UF_Code.xlsx", "UF_Code.json")
+# excel_to_json("UF_Code.xlsx", "UF_Code.json")
+
+
+## Dissimilar (WB)
+input_xlsx_path = "FINAL_random_prompts_64.xlsx"
+output_json_path = "Results/Gemma/FINAL_random_prompts_64.json"
+
+excel_to_json(input_xlsx_path, output_json_path) # JKH

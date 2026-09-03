@@ -39,9 +39,9 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).parent))
 from prepare_ultrafeedback import is_clean
 
-EMB_CACHE = "outputs/uf_mpnet_embeddings.pkl"
-SCORES_CSV = "dataset_UF_with_scores.csv"
-# SCORES_CSV = "dataset_NT_with_scores_so.csv"
+EMB_CACHE = "outputs/nt_mpnet_embeddings.pkl"
+# SCORES_CSV = "dataset_UF_with_scores.csv"
+SCORES_CSV = "dataset_NT_with_scores_so.csv"
 
 
 def eligible_prompts(min_chars=200, max_chars=4000) -> list[str]:
@@ -102,10 +102,10 @@ def main():
                     help="how many prompts get a neighbor list (default 1024, like WB)")
     ap.add_argument("--k", type=int, default=64, help="neighbors per query")
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--out", default="uf_nearest_neighbors.csv")
+    ap.add_argument("--out", default="nt_nearest_neighbors.csv")
     ap.add_argument("--seed-text", default=None,
                     help="lookup mode: substring of a prompt; writes that prompt's "
-                         "k neighbors to uf_neighbors_of_<idx>.xlsx")
+                         "k neighbors to nt_neighbors_of_<idx>.xlsx")
     args = ap.parse_args()
 
     pool = eligible_prompts()
@@ -120,7 +120,7 @@ def main():
         print(f"[INFO] {len(matches)} match(es); using pool index {qi}:")
         print("       " + pool[qi][:160].replace("\n", " "))
         (_, nn, scores), = top_k(emb, [qi], args.k)
-        out = Path(f"uf_neighbors_of_{qi}.xlsx")
+        out = Path(f"nt_neighbors_of_{qi}.xlsx")
         pd.DataFrame({
             "Result": [flatten_ws(pool[qi])] + [flatten_ws(pool[j]) for j in nn],
             "Score": [1.0] + [float(s) for s in scores],
