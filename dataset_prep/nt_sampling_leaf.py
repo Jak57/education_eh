@@ -15,7 +15,7 @@ for index, row in df.iterrows():
     if (index+1) % TOTAL_LEAF_NODE == 0:
         cnt += 1
 
-idx = random.randint(0, TOTOAL_SAMPLE) # 604
+idx = random.randint(0, TOTOAL_SAMPLE) # 795, PHY
 results = []
 for i in range(len(all_rows)):
     if idx == all_rows[i][0]:
