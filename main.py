@@ -29,7 +29,7 @@ from evaltree.annotate import annotate_tree
 from evaltree.clustering import RecursiveKMeans, build_hierarchy
 from evaltree.summarize import summarize_tree
 from evaltree.evaluate import run_evaluation_on_tree as run_evaltree_evaluation
-from retrieval.blossom_matching import get_nearest_neighbors_blossom
+from retrieval.blossom_matching import get_nearest_neighbors_blossom, _extract_main_idea_llm
 from retrieval.third_neighbor import find_third
 from visualisation.visualise_helper import (
     generate_dag_json_from_tree,
@@ -48,8 +48,14 @@ from score_retrieval import (
 
 # ------------------------------ WildBench -----------------------------------#
 ## Tree json and Score file paths: Disimilar
-tree_json_filepath = "Results/Gemma/FINAL_random_prompts_64.json"
-score_filepath = "dataset_WB_with_scores.csv"
+# tree_json_filepath = "Results/Gemma/FINAL_random_prompts_64.json"
+# score_filepath = "dataset_WB_with_scores.csv"
+
+
+# ------------------------------ Nemotron-SFT-Science ------------------------#
+## Tree json and Score file paths: Disimilar
+tree_json_filepath = "Results/Gemma/NT_random_prompts_64.json"
+score_filepath = "dataset_NT_with_scores_so.csv"
 
 DATA_FILE = Path(tree_json_filepath)
 SCORE_FILE = score_filepath

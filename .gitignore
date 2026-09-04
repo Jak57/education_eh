@@ -51,6 +51,7 @@ dataset_prep/dataset_WB.csv
 
 ## Science exercise dataset
 dataset_NT_with_scores_so.csv
+NT_Random_795.csv
 
 ## Logs
 log
@@ -70,3 +71,6 @@ NT_Random_139.xlsx
 NT_Random_172.xlsx
 NT_Random_757.xlsx
 NT_Random_795.xlsx
+
+## Python
+test.py

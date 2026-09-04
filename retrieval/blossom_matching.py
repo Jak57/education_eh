@@ -41,24 +41,56 @@ import anthropic
 USE_CUDA = False  # set True to use GPU if available
 EMBED_BATCH_SIZE = 64  # lower this (e.g., 16/32) if you hit CUDA OOM; raise on CPU
 
+## Prompts
+# mainIdeaExtractPrompt = (
+#     """
+#     "You will be given a text. Extract the single most important main idea in one short sentence."
+#     "Return only that sentence."
+#     "Text:\n{txt}"
+#     """
+# )
+
+## Education
 mainIdeaExtractPrompt = (
     """
-    "You will be given a text. Extract the single most important main idea in one short sentence."
+    "You will be given a science exercise. Extract the single most important skill that is needed to solve the exercise."
     "Return only that sentence."
     "Text:\n{txt}"
     """
 )
 
+# mainIdeaExtractPrompt = (
+#     """
+#     "You will be given a science exercise. Extract the single most important skill that is needed to solve the exercise."
+#     "Return only that sentence. Please make sure that your output is also an exercise."
+#     "Text:\n{txt}"
+#     """
+# )
+
+## Prompts
+# mainIdeaExtractBatchPrompt = (
+#     """
+# You will be given a JSON object with key \"texts\" whose value is an array of texts.
+# For EACH text, extract the single most important main idea in ONE short sentence.
+
+# Output MUST be a JSON array of strings, same length and same order as the input texts.
+# Do NOT include any extra keys or commentary.
+
+# Input JSON:\n{payload}
+#     """
+# )
+
+## Education
 mainIdeaExtractBatchPrompt = (
-    """
-You will be given a JSON object with key \"texts\" whose value is an array of texts.
-For EACH text, extract the single most important main idea in ONE short sentence.
+   """
+You will be given a JSON object with key "texts" whose value is an array of science exercise descriptions.
+For EACH exercise, extract the single most important skill that the exercise is testing, in ONE short sentence.
 
 Output MUST be a JSON array of strings, same length and same order as the input texts.
 Do NOT include any extra keys or commentary.
 
 Input JSON:\n{payload}
-    """
+   """
 )
 
 def _extract_main_idea_llm(text, batch_size: int = 8, llm_model_name: str = "openai", api_keys: dict = None):
