@@ -97,6 +97,8 @@ Score B calculation: 5.5/7 ≈ 0.79
 Reasoning:
 Prompt A strongly implies most of the generalization but is slightly vague about the larger community aspect. Prompt B covers emotional growth and writing but is less explicit about isolation and building new relationships.
 """
+
+# Summary
 evalPrompt2 = """
 You will be given a prompt A and a general prompt B that is a generalization of prompt A. Your task is to determine how well prompt B serves as the generalization of prompt A.
 
