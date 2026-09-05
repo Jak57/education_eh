@@ -9,7 +9,7 @@ df = pd.read_csv(SCORES_CSV)
 # ------------------------------------------------------------------
 ds = load_dataset(
     "nvidia/Nemotron-SFT-Science-v2",
-    'vendor',
+    'so',
     split="train",
     streaming=True
 )
@@ -24,11 +24,11 @@ for idx, row in enumerate(rows):
     instructions.append(row['messages'][0]['content'])
 
 df["instructions"] = instructions
-df['subject'] = subjects
+# df['subject'] = subjects
 
 # ------------------------------------------------------------------
 # Write the enriched CSV
 # ------------------------------------------------------------------
-output_file = "dataset_NT_with_scores.csv"
+output_file = "dataset_NT_with_scores_so.csv"
 df.to_csv(output_file, index=False)
 print(f"DataFrame successfully saved to {output_file}")

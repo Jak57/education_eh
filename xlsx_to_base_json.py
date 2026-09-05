@@ -45,7 +45,7 @@ def excel_to_json(input_file, output_file):
 # output_json_path = "Results/Gemma/FINAL_random_prompts_64.json"
 
 ## Dissimilar (Nemotron-SFT-Science)
-input_xlsx_path = "NT_Random_795.xlsx"
+input_xlsx_path = "NT_Random_981.xlsx"
 output_json_path = "Results/Gemma/NT_random_prompts_64.json"
 
 excel_to_json(input_xlsx_path, output_json_path) # JKH

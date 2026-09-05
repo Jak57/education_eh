@@ -854,7 +854,7 @@ Prompt B: {story2}
         """
 
         ## Summary
-        prompt14 = f"""
+        prompt15 = f"""
 You will be given prompts A and B. Your task is to generate a prompt C where prompt C is implied by BOTH prompt A and prompt B. This means every detail in prompt C is directly mentioned in BOTH prompt A and B. Your prompt C should be as concise as possible with the following caveats: the more similar prompt A and B are too each other, the longer prompt C should be as it would include more details common to both prompt A and B. The more broad prompt A and B are, the more concise and general your prompt C should be. If your prompt A and B are so general, instead of summarizing prompt A and B, find a one sentence category that encapsulates the two prompts that includes the medium and the topic the user requests. Begin your prompt C with "(start)" and end it with "(end)."
 
 1. (Dissimilar – Writing vs Poetry)
