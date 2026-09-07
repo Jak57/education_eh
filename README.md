@@ -195,7 +195,7 @@ score dropdown switches the color overlay between metrics.
 - `prepare_ultrafeedback.py` builds the UltraFeedback score CSV and sampled
   base JSONs.
 - `prepare_uf_model_scores.py` adds per-model score columns for UltraFeedback.
-- `prepare_nemotronsft.py`
+- `prepare_nemotron.py`
 - `nt_nearest_neighbors.py`
 - `nt_sampling_leaf.py`
 - `xlsx_to_base_json.py`
