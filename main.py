@@ -41,6 +41,8 @@ from score_retrieval import (
     build_scores
 )
 
+from test.prompt import get_random_sample_pair, get_summary
+
 # --------------------------------------------------------------------------- #
 # DATA_FILE = Path("Results/UF_random_prompts_64_base.json")
 # SCORE_FILE = "dataset_UF_with_scores.csv"   # for UltraFeedback: dataset_UF_with_scores.csv

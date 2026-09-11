@@ -75,11 +75,26 @@ NT_Random_397.xlsx
 NT_Random_668.xlsx
 NT_Random_758 - Copy.xlsx
 NT_Random_981_mcq.xlsx
+~$NT_Random_758_with_solution.xlsx
+# NT_Random_758_with_solution.xlsx
 
 ## Python
-test.py
+# test1.py
 
 dataset_NT_with_scores_so1.csv
 
 ## Dataset folder
 dataset
+
+## Large files
+xlsx
+json
+csv
+image
+
+## init file
+__init__.py
+
+## Virtual env
+venv/
+

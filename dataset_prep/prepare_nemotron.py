@@ -36,9 +36,6 @@ def prepare_dataset_nemotron_so():
     df.to_csv(output_file, index=False)
     print(f"DataFrame successfully saved to {output_file}")
 
-def prepare_dataset_nemotron_vendor():
-    pass
-
 def download_nemotron_dataset(buffer_size=15000, total_sample=10000, split='vendor', filename="dataset/Nemotron_SFT_Science_v2.json"):
     ds = load_dataset(
         "nvidia/Nemotron-SFT-Science-v2",
@@ -143,7 +140,8 @@ def random_sampling(samples):
         if sample['topic'] not in dic.keys():
             dic[sample['topic']] = []
         dic[sample['topic']].append(sample)
-    idx = random.randint(1, 1000)
+    idx = random.randint(1, 1000)  # 758
+    idx = 758
     random.seed(idx)
     samples_64 = []
     for key in dic:
@@ -155,12 +153,26 @@ def random_sampling(samples):
             samples_64 += candidates[:21]
     return (idx, samples_64)
 
-def save_xlsx_file(samples, path):
+def get_exercise_with_solution(exercise, solution):
+    text = exercise + f"""
+\n\n
+##The solution of the given exercise is:
+{solution}
+"""
+    return text
+
+def save_xlsx_file(samples, path, add_solution=False):
     results = []
     for dic in samples:
         exercise = dic['exercise']
+        solution = dic['solution']
         exercise = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', exercise)
-        results.append(exercise)
+        solution = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', solution)
+        if add_solution:
+            text = get_exercise_with_solution(exercise, solution)
+            results.append(text)
+        else:
+            results.append(exercise)
     data = {
         'Result': results
     }
@@ -187,10 +199,7 @@ if __name__ == "__main__":
     samples = eligible_exercises(output_path)
 
     ## Random sampling
-    idx, sample_64 = random_sampling(samples)
+    idx, sample_64 = random_sampling(samples) 
     print(f"Seed={idx}: total_random_sample={len(sample_64)}")
-    save_xlsx_file(sample_64, path = f'NT_Random_{idx}.xlsx')
-    
-
-
+    save_xlsx_file(sample_64, path = f'NT_Random_{idx}_with_solution.xlsx', add_solution=True)
     

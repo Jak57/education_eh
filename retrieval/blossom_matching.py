@@ -106,6 +106,8 @@ def _extract_main_idea_llm(text, batch_size: int = 8, llm_model_name: str = "ope
     if isinstance(text, list):
         if not text:
             return []
+        ## Turn off main task extraction
+        return text
 
         out: list[str] = []
         for start in range(0, len(text), batch_size):
