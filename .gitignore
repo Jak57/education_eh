@@ -58,6 +58,9 @@ log
 
 ## Tree data
 visualisation/tree_dataa.json
+visualisation/tree_data1.json
+visualisation/tree_data_original.json
+visualisation/tree_data_with_subject.json
 
 ## UF
 UF_Code.xlsx
@@ -76,7 +79,8 @@ NT_Random_668.xlsx
 NT_Random_758 - Copy.xlsx
 NT_Random_981_mcq.xlsx
 ~$NT_Random_758_with_solution.xlsx
-# NT_Random_758_with_solution.xlsx
+NT_Random_758_with_solution.xlsx
+NT_Random_758_with_solution1.xlsx
 
 ## Python
 # test1.py

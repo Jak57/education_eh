@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Entailment Tree Viewer</title>
+  <title>Entailment Tree Viewer 1</title>
 
   <!-- ===== size dial: swap 380px for any width you like =============== -->
   <style>
@@ -149,11 +149,29 @@
   <input id="searchBox" placeholder="Search full text..."
     style="position:absolute;top:10px;left:10px;z-index:10;padding:4px;" />
   <!-- tree container -->
-  <div
+  <!-- <div
     style="position: absolute; top: 10px; right: 20px; z-index: 1000; background: white; padding: 6px 10px; border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,0.1);">
     <label for="score-select">Score:</label>
     <select id="score-select"></select>
-  </div>
+  </div> -->
+
+  <!-- Add subset filter -->
+   <div 
+    style="position: absolute; top: 10px; right: 20px; z-index: 1000;
+    background: white; padding: 6px 10px; border-radius: 6px; box-shadow: 0 0 6 px rgba(0, 0, 0, 0.1);"
+   >
+   
+   <label for="color-mode">Color:</label>
+   <select id="color-mode">
+      <option value="score">Score</option>
+      <option value="subset">Subset</option>
+   </select>
+
+   <span id="score-controls">
+      <label for="score-select">Score:</label>
+      <select id="score-select"></select>
+   </span>
+   </div>
 
   <div id="tree-container"></div>
   <div id="tooltip" class="tooltip"></div>
@@ -174,6 +192,15 @@
 
 
     let selectedScoreField = ''; // populated after data loads
+    
+    // Color mode
+    let colorMode = 'score';
+    function nodeColour(d) {
+      if (colorMode === 'subset') {
+        return subsetColour(d);
+      }
+      return colour(d);
+    }
 
     /** Collect score field names from wb_scores dict and legacy top-level fields. */
     function collectScoreFields(data) {
@@ -218,6 +245,26 @@
     //     : sim > 0.8 ? '#2ca02c'
     //       : sim > 0.6 ? '#ff7f0e'
     //         : '#d62728';
+
+    // ------------------------ Coloring node ------------------------ //
+    const subsetColors = {
+      physics: "#1f77b4",
+      biology: "#2ca02c",
+      chemistry: "#d62728",
+      mixed: "#9467bd",
+      unknown: "#cccccc"
+    }
+
+    function getSubset(node) {
+      return node?.data?.subset || "unknown";
+    }
+
+    function subsetColour(d) {
+      const subset = getSubset(d).toLowerCase();
+      return subsetColors[subset] || "#cccccc";
+    }
+
+    // ----------------------------------------------------------- //
 
     /* ── globals we update ──────────────────────────────────── */
     const container = document.getElementById('tree-container');
@@ -281,6 +328,14 @@
       document.getElementById('score-select').addEventListener('change', function () {
         selectedScoreField = this.value;
         update(); // re-color nodes
+      });
+
+      // Coloring by subset
+      document.getElementById('color-mode').addEventListener('change', function() {
+        colorMode = this.value;
+        document.getElementById('score-controls').style.display = colorMode === 'score' ? 'inline' : 'none';
+
+        update();
       });
 
     }
@@ -394,7 +449,8 @@
               .replace(/\n/g, '<br>')}`
           );
           nodeEnter.merge(node).select('circle')
-            .attr('fill', d => colour(d));
+            .attr('fill', d=>nodeColour(d));
+            // .attr('fill', d => colour(d));
           //above for colored nodes.
           // .attr('fill', d => "#ccc");
 
@@ -445,7 +501,8 @@
 
 
       nodeEnter.merge(node).select('circle')
-        .attr('fill', d => colour(d));
+        .attr('fill', d => nodeColour(d));
+        // .attr('fill', d => colour(d));
 
       nodeEnter.merge(node).select('foreignObject > div')
         .html(d => {

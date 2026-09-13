@@ -163,18 +163,23 @@ def get_exercise_with_solution(exercise, solution):
 
 def save_xlsx_file(samples, path, add_solution=False):
     results = []
+    subsets = []
     for dic in samples:
         exercise = dic['exercise']
         solution = dic['solution']
+        topic = dic['topic'].strip()
         exercise = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', exercise)
         solution = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', solution)
         if add_solution:
             text = get_exercise_with_solution(exercise, solution)
             results.append(text)
+            subsets.append(topic)
         else:
             results.append(exercise)
+            subsets.append(topic)
     data = {
-        'Result': results
+        'Result': results,
+        'Subject': subsets
     }
     df1 = pd.DataFrame(data, columns=data.keys())
     df1.to_excel(path, index=False)
@@ -201,5 +206,5 @@ if __name__ == "__main__":
     ## Random sampling
     idx, sample_64 = random_sampling(samples) 
     print(f"Seed={idx}: total_random_sample={len(sample_64)}")
-    save_xlsx_file(sample_64, path = f'NT_Random_{idx}_with_solution.xlsx', add_solution=True)
+    save_xlsx_file(sample_64, path = f'NT_Random_{idx}_with_solution1.xlsx', add_solution=True)
     
