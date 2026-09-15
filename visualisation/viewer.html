@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Entailment Tree Viewer 1</title>
+  <title>Entailment Tree Viewer</title>
 
   <!-- ===== size dial: swap 380px for any width you like =============== -->
   <style>
@@ -423,7 +423,8 @@
         .on('mouseover', (e, d) => {
           //console.log("Hovered node:", d.data);
           tooltip.style('opacity', 1)
-            .html(`<strong>Similarity:</strong> ${d.data.similarity ?? '-'}<br>
+            .html(`<strong>Subset:</strong> ${d.data.subset ?? '-'}<br>
+                    <strong>Similarity:</strong> ${d.data.similarity ?? '-'}<br>
                     <strong>Eval:</strong> ${d.data.evalScore ?? '-'}<br>
                     <strong>Entail-1:</strong> ${d.data.entail1}<br>
                     <strong>Entail-2:</strong> ${d.data.entail2}<br>
