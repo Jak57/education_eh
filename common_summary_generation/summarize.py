@@ -1239,6 +1239,21 @@ Begin your response with "(start)" and end it with "(end)."
                 ]
             )
             raw = message.content[0].text.strip()
+        elif model_name == "qwen":
+            client = OpenAI(
+                api_key=api_keys["qwen"]["api_key"],
+                base_url=api_keys["qwen"]["base_url"]
+            )
+            response = client.chat.completions.create(
+                model=api_keys["qwen"]["model"],
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt14}
+                ],
+                temperature=0,
+                max_tokens=1024,
+            )
+            raw = response.choices[0].message.content.strip()
         elif model_name == "gemma":
             client = OpenAI(
                 api_key=api_keys["gemma"]["api_key"],

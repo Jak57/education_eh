@@ -7,7 +7,7 @@ def excel_to_json(input_file, output_file):
 
     # Get the column containing prompts (Column A / "Result")
     prompts = df.iloc[:, 0].dropna().tolist()
-    topics = df.iloc[:, 1].dropna().tolist()
+    # topics = df.iloc[:, 1].dropna().tolist()
 
     # Build the JSON structure
     data = {
@@ -18,7 +18,7 @@ def excel_to_json(input_file, output_file):
                     {
                         "id": idx,
                         "prompt": p,
-                        "subset": topics[idx],
+                        # "subset": topics[idx],
                         "match": None,
                         "summary": None,
                         "score": None,
@@ -47,7 +47,11 @@ def excel_to_json(input_file, output_file):
 # output_json_path = "Results/Gemma/FINAL_random_prompts_64.json"
 
 ## Dissimilar (Nemotron-SFT-Science)
-input_xlsx_path = "NT_Random_758_with_solution1.xlsx"
-output_json_path = "Results/Gemma/NT_random_prompts_64.json"
+# input_xlsx_path = "NT_Random_758_with_solution1.xlsx"
+# output_json_path = "Results/Gemma/NT_random_prompts_64.json"
+
+## CodeWorkout
+input_xlsx_path = "CW_Random_with_solution.xlsx"
+output_json_path = "Results/Gemma/CW_random_prompts_50.json"
 
 excel_to_json(input_xlsx_path, output_json_path) # JKH

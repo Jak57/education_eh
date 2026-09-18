@@ -39,7 +39,7 @@ import anthropic
 
 # ---- Embedding device / VRAM knobs ----
 USE_CUDA = False  # set True to use GPU if available
-EMBED_BATCH_SIZE = 64  # lower this (e.g., 16/32) if you hit CUDA OOM; raise on CPU
+EMBED_BATCH_SIZE = 8 #64  # lower this (e.g., 16/32) if you hit CUDA OOM; raise on CPU
 
 ## Prompts
 # mainIdeaExtractPrompt = (
@@ -248,35 +248,104 @@ def _extract_main_idea_llm(text, batch_size: int = 8, llm_model_name: str = "ope
         raise ValueError(f"Unknown llm_model_name: {llm_model_name}")
 
 
-def load_model(model_name='all-mpnet-base-v2', *, use_cuda: bool = False):
-    device = "cuda" if use_cuda and torch.cuda.is_available() else "cpu"
-    print(f"Loading SentenceTransformer model: {model_name} on device={device} (USE_CUDA={use_cuda}, cuda_available={torch.cuda.is_available()})")
-    m = SentenceTransformer(model_name, device=device)
-    # Keep explicit `.to(...)` style, but don't fail if unsupported
-    try:
-        m = m.to(device)
-    except Exception:
-        pass
-    return m
+# def load_model(model_name='all-mpnet-base-v2', *, use_cuda: bool = False):
+#     device = "cuda" if use_cuda and torch.cuda.is_available() else "cpu"
+#     print(f"Loading SentenceTransformer model: {model_name} on device={device} (USE_CUDA={use_cuda}, cuda_available={torch.cuda.is_available()})")
+#     m = SentenceTransformer(model_name, device=device)
+#     # Keep explicit `.to(...)` style, but don't fail if unsupported
+#     try:
+#         m = m.to(device)
+#     except Exception:
+#         pass
+#     return m
 
-def generate_embeddings(model, corpus_sentences, embedding_cache_path):
-    # print("Encoding the corpus. This might take a while...")
-    # corpus_embeddings = model.encode(corpus_sentences, show_progress_bar=True, convert_to_numpy=True)
+def load_model(
+        model_name='jinaai/jina-code-embeddings-1.5b',
+        *,
+        use_cuda: bool = False
+):
+    device = 'cuda' if use_cuda and torch.cuda.is_available() else 'cpu'
+    print(
+        f"Loading model: {model_name} "
+        f"on device={device} "
+        f"(USE_CUDA={use_cuda}, "
+        f"cuda_available={torch.cuda.is_available()})"
+    )
+    if device == "cuda":
+        model = SentenceTransformer(
+            model_name,
+            model_kwargs={
+                "torch_dtype": torch.bfloat16,
+            },
+            tokenizer_kwargs={
+                "padding_side": "left",
+            },
+            device=device,
+        )
+    else:
+        model = SentenceTransformer(
+            model_name,
+            device=device,
+        )
+    return model
+
+# def generate_embeddings(model, corpus_sentences, embedding_cache_path):
+#     # print("Encoding the corpus. This might take a while...")
+#     # corpus_embeddings = model.encode(corpus_sentences, show_progress_bar=True, convert_to_numpy=True)
+#     corpus_embeddings = model.encode(
+#         corpus_sentences,
+#         batch_size=EMBED_BATCH_SIZE,
+#         show_progress_bar=True,
+#         convert_to_numpy=True,
+#     )
+
+#     denom = np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+#     denom[denom == 0] = 1.0
+#     corpus_embeddings = corpus_embeddings / denom
+    
+#     print("Storing embeddings on disk...")
+#     os.makedirs(os.path.dirname(embedding_cache_path), exist_ok=True)
+#     with open(embedding_cache_path, "wb") as fOut:
+#         pickle.dump({'sentences': corpus_sentences, 'embeddings': corpus_embeddings}, fOut)  
+#     print("Embeddings stored successfully")
+#     return corpus_sentences, corpus_embeddings
+
+def generate_embeddings(
+    model,
+    corpus_sentences,
+    embedding_cache_path,
+    prompt_name='code2code_document',
+):
+    print("Encoding the corpus...")
     corpus_embeddings = model.encode(
         corpus_sentences,
         batch_size=EMBED_BATCH_SIZE,
         show_progress_bar=True,
         convert_to_numpy=True,
+        prompt_name=prompt_name
     )
-
-    denom = np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+    # Normalize the cosine similarity
+    denom = np.linalg.norm(
+        corpus_embeddings,
+        axis=1,
+        keepdims=True
+    )
     denom[denom == 0] = 1.0
     corpus_embeddings = corpus_embeddings / denom
-    
+    print("Embedding shape:", corpus_embeddings.shape)
     print("Storing embeddings on disk...")
-    os.makedirs(os.path.dirname(embedding_cache_path), exist_ok=True)
+    os.makedirs(
+        os.path.dirname(embedding_cache_path),
+        exist_ok=True
+    )
     with open(embedding_cache_path, "wb") as fOut:
-        pickle.dump({'sentences': corpus_sentences, 'embeddings': corpus_embeddings}, fOut)  
+        pickle.dump(
+            {
+                'sentences': corpus_sentences,
+                'embeddings': corpus_embeddings
+            },
+            fOut
+        )
     print("Embeddings stored successfully")
     return corpus_sentences, corpus_embeddings
 
@@ -291,7 +360,8 @@ def load_embeddings(embedding_cache_path):
 def get_nearest_neighbors_blossom(
     tree: Tree,
     level_idx: int,
-    model_name: str = 'all-mpnet-base-v2',
+    # model_name: str = 'all-mpnet-base-v2',
+    model_name: str = 'jinaai/jina-code-embeddings-1.5b',
     *,
     use_custom_score: bool = True,
     custom_threshold: Optional[float] = None,

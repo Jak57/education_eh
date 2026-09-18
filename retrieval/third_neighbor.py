@@ -128,137 +128,352 @@ from tqdm import tqdm
 import time
 from tree import Tree
 
-def load_model(model_name='all-mpnet-base-v2'):
-    print(f"Loading SentenceTransformer model: {model_name}")
-    return SentenceTransformer(model_name)
+MODEL_NAME = "jinaai/jina-code-embeddings-1.5b"
+# EMBEDDING_SIZE = 1536
 
-def generate_embeddings(model, corpus_sentences, embedding_cache_path):
-    print("Encoding the corpus. This might take a while...")
-    # corpus_embeddings = model.encode(corpus_sentences, show_progress_bar=True, convert_to_numpy=True)
-    corpus_embeddings = []
-    for sentence in tqdm(corpus_sentences, desc="Encoding sentences"):
-        corpus_embeddings.append(model.encode(sentence, show_progress_bar=True, convert_to_numpy=True))
-    corpus_embeddings = np.array(corpus_embeddings)
-    corpus_embeddings /= np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+# def load_model(model_name='all-mpnet-base-v2'):
+#     print(f"Loading SentenceTransformer model: {model_name}")
+#     return SentenceTransformer(model_name)
+
+def load_model(
+        model_name=MODEL_NAME
+):
+    # pass
+    print(f"Loading SentenceTransformer model: {model_name}")
+    model = SentenceTransformer(
+        model_name,
+        trust_remote_code=True
+    )
+    return model
+
+# def generate_embeddings(model, corpus_sentences, embedding_cache_path):
+#     print("Encoding the corpus. This might take a while...")
+#     # corpus_embeddings = model.encode(corpus_sentences, show_progress_bar=True, convert_to_numpy=True)
+#     corpus_embeddings = []
+#     for sentence in tqdm(corpus_sentences, desc="Encoding sentences"):
+#         corpus_embeddings.append(model.encode(sentence, show_progress_bar=True, convert_to_numpy=True))
+#     corpus_embeddings = np.array(corpus_embeddings)
+#     corpus_embeddings /= np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
     
+#     print("Storing embeddings on disk...")
+#     os.makedirs(os.path.dirname(embedding_cache_path), exist_ok=True)
+#     with open(embedding_cache_path, "wb") as fOut:
+#         pickle.dump({'sentences': corpus_sentences, 'embeddings': corpus_embeddings}, fOut)  
+#     print("Embeddings stored successfully")
+#     return corpus_sentences, corpus_embeddings
+
+def generate_embeddings(
+        model,
+        corpus_sentences,
+        embedding_cache_path
+):
+    # pass
+    print("Encoding the corpus. This might take a while...")
+    corpus_embeddings = []
+    for sentence in tqdm(
+        corpus_sentences,
+        desc="Encoding sentences"
+    ):
+        embedding = model.encode(
+            sentence,
+            convert_to_numpy=True
+        )
+        corpus_embeddings.append(embedding)
+    corpus_embeddings = np.array(corpus_embeddings)
+    # Normalize embeddings
+    norms = np.linalg.norm(
+        corpus_embeddings,
+        axis=1, 
+        keepdims=True
+    )
+    norms[norms == 0] =  1.0
+    corpus_embeddings = corpus_embeddings / norms
+    print("Embedding shape: ", corpus_embeddings.shape)
     print("Storing embeddings on disk...")
-    os.makedirs(os.path.dirname(embedding_cache_path), exist_ok=True)
+    os.makedirs(
+        os.path.dirname(embedding_cache_path),
+        exist_ok=True
+    )
     with open(embedding_cache_path, "wb") as fOut:
-        pickle.dump({'sentences': corpus_sentences, 'embeddings': corpus_embeddings}, fOut)  
+        pickle.dump(
+            {
+                'sentences': corpus_sentences,
+                'embeddings': corpus_embeddings
+            },
+            fOut
+        )
     print("Embeddings stored successfully")
     return corpus_sentences, corpus_embeddings
+    
+
+# def load_embeddings(embedding_cache_path):
+#     print("Loading precomputed embeddings...")
+#     with open(embedding_cache_path, "rb") as fIn:
+#         cache_data = pickle.load(fIn)
+#     print("Embeddings loaded successfully")
+#     return cache_data['sentences'], cache_data['embeddings']
 
 def load_embeddings(embedding_cache_path):
     print("Loading precomputed embeddings...")
-    with open(embedding_cache_path, "rb") as fIn:
+    with open(embedding_cache_path, 'rb') as fIn:
         cache_data = pickle.load(fIn)
-    print("Embeddings loaded successfully")
-    return cache_data['sentences'], cache_data['embeddings']
+    print("Embeddings loaded successfully.")
+    return (
+        cache_data['sentences'],
+        cache_data['embeddings']
+    )
 
-def create_faiss_index(embeddings, embedding_size=768, n_clusters=2):
+# def create_faiss_index(embeddings, embedding_size=768, n_clusters=2):
+#     print("Creating FAISS index...")
+#     quantizer = faiss.IndexFlatIP(embedding_size)
+#     index = faiss.IndexIVFFlat(quantizer, embedding_size, n_clusters, faiss.METRIC_INNER_PRODUCT)
+#     index.train(embeddings)
+#     print("Adding embeddings to the index...")
+#     for i in tqdm(range(0, len(embeddings), 1000), desc="Adding to FAISS index"):
+#         index.add(embeddings[i:i+1000])
+#     # index.add(embeddings)
+#     index.nprobe = 3
+#     print("FAISS index populated")
+#     return index
+
+def create_faiss_index(embeddings, embedding_size=None, n_clusters=2):
+    # pass
+    if embedding_size is None:
+        embedding_size = embeddings.shape[1]
     print("Creating FAISS index...")
     quantizer = faiss.IndexFlatIP(embedding_size)
-    index = faiss.IndexIVFFlat(quantizer, embedding_size, n_clusters, faiss.METRIC_INNER_PRODUCT)
+    index = faiss.IndexIVFFlat(
+        quantizer,
+        embedding_size,
+        n_clusters,
+        faiss.METRIC_INNER_PRODUCT
+    )
     index.train(embeddings)
-    print("Adding embeddings to the index...")
-    for i in tqdm(range(0, len(embeddings), 1000), desc="Adding to FAISS index"):
+    for i in tqdm(
+        range(0, len(embeddings), 1000),
+        desc="Adding to FAISS index"
+    ):
         index.add(embeddings[i:i+1000])
-    # index.add(embeddings)
-    index.nprobe = 3
+    index.nprobe = min(3, n_clusters)
     print("FAISS index populated")
     return index
 
 
-def find_third(tree:Tree, level_idx:int, model_name='all-mpnet-base-v2'):
+# def find_third(tree:Tree, level_idx:int, model_name='all-mpnet-base-v2'):
+#     model = load_model(model_name)
+#     level = tree.levels[level_idx]        # ← the Level object we’ll operate on
+
+#     active_idxs = []                      # ← node indexes, not sheet rows
+#     corpus_sentences = []
+
+#     print("\nProcessing rows:")
+#     for idx, node in enumerate(level.nodes):
+#         if not node.alive:
+#             continue 
+#         val = node.prompt
+#         # print(f"Idx {idx}, Value: {val}")
+#         if val:
+#             if str(val).startswith("Error:"):
+#                 continue
+#                 # print(f"Skipping row {row} due to Error: prefix")
+#             else:
+#                 active_idxs.append(idx)
+#                 corpus_sentences.append(val)
+#                 # print(f"Added row {row} to active_rows")
+
+#     print(f"\nTotal active rows: {len(active_idxs)}")
+#     print(f"Active row numbers: {active_idxs}")
+    
+#     embedding_cache_path = f'outputs/{model_name.replace("/", "_")}_embeddings.pkl'
+
+#     sentences, embeddings = generate_embeddings(model, corpus_sentences, embedding_cache_path)
+    
+#     for idx in active_idxs:
+#         node = level.nodes[idx]
+#         query = node.prompt
+#         third, score = nearest_neighbor_third(query, sentences, embeddings)
+#         node.third_score = score
+
+#         if third is None:
+#             node.third = None
+#             continue
+
+#         for idx2 in active_idxs:
+#             if level.nodes[idx2].prompt == third:
+#                 node.third = idx2
+#                 break
+#     # tree.dump("10NNofASpecificity.json")
+
+def find_third(
+        tree: Tree,
+        level_idx: int,
+        model_name=MODEL_NAME
+):
+    # pass
     model = load_model(model_name)
-    level = tree.levels[level_idx]        # ← the Level object we’ll operate on
-
-    active_idxs = []                      # ← node indexes, not sheet rows
+    level = tree.levels[level_idx]
+    active_idxs = []
     corpus_sentences = []
-
     print("\nProcessing rows:")
     for idx, node in enumerate(level.nodes):
         if not node.alive:
-            continue 
+            continue
         val = node.prompt
-        # print(f"Idx {idx}, Value: {val}")
         if val:
-            if str(val).startswith("Error:"):
+            if str(val).startswith("Error"):
                 continue
-                # print(f"Skipping row {row} due to Error: prefix")
-            else:
-                active_idxs.append(idx)
-                corpus_sentences.append(val)
-                # print(f"Added row {row} to active_rows")
-
+            active_idxs.append(idx)
+            corpus_sentences.append(val)
     print(f"\nTotal active rows: {len(active_idxs)}")
     print(f"Active row numbers: {active_idxs}")
-    
-    embedding_cache_path = f'outputs/{model_name.replace("/", "_")}_embeddings.pkl'
-
-    sentences, embeddings = generate_embeddings(model, corpus_sentences, embedding_cache_path)
-    
+    embedding_cache_path = (
+        f"outputs/"
+        f"{model_name.replace('/', '_')}"
+        f"_embeddings.pkl"
+    )
+    sentences, embeddings = generate_embeddings(
+        model,
+        corpus_sentences,
+        embedding_cache_path
+    )
     for idx in active_idxs:
         node = level.nodes[idx]
         query = node.prompt
-        third, score = nearest_neighbor_third(query, sentences, embeddings)
+        third, score = nearest_neighbor_third(
+            query,
+            sentences,
+            embeddings
+        )
         node.third_score = score
-
         if third is None:
             node.third = None
             continue
-
         for idx2 in active_idxs:
             if level.nodes[idx2].prompt == third:
                 node.third = idx2
                 break
-    # tree.dump("10NNofASpecificity.json")
 
-        
-def nearest_neighbor_third(query, sentences, embeddings):
-    query_embedding = embeddings[sentences.index(query)]
-    query_embedding = query_embedding / np.linalg.norm(query_embedding)
-    query_embedding = np.expand_dims(query_embedding, axis=0)
+# def nearest_neighbor_third(query, sentences, embeddings):
+#     query_embedding = embeddings[sentences.index(query)]
+#     query_embedding = query_embedding / np.linalg.norm(query_embedding)
+#     query_embedding = np.expand_dims(query_embedding, axis=0)
 
-    embedding_size = 768
+#     embedding_size = 768
+#     top_k_hits = 3
+#     n_clusters = 2
+
+#     num_sentences = len(sentences)
+
+#     # If we don't have enough points for [self, nearest, second-nearest], bail out.
+#     if num_sentences < 3:
+#         return None, 0.0
+
+#     # Normalize embeddings for inner-product = cosine similarity
+#     embeddings = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)
+
+#     # Never ask for more hits than the number of points
+#     top_k_hits = min(top_k_hits, num_sentences)
+
+#     # If too few points to train IVF, fall back to a flat index (no training).
+#     if num_sentences < n_clusters:
+#         index = faiss.IndexFlatIP(embedding_size)
+#         index.add(embeddings)
+#     else:
+#         quantizer = faiss.IndexFlatIP(embedding_size)
+#         index = faiss.IndexIVFFlat(quantizer, embedding_size, n_clusters, faiss.METRIC_INNER_PRODUCT)
+#         index.nprobe = 3
+#         index.train(embeddings)
+#         index.add(embeddings)
+
+#     distances, corpus_ids = index.search(query_embedding, top_k_hits)
+
+#     hits = [{'corpus_id': int(i), 'score': float(s)} for i, s in zip(corpus_ids[0], distances[0])]
+#     hits = sorted(hits, key=lambda x: x['score'], reverse=True)
+
+#     # Need 3 hits to take hits[2]
+#     if len(hits) < 3:
+#         return None, 0.0
+
+#     third = sentences[hits[2]['corpus_id']]
+#     score = hits[2]['score']
+#     return third, score
+
+def nearest_neighbor_third(
+        query,
+        sentences,
+        embeddings
+):
+    # pass    
+    query_embedding = embeddings[
+        sentences.index(query)
+    ]
+    query_embedding = query_embedding / np.linalg.norm(
+        query_embedding
+    )
+    query_embedding = np.expand_dims(
+        query_embedding,
+        axis=0
+    )
+    embedding_size = embeddings.shape[1]
     top_k_hits = 3
     n_clusters = 2
-
     num_sentences = len(sentences)
-
-    # If we don't have enough points for [self, nearest, second-nearest], bail out.
     if num_sentences < 3:
         return None, 0.0
+    
+    # Normalize corpus embeddings
+    norms = np.linalg.norm(
+        embeddings,
+        axis=1,
+        keepdims=True
+    )
+    norms[norms == 0] = 1.0
+    embeddings = embeddings / norms
+    top_k_hits = min(
+        top_k_hits,
+        num_sentences
+    )
 
-    # Normalize embeddings for inner-product = cosine similarity
-    embeddings = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)
-
-    # Never ask for more hits than the number of points
-    top_k_hits = min(top_k_hits, num_sentences)
-
-    # If too few points to train IVF, fall back to a flat index (no training).
+    # Flat index for small datasets
     if num_sentences < n_clusters:
-        index = faiss.IndexFlatIP(embedding_size)
+        index = faiss.IndexFlatIP(
+            embedding_size
+        )
         index.add(embeddings)
     else:
-        quantizer = faiss.IndexFlatIP(embedding_size)
-        index = faiss.IndexIVFFlat(quantizer, embedding_size, n_clusters, faiss.METRIC_INNER_PRODUCT)
-        index.nprobe = 3
+        quantizer = faiss.IndexFlatIP(
+            embedding_size
+        )
+        index = faiss.IndexIVFFlat(
+            quantizer,
+            embedding_size,
+            n_clusters,
+            faiss.METRIC_INNER_PRODUCT
+        )
+        index.nprobe = min(
+            3,
+            n_clusters
+        )
         index.train(embeddings)
         index.add(embeddings)
 
-    distances, corpus_ids = index.search(query_embedding, top_k_hits)
+    distances, corpus_ids = index.search(
+        query_embedding,
+        top_k_hits
+    )
 
-    hits = [{'corpus_id': int(i), 'score': float(s)} for i, s in zip(corpus_ids[0], distances[0])]
+    hits = [
+        {
+            "corpus_id": int(i),
+            "score": float(s)
+        }
+        for i, s in zip(corpus_ids[0], distances[0])
+    ]
     hits = sorted(hits, key=lambda x: x['score'], reverse=True)
-
-    # Need 3 hits to take hits[2]
     if len(hits) < 3:
         return None, 0.0
-
     third = sentences[hits[2]['corpus_id']]
     score = hits[2]['score']
     return third, score
 
-    
 

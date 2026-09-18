@@ -56,7 +56,12 @@ from test.prompt import get_random_sample_pair, get_summary
 
 # ------------------------------ Nemotron-SFT-Science ------------------------#
 ## Tree json and Score file paths: Disimilar
-tree_json_filepath = "Results/Gemma/NT_random_prompts_64.json"
+# tree_json_filepath = "Results/Gemma/NT_random_prompts_64.json"
+
+## CodeWorkout
+tree_json_filepath = "Results/Gemma/CW_random_prompts_50.json"
+
+## Score file
 score_filepath = "dataset_NT_with_scores_so.csv"
 
 DATA_FILE = Path(tree_json_filepath)
@@ -64,8 +69,8 @@ SCORE_FILE = score_filepath
 
 VISUALISE = True                 # flip to False to skip viewer step
 MODEL_CONFIG = {
-    "blossom": "claude",  # Options: "openai", "claude", "gemma", "gemini"
-    "summary_generation": "claude",
+    "blossom": "claude",  # Options: "openai", "claude", "gemma", "gemini", "qwen"
+    "summary_generation": "claude", #"qwen", #Options: "claude"
     "evaluation": "openai"  # Options: "openai", "claude", "gemma", "gemini"
 }
 # Credentials come from .env (see .env.example); never hardcode keys here.
@@ -82,6 +87,11 @@ API_KEYS = {
     "gemini": {
         "api_key": os.environ.get("GEMINI_API_KEY", ""),
         "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+    },
+    "qwen": {
+            "api_key": os.environ.get("QWEN_API_KEY", "DUMMY"),
+            "base_url": os.environ.get("QWEN_BASE_URL", "http://127.0.0.1:8000/v1"),
+            "model": os.environ.get("QWEN_MODEL", "Qwen/Qwen2.5-7B-Instruct"),
     },
 }
 # --------------------------------------------------------------------------- #
