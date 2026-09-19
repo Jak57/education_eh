@@ -10,93 +10,96 @@ import anthropic
 # from anthropic import Anthropic
 # from anthropic.exceptions import APIError, RateLimitError, OverloadedError # Import necessary exceptions
 
+from utils import get_eval_prompt, get_eval_prompt2, get_eval_prompt_faithfulness, get_eval_prompt_informativeness, get_eval_prompt_specificity_faithfulness, get_eval_prompt_specificity_informativeness
 
 # Global variables and imports handled
 level = 1
-evalPrompt = """
-Verifying Specific Common Summary of Two Similar Stories. 
+evalPrompt = get_eval_prompt()
 
-You would be given two similar short stories and a description about the stories. 
+# evalPrompt = """
+# Verifying Specific Common Summary of Two Similar Stories. 
 
-First, determine the following:
-1. Determine Score_A -  Given that story A happened, please check if the description also happened (story A implies descriptions) (i.e., The story implies the description and the description does NOT contain some text that are irrelevant or contradictory to the story). Determine a score between 0 to 1 for how much provided common_summary is a summary of story A (Score_A). Understand that the summary CANNOT contain any information that is not in story A. When judging the implication relations, the details should not be ignored. For example, if a description says A student went hiking tomorrow but a story is talking about a student went hiking yesterday, the story does NOT imply the summary even though their meanings are very similar. You should NOT select a description if the description contains typos (e.g., job -> jog or hate -> hat) or the readers might not understand the description. However, you can still select a description if the description contains some minor grammartical errors (e.g., tense difference) and/or does not include the important parts of the story (i.e., the description is not a very good summary). 
-2. Determine Score_B -  Given that story B happened, please check if the description also happened (story B implies descriptions) (i.e., The story implies the description and the description does NOT contain some text that are irrelevant or contradictory to the story). Determine a score between 0 to 1 for how much provided common_summary is a summary of story B (Score_B). Understand that the summary CANNOT contain any information that is not in story B.
-When judging the implication relations, the details should not be ignored. For example, if a description says A student went hiking tomorrow but a story is talking about a student went hiking yesterday, the story does NOT imply the summary even though their meanings are very similar. You should NOT select a description if the description contains typos (e.g., job -> jog or hate -> hat) or the readers might not understand the description. However, you can still select a description if the description contains some minor grammartical errors (e.g., tense difference) and/or does not include the important parts of the story (i.e., the description is not a very good summary). 
+# You would be given two similar short stories and a description about the stories. 
 
-Finally, output 2 comma-separated values as follows:
-1. Entail-1: Which is the average of score_A and score_B
-2. Entail-2: Which is the min(score_A, score_B)
+# First, determine the following:
+# 1. Determine Score_A -  Given that story A happened, please check if the description also happened (story A implies descriptions) (i.e., The story implies the description and the description does NOT contain some text that are irrelevant or contradictory to the story). Determine a score between 0 to 1 for how much provided common_summary is a summary of story A (Score_A). Understand that the summary CANNOT contain any information that is not in story A. When judging the implication relations, the details should not be ignored. For example, if a description says A student went hiking tomorrow but a story is talking about a student went hiking yesterday, the story does NOT imply the summary even though their meanings are very similar. You should NOT select a description if the description contains typos (e.g., job -> jog or hate -> hat) or the readers might not understand the description. However, you can still select a description if the description contains some minor grammartical errors (e.g., tense difference) and/or does not include the important parts of the story (i.e., the description is not a very good summary). 
+# 2. Determine Score_B -  Given that story B happened, please check if the description also happened (story B implies descriptions) (i.e., The story implies the description and the description does NOT contain some text that are irrelevant or contradictory to the story). Determine a score between 0 to 1 for how much provided common_summary is a summary of story B (Score_B). Understand that the summary CANNOT contain any information that is not in story B.
+# When judging the implication relations, the details should not be ignored. For example, if a description says A student went hiking tomorrow but a story is talking about a student went hiking yesterday, the story does NOT imply the summary even though their meanings are very similar. You should NOT select a description if the description contains typos (e.g., job -> jog or hate -> hat) or the readers might not understand the description. However, you can still select a description if the description contains some minor grammartical errors (e.g., tense difference) and/or does not include the important parts of the story (i.e., the description is not a very good summary). 
 
-Format the output as: **entail-1, entail-2:** [score1], [score2]
+# Finally, output 2 comma-separated values as follows:
+# 1. Entail-1: Which is the average of score_A and score_B
+# 2. Entail-2: Which is the min(score_A, score_B)
 
-Below this, you can also include score_A and score_B and the reasoning for the scores. 
+# Format the output as: **entail-1, entail-2:** [score1], [score2]
 
-Here are some examples:
-Example 1: High Entailment
-Prompt A:
-Write a short story set in occupied France during World War II, where a teenage girl joins the local resistance. She begins secretly smuggling messages hidden in loaves of bread while pretending to be an innocent bakery assistant. Over time, her courage grows as she faces increasing danger from patrolling soldiers.
-Prompt B:
-Write a suspenseful narrative about a British schoolteacher who is recruited by Allied intelligence during WWII and sent behind enemy lines to intercept German communications. Though inexperienced, he learns to navigate espionage under constant threat.
-Prompt C (Generalization):
-Write a historical fiction story set during World War II, in which an ordinary civilian secretly participates in resistance or espionage activities, gradually gaining confidence while operating under life-threatening conditions.
-Output:
-Prompt C details:
-	1. Historical fiction
-	2. Set during WWII
-	3. Civilian protagonist
-	4. Secretly participates in resistance or espionage
-	5. Gains confidence over time
-	6. Operates under life-threatening danger
-Score A calculation: 6/6 = 1.0
-Score B calculation: 6/6 = 1.0
-**entail-1, entail-2:** 1.0, 1.0
-Reasoning:
-All six details in Prompt C are directly present or strongly implied in both Prompt A and B.
+# Below this, you can also include score_A and score_B and the reasoning for the scores. 
 
-Example 2: Low Entailment
-Prompt A:
-Write a detective story set in 1920s Chicago, where a private investigator is hired to find a missing jazz singer. As he digs deeper, he uncovers a web of corruption involving bootleggers, police officials, and a powerful music producer with ties to organized crime.
-Prompt B:
-Tell a noir-inspired mystery about a crime journalist in Prohibition-era New York who stumbles onto a murder cover-up linked to a speakeasy owner and a corrupt mayor. The deeper he investigates, the more dangerous the city becomes for him.
-Prompt C (Poor Generalization):
-Write a coming-of-age story about a young orphan who discovers a hidden talent for jazz trumpet and rises to fame in 1920s New Orleans, confronting prejudice and personal doubt along the way.
-Output:
-Prompt C details:
-	1. Coming-of-age story
-	2. Young orphan protagonist
-	3. Learns jazz trumpet
-	4. Rises to fame
-	5. Set in 1920s New Orleans
-	6. Themes of prejudice
-	7. Themes of self-doubt
-Score A calculation: 1/7 ≈ 0.14
-Score B calculation: 1/7 ≈ 0.14
-**entail-1, entail-2:** 0.14, 0.14
-Reasoning:
-Despite a shared time period and some mention of jazz in A, the themes, genre, and character arc of Prompt C are completely different and not implied in A or B.
+# Here are some examples:
+# Example 1: High Entailment
+# Prompt A:
+# Write a short story set in occupied France during World War II, where a teenage girl joins the local resistance. She begins secretly smuggling messages hidden in loaves of bread while pretending to be an innocent bakery assistant. Over time, her courage grows as she faces increasing danger from patrolling soldiers.
+# Prompt B:
+# Write a suspenseful narrative about a British schoolteacher who is recruited by Allied intelligence during WWII and sent behind enemy lines to intercept German communications. Though inexperienced, he learns to navigate espionage under constant threat.
+# Prompt C (Generalization):
+# Write a historical fiction story set during World War II, in which an ordinary civilian secretly participates in resistance or espionage activities, gradually gaining confidence while operating under life-threatening conditions.
+# Output:
+# Prompt C details:
+# 	1. Historical fiction
+# 	2. Set during WWII
+# 	3. Civilian protagonist
+# 	4. Secretly participates in resistance or espionage
+# 	5. Gains confidence over time
+# 	6. Operates under life-threatening danger
+# Score A calculation: 6/6 = 1.0
+# Score B calculation: 6/6 = 1.0
+# **entail-1, entail-2:** 1.0, 1.0
+# Reasoning:
+# All six details in Prompt C are directly present or strongly implied in both Prompt A and B.
 
-Example 3: Medium Entailment
-Prompt A:
-Write a story about a lonely retiree who takes up creative writing and, through a local writing club, begins to reconnect with others. The story should explore how writing allows him to process his past and find renewed purpose.
-Prompt B:
-Write a short story about a single mother who starts writing fiction online as an outlet for stress. As her stories gain popularity, she gains confidence and begins to imagine a new future for herself.
-Prompt C (Generalization):
-Write a story about an adult facing emotional isolation who begins writing fiction as a form of healing and eventually builds meaningful new relationships and a sense of identity through a community of readers or writers.
-Output:
-Prompt C details:
-	1. Adult protagonist
-	2. Emotionally isolated
-	3. Begins writing fiction
-	4. Writing is a form of healing
-	5. Builds new relationships
-	6. Gains a sense of identity
-	7. Community involves writers or readers
-Score A calculation: 6.5/7 ≈ 0.93
-Score B calculation: 5.5/7 ≈ 0.79
-**entail-1, entail-2:** 0.86, 0.79
-Reasoning:
-Prompt A strongly implies most of the generalization but is slightly vague about the larger community aspect. Prompt B covers emotional growth and writing but is less explicit about isolation and building new relationships.
-"""
+# Example 2: Low Entailment
+# Prompt A:
+# Write a detective story set in 1920s Chicago, where a private investigator is hired to find a missing jazz singer. As he digs deeper, he uncovers a web of corruption involving bootleggers, police officials, and a powerful music producer with ties to organized crime.
+# Prompt B:
+# Tell a noir-inspired mystery about a crime journalist in Prohibition-era New York who stumbles onto a murder cover-up linked to a speakeasy owner and a corrupt mayor. The deeper he investigates, the more dangerous the city becomes for him.
+# Prompt C (Poor Generalization):
+# Write a coming-of-age story about a young orphan who discovers a hidden talent for jazz trumpet and rises to fame in 1920s New Orleans, confronting prejudice and personal doubt along the way.
+# Output:
+# Prompt C details:
+# 	1. Coming-of-age story
+# 	2. Young orphan protagonist
+# 	3. Learns jazz trumpet
+# 	4. Rises to fame
+# 	5. Set in 1920s New Orleans
+# 	6. Themes of prejudice
+# 	7. Themes of self-doubt
+# Score A calculation: 1/7 ≈ 0.14
+# Score B calculation: 1/7 ≈ 0.14
+# **entail-1, entail-2:** 0.14, 0.14
+# Reasoning:
+# Despite a shared time period and some mention of jazz in A, the themes, genre, and character arc of Prompt C are completely different and not implied in A or B.
+
+# Example 3: Medium Entailment
+# Prompt A:
+# Write a story about a lonely retiree who takes up creative writing and, through a local writing club, begins to reconnect with others. The story should explore how writing allows him to process his past and find renewed purpose.
+# Prompt B:
+# Write a short story about a single mother who starts writing fiction online as an outlet for stress. As her stories gain popularity, she gains confidence and begins to imagine a new future for herself.
+# Prompt C (Generalization):
+# Write a story about an adult facing emotional isolation who begins writing fiction as a form of healing and eventually builds meaningful new relationships and a sense of identity through a community of readers or writers.
+# Output:
+# Prompt C details:
+# 	1. Adult protagonist
+# 	2. Emotionally isolated
+# 	3. Begins writing fiction
+# 	4. Writing is a form of healing
+# 	5. Builds new relationships
+# 	6. Gains a sense of identity
+# 	7. Community involves writers or readers
+# Score A calculation: 6.5/7 ≈ 0.93
+# Score B calculation: 5.5/7 ≈ 0.79
+# **entail-1, entail-2:** 0.86, 0.79
+# Reasoning:
+# Prompt A strongly implies most of the generalization but is slightly vague about the larger community aspect. Prompt B covers emotional growth and writing but is less explicit about isolation and building new relationships.
+# """
 
 # # Summary
 # evalPrompt2 = """
@@ -139,125 +142,127 @@ Prompt A strongly implies most of the generalization but is slightly vague about
 # """
 
 ## Education
-evalPrompt2 = """
-You will be given a science exercise A and a scientific skill B that is proposed as a generalization of the skill required to solve exercise A. Your task is to evaluate how well skill B represents and generalizes the underlying scientific skill or capability needed to solve exercise A.
+evalPrompt2 = get_eval_prompt2()
 
-The relationship being evaluated is:
-Exercise A → underlying skill needed to solve A → generalized skill B
+# evalPrompt2 = """
+# You will be given a science exercise A and a scientific skill B that is proposed as a generalization of the skill required to solve exercise A. Your task is to evaluate how well skill B represents and generalizes the underlying scientific skill or capability needed to solve exercise A.
 
-B does not need to describe the exercise itself. Instead, B should capture a more general scientific capability that represents the knowledge, reasoning, procedure, principle, relationship, or operation needed to successfully solve or understand A. Give a score between 0 and 1. A score close to 1 means that the skill expressed by B is strongly supported by the underlying skill required to solve A. A score close to 0 means that B does not accurately represent the skill required to solve A, or that B introduces important scientific capabilities that are not required by A. Evaluate the underlying scientific meaning and capability rather than surface-level word overlap.
+# The relationship being evaluated is:
+# Exercise A → underlying skill needed to solve A → generalized skill B
 
-Important principles:
-1. UNDERLYING SKILL
-   Focus on the scientific capability required to solve or understand exercise A, rather than simply describing the content or topic of A.
-2. GENERALIZATION
-   Skill B should represent a more general form of the underlying skill required by A. Exercise-specific details may be abstracted away.
-3. IMPLICIT SKILLS
-   The underlying skill does not need to be explicitly stated in exercise A. Infer a skill when it is genuinely required to solve the exercise.
-4. SEMANTIC MATCHING
-   Do not rely on word overlap. A and B may use different terminology while expressing the same underlying scientific capability.
-5. FAITHFULNESS
-   Every important capability expressed by B should be supported by the skill required to solve A. Reduce the score if B introduces concepts, principles, relationships, procedures, or capabilities that are not required by A.
-6. ABSTRACTION IS EXPECTED
-   B may omit exercise-specific values, objects, substances, conditions, or other details. Such omissions should not reduce the score as long as the generalized skill remains faithful to the underlying skill required by A.
-7. DO NOT CONFUSE TOPIC WITH SKILL
-   A shared scientific topic or discipline is not sufficient. B should describe a meaningful capability that a learner can use to solve or understand scientific exercises.
-8. DO NOT EVALUATE COMPLETENESS
-   This metric evaluates whether B is a faithful generalization of the underlying skill. It should not strongly penalize B simply because it omits some aspects of the skill required by A. Coverage of important capabilities is evaluated separately by informativeness.
-9. AVOID OVER-GENERALIZATION
-   A skill such as "solve science exercises" or "apply scientific knowledge" may technically encompass A, but it is too general to meaningfully represent the underlying skill. Reduce the score when B loses the essential scientific capability being generalized.
-10. MOST IMPORTANTLY
-    Ask:
-    "What scientific skill or capability is required to solve exercise A, and does skill B faithfully represent a generalized version of that capability?"
+# B does not need to describe the exercise itself. Instead, B should capture a more general scientific capability that represents the knowledge, reasoning, procedure, principle, relationship, or operation needed to successfully solve or understand A. Give a score between 0 and 1. A score close to 1 means that the skill expressed by B is strongly supported by the underlying skill required to solve A. A score close to 0 means that B does not accurately represent the skill required to solve A, or that B introduces important scientific capabilities that are not required by A. Evaluate the underlying scientific meaning and capability rather than surface-level word overlap.
 
-Use the following scale as guidance:
-1.0: B is an accurate and well-grounded generalization of the underlying skill required to solve A. It captures the essential capability without introducing unsupported capabilities.
-0.8-0.99: B is a strong generalization of the required skill, with only minor over-generalization or minor differences.
-0.6-0.79: B captures a substantial part of the underlying skill but is somewhat broader, narrower, or less precise than an ideal generalization.
-0.4-0.59: B has some meaningful relationship to the underlying skill but misses important aspects or introduces some unsupported capabilities.
-0.1-0.39: B has only weak correspondence with the underlying skill, such as sharing only a broad scientific topic or general activity.
-0.0: B does not represent the skill required to solve A or describes a fundamentally different scientific capability.
+# Important principles:
+# 1. UNDERLYING SKILL
+#    Focus on the scientific capability required to solve or understand exercise A, rather than simply describing the content or topic of A.
+# 2. GENERALIZATION
+#    Skill B should represent a more general form of the underlying skill required by A. Exercise-specific details may be abstracted away.
+# 3. IMPLICIT SKILLS
+#    The underlying skill does not need to be explicitly stated in exercise A. Infer a skill when it is genuinely required to solve the exercise.
+# 4. SEMANTIC MATCHING
+#    Do not rely on word overlap. A and B may use different terminology while expressing the same underlying scientific capability.
+# 5. FAITHFULNESS
+#    Every important capability expressed by B should be supported by the skill required to solve A. Reduce the score if B introduces concepts, principles, relationships, procedures, or capabilities that are not required by A.
+# 6. ABSTRACTION IS EXPECTED
+#    B may omit exercise-specific values, objects, substances, conditions, or other details. Such omissions should not reduce the score as long as the generalized skill remains faithful to the underlying skill required by A.
+# 7. DO NOT CONFUSE TOPIC WITH SKILL
+#    A shared scientific topic or discipline is not sufficient. B should describe a meaningful capability that a learner can use to solve or understand scientific exercises.
+# 8. DO NOT EVALUATE COMPLETENESS
+#    This metric evaluates whether B is a faithful generalization of the underlying skill. It should not strongly penalize B simply because it omits some aspects of the skill required by A. Coverage of important capabilities is evaluated separately by informativeness.
+# 9. AVOID OVER-GENERALIZATION
+#    A skill such as "solve science exercises" or "apply scientific knowledge" may technically encompass A, but it is too general to meaningfully represent the underlying skill. Reduce the score when B loses the essential scientific capability being generalized.
+# 10. MOST IMPORTANTLY
+#     Ask:
+#     "What scientific skill or capability is required to solve exercise A, and does skill B faithfully represent a generalized version of that capability?"
+
+# Use the following scale as guidance:
+# 1.0: B is an accurate and well-grounded generalization of the underlying skill required to solve A. It captures the essential capability without introducing unsupported capabilities.
+# 0.8-0.99: B is a strong generalization of the required skill, with only minor over-generalization or minor differences.
+# 0.6-0.79: B captures a substantial part of the underlying skill but is somewhat broader, narrower, or less precise than an ideal generalization.
+# 0.4-0.59: B has some meaningful relationship to the underlying skill but misses important aspects or introduces some unsupported capabilities.
+# 0.1-0.39: B has only weak correspondence with the underlying skill, such as sharing only a broad scientific topic or general activity.
+# 0.0: B does not represent the skill required to solve A or describes a fundamentally different scientific capability.
 
 
-Finally, output your score in the following format:
-Score: [SCORE]
+# Finally, output your score in the following format:
+# Score: [SCORE]
 
-Below this, give your reasoning for your score. 
+# Below this, give your reasoning for your score. 
 
-Here are some examples:
-High-Scoring Example 1 — Direct Generalization
-Exercise A:
-Calculate the acceleration of an object with a mass of 5 kg when a net force of 20 N acts on it.
-Skill B:
-Apply Newton's second law to relate force, mass, and acceleration.
-Score: 1.0
-Reasoning:
-The underlying skill required to solve A is applying Newton's second law to determine acceleration from force and mass. B accurately generalizes this skill by describing the relationship among force, mass, and acceleration without retaining the specific numerical values.
+# Here are some examples:
+# High-Scoring Example 1 — Direct Generalization
+# Exercise A:
+# Calculate the acceleration of an object with a mass of 5 kg when a net force of 20 N acts on it.
+# Skill B:
+# Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 1.0
+# Reasoning:
+# The underlying skill required to solve A is applying Newton's second law to determine acceleration from force and mass. B accurately generalizes this skill by describing the relationship among force, mass, and acceleration without retaining the specific numerical values.
 
-High-Scoring Example 2 — Generalizing an Implicit Skill
-Exercise A:
-A 2 kg object is initially at rest and is acted upon by a constant net force of 10 N for 4 seconds. Determine its final velocity.
-Skill B:
-Apply Newton's laws to analyze how forces affect an object's motion.
-Score: 0.9
-Reasoning:
-Solving A requires applying Newton's second law to determine acceleration and then using the resulting motion information to determine velocity. B generalizes this underlying capability to analyzing how forces affect motion. The exercise does not explicitly state the skill, but the capability is genuinely required to solve it.
+# High-Scoring Example 2 — Generalizing an Implicit Skill
+# Exercise A:
+# A 2 kg object is initially at rest and is acted upon by a constant net force of 10 N for 4 seconds. Determine its final velocity.
+# Skill B:
+# Apply Newton's laws to analyze how forces affect an object's motion.
+# Score: 0.9
+# Reasoning:
+# Solving A requires applying Newton's second law to determine acceleration and then using the resulting motion information to determine velocity. B generalizes this underlying capability to analyzing how forces affect motion. The exercise does not explicitly state the skill, but the capability is genuinely required to solve it.
 
-High-Scoring Example 3 — Different Exercise Details, Same Skill
-Exercise A:
-Calculate the pressure of a gas using its temperature, volume, and amount of substance.
-Skill B:
-Use quantitative relationships among physical variables to determine an unknown quantity.
-Score: 0.85
-Reasoning:
-The underlying skill required by A is using a quantitative relationship among known physical variables to determine an unknown quantity. B generalizes this capability while removing the specific gas-law context and variables.
+# High-Scoring Example 3 — Different Exercise Details, Same Skill
+# Exercise A:
+# Calculate the pressure of a gas using its temperature, volume, and amount of substance.
+# Skill B:
+# Use quantitative relationships among physical variables to determine an unknown quantity.
+# Score: 0.85
+# Reasoning:
+# The underlying skill required by A is using a quantitative relationship among known physical variables to determine an unknown quantity. B generalizes this capability while removing the specific gas-law context and variables.
 
-High-Scoring Example 4 — Scientific Reasoning
-Exercise A:
-Explain why increasing temperature increases the rate of a chemical reaction.
-Skill B:
-Explain how changes in a variable can affect a measurable property of a scientific system.
-Score: 0.9
-Reasoning:
-The underlying skill in A is reasoning about how a change in temperature affects a property of a chemical system. B generalizes this reasoning pattern while abstracting away temperature, reaction rate, and the specific chemical context.
+# High-Scoring Example 4 — Scientific Reasoning
+# Exercise A:
+# Explain why increasing temperature increases the rate of a chemical reaction.
+# Skill B:
+# Explain how changes in a variable can affect a measurable property of a scientific system.
+# Score: 0.9
+# Reasoning:
+# The underlying skill in A is reasoning about how a change in temperature affects a property of a chemical system. B generalizes this reasoning pattern while abstracting away temperature, reaction rate, and the specific chemical context.
 
-Mid-Scoring Example
-Exercise A:
-Calculate the pH of a solution from its hydrogen ion concentration using pH = -log[H+].
-Skill B:
-Use mathematical relationships to solve quantitative chemistry exercises.
-Score: 0.55
-Reasoning:
-B captures that the exercise requires quantitative mathematical reasoning in chemistry, but it is substantially broader than the underlying skill. It does not preserve the important capability of using the logarithmic relationship between pH and hydrogen ion concentration.
+# Mid-Scoring Example
+# Exercise A:
+# Calculate the pH of a solution from its hydrogen ion concentration using pH = -log[H+].
+# Skill B:
+# Use mathematical relationships to solve quantitative chemistry exercises.
+# Score: 0.55
+# Reasoning:
+# B captures that the exercise requires quantitative mathematical reasoning in chemistry, but it is substantially broader than the underlying skill. It does not preserve the important capability of using the logarithmic relationship between pH and hydrogen ion concentration.
 
-Low-Scoring Example 1 — Topic Instead of Skill
-Exercise A:
-Calculate the acceleration of an object from its mass and net force.
-Skill B:
-Understand mechanics and physical systems.
-Score: 0.25
-Reasoning:
-Mechanics is the relevant scientific domain, but B does not represent the specific capability needed to solve A. It describes a broad area of knowledge rather than a meaningful generalized skill.
+# Low-Scoring Example 1 — Topic Instead of Skill
+# Exercise A:
+# Calculate the acceleration of an object from its mass and net force.
+# Skill B:
+# Understand mechanics and physical systems.
+# Score: 0.25
+# Reasoning:
+# Mechanics is the relevant scientific domain, but B does not represent the specific capability needed to solve A. It describes a broad area of knowledge rather than a meaningful generalized skill.
 
-Low-Scoring Example 2 — Wrong Skill
-Exercise A:
-Calculate the acceleration of an object from its mass and net force using F = ma.
-Skill B:
-Apply conservation of momentum to analyze collisions.
-Score: 0.0
-Reasoning:
-The skill required to solve A involves Newton's second law. Conservation of momentum and collision analysis represent a different scientific capability that is not required by A.
+# Low-Scoring Example 2 — Wrong Skill
+# Exercise A:
+# Calculate the acceleration of an object from its mass and net force using F = ma.
+# Skill B:
+# Apply conservation of momentum to analyze collisions.
+# Score: 0.0
+# Reasoning:
+# The skill required to solve A involves Newton's second law. Conservation of momentum and collision analysis represent a different scientific capability that is not required by A.
 
-Low-Scoring Example 3 — Too General
-Exercise A:
-Determine the equilibrium constant of a chemical reaction from the concentrations of reactants and products.
-Skill B:
-Solve science exercises using scientific knowledge.
-Score: 0.2
-Reasoning:
-B is broad enough to encompass the exercise, but it does not meaningfully generalize the underlying skill. It loses the important capability of using quantitative relationships in chemical equilibrium.
+# Low-Scoring Example 3 — Too General
+# Exercise A:
+# Determine the equilibrium constant of a chemical reaction from the concentrations of reactants and products.
+# Skill B:
+# Solve science exercises using scientific knowledge.
+# Score: 0.2
+# Reasoning:
+# B is broad enough to encompass the exercise, but it does not meaningfully generalize the underlying skill. It loses the important capability of using quantitative relationships in chemical equilibrium.
 
-"""
+# """
 
 
 # --------------------------------------------------------------------------- #
@@ -322,131 +327,133 @@ B is broad enough to encompass the exercise, but it does not meaningfully genera
 # """
 
 ## Education
-evalPrompt_faithfulness = """
-You will be given a science exercise A and a scientific skill B that is proposed to describe a capability tested by exercise A. Your task is to determine how FAITHFUL skill B is to exercise A. Faithfulness measures PRECISION: whether exercise A actually tests, requires, or demonstrates the scientific capability described by skill B.
+evalPrompt_faithfulness = get_eval_prompt_faithfulness()
 
-In other words, ask:
-"Does a learner need to possess or apply the capability described by B in order to successfully solve or answer exercise A?" A skill is faithful when the exercise genuinely tests that skill, even if the skill is implicit in the exercise rather than explicitly stated. Faithfulness measures ONE thing: whether the skill B is supported by what exercise A actually requires. It does NOT measure how many of the important skills in A are captured by B. That is an INFORMATIVENESS concern.
+# evalPrompt_faithfulness = """
+# You will be given a science exercise A and a scientific skill B that is proposed to describe a capability tested by exercise A. Your task is to determine how FAITHFUL skill B is to exercise A. Faithfulness measures PRECISION: whether exercise A actually tests, requires, or demonstrates the scientific capability described by skill B.
 
-Important:
-* The ONLY reason to score below 1.0 is that skill B describes a capability that exercise A does not actually test, require, or meaningfully demonstrate.
-* Implicit skills count. If solving A genuinely requires applying a scientific law, principle, relationship, concept, procedure, or reasoning pattern, B can receive full credit for describing that capability even if A does not explicitly name it.
-* Do NOT require B to use the same wording as A. Evaluate the underlying scientific capability, not lexical overlap.
-* Do NOT penalize B for being more abstract than the skill required by A. Generalization is expected when constructing a skill hierarchy.
-* Do NOT penalize B for omitting details of A. Faithfulness asks whether B is supported by A, not whether B captures everything A tests.
-* Do NOT penalize B merely because it is broad or generic. A broad skill can still be fully faithful if the exercise genuinely tests that capability.
-* However, a broad statement should not receive full credit if it contains additional capabilities that the exercise does not test.
-* Topic overlap alone is NOT sufficient. Two concepts may belong to the same scientific domain without one being a skill tested by the exercise.
-* Do NOT infer a skill merely because it is commonly associated with the topic. The capability must be genuinely required to solve or understand A.
-* If B contains multiple distinct capabilities, evaluate each capability separately. Reduce the score when some of those capabilities are not supported by A.
-* Do not evaluate how informative, specific, or useful B is as a description of A. Those properties are evaluated separately.
-* Do not evaluate whether B captures all important skills required by A. That is the purpose of INFORMATIVENESS.
-* Distinguish between the scientific topic of an exercise and the skill required to solve it. "Chemistry" or "physics" is not itself necessarily the skill being tested.
-* The exercise may test an implicit skill. For example, an exercise asking for acceleration from force and mass may implicitly test the ability to apply Newton's second law, even if the exercise never mentions Newton's second law.
+# In other words, ask:
+# "Does a learner need to possess or apply the capability described by B in order to successfully solve or answer exercise A?" A skill is faithful when the exercise genuinely tests that skill, even if the skill is implicit in the exercise rather than explicitly stated. Faithfulness measures ONE thing: whether the skill B is supported by what exercise A actually requires. It does NOT measure how many of the important skills in A are captured by B. That is an INFORMATIVENESS concern.
 
-Scoring guidance:
-* 0.85-1.0 (Highly Faithful / High Precision): Exercise A clearly tests or requires the capability described by B. Every important capability stated in B is grounded in what A requires. B may be abstract or generalized without reducing faithfulness.
-* 0.6-0.85 (Mostly Faithful): B is largely supported by A, but one capability or aspect of B is only weakly supported, partially required, or somewhat broader than what A actually tests.
-* 0.3-0.6 (Partially Faithful): B contains a meaningful capability that A tests, but also contains one or more additional capabilities that A does not clearly test or require.
-* 0.0-0.3 (Not Faithful / Low Precision): B mainly describes a capability that A does not test, require, or meaningfully demonstrate. Shared scientific topic or vocabulary alone is not sufficient.
+# Important:
+# * The ONLY reason to score below 1.0 is that skill B describes a capability that exercise A does not actually test, require, or meaningfully demonstrate.
+# * Implicit skills count. If solving A genuinely requires applying a scientific law, principle, relationship, concept, procedure, or reasoning pattern, B can receive full credit for describing that capability even if A does not explicitly name it.
+# * Do NOT require B to use the same wording as A. Evaluate the underlying scientific capability, not lexical overlap.
+# * Do NOT penalize B for being more abstract than the skill required by A. Generalization is expected when constructing a skill hierarchy.
+# * Do NOT penalize B for omitting details of A. Faithfulness asks whether B is supported by A, not whether B captures everything A tests.
+# * Do NOT penalize B merely because it is broad or generic. A broad skill can still be fully faithful if the exercise genuinely tests that capability.
+# * However, a broad statement should not receive full credit if it contains additional capabilities that the exercise does not test.
+# * Topic overlap alone is NOT sufficient. Two concepts may belong to the same scientific domain without one being a skill tested by the exercise.
+# * Do NOT infer a skill merely because it is commonly associated with the topic. The capability must be genuinely required to solve or understand A.
+# * If B contains multiple distinct capabilities, evaluate each capability separately. Reduce the score when some of those capabilities are not supported by A.
+# * Do not evaluate how informative, specific, or useful B is as a description of A. Those properties are evaluated separately.
+# * Do not evaluate whether B captures all important skills required by A. That is the purpose of INFORMATIVENESS.
+# * Distinguish between the scientific topic of an exercise and the skill required to solve it. "Chemistry" or "physics" is not itself necessarily the skill being tested.
+# * The exercise may test an implicit skill. For example, an exercise asking for acceleration from force and mass may implicitly test the ability to apply Newton's second law, even if the exercise never mentions Newton's second law.
 
-## Examples
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's second law to relate force, mass, and acceleration.
-Score: 1.0
-Reason: To solve A, the learner must relate force, mass, and acceleration using Newton's second law. Although A does not explicitly say "Newton's second law," the skill is implicitly required. Therefore B is highly faithful.
+# Scoring guidance:
+# * 0.85-1.0 (Highly Faithful / High Precision): Exercise A clearly tests or requires the capability described by B. Every important capability stated in B is grounded in what A requires. B may be abstract or generalized without reducing faithfulness.
+# * 0.6-0.85 (Mostly Faithful): B is largely supported by A, but one capability or aspect of B is only weakly supported, partially required, or somewhat broader than what A actually tests.
+# * 0.3-0.6 (Partially Faithful): B contains a meaningful capability that A tests, but also contains one or more additional capabilities that A does not clearly test or require.
+# * 0.0-0.3 (Not Faithful / Low Precision): B mainly describes a capability that A does not test, require, or meaningfully demonstrate. Shared scientific topic or vocabulary alone is not sufficient.
 
----
+# ## Examples
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 1.0
+# Reason: To solve A, the learner must relate force, mass, and acceleration using Newton's second law. Although A does not explicitly say "Newton's second law," the skill is implicitly required. Therefore B is highly faithful.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's laws to analyze forces acting on physical systems.
-Score: 1.0
-Reason: The specific skill required by A is an application of Newton's second law, which is part of applying Newton's laws to physical systems. B is more general, but the capability it describes is genuinely tested by A. Greater abstraction does not reduce faithfulness.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's laws to analyze forces acting on physical systems.
+# Score: 1.0
+# Reason: The specific skill required by A is an application of Newton's second law, which is part of applying Newton's laws to physical systems. B is more general, but the capability it describes is genuinely tested by A. Greater abstraction does not reduce faithfulness.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Solve quantitative science problems.
-Score: 1.0
-Reason: A requires quantitative problem solving, so B is faithful. B is extremely broad and therefore may have low informativeness, but broadness or omission does not reduce faithfulness.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Solve quantitative science problems.
+# Score: 1.0
+# Reason: A requires quantitative problem solving, so B is faithful. B is extremely broad and therefore may have low informativeness, but broadness or omission does not reduce faithfulness.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply conservation of momentum to analyze collisions.
-Score: 0.05
-Reason: A does not require conservation of momentum or collision analysis. The fact that both belong to physics does not make B faithful to A.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply conservation of momentum to analyze collisions.
+# Score: 0.05
+# Reason: A does not require conservation of momentum or collision analysis. The fact that both belong to physics does not make B faithful to A.
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
-Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
-Score: 1.0
-Reason: The exercise directly tests the ability to use the logarithmic relationship between hydrogen ion concentration and pH. B accurately describes the capability tested by A.
+# ---
 
----
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
+# Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
+# Score: 1.0
+# Reason: The exercise directly tests the ability to use the logarithmic relationship between hydrogen ion concentration and pH. B accurately describes the capability tested by A.
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
-Skill B: Analyze chemical equilibrium.
-Score: 0.1
-Reason: Although chemical equilibrium is related to chemistry and can affect pH in some contexts, this particular exercise does not require analyzing equilibrium. Therefore B is not a faithful description of the capability tested by A.
+# ---
 
----
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
+# Skill B: Analyze chemical equilibrium.
+# Score: 0.1
+# Reason: Although chemical equilibrium is related to chemistry and can affect pH in some contexts, this particular exercise does not require analyzing equilibrium. Therefore B is not a faithful description of the capability tested by A.
 
-Exercise A: Explain why increasing temperature increases the rate of a chemical reaction.
-Skill B: Explain how increasing temperature affects physical or chemical properties.
-Score: 1.0
-Reason: A tests the ability to explain how increasing temperature affects a chemical property or behavior, specifically reaction rate. B expresses this capability at a broader level and therefore remains faithful.
+# ---
 
----
+# Exercise A: Explain why increasing temperature increases the rate of a chemical reaction.
+# Skill B: Explain how increasing temperature affects physical or chemical properties.
+# Score: 1.0
+# Reason: A tests the ability to explain how increasing temperature affects a chemical property or behavior, specifically reaction rate. B expresses this capability at a broader level and therefore remains faithful.
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
-Score: 1.0
-Reason: Solving A requires using Mendelian inheritance principles and parental genotypes to predict offspring outcomes. B accurately describes the capability tested by A.
+# ---
 
----
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
+# Score: 1.0
+# Reason: Solving A requires using Mendelian inheritance principles and parental genotypes to predict offspring outcomes. B accurately describes the capability tested by A.
 
-Exercise A: Determine the velocity of a projectile after 3 seconds using its initial velocity and acceleration.
-Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions and time.
-Score: 1.0
-Reason: A requires the learner to use kinematic relationships involving initial conditions, acceleration, and time to determine motion. B faithfully represents that capability.
+# ---
 
----
+# Exercise A: Determine the velocity of a projectile after 3 seconds using its initial velocity and acceleration.
+# Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions and time.
+# Score: 1.0
+# Reason: A requires the learner to use kinematic relationships involving initial conditions, acceleration, and time to determine motion. B faithfully represents that capability.
 
-Exercise A: Determine the velocity of a projectile after 3 seconds using its initial velocity and acceleration.
-Skill B: Use calculus to analyze projectile motion.
-Score: 0.4
-Reason: The exercise involves projectile motion, but calculus is not necessarily required to solve it. B therefore introduces an additional requirement that is not supported by A. The projectile-motion component is relevant, but the calculus requirement lowers faithfulness.
+# ---
 
----
+# Exercise A: Determine the velocity of a projectile after 3 seconds using its initial velocity and acceleration.
+# Skill B: Use calculus to analyze projectile motion.
+# Score: 0.4
+# Reason: The exercise involves projectile motion, but calculus is not necessarily required to solve it. B therefore introduces an additional requirement that is not supported by A. The projectile-motion component is relevant, but the calculus requirement lowers faithfulness.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Analyze experimental data to determine relationships between measured scientific variables.
-Score: 1.0
-Reason: A tests the ability to analyze experimental measurements and determine the relationship between temperature and reaction rate. B generalizes the specific variables while preserving the underlying data-analysis capability.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Analyze experimental data to determine relationships between measured scientific variables.
+# Score: 1.0
+# Reason: A tests the ability to analyze experimental measurements and determine the relationship between temperature and reaction rate. B generalizes the specific variables while preserving the underlying data-analysis capability.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Design controlled experiments to investigate causal relationships between variables.
-Score: 0.3
-Reason: A asks the learner to analyze existing experimental measurements. It does not require designing a controlled experiment. B therefore introduces an experimental-design capability that is not tested by A.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Design controlled experiments to investigate causal relationships between variables.
+# Score: 0.3
+# Reason: A asks the learner to analyze existing experimental measurements. It does not require designing a controlled experiment. B therefore introduces an experimental-design capability that is not tested by A.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Use mathematical relationships to calculate an unknown scientific quantity from known variables.
-Score: 1.0
-Reason: A requires the learner to use a mathematical relationship involving known variables to calculate an unknown quantity. B is much more general, but the capability it describes is genuinely tested by A. Its generality may reduce informativeness, but not faithfulness.
+# ---
 
----
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Use mathematical relationships to calculate an unknown scientific quantity from known variables.
+# Score: 1.0
+# Reason: A requires the learner to use a mathematical relationship involving known variables to calculate an unknown quantity. B is much more general, but the capability it describes is genuinely tested by A. Its generality may reduce informativeness, but not faithfulness.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Apply Newton's laws and conservation of energy to solve mechanics problems.
-Score: 0.5
-Reason: Newtonian mechanics may be relevant to the situation, but A can be solved using kinematic relationships without requiring conservation of energy. B therefore introduces a capability that is not necessarily tested by A.
-"""
+# ---
+
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Apply Newton's laws and conservation of energy to solve mechanics problems.
+# Score: 0.5
+# Reason: Newtonian mechanics may be relevant to the situation, but A can be solved using kinematic relationships without requiring conservation of energy. B therefore introduces a capability that is not necessarily tested by A.
+# """
 
 
 # ## Summary
@@ -488,130 +495,133 @@ Reason: Newtonian mechanics may be relevant to the situation, but A can be solve
 # """
 
 ## Education
-evalPrompt_informativeness = """
-You will be given a science exercise A and a scientific skill B that is proposed to describe or generalize the skills required to solve exercise A. Your task is to determine how INFORMATIVE skill B is about exercise A. Informativeness measures RECALL: whether skill B captures the important scientific skills and capabilities that exercise A actually tests.
+evalPrompt_informativeness = get_eval_prompt_informativeness()
 
-In other words, ask:
-"What are the important scientific skills required to solve or understand exercise A, and how much of those skills does B capture?" A highly informative skill should capture the important underlying capabilities of the exercise, rather than merely describing its topic or giving a very broad statement about the type of activity.
 
-Important:
-* First identify the IMPORTANT SKILLS tested by exercise A. Focus on the core scientific capabilities needed to solve or correctly answer A.
-* Important skills may include scientific concepts, laws, principles, relationships, formulas, procedures, reasoning patterns, interpretation abilities, calculation abilities, experimental-analysis skills, or other meaningful capabilities.
-* Consider the underlying skill even when it is implicit in the wording of A.
-* Evaluate SEMANTIC COVERAGE, not lexical overlap. B does not need to use the same words as A.
-* B may abstract away exercise-specific details such as numerical values, particular objects, substances, experimental settings, or other incidental details without losing informativeness.
-* Do NOT require B to reproduce the exact exercise. We are evaluating whether B captures the underlying scientific capabilities tested by the exercise.
-* Do NOT reward B merely because it mentions the same scientific topic. Topic overlap is not sufficient if B fails to capture the capability actually tested.
-* Penalize VAGUENESS when B is so broad that it captures little of the important scientific capability in A.
-* A statement such as "solve science problems," "analyze data," or "understand physics" may be technically related to A but should receive low informativeness when it fails to identify the important capability being tested.
-* If A tests multiple important skills, B should capture the important ones to receive a high score.
-* Do NOT penalize B for omitting trivial, incidental, or exercise-specific details.
-* Do NOT evaluate whether B contains unsupported capabilities. That is the purpose of FAITHFULNESS.
-* Do NOT evaluate whether B is the most specific possible generalization. Evaluate how much of the important capability tested by A is retained by B.
-* A skill can be highly faithful but poorly informative. For example, a very broad skill may genuinely apply to A but fail to capture its important scientific content.
-* When judging informativeness, focus on the capabilities that are central to successfully solving A, not every piece of information appearing in the exercise.
+# evalPrompt_informativeness = """
+# You will be given a science exercise A and a scientific skill B that is proposed to describe or generalize the skills required to solve exercise A. Your task is to determine how INFORMATIVE skill B is about exercise A. Informativeness measures RECALL: whether skill B captures the important scientific skills and capabilities that exercise A actually tests.
 
-Base the score on the proportion of the IMPORTANT SCIENTIFIC CAPABILITIES tested by A that are captured or implied by B.
+# In other words, ask:
+# "What are the important scientific skills required to solve or understand exercise A, and how much of those skills does B capture?" A highly informative skill should capture the important underlying capabilities of the exercise, rather than merely describing its topic or giving a very broad statement about the type of activity.
 
-Scoring guidance:
+# Important:
+# * First identify the IMPORTANT SKILLS tested by exercise A. Focus on the core scientific capabilities needed to solve or correctly answer A.
+# * Important skills may include scientific concepts, laws, principles, relationships, formulas, procedures, reasoning patterns, interpretation abilities, calculation abilities, experimental-analysis skills, or other meaningful capabilities.
+# * Consider the underlying skill even when it is implicit in the wording of A.
+# * Evaluate SEMANTIC COVERAGE, not lexical overlap. B does not need to use the same words as A.
+# * B may abstract away exercise-specific details such as numerical values, particular objects, substances, experimental settings, or other incidental details without losing informativeness.
+# * Do NOT require B to reproduce the exact exercise. We are evaluating whether B captures the underlying scientific capabilities tested by the exercise.
+# * Do NOT reward B merely because it mentions the same scientific topic. Topic overlap is not sufficient if B fails to capture the capability actually tested.
+# * Penalize VAGUENESS when B is so broad that it captures little of the important scientific capability in A.
+# * A statement such as "solve science problems," "analyze data," or "understand physics" may be technically related to A but should receive low informativeness when it fails to identify the important capability being tested.
+# * If A tests multiple important skills, B should capture the important ones to receive a high score.
+# * Do NOT penalize B for omitting trivial, incidental, or exercise-specific details.
+# * Do NOT evaluate whether B contains unsupported capabilities. That is the purpose of FAITHFULNESS.
+# * Do NOT evaluate whether B is the most specific possible generalization. Evaluate how much of the important capability tested by A is retained by B.
+# * A skill can be highly faithful but poorly informative. For example, a very broad skill may genuinely apply to A but fail to capture its important scientific content.
+# * When judging informativeness, focus on the capabilities that are central to successfully solving A, not every piece of information appearing in the exercise.
 
-* 0.85-1.0 (Excellent Coverage / High Recall): B captures essentially all of the important scientific skills required by A. It represents the central concepts, relationships, reasoning, or procedures needed to solve the exercise, while appropriately abstracting away incidental details.
-* 0.6-0.85 (Good Coverage): B captures the main skill tested by A but misses one or more important capabilities or meaningful aspects of the reasoning required.
-* 0.3-0.6 (Partial / Vague Coverage): B captures a broad aspect of what A requires but misses much of the important scientific capability. It may correctly identify the general activity or topic while remaining too vague.
-* 0.0-0.3 (Very Low Coverage / Mismatched): B captures little or none of the important skills tested by A, or describes an essentially different capability.
+# Base the score on the proportion of the IMPORTANT SCIENTIFIC CAPABILITIES tested by A that are captured or implied by B.
 
-## Examples
+# Scoring guidance:
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's second law to relate force, mass, and acceleration.
-Score: 1.0
-Reason: B captures the central scientific capability required by A: applying Newton's second law to relate force, mass, and acceleration. The numerical values and specific object are incidental details and do not need to appear in B.
+# * 0.85-1.0 (Excellent Coverage / High Recall): B captures essentially all of the important scientific skills required by A. It represents the central concepts, relationships, reasoning, or procedures needed to solve the exercise, while appropriately abstracting away incidental details.
+# * 0.6-0.85 (Good Coverage): B captures the main skill tested by A but misses one or more important capabilities or meaningful aspects of the reasoning required.
+# * 0.3-0.6 (Partial / Vague Coverage): B captures a broad aspect of what A requires but misses much of the important scientific capability. It may correctly identify the general activity or topic while remaining too vague.
+# * 0.0-0.3 (Very Low Coverage / Mismatched): B captures little or none of the important skills tested by A, or describes an essentially different capability.
 
----
+# ## Examples
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
-Score: 0.65
-Reason: B captures the general quantitative-calculation capability required by A, but it does not capture the important physics-specific skill of applying Newton's second law or the relationship between force, mass, and acceleration.
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 1.0
+# Reason: B captures the central scientific capability required by A: applying Newton's second law to relate force, mass, and acceleration. The numerical values and specific object are incidental details and do not need to appear in B.
 
----
+# ---
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Solve science problems.
-Score: 0.25
-Reason: B captures only the very broad activity of solving a science problem. It does not capture the important capability of relating force, mass, and acceleration using Newton's second law.
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
+# Score: 0.65
+# Reason: B captures the general quantitative-calculation capability required by A, but it does not capture the important physics-specific skill of applying Newton's second law or the relationship between force, mass, and acceleration.
 
----
+# ---
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply conservation of momentum to analyze collisions.
-Score: 0.05
-Reason: B does not capture the important skill tested by A. Although both are physics-related, conservation of momentum and collision analysis are not the capabilities needed to solve this exercise.
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Solve science problems.
+# Score: 0.25
+# Reason: B captures only the very broad activity of solving a science problem. It does not capture the important capability of relating force, mass, and acceleration using Newton's second law.
 
----
+# ---
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
-Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
-Score: 1.0
-Reason: B captures the central relationship and calculation skill required by the exercise.
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply conservation of momentum to analyze collisions.
+# Score: 0.05
+# Reason: B does not capture the important skill tested by A. Although both are physics-related, conservation of momentum and collision analysis are not the capabilities needed to solve this exercise.
 
----
+# ---
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
-Skill B: Perform quantitative calculations in chemistry.
-Score: 0.4
-Reason: B captures the general quantitative aspect of the exercise but misses the important scientific relationship between pH and hydrogen ion concentration.
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
+# Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
+# Score: 1.0
+# Reason: B captures the central relationship and calculation skill required by the exercise.
 
----
+# ---
 
-Exercise A: Explain why increasing temperature increases the rate of a chemical reaction.
-Skill B: Explain how increasing temperature affects physical or chemical properties.
-Score: 0.9
-Reason: B captures the important capability of explaining how temperature changes affect scientific properties or behavior, including chemical reaction rate. It appropriately generalizes the specific phenomenon without losing the central capability.
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
+# Skill B: Perform quantitative calculations in chemistry.
+# Score: 0.4
+# Reason: B captures the general quantitative aspect of the exercise but misses the important scientific relationship between pH and hydrogen ion concentration.
 
----
+# ---
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
-Score: 1.0
-Reason: B captures the central capability: using parental genotypes and Mendelian inheritance principles to predict offspring genetic outcomes.
+# Exercise A: Explain why increasing temperature increases the rate of a chemical reaction.
+# Skill B: Explain how increasing temperature affects physical or chemical properties.
+# Score: 0.9
+# Reason: B captures the important capability of explaining how temperature changes affect scientific properties or behavior, including chemical reaction rate. It appropriately generalizes the specific phenomenon without losing the central capability.
 
----
+# ---
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Understand genetics.
-Score: 0.3
-Reason: B identifies the broad domain but does not capture the important capability of applying inheritance principles to predict genetic outcomes.
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
+# Score: 1.0
+# Reason: B captures the central capability: using parental genotypes and Mendelian inheritance principles to predict offspring genetic outcomes.
 
----
+# ---
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Analyze experimental data to determine relationships between measured scientific variables.
-Score: 0.9
-Reason: B captures the important data-analysis capability and the ability to determine relationships between variables. It abstracts away the specific variables temperature and reaction rate, which is appropriate.
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Understand genetics.
+# Score: 0.3
+# Reason: B identifies the broad domain but does not capture the important capability of applying inheritance principles to predict genetic outcomes.
 
----
+# ---
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Understand chemical reactions.
-Score: 0.2
-Reason: B identifies the general topic but fails to capture the important experimental-data analysis capability tested by A.
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Analyze experimental data to determine relationships between measured scientific variables.
+# Score: 0.9
+# Reason: B captures the important data-analysis capability and the ability to determine relationships between variables. It abstracts away the specific variables temperature and reaction rate, which is appropriate.
 
----
+# ---
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions and time.
-Score: 1.0
-Reason: B captures the central kinematic reasoning required by the exercise, including using initial conditions, acceleration, and time to determine motion.
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Understand chemical reactions.
+# Score: 0.2
+# Reason: B identifies the general topic but fails to capture the important experimental-data analysis capability tested by A.
 
----
+# ---
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Calculate quantities in physics.
-Score: 0.35
-Reason: B captures only the broad quantitative aspect of the exercise. It does not capture the important kinematic capability involved in determining motion from initial conditions.
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions and time.
+# Score: 1.0
+# Reason: B captures the central kinematic reasoning required by the exercise, including using initial conditions, acceleration, and time to determine motion.
 
-"""
+# ---
+
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Calculate quantities in physics.
+# Score: 0.35
+# Reason: B captures only the broad quantitative aspect of the exercise. It does not capture the important kinematic capability involved in determining motion from initial conditions.
+
+# """
 
 
 # ## Summary
@@ -671,161 +681,163 @@ Reason: B captures only the broad quantitative aspect of the exercise. It does n
 
 
 ## Education
-evalPrompt_specificity_faithfulness = """
-You will be given a candidate science exercise A and a general scientific skill B. Skill B represents a higher-level or more general skill or capability. Your task is to determine how FAITHFUL skill B is to candidate exercise A. Faithfulness measures PRECISION: whether the scientific capability represented by B is actually tested, required, or meaningfully demonstrated by exercise A.
+evalPrompt_specificity_faithfulness = get_eval_prompt_specificity_faithfulness()
 
-In other words, ask:
-"Does solving or understanding exercise A genuinely require the scientific capability described by B?" A high score means that A is a valid instance or specialization of B. A low score means that B claims capabilities that A does not actually test or require. Faithfulness measures ONLY whether the capabilities claimed by B are grounded in A. It does NOT measure how completely B describes everything that A tests.
+# evalPrompt_specificity_faithfulness = """
+# You will be given a candidate science exercise A and a general scientific skill B. Skill B represents a higher-level or more general skill or capability. Your task is to determine how FAITHFUL skill B is to candidate exercise A. Faithfulness measures PRECISION: whether the scientific capability represented by B is actually tested, required, or meaningfully demonstrated by exercise A.
 
-Important:
+# In other words, ask:
+# "Does solving or understanding exercise A genuinely require the scientific capability described by B?" A high score means that A is a valid instance or specialization of B. A low score means that B claims capabilities that A does not actually test or require. Faithfulness measures ONLY whether the capabilities claimed by B are grounded in A. It does NOT measure how completely B describes everything that A tests.
 
-* The ONLY reason to score below 1.0 is that B contains a scientific capability, requirement, or claim that A does not actually support.
-* Do NOT penalize A for being more specific than B.
-* Do NOT penalize B for omitting important skills, concepts, procedures, or details that are present in A. Such omissions are INFORMATIVENESS concerns, not FAITHFULNESS concerns.
-* Do NOT penalize B simply because it is more abstract or general than A. Generalization is expected in a hierarchical skill taxonomy.
-* Implicit scientific skills count. If solving A genuinely requires a scientific law, principle, concept, relationship, formula, procedure, or reasoning pattern represented by B, then B is supported even if A does not explicitly name that skill.
-* However, do NOT infer a skill merely because it is commonly associated with the topic. The capability represented by B must be genuinely required or demonstrated by A.
-* Evaluate SEMANTIC SUPPORT rather than lexical overlap. B does not need to use the same terminology as A.
-* Distinguish between a SCIENTIFIC TOPIC and a SCIENTIFIC SKILL. For example, "mechanics" is a topic, whereas "apply Newton's laws to analyze forces and motion" is a skill.
-* Topic overlap alone is not sufficient for faithfulness.
-* If B contains multiple distinct capabilities, evaluate each capability separately. If A supports only some of them, reduce the score accordingly.
-* A broad skill can still be fully faithful if the capability it states is genuinely required by A.
-* Do NOT require B to describe the entire exercise.
-* Do NOT require B to mention exercise-specific details such as numerical values, particular objects, substances, experimental settings, or wording.
-* Do NOT evaluate whether B is the most informative or most specific possible description of A. That is a separate judgment.
-* Do NOT solve exercise A. Determine only whether the capability represented by B is genuinely required to solve or understand A.
-* Do NOT introduce capabilities into A merely because they could be used as an alternative solution method. A capability should count only when it is genuinely required or clearly demonstrated by the exercise.
-* If A can be solved without a capability claimed by B, that capability is not fully supported unless the wording of A otherwise clearly requires it.
+# Important:
 
-Base the score on the proportion of the distinct scientific capabilities represented by B that are actually supported by exercise A.
+# * The ONLY reason to score below 1.0 is that B contains a scientific capability, requirement, or claim that A does not actually support.
+# * Do NOT penalize A for being more specific than B.
+# * Do NOT penalize B for omitting important skills, concepts, procedures, or details that are present in A. Such omissions are INFORMATIVENESS concerns, not FAITHFULNESS concerns.
+# * Do NOT penalize B simply because it is more abstract or general than A. Generalization is expected in a hierarchical skill taxonomy.
+# * Implicit scientific skills count. If solving A genuinely requires a scientific law, principle, concept, relationship, formula, procedure, or reasoning pattern represented by B, then B is supported even if A does not explicitly name that skill.
+# * However, do NOT infer a skill merely because it is commonly associated with the topic. The capability represented by B must be genuinely required or demonstrated by A.
+# * Evaluate SEMANTIC SUPPORT rather than lexical overlap. B does not need to use the same terminology as A.
+# * Distinguish between a SCIENTIFIC TOPIC and a SCIENTIFIC SKILL. For example, "mechanics" is a topic, whereas "apply Newton's laws to analyze forces and motion" is a skill.
+# * Topic overlap alone is not sufficient for faithfulness.
+# * If B contains multiple distinct capabilities, evaluate each capability separately. If A supports only some of them, reduce the score accordingly.
+# * A broad skill can still be fully faithful if the capability it states is genuinely required by A.
+# * Do NOT require B to describe the entire exercise.
+# * Do NOT require B to mention exercise-specific details such as numerical values, particular objects, substances, experimental settings, or wording.
+# * Do NOT evaluate whether B is the most informative or most specific possible description of A. That is a separate judgment.
+# * Do NOT solve exercise A. Determine only whether the capability represented by B is genuinely required to solve or understand A.
+# * Do NOT introduce capabilities into A merely because they could be used as an alternative solution method. A capability should count only when it is genuinely required or clearly demonstrated by the exercise.
+# * If A can be solved without a capability claimed by B, that capability is not fully supported unless the wording of A otherwise clearly requires it.
 
-Scoring guidance:
+# Base the score on the proportion of the distinct scientific capabilities represented by B that are actually supported by exercise A.
 
-* 0.85-1.0 (Highly Faithful / High Precision): Nearly every important capability represented by B is clearly tested, required, or meaningfully demonstrated by A. B is a valid generalization of A.
-* 0.6-0.85 (Mostly Faithful): A supports most of the capabilities in B, but one capability or aspect is only partially or weakly supported.
-* 0.3-0.6 (Partially Faithful): A supports some meaningful capabilities in B, but B also contains one or more important capabilities that A does not actually test or require.
-* 0.0-0.3 (Not Faithful / Mismatched): B describes a substantially different scientific capability, or most of the capabilities claimed by B are not supported by A. A topical relationship alone is insufficient.
+# Scoring guidance:
 
-## Examples
+# * 0.85-1.0 (Highly Faithful / High Precision): Nearly every important capability represented by B is clearly tested, required, or meaningfully demonstrated by A. B is a valid generalization of A.
+# * 0.6-0.85 (Mostly Faithful): A supports most of the capabilities in B, but one capability or aspect is only partially or weakly supported.
+# * 0.3-0.6 (Partially Faithful): A supports some meaningful capabilities in B, but B also contains one or more important capabilities that A does not actually test or require.
+# * 0.0-0.3 (Not Faithful / Mismatched): B describes a substantially different scientific capability, or most of the capabilities claimed by B are not supported by A. A topical relationship alone is insufficient.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's second law to relate force, mass, and acceleration.
-Score: 1.0
-Reason: Solving A requires relating force, mass, and acceleration using Newton's second law. The numerical values and the particular object are exercise-specific details and do not affect faithfulness.
+# ## Examples
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 1.0
+# Reason: Solving A requires relating force, mass, and acceleration using Newton's second law. The numerical values and the particular object are exercise-specific details and do not affect faithfulness.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's laws to analyze forces acting on physical systems.
-Score: 1.0
-Reason: A is a specific instance of applying Newton's laws to a physical system. Although B is more general than A, the capability represented by B is genuinely required by the exercise.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's laws to analyze forces acting on physical systems.
+# Score: 1.0
+# Reason: A is a specific instance of applying Newton's laws to a physical system. Although B is more general than A, the capability represented by B is genuinely required by the exercise.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
-Score: 1.0
-Reason: A requires using a quantitative relationship to determine an unknown quantity from known variables. B is broader than the physics-specific skill tested by A, but the capability it states is genuinely required.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
+# Score: 1.0
+# Reason: A requires using a quantitative relationship to determine an unknown quantity from known variables. B is broader than the physics-specific skill tested by A, but the capability it states is genuinely required.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's second law and analyze conservation of energy in mechanical systems.
-Score: 0.5
-Reason: A supports the Newton's second law component, but it does not require or demonstrate conservation of energy. The unsupported capability in B lowers faithfulness.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's second law and analyze conservation of energy in mechanical systems.
+# Score: 0.5
+# Reason: A supports the Newton's second law component, but it does not require or demonstrate conservation of energy. The unsupported capability in B lowers faithfulness.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Solve quantitative problems involving mechanics, electricity, and thermodynamics.
-Score: 0.4
-Reason: A supports quantitative problem solving in mechanics, but it does not support the additional capabilities involving electricity and thermodynamics. Those unsupported capabilities reduce faithfulness.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Solve quantitative problems involving mechanics, electricity, and thermodynamics.
+# Score: 0.4
+# Reason: A supports quantitative problem solving in mechanics, but it does not support the additional capabilities involving electricity and thermodynamics. Those unsupported capabilities reduce faithfulness.
 
-Exercise A: Determine the pH of a solution from its hydrogen ion concentration.
-Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
-Score: 1.0
-Reason: A requires using a quantitative relationship to determine pH from hydrogen ion concentration. The skill is more general than the exercise but is genuinely required by it.
+# ---
 
----
+# Exercise A: Determine the pH of a solution from its hydrogen ion concentration.
+# Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
+# Score: 1.0
+# Reason: A requires using a quantitative relationship to determine pH from hydrogen ion concentration. The skill is more general than the exercise but is genuinely required by it.
 
-Exercise A: Determine the pH of a solution from its hydrogen ion concentration.
-Skill B: Analyze chemical equilibrium to predict changes in pH.
-Score: 0.2
-Reason: Although the exercise concerns chemistry and pH, it does not require analysis of chemical equilibrium or prediction of equilibrium-driven changes. The topical relationship is not sufficient.
+# ---
 
----
+# Exercise A: Determine the pH of a solution from its hydrogen ion concentration.
+# Skill B: Analyze chemical equilibrium to predict changes in pH.
+# Score: 0.2
+# Reason: Although the exercise concerns chemistry and pH, it does not require analysis of chemical equilibrium or prediction of equilibrium-driven changes. The topical relationship is not sufficient.
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
-Score: 1.0
-Reason: The exercise directly requires applying inheritance principles to parental genotypes to predict offspring genotypes. The specific organism and cross are exercise-specific details.
+# ---
 
----
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
+# Score: 1.0
+# Reason: The exercise directly requires applying inheritance principles to parental genotypes to predict offspring genotypes. The specific organism and cross are exercise-specific details.
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Understand genetics.
-Score: 1.0
-Reason: The broad capability of understanding genetics is genuinely relevant to and required by the exercise. B is extremely general and may be poorly informative, but its stated capability is still supported by A. Therefore its faithfulness is high.
+# ---
 
----
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Understand genetics.
+# Score: 1.0
+# Reason: The broad capability of understanding genetics is genuinely relevant to and required by the exercise. B is extremely general and may be poorly informative, but its stated capability is still supported by A. Therefore its faithfulness is high.
 
-Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
-Skill B: Explain how increasing temperature affects physical or chemical properties.
-Score: 1.0
-Reason: The exercise requires explaining how increasing temperature affects a chemical property or behavior, specifically reaction rate. B appropriately generalizes the specific phenomenon without introducing an unsupported capability.
+# ---
 
----
+# Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
+# Skill B: Explain how increasing temperature affects physical or chemical properties.
+# Score: 1.0
+# Reason: The exercise requires explaining how increasing temperature affects a chemical property or behavior, specifically reaction rate. B appropriately generalizes the specific phenomenon without introducing an unsupported capability.
 
-Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
-Skill B: Calculate reaction rates using numerical experimental data.
-Score: 0.2
-Reason: A asks for an explanation of why temperature affects reaction rate. It does not require calculating reaction rates from numerical experimental data. The shared topic of reaction rate does not make B faithful.
+# ---
 
----
+# Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
+# Skill B: Calculate reaction rates using numerical experimental data.
+# Score: 0.2
+# Reason: A asks for an explanation of why temperature affects reaction rate. It does not require calculating reaction rates from numerical experimental data. The shared topic of reaction rate does not make B faithful.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes reaction rate.
-Skill B: Analyze experimental data to determine relationships between measured scientific variables.
-Score: 1.0
-Reason: A requires analyzing experimental measurements to determine the relationship between temperature and reaction rate. The general skill represented by B is therefore directly supported.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes reaction rate.
+# Skill B: Analyze experimental data to determine relationships between measured scientific variables.
+# Score: 1.0
+# Reason: A requires analyzing experimental measurements to determine the relationship between temperature and reaction rate. The general skill represented by B is therefore directly supported.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes reaction rate.
-Skill B: Design controlled experiments to investigate causal relationships between variables.
-Score: 0.25
-Reason: A requires analyzing experimental data, whereas B requires designing an experiment. These are related scientific activities but represent different capabilities. A does not necessarily require the experiment-design capability described by B.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes reaction rate.
+# Skill B: Design controlled experiments to investigate causal relationships between variables.
+# Score: 0.25
+# Reason: A requires analyzing experimental data, whereas B requires designing an experiment. These are related scientific activities but represent different capabilities. A does not necessarily require the experiment-design capability described by B.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions.
-Score: 1.0
-Reason: A requires applying kinematic relationships using initial conditions to determine the ball's motion. B is a general description of the capability required by A.
+# ---
 
----
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions.
+# Score: 1.0
+# Reason: A requires applying kinematic relationships using initial conditions to determine the ball's motion. B is a general description of the capability required by A.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Apply calculus-based methods to analyze continuous physical systems.
-Score: 0.2
-Reason: The exercise can be solved using basic kinematic relationships and does not require calculus-based methods. The fact that calculus could potentially be used does not make the skill faithful to A.
+# ---
 
----
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Apply calculus-based methods to analyze continuous physical systems.
+# Score: 0.2
+# Reason: The exercise can be solved using basic kinematic relationships and does not require calculus-based methods. The fact that calculus could potentially be used does not make the skill faithful to A.
 
-Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
-Skill B: Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products.
-Score: 1.0
-Reason: The exercise directly requires using a balanced chemical equation and stoichiometric relationships to relate reactant and product quantities.
+# ---
 
----
+# Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
+# Skill B: Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products.
+# Score: 1.0
+# Reason: The exercise directly requires using a balanced chemical equation and stoichiometric relationships to relate reactant and product quantities.
 
-Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
-Skill B: Perform laboratory experiments to measure chemical reaction rates.
-Score: 0.05
-Reason: The exercise requires stoichiometric calculation, not laboratory experimentation or measurement of reaction rates. The fact that both concern chemical reactions does not provide sufficient support.
+# ---
 
-"""
+# Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
+# Skill B: Perform laboratory experiments to measure chemical reaction rates.
+# Score: 0.05
+# Reason: The exercise requires stoichiometric calculation, not laboratory experimentation or measurement of reaction rates. The fact that both concern chemical reactions does not provide sufficient support.
+
+# """
 
 
 ## Summary
@@ -867,184 +879,186 @@ Reason: The exercise requires stoichiometric calculation, not laboratory experim
 # """
 
 ## Education
-evalPrompt_specificity_informativeness = """
-You will be given a candidate science exercise A and a general scientific skill B. Skill B represents a higher-level or more general skill in a scientific skill hierarchy. Candidate exercise A is being evaluated to determine how well it is represented by skill B. Your task is to determine how INFORMATIVE skill B is about candidate exercise A. Informativeness measures RECALL: whether skill B captures the important scientific capabilities that exercise A actually tests or requires.
+evalPrompt_specificity_informativeness = get_eval_prompt_specificity_informativeness()
 
-In other words, ask:
-"What are the important scientific capabilities required by exercise A, and how much of those capabilities does skill B capture?" A highly informative skill captures the core scientific capability of the exercise while appropriately abstracting away exercise-specific details.
+# evalPrompt_specificity_informativeness = """
+# You will be given a candidate science exercise A and a general scientific skill B. Skill B represents a higher-level or more general skill in a scientific skill hierarchy. Candidate exercise A is being evaluated to determine how well it is represented by skill B. Your task is to determine how INFORMATIVE skill B is about candidate exercise A. Informativeness measures RECALL: whether skill B captures the important scientific capabilities that exercise A actually tests or requires.
 
-Important:
+# In other words, ask:
+# "What are the important scientific capabilities required by exercise A, and how much of those capabilities does skill B capture?" A highly informative skill captures the core scientific capability of the exercise while appropriately abstracting away exercise-specific details.
 
-* First identify the IMPORTANT SCIENTIFIC CAPABILITIES of A. Focus on the capabilities a learner must have to successfully solve, understand, explain, analyze, or perform the exercise.
-* Important capabilities may include scientific concepts, laws, principles, formulas, relationships, procedures, reasoning patterns, quantitative methods, interpretation skills, experimental-analysis skills, or other meaningful scientific abilities.
-* Consider skills that are IMPLICIT in A. A capability does not need to be explicitly named in the exercise if it is genuinely required to solve or understand it.
-* Evaluate SEMANTIC COVERAGE, not lexical overlap. B does not need to use the same terminology as A.
-* B is expected to be more general than A. Do NOT penalize B merely because it abstracts away exercise-specific details.
-* Exercise-specific details such as numerical values, particular objects, substances, organisms, experimental settings, names, or particular scenarios do not need to be preserved unless they represent an important scientific capability.
-* The goal is to identify whether B captures the UNDERLYING SCIENTIFIC SKILL of A, not whether B reproduces the wording of A.
-* Penalize VAGUENESS when B is so broad that it fails to communicate the important scientific capability being tested by A.
-* A statement such as "solve science problems," "perform scientific calculations," or "understand physics" may be related to A but should receive low informativeness if it fails to capture the important capability that makes A scientifically meaningful.
-* Topic overlap alone is not sufficient. For example, if A requires applying Newton's second law, a skill that merely says "understand physics" captures the topic but not the important capability.
-* If A tests multiple important scientific capabilities, B should capture the important capabilities that are central to successfully completing A.
-* Do NOT require B to capture every trivial detail or every piece of information appearing in A.
-* Do NOT reward B for capabilities that are not supported by A. Only the important capabilities actually tested by A contribute to informativeness.
-* Do NOT evaluate whether B contains unsupported capabilities. That is the purpose of FAITHFULNESS.
-* Do NOT penalize B merely because it is more general than A. Generalization is expected in a hierarchical skill taxonomy.
-* Do NOT evaluate whether B is the most faithful possible generalization. Evaluate how much of A's important scientific capability is retained by B.
-* A skill can therefore be highly faithful but poorly informative. For example, "solve quantitative science problems" may genuinely apply to a numerical physics exercise but fail to capture the specific scientific capability being tested.
-* Distinguish between a SCIENTIFIC TOPIC and a SCIENTIFIC SKILL. A topic identifies an area of knowledge; a skill describes what the learner can do with that knowledge.
-* Prefer skills that preserve the important scientific relationship, principle, law, procedure, or reasoning pattern tested by A.
+# Important:
 
-Base the score on the proportion of A's IMPORTANT SCIENTIFIC CAPABILITIES that are captured or meaningfully implied by B.
+# * First identify the IMPORTANT SCIENTIFIC CAPABILITIES of A. Focus on the capabilities a learner must have to successfully solve, understand, explain, analyze, or perform the exercise.
+# * Important capabilities may include scientific concepts, laws, principles, formulas, relationships, procedures, reasoning patterns, quantitative methods, interpretation skills, experimental-analysis skills, or other meaningful scientific abilities.
+# * Consider skills that are IMPLICIT in A. A capability does not need to be explicitly named in the exercise if it is genuinely required to solve or understand it.
+# * Evaluate SEMANTIC COVERAGE, not lexical overlap. B does not need to use the same terminology as A.
+# * B is expected to be more general than A. Do NOT penalize B merely because it abstracts away exercise-specific details.
+# * Exercise-specific details such as numerical values, particular objects, substances, organisms, experimental settings, names, or particular scenarios do not need to be preserved unless they represent an important scientific capability.
+# * The goal is to identify whether B captures the UNDERLYING SCIENTIFIC SKILL of A, not whether B reproduces the wording of A.
+# * Penalize VAGUENESS when B is so broad that it fails to communicate the important scientific capability being tested by A.
+# * A statement such as "solve science problems," "perform scientific calculations," or "understand physics" may be related to A but should receive low informativeness if it fails to capture the important capability that makes A scientifically meaningful.
+# * Topic overlap alone is not sufficient. For example, if A requires applying Newton's second law, a skill that merely says "understand physics" captures the topic but not the important capability.
+# * If A tests multiple important scientific capabilities, B should capture the important capabilities that are central to successfully completing A.
+# * Do NOT require B to capture every trivial detail or every piece of information appearing in A.
+# * Do NOT reward B for capabilities that are not supported by A. Only the important capabilities actually tested by A contribute to informativeness.
+# * Do NOT evaluate whether B contains unsupported capabilities. That is the purpose of FAITHFULNESS.
+# * Do NOT penalize B merely because it is more general than A. Generalization is expected in a hierarchical skill taxonomy.
+# * Do NOT evaluate whether B is the most faithful possible generalization. Evaluate how much of A's important scientific capability is retained by B.
+# * A skill can therefore be highly faithful but poorly informative. For example, "solve quantitative science problems" may genuinely apply to a numerical physics exercise but fail to capture the specific scientific capability being tested.
+# * Distinguish between a SCIENTIFIC TOPIC and a SCIENTIFIC SKILL. A topic identifies an area of knowledge; a skill describes what the learner can do with that knowledge.
+# * Prefer skills that preserve the important scientific relationship, principle, law, procedure, or reasoning pattern tested by A.
 
-Scoring guidance:
+# Base the score on the proportion of A's IMPORTANT SCIENTIFIC CAPABILITIES that are captured or meaningfully implied by B.
 
-* 0.85-1.0 (Excellent Coverage / High Recall): B captures essentially all of the important scientific capabilities required by A. It preserves the central concepts, relationships, reasoning, or procedures while appropriately abstracting away incidental exercise-specific details.
-* 0.6-0.85 (Good Coverage): B captures the main scientific capability of A but loses one or more important aspects of the reasoning, relationship, procedure, or conceptual content.
-* 0.3-0.6 (Partial / Vague Coverage): B captures a broad aspect of what A requires but misses much of the important scientific capability. It may identify the general activity or topic without preserving the specific capability.
-* 0.0-0.3 (Very Low Coverage / Mismatched): B captures little or none of the important scientific capabilities tested by A, or represents a substantially different capability.
+# Scoring guidance:
 
-## Examples
+# * 0.85-1.0 (Excellent Coverage / High Recall): B captures essentially all of the important scientific capabilities required by A. It preserves the central concepts, relationships, reasoning, or procedures while appropriately abstracting away incidental exercise-specific details.
+# * 0.6-0.85 (Good Coverage): B captures the main scientific capability of A but loses one or more important aspects of the reasoning, relationship, procedure, or conceptual content.
+# * 0.3-0.6 (Partial / Vague Coverage): B captures a broad aspect of what A requires but misses much of the important scientific capability. It may identify the general activity or topic without preserving the specific capability.
+# * 0.0-0.3 (Very Low Coverage / Mismatched): B captures little or none of the important scientific capabilities tested by A, or represents a substantially different capability.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply Newton's second law to relate force, mass, and acceleration.
-Score: 1.0
-Reason: B captures the central scientific capability required by A: applying Newton's second law to relate force, mass, and acceleration. The numerical values and particular object are incidental exercise details and do not need to appear in B.
+# ## Examples
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 1.0
+# Reason: B captures the central scientific capability required by A: applying Newton's second law to relate force, mass, and acceleration. The numerical values and particular object are incidental exercise details and do not need to appear in B.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
-Score: 0.65
-Reason: B captures the general quantitative-calculation capability required by A, but it does not preserve the important physics-specific relationship between force, mass, and acceleration.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Use quantitative relationships to calculate an unknown scientific quantity from known variables.
+# Score: 0.65
+# Reason: B captures the general quantitative-calculation capability required by A, but it does not preserve the important physics-specific relationship between force, mass, and acceleration.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Solve science problems.
-Score: 0.25
-Reason: B captures only the very broad activity of solving a science problem. It does not identify the important scientific capability required by A.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Solve science problems.
+# Score: 0.25
+# Reason: B captures only the very broad activity of solving a science problem. It does not identify the important scientific capability required by A.
 
-Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
-Skill B: Apply conservation of momentum to analyze collisions.
-Score: 0.05
-Reason: B does not capture the scientific capability tested by A. Although both concern physics, conservation of momentum and collision analysis are not required by this exercise.
+# ---
 
----
+# Exercise A: Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it.
+# Skill B: Apply conservation of momentum to analyze collisions.
+# Score: 0.05
+# Reason: B does not capture the scientific capability tested by A. Although both concern physics, conservation of momentum and collision analysis are not required by this exercise.
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M. 
-Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
-Score: 1.0
-Reason: B captures the central scientific relationship and quantitative capability required by A. The numerical concentration is an incidental detail.
+# ---
 
----
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M. 
+# Skill B: Use the logarithmic relationship between pH and hydrogen ion concentration to determine one from the other.
+# Score: 1.0
+# Reason: B captures the central scientific relationship and quantitative capability required by A. The numerical concentration is an incidental detail.
 
-Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
-Skill B: Perform quantitative calculations in chemistry.
-Score: 0.4
-Reason: B captures the general quantitative aspect of A but does not preserve the important scientific relationship between pH and hydrogen ion concentration.
+# ---
 
----
+# Exercise A: Determine the pH of a solution with a hydrogen ion concentration of 1 × 10⁻³ M.
+# Skill B: Perform quantitative calculations in chemistry.
+# Score: 0.4
+# Reason: B captures the general quantitative aspect of A but does not preserve the important scientific relationship between pH and hydrogen ion concentration.
 
-Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
-Skill B: Explain how increasing temperature affects physical or chemical properties.
-Score: 0.9
-Reason: B captures the important capability of explaining how temperature changes affect scientific properties or behavior, including chemical reaction rate. It appropriately abstracts away the specific chemical phenomenon.
+# ---
 
----
+# Exercise A: Explain why increasing temperature changes the rate of a chemical reaction.
+# Skill B: Explain how increasing temperature affects physical or chemical properties.
+# Score: 0.9
+# Reason: B captures the important capability of explaining how temperature changes affect scientific properties or behavior, including chemical reaction rate. It appropriately abstracts away the specific chemical phenomenon.
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
-Score: 1.0
-Reason: B captures the central capability required by A: using parental genotypes and Mendelian inheritance principles to predict genetic outcomes. The specific organism and cross are exercise-specific details.
+# ---
 
----
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes.
+# Score: 1.0
+# Reason: B captures the central capability required by A: using parental genotypes and Mendelian inheritance principles to predict genetic outcomes. The specific organism and cross are exercise-specific details.
 
-Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
-Skill B: Understand genetics.
-Score: 0.3
-Reason: B identifies the broad scientific domain but does not capture the important capability of applying inheritance principles to predict genetic outcomes.
+# ---
 
----
+# Exercise A: Predict the offspring genotypes from a cross between two heterozygous pea plants.
+# Skill B: Understand genetics.
+# Score: 0.3
+# Reason: B identifies the broad scientific domain but does not capture the important capability of applying inheritance principles to predict genetic outcomes.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Analyze experimental data to determine relationships between measured scientific variables.
-Score: 0.9
-Reason: B captures the important experimental-data analysis capability and the ability to determine relationships between variables. The specific variables in A can appropriately be abstracted away.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Analyze experimental data to determine relationships between measured scientific variables.
+# Score: 0.9
+# Reason: B captures the important experimental-data analysis capability and the ability to determine relationships between variables. The specific variables in A can appropriately be abstracted away.
 
-Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
-Skill B: Understand chemical reactions.
-Score: 0.2
-Reason: B captures the general topic of A but does not capture the important capability of analyzing experimental measurements to determine a relationship between variables.
+# ---
 
----
+# Exercise A: Analyze experimental measurements to determine whether increasing temperature changes the reaction rate.
+# Skill B: Understand chemical reactions.
+# Score: 0.2
+# Reason: B captures the general topic of A but does not capture the important capability of analyzing experimental measurements to determine a relationship between variables.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions.
-Score: 1.0
-Reason: B captures the central kinematic capability required by A: using initial conditions and kinematic relationships to determine the object's motion. The particular ball and numerical values are incidental.
+# ---
 
----
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Apply kinematic relationships to determine an object's motion from its initial conditions.
+# Score: 1.0
+# Reason: B captures the central kinematic capability required by A: using initial conditions and kinematic relationships to determine the object's motion. The particular ball and numerical values are incidental.
 
-Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
-Skill B: Calculate quantities in physics.
-Score: 0.35
-Reason: B captures the broad quantitative nature of the exercise but does not capture the important kinematic capability involved in determining motion from initial conditions.
+# ---
 
----
+# Exercise A: A ball is thrown upward. Determine its maximum height using its initial velocity and gravitational acceleration.
+# Skill B: Calculate quantities in physics.
+# Score: 0.35
+# Reason: B captures the broad quantitative nature of the exercise but does not capture the important kinematic capability involved in determining motion from initial conditions.
 
-Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
-Skill B: Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products.
-Score: 1.0
-Reason: B captures the central stoichiometric capability required by A, including the relationship between reactant and product quantities.
+# ---
 
----
+# Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
+# Skill B: Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products.
+# Score: 1.0
+# Reason: B captures the central stoichiometric capability required by A, including the relationship between reactant and product quantities.
 
-Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
-Skill B: Perform calculations in chemistry.
-Score: 0.35
-Reason: B captures only the broad activity of performing calculations in chemistry. It does not preserve the important stoichiometric relationship being tested.
+# ---
 
----
+# Exercise A: Use a balanced chemical equation to determine the mass of product formed from a given mass of reactant.
+# Skill B: Perform calculations in chemistry.
+# Score: 0.35
+# Reason: B captures only the broad activity of performing calculations in chemistry. It does not preserve the important stoichiometric relationship being tested.
 
-Exercise A: Explain how increasing temperature affects the pressure of a gas at constant volume.
-Skill B: Explain how changes in temperature affect physical or chemical properties.
-Score: 0.9
-Reason: B captures the important capability of explaining how temperature changes affect a scientific property. It appropriately abstracts away the specific gas and constant-volume condition.
+# ---
 
----
+# Exercise A: Explain how increasing temperature affects the pressure of a gas at constant volume.
+# Skill B: Explain how changes in temperature affect physical or chemical properties.
+# Score: 0.9
+# Reason: B captures the important capability of explaining how temperature changes affect a scientific property. It appropriately abstracts away the specific gas and constant-volume condition.
 
-Exercise A: Explain how increasing temperature affects the pressure of a gas at constant volume.
-Skill B: Explain how temperature affects chemical reaction rates.
-Score: 0.2
-Reason: Although both skills concern temperature, A tests the relationship between temperature and gas pressure, not temperature and chemical reaction rate.
+# ---
 
-## Multiple Important Capabilities
+# Exercise A: Explain how increasing temperature affects the pressure of a gas at constant volume.
+# Skill B: Explain how temperature affects chemical reaction rates.
+# Score: 0.2
+# Reason: Although both skills concern temperature, A tests the relationship between temperature and gas pressure, not temperature and chemical reaction rate.
 
-Exercise A: Calculate the acceleration of an object from its net force and mass, and explain how increasing the net force would affect its acceleration.
-Skill B: Apply Newton's second law to relate force, mass, and acceleration.
-Score: 0.9
-Reason: B captures the central Newton's second-law relationship underlying both the calculation and explanation. It does not need to explicitly mention the particular calculation or comparison.
+# ## Multiple Important Capabilities
 
----
+# Exercise A: Calculate the acceleration of an object from its net force and mass, and explain how increasing the net force would affect its acceleration.
+# Skill B: Apply Newton's second law to relate force, mass, and acceleration.
+# Score: 0.9
+# Reason: B captures the central Newton's second-law relationship underlying both the calculation and explanation. It does not need to explicitly mention the particular calculation or comparison.
 
-Exercise A: Calculate the acceleration of an object from its net force and mass, and determine how its kinetic energy changes when its speed doubles.
-Skill B: Apply Newton's second law to analyze force and acceleration.
-Score: 0.55
-Reason: B captures the force-acceleration component of A but misses the important capability of reasoning about kinetic energy and its dependence on speed.
+# ---
 
----
+# Exercise A: Calculate the acceleration of an object from its net force and mass, and determine how its kinetic energy changes when its speed doubles.
+# Skill B: Apply Newton's second law to analyze force and acceleration.
+# Score: 0.55
+# Reason: B captures the force-acceleration component of A but misses the important capability of reasoning about kinetic energy and its dependence on speed.
 
-Exercise A: Calculate the acceleration of an object from its net force and mass, and determine how its kinetic energy changes when its speed doubles.
-Skill B: Apply fundamental physics relationships to solve quantitative problems.
-Score: 0.7
-Reason: B captures the general capability of applying quantitative physics relationships, which covers both parts of the exercise at a broad level, but it does not identify the important specific relationships involving force, acceleration, and kinetic energy.
+# ---
 
-"""
+# Exercise A: Calculate the acceleration of an object from its net force and mass, and determine how its kinetic energy changes when its speed doubles.
+# Skill B: Apply fundamental physics relationships to solve quantitative problems.
+# Score: 0.7
+# Reason: B captures the general capability of applying quantitative physics relationships, which covers both parts of the exercise at a broad level, but it does not identify the important specific relationships involving force, acceleration, and kinetic energy.
+
+# """
 
 
 def _judge_call(user_prompt: str, model_name: str = "openai", api_keys: dict = None) -> str:

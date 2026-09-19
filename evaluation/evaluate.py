@@ -28,6 +28,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from utils import get_faithfulness_prompt, get_informativeness_prompt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -106,244 +107,245 @@ def _load_env() -> None:
 # """
 
 ## Education
+FAITHFULNESS_PROMPT = get_faithfulness_prompt()
 
-FAITHFULNESS_PROMPT = """
-You will be given a science exercise A (child) and a scientific skill B (parent) that is intended to be a generalization of A. Your task is to determine how FAITHFUL the scientific skill B is to the science exercise A.
+# FAITHFULNESS_PROMPT = """
+# You will be given a science exercise A (child) and a scientific skill B (parent) that is intended to be a generalization of A. Your task is to determine how FAITHFUL the scientific skill B is to the science exercise A.
 
-### Definition of Faithfulness
-Faithfulness measures whether the scientific capability described by B is actually tested, required, or genuinely implied by A.
+# ### Definition of Faithfulness
+# Faithfulness measures whether the scientific capability described by B is actually tested, required, or genuinely implied by A.
 
-In other words:
-"Does the exercise A genuinely require the learner to use the scientific skill described by B?" Faithfulness is a PRECISION measure. It evaluates whether B introduces capabilities that are not supported by A. A high-faithfulness skill describes a capability that the learner genuinely needs in order to solve, explain, analyze, interpret, or complete A.
+# In other words:
+# "Does the exercise A genuinely require the learner to use the scientific skill described by B?" Faithfulness is a PRECISION measure. It evaluates whether B introduces capabilities that are not supported by A. A high-faithfulness skill describes a capability that the learner genuinely needs in order to solve, explain, analyze, interpret, or complete A.
 
-### Important principles
+# ### Important principles
 
-1. B must be grounded in A.
-   Every important scientific capability claimed by B must be supported by what the learner is required to do in A.
-2. Do NOT require explicit wording.
-   A does not need to explicitly name the scientific law, principle, formula, or skill. If the skill is genuinely required to solve A, it counts as supported.
-   For example:
-   A: "Calculate the acceleration of a 5 kg object when a 20 N net force acts on it."
-   B: "Apply Newton's second law to relate force, mass, and acceleration."
-   B is faithful even though A never explicitly says "Newton's second law."
-3. Do NOT penalize abstraction.
-   B is expected to be more general than A. Removing numerical values, specific objects, substances, organisms, experimental settings, or other exercise-specific details does not reduce faithfulness.
-4. Do NOT penalize omission.
-   B does not need to capture every skill or detail in A. Missing information is an informativeness issue, not a faithfulness issue.
-   For example:
-   A: "Calculate the acceleration of an object using its net force and mass, then explain how the acceleration changes if the force is doubled."
-   B: "Apply Newton's second law to relate force, mass, and acceleration."
-   B may omit the reasoning about doubling the force, but what B does claim is fully supported by A.
-5. Do NOT infer skills from topic alone.
-   Sharing a scientific topic is not sufficient.
-   For example:
-   A: "Calculate the acceleration from net force and mass."
-   B: "Understand conservation of energy."
-   Both are physics-related, but A does not require conservation of energy. Therefore B is not faithful.
-6. Implicit scientific skills are valid when genuinely required.
-   A skill may be considered supported even when it is not explicitly stated, provided that it is necessary or strongly implied by the exercise.
-7. Do not infer unnecessarily advanced skills.
-   Only infer the level of scientific knowledge needed to perform A.
-   For example:
-   A: "Calculate acceleration from force and mass."
-   B: "Apply vector calculus and differential equations to solve advanced mechanics problems."
-   B is not faithful because A does not require those advanced methods.
-8. Evaluate the capability, not just the scientific topic.
-   A skill should describe what the learner can DO with scientific knowledge.
-   "Newton's second law" is a scientific concept.
-   "Apply Newton's second law to relate force, mass, and acceleration" is a scientific skill.
-9. Do not confuse the skill with the solution.
-   B should describe a general capability rather than the particular answer to A.
-10. Do not penalize a skill simply because it is broad.
-    A very broad skill can still be faithful if everything it claims is supported by A. However, broadness or vagueness should affect informativeness, not faithfulness.
+# 1. B must be grounded in A.
+#    Every important scientific capability claimed by B must be supported by what the learner is required to do in A.
+# 2. Do NOT require explicit wording.
+#    A does not need to explicitly name the scientific law, principle, formula, or skill. If the skill is genuinely required to solve A, it counts as supported.
+#    For example:
+#    A: "Calculate the acceleration of a 5 kg object when a 20 N net force acts on it."
+#    B: "Apply Newton's second law to relate force, mass, and acceleration."
+#    B is faithful even though A never explicitly says "Newton's second law."
+# 3. Do NOT penalize abstraction.
+#    B is expected to be more general than A. Removing numerical values, specific objects, substances, organisms, experimental settings, or other exercise-specific details does not reduce faithfulness.
+# 4. Do NOT penalize omission.
+#    B does not need to capture every skill or detail in A. Missing information is an informativeness issue, not a faithfulness issue.
+#    For example:
+#    A: "Calculate the acceleration of an object using its net force and mass, then explain how the acceleration changes if the force is doubled."
+#    B: "Apply Newton's second law to relate force, mass, and acceleration."
+#    B may omit the reasoning about doubling the force, but what B does claim is fully supported by A.
+# 5. Do NOT infer skills from topic alone.
+#    Sharing a scientific topic is not sufficient.
+#    For example:
+#    A: "Calculate the acceleration from net force and mass."
+#    B: "Understand conservation of energy."
+#    Both are physics-related, but A does not require conservation of energy. Therefore B is not faithful.
+# 6. Implicit scientific skills are valid when genuinely required.
+#    A skill may be considered supported even when it is not explicitly stated, provided that it is necessary or strongly implied by the exercise.
+# 7. Do not infer unnecessarily advanced skills.
+#    Only infer the level of scientific knowledge needed to perform A.
+#    For example:
+#    A: "Calculate acceleration from force and mass."
+#    B: "Apply vector calculus and differential equations to solve advanced mechanics problems."
+#    B is not faithful because A does not require those advanced methods.
+# 8. Evaluate the capability, not just the scientific topic.
+#    A skill should describe what the learner can DO with scientific knowledge.
+#    "Newton's second law" is a scientific concept.
+#    "Apply Newton's second law to relate force, mass, and acceleration" is a scientific skill.
+# 9. Do not confuse the skill with the solution.
+#    B should describe a general capability rather than the particular answer to A.
+# 10. Do not penalize a skill simply because it is broad.
+#     A very broad skill can still be faithful if everything it claims is supported by A. However, broadness or vagueness should affect informativeness, not faithfulness.
 
-### What counts as a scientific skill?
+# ### What counts as a scientific skill?
 
-A scientific skill may involve the ability to:
+# A scientific skill may involve the ability to:
 
-- apply a scientific law or principle,
-- use a scientific formula or quantitative relationship,
-- perform a scientific calculation,
-- analyze scientific data,
-- interpret graphs or tables,
-- explain a scientific phenomenon,
-- predict an outcome using scientific principles,
-- identify relationships between scientific variables,
-- reason about cause and effect,
-- solve a class of scientific problems,
-- analyze experimental results,
-- design or evaluate an experiment,
-- or apply a scientific concept or procedure.
+# - apply a scientific law or principle,
+# - use a scientific formula or quantitative relationship,
+# - perform a scientific calculation,
+# - analyze scientific data,
+# - interpret graphs or tables,
+# - explain a scientific phenomenon,
+# - predict an outcome using scientific principles,
+# - identify relationships between scientific variables,
+# - reason about cause and effect,
+# - solve a class of scientific problems,
+# - analyze experimental results,
+# - design or evaluate an experiment,
+# - or apply a scientific concept or procedure.
 
-### Multiple capabilities
+# ### Multiple capabilities
 
-If B contains multiple distinct capabilities, evaluate each one separately.
+# If B contains multiple distinct capabilities, evaluate each one separately.
 
-For example:
+# For example:
 
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply Newton's second law and analyze conservation of energy."
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply Newton's second law and analyze conservation of energy."
 
-The Newton's second law capability is supported by A, but conservation of energy is not. Therefore, B is only partially faithful.
+# The Newton's second law capability is supported by A, but conservation of energy is not. Therefore, B is only partially faithful.
 
-### Faithfulness versus Informativeness
+# ### Faithfulness versus Informativeness
 
-Keep these two metrics strictly separate.
-FAITHFULNESS asks:
-"Are the capabilities claimed by B actually supported by A?"
+# Keep these two metrics strictly separate.
+# FAITHFULNESS asks:
+# "Are the capabilities claimed by B actually supported by A?"
 
-INFORMATIVENESS asks:
-"Does B capture the important capabilities that A tests?"
+# INFORMATIVENESS asks:
+# "Does B capture the important capabilities that A tests?"
 
-For example:
+# For example:
 
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Solve quantitative science problems."
-B is broad and not very informative, but it can still be faithful because the exercise is indeed a quantitative science problem.
-Do NOT lower faithfulness merely because B is vague, overly general, or incomplete.
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Solve quantitative science problems."
+# B is broad and not very informative, but it can still be faithful because the exercise is indeed a quantitative science problem.
+# Do NOT lower faithfulness merely because B is vague, overly general, or incomplete.
 
-### Scoring
+# ### Scoring
 
-Score from 0 to 1.
+# Score from 0 to 1.
 
-Consider the distinct scientific capabilities claimed by B and determine how well each is supported by A.
+# Consider the distinct scientific capabilities claimed by B and determine how well each is supported by A.
 
-- Fully supported capability → full credit.
-- Partially implied or not necessarily required → partial credit.
-- Unsupported capability → little or no credit.
+# - Fully supported capability → full credit.
+# - Partially implied or not necessarily required → partial credit.
+# - Unsupported capability → little or no credit.
 
-Use the following guidelines:
+# Use the following guidelines:
 
-0.85-1.00 — Fully Faithful
-All or almost all capabilities claimed by B are genuinely supported or strongly implied by A. B introduces no meaningful unsupported scientific capability.
+# 0.85-1.00 — Fully Faithful
+# All or almost all capabilities claimed by B are genuinely supported or strongly implied by A. B introduces no meaningful unsupported scientific capability.
 
-0.60-0.85 — Mostly Faithful
-Most capabilities in B are supported, but one capability or nuance is only partially implied or slightly extends beyond what A requires.
+# 0.60-0.85 — Mostly Faithful
+# Most capabilities in B are supported, but one capability or nuance is only partially implied or slightly extends beyond what A requires.
 
-0.30-0.60 — Partially Faithful
-B contains both supported and unsupported capabilities. At least one meaningful capability in B is not supported by A.
+# 0.30-0.60 — Partially Faithful
+# B contains both supported and unsupported capabilities. At least one meaningful capability in B is not supported by A.
 
-0.00-0.30 — Not Faithful
-A substantial part of B is unsupported by A, or B describes a substantially different scientific capability.
+# 0.00-0.30 — Not Faithful
+# A substantial part of B is unsupported by A, or B describes a substantially different scientific capability.
 
-### Examples
+# ### Examples
 
-Example 1:
-A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
-B: "Apply Newton's second law to relate force, mass, and acceleration."
-Score: 1.0
-Reason: The learner must use the relationship between force, mass, and acceleration. Newton's second law is therefore genuinely required by the exercise.
+# Example 1:
+# A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
+# Score: 1.0
+# Reason: The learner must use the relationship between force, mass, and acceleration. Newton's second law is therefore genuinely required by the exercise.
 
----
+# ---
 
-Example 2:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply Newton's second law."
-Score: 1.0
-Reason: The skill is implicit in the exercise. The fact that A does not explicitly mention Newton's second law does not reduce faithfulness.
+# Example 2:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply Newton's second law."
+# Score: 1.0
+# Reason: The skill is implicit in the exercise. The fact that A does not explicitly mention Newton's second law does not reduce faithfulness.
 
----
+# ---
 
-Example 3:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply Newton's second law and conservation of energy to analyze physical systems."
-Score: 0.5
-Reason: Applying Newton's second law is supported by A, but conservation of energy is not required or implied. The unsupported capability reduces faithfulness.
+# Example 3:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply Newton's second law and conservation of energy to analyze physical systems."
+# Score: 0.5
+# Reason: Applying Newton's second law is supported by A, but conservation of energy is not required or implied. The unsupported capability reduces faithfulness.
 
----
+# ---
 
-Example 4:
-A: "Determine the pH of a solution given its hydrogen ion concentration."
-B: "Use the relationship between pH and hydrogen ion concentration to determine an unknown quantity."
-Score: 1.0
-Reason: The relationship between pH and hydrogen ion concentration is directly required by A. B expresses the underlying capability rather than the specific numerical task.
+# Example 4:
+# A: "Determine the pH of a solution given its hydrogen ion concentration."
+# B: "Use the relationship between pH and hydrogen ion concentration to determine an unknown quantity."
+# Score: 1.0
+# Reason: The relationship between pH and hydrogen ion concentration is directly required by A. B expresses the underlying capability rather than the specific numerical task.
 
----
+# ---
 
-Example 5:
-A: "Explain why increasing temperature changes the rate of a chemical reaction."
-B: "Explain how increasing temperature affects physical or chemical properties."
-Score: 1.0
-Reason: A requires explaining how temperature affects a chemical process. The broader temperature-effect capability in B is therefore supported by A. The greater abstraction does not reduce faithfulness.
+# Example 5:
+# A: "Explain why increasing temperature changes the rate of a chemical reaction."
+# B: "Explain how increasing temperature affects physical or chemical properties."
+# Score: 1.0
+# Reason: A requires explaining how temperature affects a chemical process. The broader temperature-effect capability in B is therefore supported by A. The greater abstraction does not reduce faithfulness.
 
----
+# ---
 
-Example 6:
-A: "Predict the offspring genotypes resulting from a cross between two heterozygous pea plants."
-B: "Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes."
-Score: 1.0
-Reason: Applying Mendelian inheritance principles to predict genetic outcomes is genuinely required by A.
+# Example 6:
+# A: "Predict the offspring genotypes resulting from a cross between two heterozygous pea plants."
+# B: "Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes."
+# Score: 1.0
+# Reason: Applying Mendelian inheritance principles to predict genetic outcomes is genuinely required by A.
 
----
+# ---
 
-Example 7:
-A: "Analyze experimental measurements of plant height under different amounts of fertilizer and determine whether fertilizer amount affects plant growth."
-B: "Design controlled experiments to investigate how an independent variable affects a measurable outcome."
-Score: 0.3
-Reason: A requires analyzing experimental data and determining a relationship. It does not require designing the experiment. Experimental design is an unsupported capability introduced by B.
+# Example 7:
+# A: "Analyze experimental measurements of plant height under different amounts of fertilizer and determine whether fertilizer amount affects plant growth."
+# B: "Design controlled experiments to investigate how an independent variable affects a measurable outcome."
+# Score: 0.3
+# Reason: A requires analyzing experimental data and determining a relationship. It does not require designing the experiment. Experimental design is an unsupported capability introduced by B.
 
----
+# ---
 
-Example 8:
-A: "Analyze a graph showing temperature and reaction rate to determine how reaction rate changes as temperature increases."
-B: "Interpret scientific graphs to identify relationships between variables."
-Score: 1.0
-Reason: The learner must interpret a scientific graph and identify the relationship between two variables. The capability in B is therefore directly supported by A.
+# Example 8:
+# A: "Analyze a graph showing temperature and reaction rate to determine how reaction rate changes as temperature increases."
+# B: "Interpret scientific graphs to identify relationships between variables."
+# Score: 1.0
+# Reason: The learner must interpret a scientific graph and identify the relationship between two variables. The capability in B is therefore directly supported by A.
 
----
+# ---
 
-Example 9:
-A: "Use a balanced chemical equation to calculate the amount of oxygen required to react with a given amount of hydrogen."
-B: "Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products."
-Score: 1.0
-Reason: The exercise requires using a balanced chemical equation to determine the quantitative relationship between reactants. The skill in B is therefore grounded in A.
+# Example 9:
+# A: "Use a balanced chemical equation to calculate the amount of oxygen required to react with a given amount of hydrogen."
+# B: "Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products."
+# Score: 1.0
+# Reason: The exercise requires using a balanced chemical equation to determine the quantitative relationship between reactants. The skill in B is therefore grounded in A.
 
----
+# ---
 
-Example 10:
-A: "Determine the velocity of a falling object after 3 seconds using its initial velocity and acceleration due to gravity."
-B: "Apply kinematic relationships to determine an object's motion from its initial conditions and time."
-Score: 1.0
-Reason: The learner must use the relationship between initial conditions, acceleration, time, and velocity. B correctly captures the underlying kinematic capability.
+# Example 10:
+# A: "Determine the velocity of a falling object after 3 seconds using its initial velocity and acceleration due to gravity."
+# B: "Apply kinematic relationships to determine an object's motion from its initial conditions and time."
+# Score: 1.0
+# Reason: The learner must use the relationship between initial conditions, acceleration, time, and velocity. B correctly captures the underlying kinematic capability.
 
----
+# ---
 
-Example 11:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Understand physics."
-Score: 1.0
-Reason: The exercise is clearly a physics task, so the broad claim in B is supported. Although B is extremely vague and therefore poorly informative, vagueness alone does not reduce faithfulness.
+# Example 11:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Understand physics."
+# Score: 1.0
+# Reason: The exercise is clearly a physics task, so the broad claim in B is supported. Although B is extremely vague and therefore poorly informative, vagueness alone does not reduce faithfulness.
 
----
+# ---
 
-Example 12:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply advanced vector calculus and differential equations to solve classical mechanics problems."
-Score: 0.2
-Reason: The exercise does not require vector calculus, differential equations, or advanced mechanics methods. B introduces unsupported capabilities and is therefore not faithful.
+# Example 12:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply advanced vector calculus and differential equations to solve classical mechanics problems."
+# Score: 0.2
+# Reason: The exercise does not require vector calculus, differential equations, or advanced mechanics methods. B introduces unsupported capabilities and is therefore not faithful.
 
-### Final principle
+# ### Final principle
 
-The central question is:
-"Does the learner genuinely need the capability described by B to perform A?"
+# The central question is:
+# "Does the learner genuinely need the capability described by B to perform A?"
 
-Generalization is allowed.
-Abstraction is allowed.
-Omission is allowed.
-Implicit skills are allowed when genuinely required.
+# Generalization is allowed.
+# Abstraction is allowed.
+# Omission is allowed.
+# Implicit skills are allowed when genuinely required.
 
-Only unsupported scientific capabilities should reduce the faithfulness score.
+# Only unsupported scientific capabilities should reduce the faithfulness score.
 
-## Prompt A (child)
-{prompt_a}
+# ## Prompt A (child)
+# {prompt_a}
 
-## Prompt B (parent)
-{prompt_b}
+# ## Prompt B (parent)
+# {prompt_b}
 
-Output your score in exactly the following format:
+# Output your score in exactly the following format:
 
-Score: [SCORE]
-"""
+# Score: [SCORE]
+# """
 
 
 ## Summary
@@ -394,335 +396,336 @@ Score: [SCORE]
 # """
 
 ## Education
+INFORMATIVENESS_PROMPT = get_informativeness_prompt()
 
-INFORMATIVENESS_PROMPT = """
-You will be given a science exercise A (child) and a scientific skill B (parent) that is intended to be a generalization of A. Your task is to determine how INFORMATIVE the scientific skill B is about the science exercise A.
+# INFORMATIVENESS_PROMPT = """
+# You will be given a science exercise A (child) and a scientific skill B (parent) that is intended to be a generalization of A. Your task is to determine how INFORMATIVE the scientific skill B is about the science exercise A.
 
-### Definition of Informativeness
-Informativeness measures how much of the IMPORTANT SCIENTIFIC CAPABILITY tested or required by A is captured by B.
+# ### Definition of Informativeness
+# Informativeness measures how much of the IMPORTANT SCIENTIFIC CAPABILITY tested or required by A is captured by B.
 
-In other words:
-"How much of what a learner needs to know or be able to do to successfully perform A is captured by the skill B?" Informativeness is a RECALL measure. A highly informative parent identifies the important underlying scientific skill(s) of the exercise rather than merely describing its broad topic or activity.
+# In other words:
+# "How much of what a learner needs to know or be able to do to successfully perform A is captured by the skill B?" Informativeness is a RECALL measure. A highly informative parent identifies the important underlying scientific skill(s) of the exercise rather than merely describing its broad topic or activity.
 
-### What to consider as important content in A
+# ### What to consider as important content in A
 
-First identify the important scientific capabilities that A requires.
+# First identify the important scientific capabilities that A requires.
 
-These may include:
+# These may include:
 
-- applying a scientific law or principle,
-- using a scientific formula or quantitative relationship,
-- performing a scientific calculation,
-- analyzing scientific data,
-- interpreting graphs or tables,
-- explaining a scientific phenomenon,
-- predicting an outcome using scientific principles,
-- identifying relationships between scientific variables,
-- reasoning about cause and effect,
-- solving a class of scientific problems,
-- analyzing experimental results,
-- designing or evaluating an experiment,
-- applying a scientific concept or procedure,
-- or other scientifically meaningful reasoning or problem-solving capabilities.
+# - applying a scientific law or principle,
+# - using a scientific formula or quantitative relationship,
+# - performing a scientific calculation,
+# - analyzing scientific data,
+# - interpreting graphs or tables,
+# - explaining a scientific phenomenon,
+# - predicting an outcome using scientific principles,
+# - identifying relationships between scientific variables,
+# - reasoning about cause and effect,
+# - solving a class of scientific problems,
+# - analyzing experimental results,
+# - designing or evaluating an experiment,
+# - applying a scientific concept or procedure,
+# - or other scientifically meaningful reasoning or problem-solving capabilities.
 
-Focus on the underlying scientific capabilities rather than incidental details.
+# Focus on the underlying scientific capabilities rather than incidental details.
 
-Do NOT treat the following as important capabilities unless they are essential to the scientific task:
-- specific numerical values,
-- names of particular objects or organisms,
-- incidental context,
-- wording of the question,
-- minor formatting requirements,
-- superficial details of the scenario.
+# Do NOT treat the following as important capabilities unless they are essential to the scientific task:
+# - specific numerical values,
+# - names of particular objects or organisms,
+# - incidental context,
+# - wording of the question,
+# - minor formatting requirements,
+# - superficial details of the scenario.
 
-### Important principles
+# ### Important principles
 
-1. Measure CAPABILITY COVERAGE.
-Determine which important scientific capabilities A requires and how many of them are captured by B.
-For example:
+# 1. Measure CAPABILITY COVERAGE.
+# Determine which important scientific capabilities A requires and how many of them are captured by B.
+# For example:
 
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply Newton's second law to relate force, mass, and acceleration."
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
 
-B captures the central scientific capability required by A, so informativeness is high.
+# B captures the central scientific capability required by A, so informativeness is high.
 
-2. Capture the UNDERLYING SKILL, not merely the topic.
-A parent such as:
-"Understand physics."
-may be technically related to A, but it provides very little information about what the learner must actually do.
+# 2. Capture the UNDERLYING SKILL, not merely the topic.
+# A parent such as:
+# "Understand physics."
+# may be technically related to A, but it provides very little information about what the learner must actually do.
 
-Similarly:
+# Similarly:
 
-A: "Calculate acceleration from force and mass."
-B: "Physics."
+# A: "Calculate acceleration from force and mass."
+# B: "Physics."
 
-B is extremely uninformative because it identifies only the subject area, not the scientific capability.
+# B is extremely uninformative because it identifies only the subject area, not the scientific capability.
 
-3. Semantic coverage matters, not exact wording.
+# 3. Semantic coverage matters, not exact wording.
 
-B does not need to repeat A's wording.
-For example:
+# B does not need to repeat A's wording.
+# For example:
 
-A: "Determine the acceleration of an object using its net force and mass."
-B: "Apply Newton's second law to relate force, mass, and acceleration."
+# A: "Determine the acceleration of an object using its net force and mass."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
 
-B is highly informative even though the wording is different because it captures the same underlying scientific capability.
+# B is highly informative even though the wording is different because it captures the same underlying scientific capability.
 
-4. Generalization is allowed and expected.
+# 4. Generalization is allowed and expected.
 
-B is intended to be more general than A.
+# B is intended to be more general than A.
 
-Do NOT penalize B merely because it removes:
-- numerical values,
-- specific objects,
-- specific substances,
-- particular organisms,
-- specific experimental settings,
-- particular datasets,
-- or other exercise-specific details.
+# Do NOT penalize B merely because it removes:
+# - numerical values,
+# - specific objects,
+# - specific substances,
+# - particular organisms,
+# - specific experimental settings,
+# - particular datasets,
+# - or other exercise-specific details.
 
-The question is whether B preserves the important scientific capability behind those details.
+# The question is whether B preserves the important scientific capability behind those details.
 
-5. Do not require every detail of A to appear in B.
+# 5. Do not require every detail of A to appear in B.
 
-Only IMPORTANT SCIENTIFIC CAPABILITIES should affect informativeness.
+# Only IMPORTANT SCIENTIFIC CAPABILITIES should affect informativeness.
 
-For example:
+# For example:
 
-A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
-B: "Apply Newton's second law to relate force, mass, and acceleration."
+# A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
 
-B does not mention 5 kg or 20 N, but these are incidental numerical details. Their omission should not reduce informativeness.
+# B does not mention 5 kg or 20 N, but these are incidental numerical details. Their omission should not reduce informativeness.
 
-6. Implicit scientific skills count.
+# 6. Implicit scientific skills count.
 
-A may not explicitly state the scientific law, principle, or method that must be used.
+# A may not explicitly state the scientific law, principle, or method that must be used.
 
-Infer the underlying capability when it is genuinely required by A.
+# Infer the underlying capability when it is genuinely required by A.
 
-For example:
+# For example:
 
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Apply Newton's second law to relate force, mass, and acceleration."
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
 
-The skill is implicit in A, but it is still an important capability and B captures it.
+# The skill is implicit in A, but it is still an important capability and B captures it.
 
-7. Penalize VAGUENESS.
+# 7. Penalize VAGUENESS.
 
-A parent that is technically related to A but too broad to identify the important capability is not informative.
+# A parent that is technically related to A but too broad to identify the important capability is not informative.
 
-For example:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Solve science problems."
+# For example:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Solve science problems."
 
-B is related to A, but it does not identify the important mechanics capability.
+# B is related to A, but it does not identify the important mechanics capability.
 
-Therefore, it should receive substantially lower informativeness than:
+# Therefore, it should receive substantially lower informativeness than:
 
-"Apply Newton's second law to relate force, mass, and acceleration."
+# "Apply Newton's second law to relate force, mass, and acceleration."
 
-8. Topic overlap alone is insufficient.
+# 8. Topic overlap alone is insufficient.
 
-A parent should not receive high informativeness merely because it mentions the same scientific field or topic.
+# A parent should not receive high informativeness merely because it mentions the same scientific field or topic.
 
-For example:
-A: "Calculate the acceleration of an object from its net force and mass."
-B: "Understand classical mechanics."
+# For example:
+# A: "Calculate the acceleration of an object from its net force and mass."
+# B: "Understand classical mechanics."
 
-B identifies the general area but fails to capture the specific capability of relating force, mass, and acceleration.
+# B identifies the general area but fails to capture the specific capability of relating force, mass, and acceleration.
 
-Therefore, informativeness should be limited.
+# Therefore, informativeness should be limited.
 
-9. Multiple capabilities must be considered.
+# 9. Multiple capabilities must be considered.
 
-If A requires several important scientific capabilities, determine whether B captures all, most, some, or very few of them.
+# If A requires several important scientific capabilities, determine whether B captures all, most, some, or very few of them.
 
-For example:
-A: "Calculate the acceleration of an object using its net force and mass, then explain how the acceleration changes when the force is doubled."
+# For example:
+# A: "Calculate the acceleration of an object using its net force and mass, then explain how the acceleration changes when the force is doubled."
 
-Important capabilities include:
-- applying the force-mass-acceleration relationship,
-- reasoning about how acceleration changes when force changes.
+# Important capabilities include:
+# - applying the force-mass-acceleration relationship,
+# - reasoning about how acceleration changes when force changes.
 
-B: "Apply Newton's second law to relate force, mass, and acceleration."
+# B: "Apply Newton's second law to relate force, mass, and acceleration."
 
-B captures the first capability but misses the second.
+# B captures the first capability but misses the second.
 
-Therefore, B is informative but incomplete.
+# Therefore, B is informative but incomplete.
 
-10. Do not reward unsupported content.
+# 10. Do not reward unsupported content.
 
-Only evaluate how much of A is captured by B.
+# Only evaluate how much of A is captured by B.
 
-Do not give additional informativeness credit because B contains scientifically correct capabilities that are not required by A.
+# Do not give additional informativeness credit because B contains scientifically correct capabilities that are not required by A.
 
-For example:
-A: "Calculate acceleration from force and mass."
-B: "Apply Newton's second law and conservation of energy to analyze mechanical systems."
+# For example:
+# A: "Calculate acceleration from force and mass."
+# B: "Apply Newton's second law and conservation of energy to analyze mechanical systems."
 
-The conservation-of-energy component does not increase informativeness because A does not require it.
+# The conservation-of-energy component does not increase informativeness because A does not require it.
 
-11. Distinguish informativeness from faithfulness.
+# 11. Distinguish informativeness from faithfulness.
 
-FAITHFULNESS asks:
+# FAITHFULNESS asks:
 
-"Are the capabilities claimed by B actually supported by A?"
+# "Are the capabilities claimed by B actually supported by A?"
 
-INFORMATIVENESS asks:
+# INFORMATIVENESS asks:
 
-"Does B capture the important capabilities that A requires?"
+# "Does B capture the important capabilities that A requires?"
 
-A skill can therefore be:
+# A skill can therefore be:
 
-- highly faithful but poorly informative,
-- highly faithful and highly informative,
-- partially faithful and partially informative,
-- or poorly faithful and poorly informative.
+# - highly faithful but poorly informative,
+# - highly faithful and highly informative,
+# - partially faithful and partially informative,
+# - or poorly faithful and poorly informative.
 
-For example:
-A: "Calculate acceleration from net force and mass."
-B: "Solve science problems."
+# For example:
+# A: "Calculate acceleration from net force and mass."
+# B: "Solve science problems."
 
-B may be faithful because the exercise is a science problem, but it is poorly informative because it fails to identify the important underlying capability.
+# B may be faithful because the exercise is a science problem, but it is poorly informative because it fails to identify the important underlying capability.
 
-### Scoring
+# ### Scoring
 
-Identify the important scientific capabilities required by A. Then determine what proportion of those important capabilities are captured by B. Use semantic and conceptual coverage rather than literal word matching.
+# Identify the important scientific capabilities required by A. Then determine what proportion of those important capabilities are captured by B. Use semantic and conceptual coverage rather than literal word matching.
 
-Scoring guidance:
+# Scoring guidance:
 
-0.85-1.00 — Excellent Coverage
-B captures essentially all of the important scientific capabilities required by A. B may generalize away exercise-specific details, but it preserves the core scientific reasoning, relationship, method, or capability.
+# 0.85-1.00 — Excellent Coverage
+# B captures essentially all of the important scientific capabilities required by A. B may generalize away exercise-specific details, but it preserves the core scientific reasoning, relationship, method, or capability.
 
-0.60-0.85 — Good Coverage
-B captures the main scientific capability of A but misses one or more important capabilities, relationships, reasoning steps, or distinctions.
+# 0.60-0.85 — Good Coverage
+# B captures the main scientific capability of A but misses one or more important capabilities, relationships, reasoning steps, or distinctions.
 
-0.30-0.60 — Partial / Vague Coverage
-B captures a broad aspect of A, such as the scientific domain or general activity, but fails to capture much of the specific underlying capability.
+# 0.30-0.60 — Partial / Vague Coverage
+# B captures a broad aspect of A, such as the scientific domain or general activity, but fails to capture much of the specific underlying capability.
 
-0.00-0.30 — Very Low Coverage / Mismatch
-B captures little or none of the important scientific capabilities required by A, or it describes a substantially different capability.
+# 0.00-0.30 — Very Low Coverage / Mismatch
+# B captures little or none of the important scientific capabilities required by A, or it describes a substantially different capability.
 
-### Examples
+# ### Examples
 
-Example 1:
+# Example 1:
 
-Prompt A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
-Prompt B: "Apply Newton's second law to relate force, mass, and acceleration."
-Score: 1.0
-Reason: B captures the central scientific capability required by A. The numerical values and specific object are incidental and do not need to be preserved.
+# Prompt A: "Calculate the acceleration of a 5 kg object when a net force of 20 N acts on it."
+# Prompt B: "Apply Newton's second law to relate force, mass, and acceleration."
+# Score: 1.0
+# Reason: B captures the central scientific capability required by A. The numerical values and specific object are incidental and do not need to be preserved.
 
----
+# ---
 
-Example 2:
-Prompt A: "Calculate the acceleration of an object from its net force and mass."
-Prompt B: "Solve quantitative science problems."
-Score: 0.45
-Reason: B captures the broad quantitative problem-solving activity, but it does not identify the important underlying capability of applying the force-mass-acceleration relationship. It is therefore related but too vague to be highly informative.
+# Example 2:
+# Prompt A: "Calculate the acceleration of an object from its net force and mass."
+# Prompt B: "Solve quantitative science problems."
+# Score: 0.45
+# Reason: B captures the broad quantitative problem-solving activity, but it does not identify the important underlying capability of applying the force-mass-acceleration relationship. It is therefore related but too vague to be highly informative.
 
----
+# ---
 
-Example 3:
-Prompt A: "Calculate the acceleration of an object from its net force and mass."
-Prompt B: "Understand physics."
-Score: 0.15
-Reason: B only identifies the broad subject area and provides almost no information about the capability required by A.
+# Example 3:
+# Prompt A: "Calculate the acceleration of an object from its net force and mass."
+# Prompt B: "Understand physics."
+# Score: 0.15
+# Reason: B only identifies the broad subject area and provides almost no information about the capability required by A.
 
----
+# ---
 
-Example 4:
-Prompt A: "Determine the pH of a solution given its hydrogen ion concentration."
-Prompt B: "Use the relationship between pH and hydrogen ion concentration to determine an unknown quantity."
-Score: 1.0
-Reason: B captures the central quantitative relationship and the reasoning required by A. The specific concentration value is not important.
+# Example 4:
+# Prompt A: "Determine the pH of a solution given its hydrogen ion concentration."
+# Prompt B: "Use the relationship between pH and hydrogen ion concentration to determine an unknown quantity."
+# Score: 1.0
+# Reason: B captures the central quantitative relationship and the reasoning required by A. The specific concentration value is not important.
 
----
+# ---
 
-Example 5:
-Prompt A: "Explain why increasing temperature changes the rate of a chemical reaction."
-Prompt B: "Explain how increasing temperature affects physical or chemical properties."
-Score: 0.85
-Reason: B captures the important capability of explaining how temperature affects a chemical system. It is somewhat broader than A and does not specifically identify reaction rate, so some specificity is lost, but the core capability is retained.
+# Example 5:
+# Prompt A: "Explain why increasing temperature changes the rate of a chemical reaction."
+# Prompt B: "Explain how increasing temperature affects physical or chemical properties."
+# Score: 0.85
+# Reason: B captures the important capability of explaining how temperature affects a chemical system. It is somewhat broader than A and does not specifically identify reaction rate, so some specificity is lost, but the core capability is retained.
 
----
+# ---
 
-Example 6:
-Prompt A: "Predict the offspring genotypes resulting from a cross between two heterozygous pea plants."
-Prompt B: "Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes."
-Score: 1.0
-Reason: B captures the underlying genetic reasoning required by A. The specific organism and particular cross are exercise-specific details.
+# Example 6:
+# Prompt A: "Predict the offspring genotypes resulting from a cross between two heterozygous pea plants."
+# Prompt B: "Apply Mendelian inheritance principles to predict genetic outcomes from parental genotypes."
+# Score: 1.0
+# Reason: B captures the underlying genetic reasoning required by A. The specific organism and particular cross are exercise-specific details.
 
----
+# ---
 
-Example 7:
-Prompt A: "Analyze experimental measurements of plant height under different amounts of fertilizer and determine whether fertilizer amount affects plant growth."
-Prompt B: "Analyze scientific data."
-Score: 0.45
-Reason: B captures the general activity of data analysis but misses the important capability of analyzing how an independent variable relates to a measurable outcome.
+# Example 7:
+# Prompt A: "Analyze experimental measurements of plant height under different amounts of fertilizer and determine whether fertilizer amount affects plant growth."
+# Prompt B: "Analyze scientific data."
+# Score: 0.45
+# Reason: B captures the general activity of data analysis but misses the important capability of analyzing how an independent variable relates to a measurable outcome.
 
----
+# ---
 
-Example 8:
+# Example 8:
 
-Prompt A: "Analyze a graph showing temperature and reaction rate to determine how reaction rate changes as temperature increases."
-Prompt B: "Interpret scientific graphs to identify relationships between variables."
-Score: 0.9
-Reason: B captures the main graph-interpretation and relationship-identification capability. It generalizes away the specific variables but retains the important reasoning process.
+# Prompt A: "Analyze a graph showing temperature and reaction rate to determine how reaction rate changes as temperature increases."
+# Prompt B: "Interpret scientific graphs to identify relationships between variables."
+# Score: 0.9
+# Reason: B captures the main graph-interpretation and relationship-identification capability. It generalizes away the specific variables but retains the important reasoning process.
 
----
+# ---
 
-Example 9:
-Prompt A: "Use a balanced chemical equation to calculate the amount of oxygen required to react with a given amount of hydrogen."
-Prompt B: "Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products."
-Score: 1.0
-Reason: B captures the underlying stoichiometric reasoning required by A while removing the specific substances and quantities.
+# Example 9:
+# Prompt A: "Use a balanced chemical equation to calculate the amount of oxygen required to react with a given amount of hydrogen."
+# Prompt B: "Use stoichiometric relationships from balanced chemical equations to relate quantities of reactants and products."
+# Score: 1.0
+# Reason: B captures the underlying stoichiometric reasoning required by A while removing the specific substances and quantities.
 
----
+# ---
 
-Example 10:
-Prompt A: "Determine the velocity of a falling object after 3 seconds using its initial velocity and acceleration due to gravity."
-Prompt B: "Apply kinematic relationships to determine an object's motion from its initial conditions and time."
-Score: 1.0
-Reason: B captures the important kinematic reasoning required by A. The specific object, time, and numerical values are not necessary for the generalized skill.
+# Example 10:
+# Prompt A: "Determine the velocity of a falling object after 3 seconds using its initial velocity and acceleration due to gravity."
+# Prompt B: "Apply kinematic relationships to determine an object's motion from its initial conditions and time."
+# Score: 1.0
+# Reason: B captures the important kinematic reasoning required by A. The specific object, time, and numerical values are not necessary for the generalized skill.
 
----
+# ---
 
-Example 11:
-Prompt A: "Calculate the acceleration of an object from its net force and mass, then explain how the acceleration changes if the force is doubled."
-Prompt B: "Apply Newton's second law to relate force, mass, and acceleration."
-Score: 0.75
-Reason: B captures the central force-mass-acceleration capability but does not explicitly capture the reasoning about how acceleration changes when force changes. It therefore covers most, but not all, of the important capabilities.
+# Example 11:
+# Prompt A: "Calculate the acceleration of an object from its net force and mass, then explain how the acceleration changes if the force is doubled."
+# Prompt B: "Apply Newton's second law to relate force, mass, and acceleration."
+# Score: 0.75
+# Reason: B captures the central force-mass-acceleration capability but does not explicitly capture the reasoning about how acceleration changes when force changes. It therefore covers most, but not all, of the important capabilities.
 
----
+# ---
 
-Example 12:
-Prompt A: "Design a controlled experiment to determine how fertilizer concentration affects plant growth, including identifying the independent and dependent variables and keeping other conditions constant."
-Prompt B: "Investigate scientific questions experimentally."
-Score: 0.35
-Reason: B captures the general idea of experimental investigation but omits important capabilities involving controlled experimental design, identification of variables, and control of other conditions.
+# Example 12:
+# Prompt A: "Design a controlled experiment to determine how fertilizer concentration affects plant growth, including identifying the independent and dependent variables and keeping other conditions constant."
+# Prompt B: "Investigate scientific questions experimentally."
+# Score: 0.35
+# Reason: B captures the general idea of experimental investigation but omits important capabilities involving controlled experimental design, identification of variables, and control of other conditions.
 
-### Final principle
+# ### Final principle
 
-The central question is:
+# The central question is:
 
-"How much of the important scientific capability required by A is captured by B?"
+# "How much of the important scientific capability required by A is captured by B?"
 
-Do not measure literal similarity.
-Do not require exercise-specific details to be preserved.
-Do not reward mere topic overlap.
-Focus on whether B captures the underlying scientific knowledge, reasoning, relationship, method, or capability that the learner needs to perform A.
-Generalization is expected, but the important scientific capability should be retained.
+# Do not measure literal similarity.
+# Do not require exercise-specific details to be preserved.
+# Do not reward mere topic overlap.
+# Focus on whether B captures the underlying scientific knowledge, reasoning, relationship, method, or capability that the learner needs to perform A.
+# Generalization is expected, but the important scientific capability should be retained.
 
-## Prompt A (child)
-{prompt_a}
+# ## Prompt A (child)
+# {prompt_a}
 
-## Prompt B (parent)
-{prompt_b}
+# ## Prompt B (parent)
+# {prompt_b}
 
-Output your score in exactly the following format:
+# Output your score in exactly the following format:
 
-Score: [SCORE]
-"""
+# Score: [SCORE]
+# """
 
 
 _embed_model = None
