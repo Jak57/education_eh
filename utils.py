@@ -5,6 +5,10 @@ def load_xlsx(path):
     df = pd.read_excel(path)
     return df
 
+def load_csv(path):
+    df = pd.read_csv(path)
+    return df
+
 def load_json(path):
     with open(path, 'r') as f:
         data = json.load(f)

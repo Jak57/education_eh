@@ -167,10 +167,13 @@ def get_exercise_with_solution(exercise, solution):
 def save_xlsx_file(samples, path, add_solution=False):
     results = []
     # subsets = []
+    problem_ids = []
     for dic in samples:
         exercise = dic['prompt']
         solution = dic['Code']
         # topic = dic['topic'].strip()
+        problem_id = dic['ProblemID']
+        problem_ids.append(problem_id)
         exercise = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', exercise)
         solution = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F]', '', solution)
         if add_solution:
@@ -183,6 +186,7 @@ def save_xlsx_file(samples, path, add_solution=False):
     data = {
         'Result': results,
         # 'Subject': subsets
+        'ProblemID': problem_ids 
     }
     df1 = pd.DataFrame(data, columns=data.keys())
     df1.to_excel(path, index=False)
