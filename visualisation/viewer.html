@@ -223,22 +223,54 @@
       return null;
     }
 
+    // orig st
+    // const colour = d => {
+    //   const raw = getScoreValue(d.data, selectedScoreField);
+    //   const score = +raw;
+    //   if (isNaN(score)) return '#ccc';
+
+    //   // Normalize to 0–1 range
+    //   const normalized = Math.max(0, Math.min(1, score / 10)); // assume 0–10 scale
+
+    //   // Define diverging color scale
+    //   const colorScale = d3.scaleLinear()
+    //     .domain([0, 0.33, 0.66, 1]) // 4 stops
+    //     .range(["darkred", "lightcoral", "lightblue", "darkblue"])
+    //     .interpolate(d3.interpolateLab); // smoother transitions
+
+    //   return colorScale(normalized);
+    // };
+
+    // ori end
+
+    //new st
+    // const colour = d => {
+    // const raw = getScoreValue(d.data, selectedScoreField);
+    // if (raw == null) return '#ccc';
+    // const score = +raw;
+    // if (isNaN(score)) return '#ccc';
+
+    // const normalized = Math.max(0, Math.min(1, score)); // clamp to 0–1
+    // return d3.interpolateRdYlGn(normalized);
+    // };
     const colour = d => {
       const raw = getScoreValue(d.data, selectedScoreField);
+      if (raw == null) return '#ccc';
       const score = +raw;
       if (isNaN(score)) return '#ccc';
 
-      // Normalize to 0–1 range
-      const normalized = Math.max(0, Math.min(1, score / 10)); // assume 0–10 scale
+      const normalized = selectedScoreField.startsWith('score_student')
+        ? Math.max(0, Math.min(1, score))
+        : Math.max(0, Math.min(1, score / 10));
 
-      // Define diverging color scale
-      const colorScale = d3.scaleLinear()
-        .domain([0, 0.33, 0.66, 1]) // 4 stops
-        .range(["darkred", "lightcoral", "lightblue", "darkblue"])
-        .interpolate(d3.interpolateLab); // smoother transitions
-
-      return colorScale(normalized);
+        return d3.interpolateRdYlGn(normalized);
     };
+
+    // new end
+
+
+
+
     /* helper for node colour */
     // const colour = sim =>
     //   sim == null || isNaN(sim) ? '#ccc'

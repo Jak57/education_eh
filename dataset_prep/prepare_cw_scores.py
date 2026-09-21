@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     # Populate candidate student's data
     for index, student_id in enumerate(valid_ids):
-        short_id = "student_" + str(index+1)
+        short_id = "score_student-" + str(index+1)
         id_score = []
         cnt = 0
         for idx, row in df_valid.iterrows():
