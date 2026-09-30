@@ -4757,3 +4757,105 @@ Focus on the underlying programming knowledge and capability that a learner must
 The goal is to determine whether B is a useful higher-level knowledge component for representing exercise A in a hierarchical taxonomy of Java programming knowledge.
 """
     return evalPrompt_specificity_informativeness
+
+
+# def get_kc_generation_prompt(summary):
+#     prompt = f"""You will be given a textual description of knowledge components or skills needed to solve a programming exercise in Java. Your task is to provide a Python list of individual knowledge components that are explicitly mentioned in the description or implicitly referred. Do not provide extra knowledge components that are not explicitly mentioned or implicitly referred.
+      
+#     ## Here is the description: 
+#     "{summary}"
+
+#     Please ONLY provide Python list of knowledge components or skills:  ["KC 1 name", "KC 2 name", ..., "KC k name"]
+#     Begin your response with "(start)" and end it with "(end)."
+#     """
+#     return prompt
+
+# def get_system_prompt_kc():
+#     prompt = """
+#     You are an experienced computer science teacher and education expert. You will be given a generlized textual description of knowledge components or skill needed to solve a programming exercise in Java. You task is to extract the individual knowledge components explicitly mentioned or implicitly refered as a Python list.
+#     """
+#     return prompt
+
+## V1
+# def get_kc_generation_prompt(summary):
+#     prompt = f"""You will be given a generalized textual description of the knowledge components (KCs) or programming skills required to solve one or more Java programming exercises.
+
+#     Your task is to identify and extract the individual KCs that are explicitly mentioned or directly implied by the description.
+
+#     ## Instructions
+
+#     1. **Extract relevant KCs only:** Include a KC only if it is explicitly mentioned or can be directly inferred from the description. Do not introduce skills based on assumptions about how the exercise might be implemented.
+#     2. **Use atomic KCs:** Each item should represent one distinct programming concept, skill, or capability. Split compound descriptions into separate KCs when they refer to distinct skills.
+#     3. **Preserve the intended meaning:** Use concise, conventional computer science terminology. Express each KC as a short noun phrase describing a specific concept or skill.
+#     4. **Avoid redundancy:** Do not include duplicate KCs or multiple labels for the same underlying concept. Prefer the more precise label when two labels overlap substantially.
+#     5. **Respect the level of abstraction:** Preserve the level of detail supported by the description. Do not decompose a concept into lower-level concepts unless they are explicitly mentioned or directly implied.
+#     6. **Include relevant edge cases:** Extract explicitly mentioned or directly implied skills for handling special cases, boundary conditions, or exceptional inputs.
+#     7. **Exclude unsupported details:** Do not include programming concepts, algorithms, data structures, Java syntax, or implementation techniques that are not supported by the description.
+#     8. **Return only the list:** Do not include explanations, descriptions, headings, or any text outside the required output format.
+
+#     ## Description
+
+#     {summary}
+
+#     ## Required output format
+
+#     Return a valid Python list of strings containing the extracted KCs, in the following format:
+#     (start) ["KC 1 name", "KC 2 name", ..., "KC k name"] (end)
+
+#     Ensure that the output between (start) and (end) is a valid Python list. If no KCs can be identified, return an empty list: [].
+#     """
+#     return prompt
+
+# def get_system_prompt_kc():
+#     prompt = """You are an experienced computer science teacher and educational expert specializing in Java programming and knowledge component identification.
+
+#     Your task is to extract individual knowledge components (KCs) from generalized descriptions of programming exercises.
+
+#     Identify only concepts and skills that are explicitly stated or directly implied by the description. Treat a KC as a distinct, meaningful programming concept or learner capability relevant to solving the described exercise.
+
+#     Prioritize accuracy, atomicity, consistency, and non-redundancy. Use concise, conventional computer science terminology. Do not invent additional KCs, assume a particular implementation, or infer prerequisite knowledge that is not supported by the description.
+
+#     Return the KCs as a Python list of strings, following the output format specified in the user prompt. Do not provide explanations or any additional text.
+#     """
+#     return prompt
+
+## V2
+def get_kc_generation_prompt(summary):
+    prompt = f"""Extract individual knowledge components (KCs) from the following generalized description of skills needed to solve Java programming exercises.
+
+    ## Instructions
+
+    1. Extract only KCs explicitly mentioned or directly implied by the description.
+    2. Represent each KC as a concise, meaningful string using conventional computer science terminology.
+    3. Keep KCs distinct and non-redundant.
+    4. Do not invent unsupported skills or implementation details.
+    5. Return only a valid Python list of strings.
+    6. Enclose every KC in matching single or double quotation marks.
+    7. Ensure commas separate all items and that square brackets are balanced.
+    8. Before responding, check that the output is syntactically valid Python. Correct any missing quotation marks, spelling errors, or formatting mistakes.
+
+    ## Description
+
+    {summary}
+
+    ## Output requirements
+
+    Return exactly the following structure, with no additional text:
+    (start) ["KC 1", "KC 2", "KC 3"] (end)
+
+    If no KCs can be identified, return:
+    (start) [] (end)
+    """
+    return prompt
+
+def get_system_prompt_kc():
+    return """You are an experienced computer science teacher and educational expert specializing in Java programming and knowledge component (KC) identification.
+
+    Extract distinct, atomic KCs that are explicitly mentioned or directly implied by the given exercise description.
+
+    Use concise, conventional computer science terminology. Avoid unsupported inferences, redundant concepts, and unnecessary decomposition.
+
+    Your output must be a syntactically valid Python list containing only strings. Every string must have matching quotation marks, and items must be separated by commas. Check the syntax and spelling before responding.
+
+    Follow the exact output format specified in the user prompt. Do not include explanations or any text outside the required markers.
+    """

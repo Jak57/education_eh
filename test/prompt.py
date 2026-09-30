@@ -1,9 +1,11 @@
 from test.prompt_template.common_summary import get_common_summary_prompt, get_system_prompt
+from utils import get_system_prompt_kc, get_kc_generation_prompt
 import pandas as pd
 import random
 import anthropic
 import re
 import os
+from openai import OpenAI 
 
 def _load_env(path: str = "") -> None:
     """Minimal .env loader (no dependency): KEY=VALUE lines, # comments.
@@ -85,3 +87,39 @@ def print_summary(path, api_keys):
     print(summary1)
     print("\nSummary for exercises without solutions:")
     print(summary2)
+
+def get_kc(summary,  model_name='claude', api_keys=None):
+    system_prompt = get_system_prompt_kc()
+    prompt14 = get_kc_generation_prompt(summary)
+    if model_name == "claude":
+            client = anthropic.Anthropic(
+                api_key=api_keys["claude"]
+            )
+            message = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=1024,
+                system=system_prompt,
+                messages=[
+                    {"role": "user", "content": prompt14}
+                ]
+            )
+            raw = message.content[0].text.strip()
+            match = re.search(r"\(start\)(.*?)\(end\)", raw, re.I | re.S)
+            summary = match.group(1).strip() if match else raw.strip()
+            return summary
+    elif model_name == "openai":
+        client = OpenAI(
+            api_key=api_keys["openai"]
+        )
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt14}
+            ]
+        )
+        raw = response.choices[0].message.content.strip()
+        match = re.search(r"\(start\)(.*?)\(end\)", raw, re.I | re.S)
+        summary = match.group(1).strip() if match else raw.strip()
+        return summary
+    return ""

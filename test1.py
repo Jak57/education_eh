@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import pandas as pd
+import ast
 
 def _load_env(path: str = "") -> None:
     """Minimal .env loader (no dependency): KEY=VALUE lines, # comments.
@@ -41,8 +42,8 @@ _load_env()
 #     build_scores
 # )
 
-from test.prompt import get_random_sample_pair, get_summary, print_summary
-from utils import load_xlsx
+from test.prompt import get_random_sample_pair, get_summary, print_summary, get_kc
+from utils import load_xlsx, load_csv
 from retrieval.blossom_matching import _extract_main_idea_llm
 
 # --------------------------------------------------------------------------- #
@@ -88,23 +89,62 @@ API_KEYS = {
 }
 
 
-# def load_exercises(path):
-
-#     pass
-
-if __name__ == "__main__":
-    api_keys = API_KEYS
+def test_main_idea_extraction():
     path = "NT_Random_758_with_solution.xlsx"
-
-    # print_summary(path, api_keys)
-
     exercises = load_xlsx(path)
     print(len(exercises))
     print(exercises[0])
-
     out = _extract_main_idea_llm(exercises)
     print(len(out))
     print(out[0])
-
     print((out == exercises))
+
+def save_kc(input_path, output_path):
+    # pass
+    df = load_csv(input_path)
+    kc_list = []
+    # print()
+    for index, row in df.iterrows():
+        print(index)
+        exercise = row['exercise']
+        summary = row['summary']
+        # kcs = get_kc(summary, model_name="openai", api_keys=API_KEYS)
+        kcs = get_kc(summary, model_name="claude", api_keys=API_KEYS)
+
+        print(type(kcs))
+
+        dic = {}
+        dic['exercise'] = exercise
+        dic['summary'] = summary
+        dic['kc'] = kcs
+
+        kc_list.append(dic)
+
+        print(summary)
+        print("---")
+        print(kcs)
+        # break
+        # if index > 2:
+        #     break
+
+        break
+
+    # with open(output_path, 'w', encoding='utf-8') as f:
+    #     json.dump(kc_list, f, ensure_ascii=False, indent=4)
+
+
+
+
+if __name__ == "__main__":
+    input_path, output_path = "dataset/problem_summary.csv", "dataset/problem_summary_kc_claude.json"
+    save_kc(input_path, output_path)
+
+    # pass
+    # text = "Manipulate integer arrays by accessing and rearranging elements based on their index positions, while handling edge cases such as empty or undersized arrays."
+    # print("hi")
+    # kcs = get_kc(text, model_name="openai", api_keys=API_KEYS)
+
+    # print(text)
+    # print("--------------\n\n")
+    # print(kcs)
 
