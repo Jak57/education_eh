@@ -20,7 +20,7 @@ def get_similar_pairs(embedding_filepath, TOTAL_EXERCISE=10, LEVEL_1_NODE_INC_FA
         for j in range(TOTAL_EXERCISE):
             if i != j:
                 heapq.heappush(hq, (-similarity_matrix[i][j], (i, j)))
-    print(f"From {TOTAL_EXERCISE} nodes, generating {TOTAL_LEVEL_1_NODE} pairs by associating each node with {TOTAL_NODE_TO_PAIR} other nodes...")
+    print(f"From {TOTAL_EXERCISE} nodes, generating {TOTAL_LEVEL_1_NODE} pairs by associating each node with {LEVEL_1_NODE_INC_FACTOR} other nodes...")
     link_count = [0] * TOTAL_EXERCISE
     candidateK_pair_list = []
     while len(hq) > 0:
@@ -33,11 +33,12 @@ def get_similar_pairs(embedding_filepath, TOTAL_EXERCISE=10, LEVEL_1_NODE_INC_FA
             candidateK_pair_list.append(index)
             link_count[i] += 1
     print(f"Pairs: {sorted(candidateK_pair_list)}")
+    print(f"\nTotal pairs={len(candidateK_pair_list)}")
     return sorted(candidateK_pair_list)
 
 if __name__ == "__main__":
     path = "outputs/jinaai_jina-code-embeddings-1.5b_embeddings.pkl"
-    similar_pairs = get_similar_pairs(path, TOTAL_EXERCISE=10, LEVEL_1_NODE_INC_FACTOR=3)
+    similar_pairs = get_similar_pairs(path, TOTAL_EXERCISE=25, LEVEL_1_NODE_INC_FACTOR=3)
 
 
 ## python -m test.test_similarity_matrix
