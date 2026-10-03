@@ -83,7 +83,7 @@ def save_samples(input_path, output_path='dataset/Nemotron_SFT_Science_v2_10K.js
         samples.append(dic)
     with open(output_path, 'w') as f:
         json.dump(samples, f, indent=4)
-
+        
 def _is_bad_char(c: str) -> bool:
     cp = ord(c)
     if cp < 128:
