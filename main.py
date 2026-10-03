@@ -129,6 +129,8 @@ def build_hierarchy_tree(json_file: Path = DATA_FILE, visualise: bool = VISUALIS
     level_idx = 0
     use_custom_score = False
 
+    test_var = True
+
     while len(tree.levels[level_idx].nodes) > 1:
         # finds third nearest neighbor, make sure this function goes before get_nearest_neighbors_blossom
         find_third(tree, level_idx)
