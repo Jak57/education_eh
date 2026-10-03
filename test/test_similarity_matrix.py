@@ -1,5 +1,8 @@
 import pickle
 import heapq
+import pandas as pd
+
+from test.prompt import get_summary
 
 def load_embeddings(embedding_cache_path):
     print("Loading precomputed embeddings...")
@@ -49,10 +52,33 @@ def get_pair_text(path, TOTAL_EXERCISE=50, LEVEL_1_NODE_INC_FACTOR=3):
         text_pair.append((text1, text2))
     return text_pair
 
+def save_mapping(path, api_keys, output_path):
+    text_pair = get_pair_text(path, TOTAL_EXERCISE=50, LEVEL_1_NODE_INC_FACTOR=3)
+    exercise1 = []
+    exercise2 = []
+    summary = []
+    for i in range(len(text_pair)):
+        text1, text2 = text_pair[i][0], text_pair[i][1]
+        common_summary = get_summary(text1, text2, model_name='claude', api_keys=api_keys)
+        exercise1.append(text1)
+        exercise2.append(text2)
+        summary.append(common_summary)
+    data = {
+        'exercise1': exercise1,
+        'exercise2': exercise2,
+        'common_summary': summary
+    }
+    df = pd.DataFrame(data, columns=data.keys())
+    df.to_csv(output_path, index=False)
+    print(f"Output file saved at {output_path}")
+
+
 if __name__ == "__main__":
     path = "outputs/jinaai_jina-code-embeddings-1.5b_embeddings.pkl"
     text_pair = get_pair_text(path, TOTAL_EXERCISE=50, LEVEL_1_NODE_INC_FACTOR=3)
     print(len(text_pair))
+
+    text1, text2 = text_pair[0][0], text_pair[0][1]
     print(text_pair[0])
 
 ## python -m test.test_similarity_matrix

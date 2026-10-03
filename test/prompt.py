@@ -58,6 +58,7 @@ def get_random_sample_pair(path):
     return (exercise1_with_sol, exercise1_with_sol[:idx_1], exercise2_with_sol, exercise2_with_sol[:idx_2])
 
 def get_summary(story1, story2,  model_name='claude', api_keys=None):
+# def get_summary(story1, story2,  model_name='claude', api_keys=None):
     system_prompt = get_system_prompt()
     prompt14 = get_common_summary_prompt(story1, story2)
     if model_name == "claude":
