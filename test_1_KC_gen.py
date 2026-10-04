@@ -1,7 +1,10 @@
 from pathlib import Path
 import os
 
-from test.test_similarity_matrix import save_mapping
+# from test.test_similarity_matrix import save_mapping
+from test_4_similarity_matrix import save_mapping, get_mapping
+from test_3_greedy_matching import build_common_summary_tree
+
 
 def _load_env(path: str = "") -> None:
     """Minimal .env loader (no dependency): KEY=VALUE lines, # comments.
@@ -41,9 +44,18 @@ API_KEYS = {
     },
 }
 
+# def get_pro
 
 if __name__ == "__main__":
     embedding_path = "outputs/jinaai_jina-code-embeddings-1.5b_embeddings.pkl"
-    save_mapping(embedding_path, api_keys=API_KEYS, output_path="outputs/text_summary_map_150.csv")
+    path = "outputs/text_summary_map_150.csv"
+    # save_mapping(embedding_path, api_keys=API_KEYS, output_path=path, TOTAL_EXERCISE=50, LEVEL_1_NODE_INC_FACTOR=3)
 
-## python test_1_KC_gen_150.py
+    exercises, summaries, exercise_to_summaries = get_mapping(path, TOTAL_EXERCISE=50)
+    print(len(exercises), len(summaries), len(exercise_to_summaries))
+
+    tree = build_common_summary_tree(exercises, summaries, exercise_to_summaries)
+    tree.dump("test_tree.json")
+
+
+## python test_1_KC_gen.py

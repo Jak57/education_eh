@@ -3,6 +3,7 @@ import heapq
 import pandas as pd
 
 from test.prompt import get_summary
+from utils import load_csv
 
 def load_embeddings(embedding_cache_path):
     print("Loading precomputed embeddings...")
@@ -71,15 +72,56 @@ def save_mapping(path, api_keys, output_path, TOTAL_EXERCISE=50, LEVEL_1_NODE_IN
     df.to_csv(output_path, index=False)
     print(f"Output file saved at {output_path}")
 
-def get_mapping(path):
-    pass
+def get_id(dic, text):
+    for key in dic:
+        if dic[key] == text:
+            return key
+    return None
+
+def get_mapping(path, TOTAL_EXERCISE=50):
+    df = load_csv(path)
+    exercises = {}
+    summaries = {}
+    exercise_to_summaries = {}
+    exercise_summary_dic = {}
+    all_exercises = set()
+    idx = 0
+    summary_idx = TOTAL_EXERCISE
+    for index, row in df.iterrows():
+        exercise1 = row['exercise1']
+        exercise2 = row['exercise2']
+        summary = row['common_summary']
+        if exercise1 not in exercise_summary_dic.keys():
+            exercise_summary_dic[exercise1] = []
+        exercise_summary_dic[exercise1].append(summary)
+        if exercise2 not in exercise_summary_dic.keys():
+            exercise_summary_dic[exercise2] = []
+        exercise_summary_dic[exercise2].append(summary)
+        summaries[summary_idx] = summary
+        summary_idx += 1
+        if exercise1 not in all_exercises:
+            all_exercises.add(exercise1)
+            exercises[idx] = exercise1
+            idx += 1
+        if exercise2 not in all_exercises:
+            all_exercises.add(exercise2)
+            exercises[idx] = exercise2
+            idx += 1
+    for exercise in exercise_summary_dic:
+        summary_texts = exercise_summary_dic[exercise]
+        exercise_id = get_id(exercises, exercise)
+        summary_ids = []
+        for summary in summary_texts:
+            summary_id = get_id(summaries, summary)
+            summary_ids.append(summary_id)
+        exercise_to_summaries[exercise_id] = summary_ids
+    return exercises, summaries, exercise_to_summaries
 
 if __name__ == "__main__":
     path = "outputs/jinaai_jina-code-embeddings-1.5b_embeddings.pkl"
     text_pair = get_pair_text(path, TOTAL_EXERCISE=50, LEVEL_1_NODE_INC_FACTOR=3)
     print(len(text_pair))
-
     text1, text2 = text_pair[0][0], text_pair[0][1]
     print(text_pair[0])
 
-## python -m test.test_similarity_matrix
+## python test_4_similarity_matrix.py

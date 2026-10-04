@@ -268,7 +268,8 @@ def generate_dag_json_from_tree(src_path: Path, out_path="visualisation/tree_dat
 
 
 if __name__ == "__main__":
-    path = "test_tree.json"
-    generate_dag_json_from_tree(path, "test_dag.json")
+    path = Path("test_tree.json")
+    generate_dag_json_from_tree(path, "visualisation/test_dag.json")
 
-## python -m visualisation.visualse_helper
+## python test_5_visulisation.py
+# python main.py view-json visualisation/test_dag.json
