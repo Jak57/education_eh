@@ -86,6 +86,13 @@ def load_embeddings(embedding_cache_path):
     print("Embeddings loaded successfully")
     return cache_data['sentences'], cache_data['embeddings']
 
+def get_cosine_similarity(exercise_embedding_path, common_skill_embedding_path):
+    exercise_text, exercise_embed = load_embeddings(exercise_embedding_path)
+    skill_text, skill_embed = load_embeddings(common_skill_embedding_path)
+    similarity_matrix = exercise_embed @ skill_embed.T
+    return exercise_text, skill_text, similarity_matrix
+
+
 if __name__ == "__main__":
     # print("hello world")
 
@@ -99,6 +106,6 @@ if __name__ == "__main__":
     text = text  #[:10]
 
     model = load_model()
-    embed = generate_embeddings(model, text, "outputs/jina_embed_path.pkl")
+    embed = generate_embeddings(model, text, "outputs/jina_embed_path.pkl") # jinaai_jina-code-embeddings-1.5b_embeddings.pkl
 
 ## python test_0_generate_jina_embed.py
