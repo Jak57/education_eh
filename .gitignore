@@ -66,6 +66,9 @@ test_tree.json
 visualisation/test_dag.json
 visualisation/test_dag_entail.json
 visualisation/test_tree_entail.json
+visualisation/test_dag_entail_dedup.json
+visualisation/test_tree_entail_dedup.json
+
 
 ## UF
 UF_Code.xlsx

@@ -67,9 +67,7 @@ def add_entailment_links(
             i, j = index
             final_candidate[problem_id].append(j)
             cnt -= 1
-    # exercise_to_summaries_copy = exercise_to_summaries.copy()
     exercise_to_summaries_copy = copy.deepcopy(exercise_to_summaries)
-
     api_keys = get_api_key()
     final_exercise_list = []
     final_summary_list = []
@@ -81,26 +79,9 @@ def add_entailment_links(
             entail_score = get_entailment_score(exercise, summary, api_keys=api_keys)
             if entail_score >= ENTAIL_THRESHOLD:
                 exercise_to_summaries_copy[key].append(summary_id)
-                # print("greater 111")
-            print(key, summary_id, entail_score)
-            # print()
             final_exercise_list.append(exercises[key])
             final_summary_list.append(summaries[summary_id])
             final_entail_list.append(entail_score)
-
-        # break
-
-    # if exercise_to_summaries_copy == exercise_to_summaries:
-    #     print("yes")
-    # else:
-    #     print("no")
-
-    # for key in exercise_to_summaries:
-    #     # print(len(exercise_to_summaries[key]), len(exercise_to_summaries_copy[key]))
-    #     if len(exercise_to_summaries[key]) != len(exercise_to_summaries_copy[key]):
-    #         print(key)
-    #         print(len(exercise_to_summaries[key]), len(exercise_to_summaries_copy[key]))
-
     data = {
         'exercise': final_exercise_list,
         'summary': final_summary_list,
@@ -109,10 +90,8 @@ def add_entailment_links(
     df = pd.DataFrame(data, columns=data.keys())
     df.to_csv(entail_score_path, index=False)
     print(f"Entailment scores saved at {entail_score_path}")
-
     build_tree(exercises, summaries, exercise_to_summaries_copy, tree_path_entail)
     build_dag(tree_path_entail, dag_path_entail)
-
     return exercises, summaries, exercise_to_summaries_copy
 
 def save_summary_embedding(output_path, TOTAL_EXERCISE):
@@ -122,8 +101,6 @@ def save_summary_embedding(output_path, TOTAL_EXERCISE):
     print(f"Generating embedding for {len(summary_texts)} common summaries...")
     embed = generate_embeddings(model, summary_texts, output_path)
     print(f"Embedding saved at {output_path}")
-
-# def 
 
 if __name__ == "__main__":
     exercise_summary_map_path = "outputs/text_summary_map_150.csv"
@@ -147,13 +124,6 @@ if __name__ == "__main__":
         TOP_SIM=5, 
         ENTAIL_THRESHOLD=0.7
     )
-
-    # exercise = ""
-
-    # tree_path_entail = "visualisation/test_tree_entail.json"
-    #     #   tree_path_entail,
-    # dag_path_entail = "visualisation/test_dag_entail.json"
-    # build_tree(exercises, summaries, exercise_to_summaries_entail, tree_path_entail)
 
 ## python test_6_entailment_link.py
 
