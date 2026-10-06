@@ -1153,6 +1153,30 @@ def safe_extract_score(text):
 #     # Should not be reached, but good for type checking
 #     raise Exception("Exited retry loop unexpectedly.")
 
+def get_entailment_score(prompt_a, common_summary, model_name: str = "openai", api_keys: dict = None):
+    eval_input_a = f"""
+    Now execute the above task with the following prompt A & B:
+    prompt A: {prompt_a}
+    prompt B: {common_summary}
+    """
+
+    if model_name == "openai":
+        client = OpenAI(
+            api_key=api_keys["openai"]
+        )
+        responseA = client.chat.completions.create(
+            model="gpt-5.4-mini",
+            messages=[
+                {"role": "system", "content": "You are a professional editor. Read the following prompt carefully and respond to the best of your ability."},
+                {"role": "user", "content": evalPrompt2 + eval_input_a}
+            ]
+        )
+        evalA = responseA.choices[0].message.content.strip()
+    else:
+        raise ValueError(f"Unknown model_name: {model_name}")
+    scoreA = safe_extract_score(evalA)
+    return scoreA
+
 
 def evaluate_common_summary(tree: Tree, level_idx: int, eval_specificity=False, eval_entail_1: bool = True, eval_entail_2: bool = True, force: bool = False, model_name: str = "openai", api_keys: dict = None):
     global level

@@ -4,6 +4,7 @@ import os
 # from test.test_similarity_matrix import save_mapping
 from test_4_similarity_matrix import save_mapping, get_mapping
 from test_3_greedy_matching import build_common_summary_tree
+from test_5_visulisation import generate_dag_json_from_tree
 
 
 def _load_env(path: str = "") -> None:
@@ -44,7 +45,18 @@ API_KEYS = {
     },
 }
 
-# def get_pro
+def get_api_key():
+    return API_KEYS
+
+def build_tree(exercises, summaries, exercise_to_summaries, path):
+    tree = build_common_summary_tree(exercises, summaries, exercise_to_summaries)
+    tree.dump(path)
+
+def build_dag(tree_path, dag_path):
+    path = Path(tree_path)
+    generate_dag_json_from_tree(path, dag_path)
+    print(f"DAG saved at {dag_path}")
+    # generate_dag_json_from_tree()
 
 if __name__ == "__main__":
     embedding_path = "outputs/jinaai_jina-code-embeddings-1.5b_embeddings.pkl"
