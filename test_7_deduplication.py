@@ -1,8 +1,14 @@
 from test_4_similarity_matrix import get_mapping
 from test_6_entailment_link import get_id
 from test_1_KC_gen import build_tree, build_dag
+import json
 
 from utils import load_csv
+
+def get_exercise_text(text_with_sol):
+    prefix = "\n\n##Here are"
+    idx = text_with_sol.find(prefix)
+    return text_with_sol[:idx]
 
 def get_summary_to_exercise(exercise_to_summaries):
     summaries_to_exercise = {}
@@ -45,7 +51,6 @@ def perform_deduplication(
             if exercise_id not in exercise_to_summaries_deduplicated:
                 exercise_to_summaries_deduplicated[exercise_id] = []
             exercise_to_summaries_deduplicated[exercise_id].append(summary_id)
-    summary_ids_ori = set(summaries.keys())
     summary_ids_dedup = set()
     exercise_kc_list = []
     for key in exercise_to_summaries_deduplicated:
@@ -74,19 +79,52 @@ def perform_deduplication(
     build_dag(tree_path_entail, dag_path_entail)
     return exercises, summaries_updated, exercise_to_kc_updated
 
-if __name__ == "__main__":
-    exercise_summary_map_path = "outputs/text_summary_map_150.csv" 
-    entail_score_path = "outputs/text_summary_entail.csv"
-    tree_path_entail = "visualisation/test_tree_entail_dedup.json"
-    dag_path_entail = "visualisation/test_dag_entail_dedup.json"
+def save_exercise_kc_mapping(
+        exercise_summary_map_path, 
+        entail_score_path, 
+        tree_path_entail,
+        dag_path_entail,
+        exercise_kc_map_path,
+        TOTAL_EXERCISE, 
+        ENTAIL_THRESHOLD
+    ):
     exercises, summaries, exercise_to_kc = perform_deduplication(
         exercise_summary_map_path, 
         entail_score_path, 
         tree_path_entail,
         dag_path_entail,
+        TOTAL_EXERCISE, 
+        ENTAIL_THRESHOLD
+    )
+    exercise_to_kc_dic = {}
+    for problem_id in exercise_to_kc:
+        summary_ids = exercise_to_kc[problem_id]
+        problem_text_with_sol = exercises[problem_id]
+        exercise = get_exercise_text(problem_text_with_sol)
+        if exercise not in exercise_to_kc_dic.keys():
+            exercise_to_kc_dic[exercise] = []
+        for summary_id in summary_ids:
+            summary = summaries[summary_id]
+            exercise_to_kc_dic[exercise].append(summary)
+    with open(exercise_kc_map_path, 'w') as f:
+            json.dump(exercise_to_kc_dic, f)
+    print(f"Exercise-to-KC dictionary saved at {exercise_kc_map_path}")
+
+if __name__ == "__main__":
+    exercise_summary_map_path = "outputs/text_summary_map_150.csv" 
+    entail_score_path = "outputs/text_summary_entail.csv"
+    tree_path_entail = "visualisation/test_tree_entail_dedup.json"
+    dag_path_entail = "visualisation/test_dag_entail_dedup.json"
+    exercise_kc_map_path = "outputs/problem_kc_5_CodeWorkout_claude.json"
+
+    save_exercise_kc_mapping(
+        exercise_summary_map_path, 
+        entail_score_path, 
+        tree_path_entail,
+        dag_path_entail,
+        exercise_kc_map_path,
         TOTAL_EXERCISE=50, 
         ENTAIL_THRESHOLD=0.7
     )
-
 
 # python test_7_deduplication.py
