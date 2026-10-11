@@ -3,13 +3,14 @@ import json
 from utils import load_json
 
 if __name__ == "__main__":
-    comprehend_path = "outputs/problem_kc_5_CodeWorkout_claude.json"
+    # comprehend_path = "outputs/problem_kc_5_CodeWorkout_claude.json"
+    comprehend_path = "outputs/exercise_kc_map/150/problem_kc_5_CodeWorkout_claude_v2.json"
+
     kcgen_path = "dataset/problem_kc_5_CodeWorkout.json"
     data = load_json(kcgen_path)
 
     data_comp = load_json(comprehend_path)
 
-    # print(data.keys())
     exercises = []
     for key in data:
         exercises.append(key)

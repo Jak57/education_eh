@@ -4848,6 +4848,220 @@ def get_kc_generation_prompt(summary):
     """
     return prompt
 
+def get_kc_generation_prompt1(summary):
+    prompt = f"""
+
+Extract individual knowledge components (KCs) from the following generalized description of skills needed to solve Java programming exercises.
+
+## Instructions
+
+1. Extract only KCs explicitly mentioned or directly implied by the description.
+2. Represent each KC as a concise, meaningful string using conventional computer science terminology.
+3. Keep KCs distinct and non-redundant.
+4. Do not invent unsupported skills or implementation details.
+5. Return only a valid Python list of strings.
+6. Enclose every KC in matching single or double quotation marks.
+7. Ensure commas separate all items and that square brackets are balanced.
+8. Before responding, check that the output is syntactically valid Python. Correct any missing quotation marks, spelling errors, or formatting mistakes.
+
+## Description
+
+{summary}
+
+## Output requirements
+
+Return exactly the following structure, with no additional text:
+(start) ["KC 1", "KC 2", "KC 3"] (end)
+
+If no KCs can be identified, return:
+(start) [] (end)
+
+
+##Here are examples:
+
+Example 1
+Generalized Skill Description:
+"Traverse a sequential data structure using iteration and index-based access to count occurrences of a pattern that matches specific positional conditions."
+
+Extracted Knowledge Components:
+
+(start) ['traversing sequential data structures', 'iteration', 'index-based access', 'counting occurrences', 'pattern matching', 'positional conditions'] (end)
+
+
+Example 2
+Generalized Skill Description:
+"Implement conditional logic in Java to return different values based on evaluated conditions."
+
+Extracted Knowledge Components:
+
+(start) ['conditional logic', 'Java programming', 'evaluated conditions'] (end)
+
+
+Example 3
+Generalized Skill Description:
+"Apply conditional logic and iterative reasoning to satisfy positional or numerical constraints within a computational problem."
+
+Extracted Knowledge Components:
+
+(start) ['conditional logic', 'iterative reasoning', 'positional constraints', 'numerical constraints'] (end)
+
+
+Example 4
+Generalized Skill Description:
+"Traverse an array and apply conditional logic to modify element values based on other elements in the array."
+
+Extracted Knowledge Components:
+
+(start) ['array traversal', 'conditional logic', 'modifying element values'] (end)
+
+
+Example 5
+Generalized Skill Description:
+"Traverse a string character by character to detect and process specific character patterns using index-based access and conditional logic."
+
+Extracted Knowledge Components:
+
+(start) ['traverse a string', 'character detection', 'pattern processing', 'index-based access', 'conditional logic'] (end)
+
+
+Example 6
+Generalized Skill Description:
+"Use array or string indexing with length-based offset calculations to access and compare or extract a group of n elements from the end of a sequence using iterative logic."
+
+Extracted Knowledge Components:
+
+(start) ['array indexing', 'string indexing', 'length-based offset calculations', 'accessing elements', 'comparing elements', 'extracting elements', 'iterative logic'] (end)
+
+
+Example 7
+Generalized Skill Description:
+"Traverse a sequence and apply conditional logic based on element matching to determine or return an appropriate result."
+
+Extracted Knowledge Components:
+
+(start) ['Traverse a sequence', 'Apply conditional logic', 'Element matching', 'Determine a result'] (end)
+
+
+Example 8
+Generalized Skill Description:
+"Implement conditional logic in Java to evaluate equality and inequality relationships among multiple integer variables and return a result based on prioritized cases."
+
+Extracted Knowledge Components:
+
+(start) ['conditional logic', 'equality evaluation', 'inequality evaluation', 'integer variables', 'case prioritization'] (end)
+
+
+Example 9
+Generalized Skill Description:
+"Traverse a string character by character to detect the presence or absence of specific character patterns using index-based access."
+
+Extracted Knowledge Components:
+
+(start) ['string traversal', 'character detection', 'index-based access'] (end)
+
+
+Example 10
+Generalized Skill Description:
+"Implement a string-scanning function in Java that iterates through character positions to detect substrings matching a specified pattern with defined character constraints."
+
+Extracted Knowledge Components:
+
+(start) ['string-scanning function', 'iterate through character positions', 'detect substrings', 'matching specified pattern', 'defined character constraints'] (end)
+
+
+Example 11
+Generalized Skill Description:
+"Traverse and manipulate string characters using index-based access and substring operations in Java."
+
+Extracted Knowledge Components:
+
+(start) ['traverse strings', 'manipulate string characters', 'index-based access', 'substring operations'] (end)
+
+
+Example 12
+Generalized Skill Description:
+"Implement conditional logic in Java using if-else structures to evaluate multiple cases and return appropriate values based on comparisons between integer inputs."
+
+Extracted Knowledge Components:
+
+(start) ['implement conditional logic', 'use if-else structures', 'evaluate multiple cases', 'return values based on comparisons', 'compare integer inputs'] (end)
+
+
+Example 13
+Generalized Skill Description:
+"Iterate over an array to identify and track maximum values using conditional logic."
+
+Extracted Knowledge Components:
+
+(start) ['Iterate over an array', 'Identify maximum values', 'Track maximum values', 'Conditional logic'] (end)
+
+
+Example 14
+Generalized Skill Description:
+"Write a Java method that computes and returns the sum of integer values."
+
+Extracted Knowledge Components:
+
+(start) ['Write a Java method', 'Compute sum', 'Return integer values'] (end)
+
+
+Example 15
+Generalized Skill Description:
+"Implement a Java function that applies conditional logic to integer inputs using arithmetic and comparison operations to produce a result."
+
+Extracted Knowledge Components:
+
+(start) ['implementing functions', 'conditional logic', 'arithmetic operations', 'comparison operations', 'integer data type'] (end)
+
+
+Example 16
+Generalized Skill Description:
+"Traverse a string character by character to detect a three-character pattern defined by its first and third characters, ignoring the middle character."
+
+Extracted Knowledge Components:
+
+(start) ['String traversal', 'Character detection', 'Pattern recognition', 'Ignoring characters'] (end)
+
+
+Example 17
+Generalized Skill Description:
+"Access and accumulate values from a fixed set of integer inputs to compute and return their sum."
+
+Extracted Knowledge Components:
+
+(start) ['Access integer inputs', 'Accumulate values', 'Compute sum', 'Return value'] (end)
+
+
+Example 18
+Generalized Skill Description:
+"Traverse a string character by character using index-based iteration to detect and evaluate patterns based on specific character conditions."
+
+Extracted Knowledge Components:
+
+(start) ['traverse a string', 'index-based iteration', 'detect patterns', 'evaluate character conditions'] (end)
+
+
+Example 19
+Generalized Skill Description:
+"Implement conditional logic in Java using if-else statements to evaluate and compare integer values against defined boundary conditions and return an appropriate result."
+
+Extracted Knowledge Components:
+
+(start) ['implement conditional logic', 'if-else statements', 'evaluate integer values', 'compare integer values', 'define boundary conditions', 'return results'] (end)
+
+
+Example 20
+Generalized Skill Description:
+"Traverse an array sequentially using a loop, inspecting element values and applying conditional logic based on neighboring or previously encountered elements."
+
+Extracted Knowledge Components:
+
+(start) ['traverse an array', 'sequential traversal', 'looping structures', 'element inspection', 'conditional logic', 'neighboring elements', 'previously encountered elements'] (end)
+
+
+    """
+    return prompt
+
 def get_system_prompt_kc():
     return """You are an experienced computer science teacher and educational expert specializing in Java programming and knowledge component (KC) identification.
 

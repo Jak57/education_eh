@@ -1,6 +1,7 @@
 from utils import get_system_prompt_kc, get_kc_generation_prompt
 from test_1_KC_gen import get_api_key
 from utils import load_json
+from test_0_generate_jina_embed import load_model, generate_embeddings
 
 import json
 import anthropic
@@ -68,42 +69,77 @@ def generate_kc_mapping(input_path, output_path, api_keys):
 
 def kc_sanity_check(path):
     data = load_json(path)
-    cnt = 1
     new_dic = {}
-    cnt = 0
     problem_cnt = 0
     for dic in data:
         kc = dic['kc']
         summary = dic['summary']
         if isinstance(kc, str):
-            cnt += 1
             try:
                 kc1 = ast.literal_eval(kc)
-                new_dic[summary] = kc1
+                if type(kc1) == type([]):
+                    new_dic[summary] = kc1
+                elif type(kc1) == type({}):
+                    new_dic[summary] = list(kc1.values())
+                else:
+                    print("Problem: Not valid literal")
+                    print(kc1)
+                    new_dic[summary] = []
+                    problem_cnt += 1
             except:
                 new_dic[summary] = []
                 problem_cnt += 1
-                print("Problem:")
-                print(summary)
-                print(type(kc), kc)
-                print("\n\n")
+                print("Problem: Not literal - ", type(kc), kc)
                 pass
-    # print(cnt, cnt1)
-    print(f"Total problematic format: {problem_cnt}")
+    print(f"Total problematic extraction: {problem_cnt}")
+    return new_dic
 
-    # with open("dataset/exercise_kc_map_claude.json", 'w') as f:
-    #     json.dump(new_dic, f)
-         
+def get_correct_mapping(exercise_kc_map_path, generated_kc_path):
+    correct_map = kc_sanity_check(generated_kc_path)
+    new_dic = {}
+    data = load_json(exercise_kc_map_path)
+    for exercise in data:
+        summaries = data[exercise]
+        kcs = []
+        total_split_count = 0
+        for summary in summaries:
+            kc_split = correct_map[summary]
+            total_split_count += len(kc_split)
+            for kc in kc_split:
+                if type(kc) == str:
+                    kc = kc.lower()
+                    if kc not in kcs:
+                        kcs.append(kc)
+        new_dic[exercise] = sorted(kcs)
+    return new_dic
+
+def save_kc_embedding(exerecise_kc_map, embedding_path):
+    kc_set = set()
+    for key in exerecise_kc_map:
+        kcs = exerecise_kc_map[key]
+        for kc in kcs:
+            kc_set.add(kc)
+    kc_set = sorted(list(kc_set))
+    print(f"\nTotal kc = {len(kc_set)}")
+    model = load_model()
+    corpus_sentences, corpus_embeddings = generate_embeddings(
+        model,
+        kc_set,
+        embedding_path,
+    )
 
 if __name__ == "__main__":
     input_path, output_path = "outputs/problem_kc_5_CodeWorkout_claude.json", "outputs/problem_kc_5_CodeWorkout_claude_kc_split.json"
+    # final_exercise_kc_map_path = "outputs/problem_kc_5_CodeWorkout_claude_143_kcs.json"
+    kc_embedding_path = "outputs/embedding/stage3/kc_embed.pkl"
+
     api_keys = get_api_key()
 
     ## Uncomment this to generate KC splits from common summaries
     # generate_kc_mapping(input_path, output_path, api_keys)
 
-    kc_sanity_check(output_path)
-
+    map_with_duplicate = get_correct_mapping(input_path, output_path)
+    save_kc_embedding(map_with_duplicate, kc_embedding_path)
 
 
 ## python test_9_split_common_skill.py
