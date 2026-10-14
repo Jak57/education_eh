@@ -1,0 +1,808 @@
+[
+  {
+    "layer": 0,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "96",
+        "x": 414.5,
+        "mean_score": 0.5183892462243966,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate specified conditions and determine outcomes based on defined criteria."
+      }
+    ]
+  },
+  {
+    "layer": 1,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "95",
+        "x": 149.2,
+        "mean_score": 0.5123495667245371,
+        "n_scores": 22,
+        "full_text": "Iterate over a collection and apply conditional logic to evaluate or process its elements based on specified criteria."
+      },
+      {
+        "position": 1,
+        "id": "94",
+        "x": 414.5,
+        "mean_score": 0.5130494518097642,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate specified conditions and determine an output based on the result."
+      },
+      {
+        "position": 2,
+        "id": "93",
+        "x": 679.8,
+        "mean_score": 0.5297687201388889,
+        "n_scores": 22,
+        "full_text": "Apply programming constructs to manipulate and control data or logic within a structured computational context."
+      }
+    ]
+  },
+  {
+    "layer": 2,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "90",
+        "x": 82.9,
+        "mean_score": 0.5102499114688553,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic within an iterative structure to selectively process elements of a collection based on specified criteria."
+      },
+      {
+        "position": 1,
+        "id": "92",
+        "x": 215.5,
+        "mean_score": 0.4852835795664983,
+        "n_scores": 22,
+        "full_text": "Traverse an array and evaluate conditions on its elements using logical or arithmetic operations to determine a result."
+      },
+      {
+        "position": 2,
+        "id": "89",
+        "x": 348.2,
+        "mean_score": 0.516349663867845,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate whether specified conditions are satisfied and return a result based on those conditions."
+      },
+      {
+        "position": 3,
+        "id": "88",
+        "x": 480.8,
+        "mean_score": 0.5375151119949495,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate conditions and determine an output based on the result."
+      },
+      {
+        "position": 4,
+        "id": "91",
+        "x": 613.5,
+        "mean_score": 0.49250437398989894,
+        "n_scores": 22,
+        "full_text": "Apply string indexing and substring extraction to access and manipulate specific portions of a string."
+      },
+      {
+        "position": 5,
+        "id": "87",
+        "x": 746.1,
+        "mean_score": 0.5670330662878789,
+        "n_scores": 22,
+        "full_text": "Apply structured programming constructs to organize and control the flow of computational logic in code."
+      }
+    ]
+  },
+  {
+    "layer": 3,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "79",
+        "x": 49.7,
+        "mean_score": 0.5603560333333334,
+        "n_scores": 22,
+        "full_text": "Implement conditional logic within a loop to compute a filtered sum of integer values by selectively including or excluding elements based on specified rules."
+      },
+      {
+        "position": 1,
+        "id": "86",
+        "x": 116.1,
+        "mean_score": 0.4809176148989898,
+        "n_scores": 22,
+        "full_text": "Iterate through an array and apply conditional logic to transform or assign elements based on specified criteria."
+      },
+      {
+        "position": 2,
+        "id": "84",
+        "x": 182.4,
+        "mean_score": 0.4894760861742425,
+        "n_scores": 22,
+        "full_text": "Traverse an integer array and evaluate a condition on its elements using logical or arithmetic operations."
+      },
+      {
+        "position": 3,
+        "id": "85",
+        "x": 248.7,
+        "mean_score": 0.4854570376262625,
+        "n_scores": 22,
+        "full_text": "Traverse an array and evaluate conditions between adjacent elements to determine a result."
+      },
+      {
+        "position": 4,
+        "id": "77",
+        "x": 315,
+        "mean_score": 0.5706447537878787,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate whether numeric values satisfy specified range constraints and return a result based on those conditions."
+      },
+      {
+        "position": 5,
+        "id": "82",
+        "x": 381.3,
+        "mean_score": 0.49294720018939403,
+        "n_scores": 22,
+        "full_text": "Search for and evaluate character patterns within a string by examining specific positions to determine whether conditions are satisfied."
+      },
+      {
+        "position": 6,
+        "id": "78",
+        "x": 447.7,
+        "mean_score": 0.5439382878787878,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate comparisons between values and return a result based on the outcome."
+      },
+      {
+        "position": 7,
+        "id": "76",
+        "x": 514,
+        "mean_score": 0.5500203686868688,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic and branching structures to determine an output based on evaluated conditions."
+      },
+      {
+        "position": 8,
+        "id": "81",
+        "x": 580.3,
+        "mean_score": 0.5140266212121212,
+        "n_scores": 22,
+        "full_text": "Apply index-based string manipulation to extract substrings from a string."
+      },
+      {
+        "position": 9,
+        "id": "80",
+        "x": 646.6,
+        "mean_score": 0.4705393005681819,
+        "n_scores": 22,
+        "full_text": "Use string indexing and substring extraction to identify patterns at specific positions within a string and construct a modified output accordingly."
+      },
+      {
+        "position": 10,
+        "id": "83",
+        "x": 712.9,
+        "mean_score": 0.6692804621212121,
+        "n_scores": 22,
+        "full_text": "Access and manipulate integer arrays using index-based operations and iterative logic."
+      },
+      {
+        "position": 11,
+        "id": "75",
+        "x": 779.3,
+        "mean_score": 0.46478567045454544,
+        "n_scores": 22,
+        "full_text": "Apply structured programming techniques to organize and manage computational logic in code."
+      }
+    ]
+  },
+  {
+    "layer": 4,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "69",
+        "x": 16.6,
+        "mean_score": 0.5413546977272726,
+        "n_scores": 22,
+        "full_text": "Implement a loop over an integer array to compute a conditional sum, skipping specified elements based on their values according to defined exclusion rules."
+      },
+      {
+        "position": 1,
+        "id": "58",
+        "x": 49.7,
+        "mean_score": 0.5664935151515152,
+        "n_scores": 22,
+        "full_text": "Implement conditional logic in Java to compute a modified sum of integer values based on specified exclusion rules."
+      },
+      {
+        "position": 2,
+        "id": "72",
+        "x": 82.9,
+        "mean_score": 0.4880131477272727,
+        "n_scores": 22,
+        "full_text": "Iterate through an array or sequence and apply conditional logic to modify or assign each element based on specific criteria."
+      },
+      {
+        "position": 3,
+        "id": "73",
+        "x": 116.1,
+        "mean_score": 0.5229215151515151,
+        "n_scores": 22,
+        "full_text": "Iterate through an integer array and apply conditional logic based on whether elements meet a specific numeric criterion to produce a transformed array."
+      },
+      {
+        "position": 4,
+        "id": "71",
+        "x": 149.2,
+        "mean_score": 0.4318181818181818,
+        "n_scores": 22,
+        "full_text": "Traverse and compare elements of an integer array to evaluate a condition about its structure."
+      },
+      {
+        "position": 5,
+        "id": "67",
+        "x": 182.4,
+        "mean_score": 0.5151515,
+        "n_scores": 22,
+        "full_text": "Iterate over an integer array and apply the modulo operator to identify even or odd values based on divisibility conditions."
+      },
+      {
+        "position": 6,
+        "id": "70",
+        "x": 215.5,
+        "mean_score": 0.5060726515151515,
+        "n_scores": 22,
+        "full_text": "Traverse an array and check adjacency conditions between elements at neighboring indices to return a boolean result."
+      },
+      {
+        "position": 7,
+        "id": "68",
+        "x": 248.7,
+        "mean_score": 0.5184802795454545,
+        "n_scores": 22,
+        "full_text": "Iterate over adjacent elements in an array to detect patterns or conditions between neighboring elements."
+      },
+      {
+        "position": 8,
+        "id": "55",
+        "x": 281.9,
+        "mean_score": 0.6118997613636364,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to return different values based on whether numeric inputs satisfy specified range constraints."
+      },
+      {
+        "position": 9,
+        "id": "52",
+        "x": 315,
+        "mean_score": 0.522458712121212,
+        "n_scores": 22,
+        "full_text": "Implement conditional logic to evaluate whether a numeric value falls within a range that varies based on a boolean condition, returning a boolean result."
+      },
+      {
+        "position": 10,
+        "id": "65",
+        "x": 348.2,
+        "mean_score": 0.6455627727272728,
+        "n_scores": 22,
+        "full_text": "Iterate over an array of integers to compute a cumulative sum of elements."
+      },
+      {
+        "position": 11,
+        "id": "63",
+        "x": 381.3,
+        "mean_score": 0.5234699772727273,
+        "n_scores": 22,
+        "full_text": "Search for a pattern in a string where specific character positions must match fixed values while allowing any character in a designated wildcard position."
+      },
+      {
+        "position": 12,
+        "id": "56",
+        "x": 414.5,
+        "mean_score": 0.5775757878787878,
+        "n_scores": 22,
+        "full_text": "Implement conditional logic to evaluate numeric conditions and return appropriate values based on branching criteria."
+      },
+      {
+        "position": 13,
+        "id": "53",
+        "x": 447.7,
+        "mean_score": 0.5593295454545455,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic to evaluate relationships between multiple variables and return a result based on their equality or inequality."
+      },
+      {
+        "position": 14,
+        "id": "54",
+        "x": 480.8,
+        "mean_score": 0.6298701818181819,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic and arithmetic comparisons between integer values to evaluate and return a boolean result in Java."
+      },
+      {
+        "position": 15,
+        "id": "51",
+        "x": 514,
+        "mean_score": 0.4426151363636363,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic using boolean variables and branching structures to determine an output based on multiple conditions."
+      },
+      {
+        "position": 16,
+        "id": "64",
+        "x": 547.1,
+        "mean_score": 0.4606143863636364,
+        "n_scores": 22,
+        "full_text": "Traverse a string character by character using index-based substring matching to identify patterns and construct a modified output string accordingly."
+      },
+      {
+        "position": 17,
+        "id": "62",
+        "x": 580.3,
+        "mean_score": 0.5102652386363636,
+        "n_scores": 22,
+        "full_text": "Search for and evaluate the position of substrings within a string to determine whether specific character patterns or conditions are satisfied."
+      },
+      {
+        "position": 18,
+        "id": "59",
+        "x": 613.5,
+        "mean_score": 0.47743919848484856,
+        "n_scores": 22,
+        "full_text": "Use string indexing and substring extraction to identify and manipulate portions of a string based on pattern matching at specific positions."
+      },
+      {
+        "position": 19,
+        "id": "61",
+        "x": 646.6,
+        "mean_score": 0.5942148636363637,
+        "n_scores": 22,
+        "full_text": "Extract a substring from the end of a string using index-based string manipulation."
+      },
+      {
+        "position": 20,
+        "id": "60",
+        "x": 679.8,
+        "mean_score": 0.4338383787878788,
+        "n_scores": 22,
+        "full_text": "Implement string manipulation logic in Java by indexing into and extracting substrings while handling edge cases related to string length."
+      },
+      {
+        "position": 21,
+        "id": "74",
+        "x": 712.9,
+        "mean_score": 0.6701298636363636,
+        "n_scores": 22,
+        "full_text": "Construct and populate an array with a defined sequence of integer values using iterative logic."
+      },
+      {
+        "position": 22,
+        "id": "66",
+        "x": 746.1,
+        "mean_score": 0.69214875,
+        "n_scores": 22,
+        "full_text": "Manipulate integer arrays by accessing and rearranging elements based on their index positions, while handling edge cases such as empty or undersized arrays."
+      },
+      {
+        "position": 23,
+        "id": "57",
+        "x": 779.3,
+        "mean_score": 0.4104545454545454,
+        "n_scores": 22,
+        "full_text": "Apply functional decomposition by writing a helper method to encapsulate repeated logic, then call that helper multiple times to compute a combined result."
+      },
+      {
+        "position": 24,
+        "id": "50",
+        "x": 812.4,
+        "mean_score": 0.5191167954545454,
+        "n_scores": 22,
+        "full_text": "Apply conditional logic with multiple branching cases to map input values to a discrete set of encoded output values."
+      }
+    ]
+  },
+  {
+    "layer": 5,
+    "nodes": [
+      {
+        "position": 0,
+        "id": "40",
+        "x": 8.3,
+        "mean_score": 0.43030298636363645,
+        "n_scores": 22,
+        "full_text": "Given an int array, return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.\n\n\n\n##The solution of the given exercise is:\npublic int sum67(int[] nums)\n{\n    int sum = 0;\n    if (nums.length == 0)\n    {\n        return 0;\n    }\n    else\n    {\n        for (int i = 0; i < nums.length; i++)\n        {\n            if (nums[i] == 6)\n            {\n                if (nums[i + 1] == 7)\n                {\n                    i = i + 1;\n                }\n                else if (nums[i + 2] == 7)\n                {\n                    i = i + 2;\n                }\n                else if (nums[i + 3] == 7)\n                {\n                    i = i + 3;\n                }\n                else if (nums[i + 4] == 7)\n                {\n                    i = i + 4;\n                }\n            }\n            else\n            {\n                sum = sum + nums[i];\n            }\n        }\n        return sum;\n    }\n                \n}\n\n"
+      },
+      {
+        "position": 1,
+        "id": "34",
+        "x": 24.9,
+        "mean_score": 0.6524064090909092,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that takes an array and returns the sum of the numbers in the array, or 0 if the array is empty. Except the number 13 is very unlucky, so it does not count any 13, or any number that immediately follows a 13.\n\n\n\n##The solution of the given exercise is:\npublic int sum13(int[] nums)\n{\n    int sum = 0;\n    for (int i = 0; i < nums.length; i++)\n    {\n        if (i < nums.length)\n        {\n            if (nums[i] == 13)\n        \t{\n            \ti++;\n        \t}\n            else\n            {\n                sum = sum + nums[i];\n            }\n        }\n        else\n        {\n            if (nums[i] == 13)\n        \t{\n            \tsum = sum + 0;\n        \t}\n            else\n            {\n                sum = sum + nums[i];\n            }\n        }\n    }\n    return sum;\n}\n\n"
+      },
+      {
+        "position": 2,
+        "id": "14",
+        "x": 41.5,
+        "mean_score": 0.7454545454545454,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given 3 int values, a, b, and c, return their sum. However, if one of the values is 13 then it does not count towards the sum and values to its right do not count. So for example, if b is 13, then both b and c do not count.\n\n\n\n##The solution of the given exercise is:\npublic int luckySum(int a, int b, int c)\n{\n    if (a != 13 && b != 13 && c != 13)\n    {\n        return a + b + c;\n    }\n    else if (a == 13)\n    {\n        return 0;\n    }\n    else if (b == 13)\n    {\n        return a;\n    }\n    else\n    {\n        return a + b;\n    }\n}\n\n"
+      },
+      {
+        "position": 3,
+        "id": "45",
+        "x": 58,
+        "mean_score": 0.4893048181818182,
+        "n_scores": 22,
+        "full_text": "Consider the series of numbers beginning at start and running up to but not including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array containing the string form of these numbers, except in the case of multiples of 3, use \"Fizz\" instead of the number, and for multiples of 5 use \"Buzz\", and for multiples of both 3 and 5 use \"FizzBuzz\". In Java, String.valueOf(xxx) will make the String form of an int or other type.\n\n\n\n##The solution of the given exercise is:\npublic String[] fizzBuzz(int start, int end)\n{\n    String[] arr = new String[end - start];\n    for (int i = 0; i < arr.length; i++)\n    {\n        if ((i + start) % 3 == 0 && (i + start) % 5 == 0)\n        {\n            arr[i] = \"FizzBuzz\";\n        }\n        else if ((i + start) % 3 == 0)\n        {\n            arr[i] = \"Fizz\";\n        }\n        else if ((i + start) % 5 == 0)\n        {\n            arr[i] = \"Buzz\";\n        }\n        else\n        {\n            arr[i] = String.valueOf(start + i);\n        }\n    }\n    return arr;\n}\n\n"
+      },
+      {
+        "position": 4,
+        "id": "39",
+        "x": 74.6,
+        "mean_score": 0.49521531818181824,
+        "n_scores": 22,
+        "full_text": "Given an array, return an array that contains exactly the same numbers as the original array, but rearranged so that every 4 is immediately followed by a 5. Do not move the 4's, but every other number may move. The array contains the same number of 4's and 5's, and every 4 has a number after it that is not a 4. In this version, 5's may appear anywhere in the original array. (This is a slightly harder version of the fix34 problem.)\n\n\n\n##The solution of the given exercise is:\npublic int[] fix45(int[] nums)\n{\n    int j = 0;\n\tfor(int i = 0; i < nums.length - 1; i++)\n\t{\n\t\tif(nums[i] == 4 && nums[i+1] != 5)\n\t\t{\n\t\t\tfor(; !(nums[j] == 5 && (j == 0 || j > 0 && nums[j-1] != 4)); j++);\n\t\t\tnums[j] = nums[i+1];\n\t\t\tnums[i+1] = 5;\n\t\t}\n\t}\n\treturn nums;\n}\n\n"
+      },
+      {
+        "position": 5,
+        "id": "41",
+        "x": 91.2,
+        "mean_score": 0.3181818181818182,
+        "n_scores": 22,
+        "full_text": "Given an int[] array, write a function that returns an array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces at the end of the array should be set to 0. So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.\n\n\n\n##The solution of the given exercise is:\npublic int[] withoutTen(int[] nums)\n{\n    int[] arr = new int[nums.length];\n    int j = 0;\n    for (int i = 0; i < nums.length; i++)\n    {\n        if (nums[i] != 10)\n        {\n            arr[j] = nums[i];\n            j++;\n        }\n    }\n    return arr;\n}\n\n"
+      },
+      {
+        "position": 6,
+        "id": "42",
+        "x": 107.8,
+        "mean_score": 0.6748251818181817,
+        "n_scores": 22,
+        "full_text": "For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.\n\n\n\n##The solution of the given exercise is:\npublic int[] tenRun(int[] nums)\n{\n    int x = -1;\n\tfor(int i = 0; i < nums.length; i++)\n\t{\n\t\tif(nums[i] % 10 == 0)\n\t\t\tx = nums[i];\n\t\telse if(x != -1)\n\t\t\tnums[i] = x;\n\t}\n\treturn nums;\n}\n\n"
+      },
+      {
+        "position": 7,
+        "id": "36",
+        "x": 124.4,
+        "mean_score": 0.5757575454545454,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Return a version of the given array where each zero value in the array is replaced by the largest odd value to the right of the zero in the array. If there is no odd value to the right of the zero, leave the zero as a zero. Hint: in solving this: you may use a second helper function if you want, say to find the largest odd value to the right of a specified position.\n\n\n\n##The solution of the given exercise is:\npublic int[] zeroMax(int[] nums)\n{\n    int max = 0;\n\tfor (int i = 0; i < nums.length -1; i++)\n\t{\n\t\tif (nums[i] == 0)\n\t\t{\n\t\t\tfor (int x = i + 1; x <= nums.length -1; x++)\n\t\t\t{\n\t\t\t\tif ( nums[x] > max && nums[x] % 2 == 1 )\n\t\t\t\tmax = nums[x];\n\t\t\t}\n\t\t\tnums[i] = max;\n\t\t\tmax = 0;\n\t\t}\n\t}\nreturn nums;\n}\n\n"
+      },
+      {
+        "position": 8,
+        "id": "47",
+        "x": 140.9,
+        "mean_score": 0.6789772727272727,
+        "n_scores": 22,
+        "full_text": "Given a non-empty array, return true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.\n\n\n\n##The solution of the given exercise is:\npublic boolean canBalance(int[] nums)\n{\n    int x = 0;\n\tint y;\n\tfor(int i = 0; i < nums.length - 1; i++)\n\t\tx += nums[i];\n\ty = nums[nums.length-1];\n\tfor(int i = nums.length - 2; i > 0; i--)\n\t{\n\t\tif(x == y)\n\t\t\treturn true;\n\t\tx -= nums[i];\n\t\ty += nums[i];\n\t}\n\treturn (x == y);\n}\n\n"
+      },
+      {
+        "position": 9,
+        "id": "37",
+        "x": 157.5,
+        "mean_score": 0.1846590909090909,
+        "n_scores": 22,
+        "full_text": "Given an array of int values, return true if the group of n numbers at the start of the array is the same as the group of n numbers at the end of the array. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n == 0 and n == 2, and false for n == 1 and n == 3. You may assume that n is in the range 0..nums.length, inclusive.\n\n\n\n##The solution of the given exercise is:\npublic boolean sameEnds(int[] nums, int n)\n{\n    if (n == 0)\n    {\n        if (nums.length == 0)\n        {\n            return true;\n        }\n        else if (nums[0] == nums[nums.length - 1])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else if (n == 1)\n    {\n        if (nums[0] == nums[nums.length - n])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else if (n == 2)\n    {\n        if (nums[0] == nums[nums.length - n] && nums[n - 1] == nums[nums.length - 1])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else if (n == 3)\n    {\n        if (nums[0] == nums[nums.length - n] && nums[n - 1] == nums[nums.length - 1] && nums[n-2] == nums[nums.length-2])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else if (n == 4)\n    {\n        if (nums[0] == nums[nums.length - n] && nums[n - 1] == nums[nums.length - 1] && nums[n-2] == nums[nums.length-2] && nums[n-3] == nums[nums.length-3])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else if (n == 5)\n    {\n        if (nums[0] == nums[nums.length - n] && nums[n - 1] == nums[nums.length - 1] && nums[n-2] == nums[nums.length-2] && nums[n-3] == nums[nums.length-3] && nums[n-4] == nums[nums.length-4])\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else\n    {\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 10,
+        "id": "32",
+        "x": 174.1,
+        "mean_score": 0.45454545454545453,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that takes an int array as its parameter and returns the number of even ints it contains. Note: the % \"mod\" operator computes the remainder, e.g. 5 % 2 is 1.\n\n\n\n##The solution of the given exercise is:\npublic int countEvens(int[] nums)\n{\n    int i = 0;\n    int count = 0;\n    while (i < nums.length)\n    {\n    \tif (nums[i] % 2 == 0)\n    \t{\n            count++;\n        }\n        i++;\n    }\n    return count;\n}\n\n"
+      },
+      {
+        "position": 11,
+        "id": "46",
+        "x": 190.7,
+        "mean_score": 0.4285715,
+        "n_scores": 22,
+        "full_text": "Given an array of ints, return true if every 2 that appears in the array is next to another 2. Otherwise, return false.\n\n\n\n##The solution of the given exercise is:\npublic boolean twoTwo(int[] nums)\n{\n    int q = 0;\n    for (int i = 0; i < nums.length; i++)\n    {\n        if (nums.length == 1 && nums[i] != 2)\n        {\n            return true;\n        }\n        if (nums[i] == 2)\n        {\n            if (nums.length == 1)\n            {\n                return false;\n            }\n        else if (i == 0)\n        {\n            if (nums[i + 1] == 2)\n            {\n                q = q + 0;\n            }\n            else\n            {\n                q = q + 100;\n            }\n        }\n        else if (i == nums.length - 1)\n        {\n            if (nums[i - 1] == 2)\n            {\n                q += 0;\n            }\n            else\n            {\n                q += 100;\n            }\n        }\n        else\n        {\n            if (nums[i - 1] == 2 || nums[i + 1] == 2)\n            {\n                q += 0;\n            }\n            else\n            {\n                q += 100;\n            }\n        }\n        }\n    }\n    if ( q >= 100)\n    {\n        return false;\n    }\n    else\n    {\n        return true;\n    }\n}\n\n"
+      },
+      {
+        "position": 12,
+        "id": "35",
+        "x": 207.3,
+        "mean_score": 0.5113636363636364,
+        "n_scores": 22,
+        "full_text": "Given an array of ints, return true if the array contains two 7s next to each other, or there are two 7s separated by one element, such as with {7, 1, 7}. Otherwise, return false.\n\n\n\n##The solution of the given exercise is:\npublic boolean has77(int[] nums)\n{\n    int blob = 0;\n    for (int i = 0; i < nums.length - 1; i++)\n    {\n        if (i < nums.length - 2)\n        {\n            if (nums[i] == nums[i + 1] && nums[i] == 7)\n        \t{\n            \tblob = blob + 100;\n        \t}\n            if (nums[i] == nums[i + 2] && nums[i] == 7)\n            {\n                blob = blob + 100;\n            }\n        }   \n        else if (nums[i] == nums[i + 1] && nums[i] == 7)\n        {\n            blob = blob + 100;\n        }\n        else\n        {\n            blob = blob + 1;\n        }\n    }\n    return blob >= 100;\n}\n\n"
+      },
+      {
+        "position": 13,
+        "id": "33",
+        "x": 223.8,
+        "mean_score": 0.5782828181818181,
+        "n_scores": 22,
+        "full_text": "We'll say that a value is \"everywhere\" in an array if for every pair of adjacent elements in the array, at least one of the pair is that value. Return true if the given value is everywhere in the array.\n\n\n\n##The solution of the given exercise is:\npublic boolean isEverywhere(int[] nums, int val)\n{\n    int a = 0;\n    for (int i = 0; i < nums.length - 1; i++)\n    {\n        if (nums[i] == val || nums[i + 1] == val)\n        {\n            a = a + a;\n        }\n        else\n        {\n            a = a + 1;\n        }\n    }\n    return a == 0;\n}\n\n"
+      },
+      {
+        "position": 14,
+        "id": "38",
+        "x": 240.4,
+        "mean_score": 0.45867774090909086,
+        "n_scores": 22,
+        "full_text": "Say that a \"clump\" in an array is a series of 2 or more adjacent elements of the same value. Return the number of clumps in the given array.\n\n\n\n##The solution of the given exercise is:\npublic int countClumps(int[] nums)\n{\n    int a = 0;\n    for (int i = 0; i < nums.length - 1; i++)\n    {\n        if (nums[i] == nums[i + 1])\n        {\n            a++;\n        }\n        if (i + 2 < nums.length && nums[i] == nums[i + 1] && nums[i] == nums[i + 2])\n        {\n            i++;\n        }\n        if (i + 3 < nums.length && nums[i] == nums[i + 1] && nums[i] == nums[i + 2] && nums[i] == nums[i + 3])\n        {\n            i = i + 2;\n        }\n        if (i + 4 < nums.length && nums[i] == nums[i + 1] && nums[i] == nums[i + 2] && nums[i] == nums[i + 3] && nums[i] == nums[i + 4])\n        {\n            i = i + 3;\n        }\n    }\n    return a;\n}\n\n"
+      },
+      {
+        "position": 15,
+        "id": "15",
+        "x": 257,
+        "mean_score": 0.564935090909091,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given 3 int values, a, b, and c, return their sum. However, if one of the values is the same as another of the values, it does not count towards the sum.\n\n\n\n##The solution of the given exercise is:\npublic int loneSum(int a, int b, int c)\n{\n    if (a != b && b != c && a != c)\n    {\n        return a + b + c;\n    }\n    else if (a == b && b == c)\n    {\n        return 0;\n    }\n    else if (a == b)\n    {\n        return c;\n    }\n    else if (a == c)\n    {\n        return b;\n    }\n    else\n    {\n        return a;\n    }\n}\n\n"
+      },
+      {
+        "position": 16,
+        "id": "17",
+        "x": 273.6,
+        "mean_score": 0.3890909090909091,
+        "n_scores": 22,
+        "full_text": "Write two methods in Java that implements the following logic: Given 3 int values, a, b, and c, return their sum. However, if any of the values is a teen--in the range 13..19 inclusive--then that value counts as 0, except 15 and 16 do not count as teens. Write a separate helper method called fixTeen() that takes in an int value and returns that value fixed for the teen rule. In this way you avoid repeating the teen code 3 times (i.e. \"decomposition\").\n\n\n\n##The solution of the given exercise is:\npublic int noTeenSum(int a, int b, int c)\n{\n\treturn fixTeen(a) + fixTeen(b) + fixTeen(c);\n}\n\npublic int fixTeen(int n)\n{\n    if (n == 13 || n == 14 || n >= 17 && n <= 19)\n    {\n        n = 0;\n    }\n    return n;\n}\n\n"
+      },
+      {
+        "position": 17,
+        "id": "7",
+        "x": 290.2,
+        "mean_score": 0.7333333181818182,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are forbidden, so in that case just return 20.\n\n\n\n##The solution of the given exercise is:\npublic int sortaSum(int a, int b)\n{\n    if (a + b >= 10)\n    {\n        if (a + b <= 19)\n        {\n            return 20;\n        }\n        return a + b;\n    }\n    else\n    {\n        return a + b;\n    }\n}\n\n"
+      },
+      {
+        "position": 18,
+        "id": "9",
+        "x": 306.7,
+        "mean_score": 0.7636363636363636,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: The squirrels in Palo Alto spend most of the day playing. In particular, they play if the temperature is between 60 and 90 (inclusive). Unless it is summer, then the upper limit is 100 instead of 90. Given an int temperature and a boolean isSummer, return true if the squirrels play and false otherwise.\n\n\n\n##The solution of the given exercise is:\npublic boolean squirrelPlay(int temp, boolean isSummer)\n{\n    if (isSummer)\n    {\n        if (temp >= 60)\n        {\n            if (temp <= 100)\n            {\n                return true;\n            }\n            return false;\n        }\n        return false;\n    }\n    else\n    {\n        if (temp >= 60)\n        {\n            if (temp <= 90)\n            {\n                return true;\n            }\n            return false;\n        }\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 19,
+        "id": "43",
+        "x": 323.3,
+        "mean_score": 0.6471861363636363,
+        "n_scores": 22,
+        "full_text": "Return the centered average of an array of ints, which we'll say is the mean average of the values, except ignoring the largest and smallest values in the array. If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value. Use int division to produce the final average. You may assume that the array has a length of 3 or more.\n\n\n\n##The solution of the given exercise is:\npublic int centeredAverage(int[] nums)\n{\n    int max = nums[0];\n    int min = nums[0];\n    int sum = 0;\n    for (int i = 0; i < nums.length; i++)\n    {\n        if (nums[i] > max)\n        {\n            max = nums[i];\n        }\n        else if (nums[i] < min)\n        {\n            min = nums[i];\n        }\n        sum = sum + nums[i];\n    }\n    return (sum - min - max)/(nums.length - 2);\n}\n\n"
+      },
+      {
+        "position": 20,
+        "id": "30",
+        "x": 339.9,
+        "mean_score": 0.6439394090909091,
+        "n_scores": 22,
+        "full_text": "Given an array containing three ints, return the sum of all the elements.\n\n\n\n##The solution of the given exercise is:\npublic int sum3(int[] nums)\n{\n    return nums[0] + nums[1] + nums[2];\n}\n\n"
+      },
+      {
+        "position": 21,
+        "id": "16",
+        "x": 356.5,
+        "mean_score": 0.7569929545454546,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2. If they are all the value 2, the result is 10. Otherwise if they are all the same, the result is 5. Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.\n\n\n\n##The solution of the given exercise is:\npublic int redTicket(int a, int b, int c)\n{\n    if (a == 2 && b == 2 && c == 2)\n    {\n        return 10;\n    }\n    else if (a == b && b == c)\n    {\n        return 5;\n    }\n    else if (a != b && a != c)\n    {\n        return 1;\n    }\n    else\n    {\n        return 0;\n    }\n}\n\n"
+      },
+      {
+        "position": 22,
+        "id": "25",
+        "x": 373.1,
+        "mean_score": 0.4358288636363637,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that counts the number of times the string \"code\" appears anywhere in the given string str, except that we'll accept any letter in place of the 'd', so for example, \"cope\" and \"cooe\" count.\n\n\n\n##The solution of the given exercise is:\npublic int countCode(String str)\n{\n    int cc = 0;\n    for (int i = 0; i < str.length() - 3; i++)\n    {\n        if (str.substring(i, i + 2).equals(\"co\") && \n            str.substring(i + 3, i + 4).equals(\"e\"))\n        {\n            cc++;\n        }\n    }\n    return cc;\n}\n\n"
+      },
+      {
+        "position": 23,
+        "id": "48",
+        "x": 389.6,
+        "mean_score": 0.6493506363636363,
+        "n_scores": 22,
+        "full_text": "Given n >= 0, create an array with the pattern {1, 1, 2, 1, 2, 3, ... 1, 2, 3 .. n} (spaces added to show the grouping). Note that the length of the array will be 1 + 2 + 3 ... + n, which is known to sum to exactly n * (n + 1)/2.\n\n\n\n##The solution of the given exercise is:\npublic int[] seriesUp(int n)\n{\n    int[] arr = new int[n*(n+1)/2];\n    for (int i = 0; i < arr.length; i++)\n    {\n        arr[0] = 1;\n        if (n > 1)\n        {\n            arr[1] = 1;\n            arr[2] = 2;\n        }\n        if (n > 2)\n        {\n            arr[3] = 1;\n            arr[4] = 2;\n            arr[5] = 3;\n        }\n        if (n > 3)\n        {\n            arr[6] = 1;\n            arr[7] = 2;\n            arr[8] = 3;\n            arr[9] = 4;\n        }\n        if (n > 4)\n        {\n            arr[10] = 1;\n            arr[11] = 2;\n            arr[12] = 3;\n            arr[13] = 4;\n            arr[14] = 5;\n        }\n        if (n > 5)\n        {\n            arr[15] = 1;\n            arr[16] = 2;\n            arr[17] = 3;\n            arr[18] = 4;\n            arr[19] = 5;\n            arr[20] = 6;\n        }\n    }\n            return arr;\n}\n\n"
+      },
+      {
+        "position": 24,
+        "id": "12",
+        "x": 406.2,
+        "mean_score": 0.3690909090909091,
+        "n_scores": 22,
+        "full_text": "We want make a package of goal kilos of chocolate. We have small bars (1 kilo each) and big bars (5 kilos each). Return the number of small bars to use, assuming we always use big bars before small bars. Return -1 if it can't be done.\n\n\n\n##The solution of the given exercise is:\npublic int makeChocolate(int small, int big, int goal)\n{\n    if (goal < 5)\n    {\n        return small;\n    }\n    else if (goal == big*5)\n    {\n        return 0;\n    }\n    else if (5*big < goal && (5*big + small) >= goal)\n    {\n    \treturn goal - 5*big;\n    }\n    else if (5*big > goal && small + (big - 1)*5 >= goal)\n    {\n        return goal - 5;\n    }\n    else\n    {\n        return -1;\n    }\n}\n\n"
+      },
+      {
+        "position": 25,
+        "id": "8",
+        "x": 422.8,
+        "mean_score": 0.6590909090909091,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given a number n, return true if n is in the range 1..10, inclusive. Unless \"outsideMode\" is true, in which case return true if the number is less or equal to 1, or greater or equal to 10.\n\n\n\n##The solution of the given exercise is:\npublic boolean in1To10(int n, boolean outsideMode)\n{\n    if (outsideMode)\n    {\n        if (n <= 1)\n        {\n            return true;\n        }\n        else if (n >= 10)\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else \n    {\n        if (n < 1)\n        {\n            return false;\n        }\n        else if (n > 10)\n        {\n            return false;\n        }\n        else\n        {\n            return true;\n        }\n    }\n}\n\n"
+      },
+      {
+        "position": 26,
+        "id": "4",
+        "x": 439.4,
+        "mean_score": 0.35606059090909087,
+        "n_scores": 22,
+        "full_text": "You have a green lottery ticket, with ints a, b, and c on it. If the numbers are all different from each other, the result is 0. If all of the numbers are the same, the result is 20. If two of the numbers are the same, the result is 10.\n\n\n\n##The solution of the given exercise is:\npublic int greenTicket(int a, int b, int c)\n{\n    if (a != b)\n    {\n        if (a != c)\n        {\n            if (b != c)\n            {\n                return 0;\n            }\n            return 10;\n        }\n        return 10;\n    }\n    else\n    {\n        if (a == c)\n        {\n            if (b == c)\n            {\n                return 20;\n            }\n            return 10;\n        }\n        return 10;\n    }\n}\n\n"
+      },
+      {
+        "position": 27,
+        "id": "23",
+        "x": 456,
+        "mean_score": 0.611111090909091,
+        "n_scores": 22,
+        "full_text": "Return true if the given string contains a \"bob\" string, but where the middle 'o' character can be any character.\n\n\n\n##The solution of the given exercise is:\npublic boolean bobThere(String str)\n{\n    int b = str.indexOf(\"b\");\n    int b2 = str.lastIndexOf(\"b\");\n    if (b2 < 2)\n    {\n        return false;\n    }\n    else if (b >= b2)\n    {\n        String ch = str.substring(b + 2, b + 3);\n        if (ch.equals(\"b\"))\n    \t{\n        \treturn true;\n    \t}\n    \telse\n    \t{\n        \treturn false;\n    \t}\n    }\n    else if (b < b2)\n    {\n   \t\tString ch2 = str.substring(b2 - 2, b2 - 1);\n    \tif (ch2.equals(\"b\"))\n    \t{\n        \treturn true;\n    \t}\t\n    \telse\n    \t{\n        \treturn false;\n    \t}\n    }\n    else\n    {\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 28,
+        "id": "13",
+        "x": 472.5,
+        "mean_score": 0.6406927272727274,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given three ints, a, b, and c, one of them is small, one is medium and one is large. Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.\n\n\n\n##The solution of the given exercise is:\npublic boolean evenlySpaced(int a, int b, int c)\n{\n    if (a == b && b == c)\n    {\n        return true;\n    }\n    else if (a > b && b > c)\n    {\n        if (a - b == b - c)\n        {\n            return true;\n        }\n        return false;\n    }\n    else if (a > c && c > b)\n    {\n        if (a - c == c - b)\n        {\n            return true;\n        }\n        return false;\n    }\n    else if (b > c && c > a)\n    {\n        if (b - c == c - a)\n        {\n            return true;\n        }\n        return false;\n    }\n    else if (b > a && a > c)\n    {\n        if (b - a == a - c)\n        {\n            return true;\n        }\n        return false;\n    }\n    else if (c > a && a > b)\n    {\n        if (c - a == a - b)\n        {\n            return true;\n        }\n        return false;\n    }\n    else if (c > b && b > a)\n    {\n        if (c - b == b - a)\n        {\n            return true;\n        }\n        return false;\n    }\n    else\n    {\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 29,
+        "id": "6",
+        "x": 489.1,
+        "mean_score": 0.6190476363636365,
+        "n_scores": 22,
+        "full_text": "The number 6 is a truly great number. Given two int values, a and b, return true if either one is 6. Or if their sum or difference is 6. Note: the function Math.abs(num) computes the absolute value of a number.\n\n\n\n##The solution of the given exercise is:\npublic boolean love6(int a, int b)\n{\n    if (a == 6)\n    {\n        return true;\n    }\n    else if (b == 6)\n    {\n        return true;\n    }\n    else if (a + b == 6)\n    {\n        return true;\n    }\n    else if (a - b == 6)\n    {\n        return true;\n    }\n    else if (b - a == 6)\n    {\n        return true;\n    }\n    else\n    {\n        return false;\n    }\n    \n}\n\n"
+      },
+      {
+        "position": 30,
+        "id": "3",
+        "x": 505.7,
+        "mean_score": 0.4895105454545455,
+        "n_scores": 22,
+        "full_text": "When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case there is no upper bound on the number of cigars. Return true if the party with the given values is successful, or false otherwise.\n\n\n\n##The solution of the given exercise is:\npublic boolean cigarParty(int cigars, boolean isWeekend)\n{\n    if (isWeekend)\n    {\n        if (cigars >= 40)\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else\n    {\n        if (40 <= cigars)\n        {\n            if (cigars <= 60)\n            {\n                return true;\n            }\n            else\n        \t{\n            \treturn false;\n        \t}\n        }\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 31,
+        "id": "0",
+        "x": 522.3,
+        "mean_score": 0.3142292272727273,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: You are driving a little too fast, and a police officer stops you. Write code to compute the result, encoded as an int value: 0=no ticket, 1=small ticket, or 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday--on that day, your speed can be 5 higher in all cases.\n\n\n\n##The solution of the given exercise is:\npublic int caughtSpeeding(int speed, boolean isBirthday)\n{\n    if (isBirthday)\n    {\n        speed = speed - 5;\n    }\n    if (speed <= 60)\n    {\n        return 0;\n    }\n    else if (speed <=80)\n    {\n        return 1;\n    }\n    else \n    {\n        return 2;\n    }\n}\n\n"
+      },
+      {
+        "position": 32,
+        "id": "5",
+        "x": 538.9,
+        "mean_score": 0.6193181818181818,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Your cell phone rings. Return true if you should answer it. Normally you answer, except in the morning you only answer if it is your mom calling. In all cases, if you are asleep, you do not answer.\n\n\n\n##The solution of the given exercise is:\npublic boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep)\n{\n    if (isAsleep)\n    {\n        return false;\n    }\n    if (isMorning)\n    {\n        if (isMom)\n        {\n        \treturn true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n    else\n    {\n        return true;\n    }\n        \n}\n\n"
+      },
+      {
+        "position": 33,
+        "id": "1",
+        "x": 555.4,
+        "mean_score": 0.3474025909090909,
+        "n_scores": 22,
+        "full_text": "Given a day of the week encoded as 0 = Sun, 1 = Mon, 2 = Tue, ... 6 = Sat, and a boolean indicating if we are on vacation, return a string of the form \"7:00\" indicating when the alarm clock should ring. Weekdays, the alarm should be \"7:00\" and on the weekend it should be \"10:00\". Unless we are on vacation--then on weekdays it should be \"10:00\" and weekends it should be \"off\".\n\n\n\n##The solution of the given exercise is:\npublic String alarmClock(int day, boolean vacation)\n{\n    if (vacation == true)\n    {\n        if (day == 0)\n        {\n        \treturn \"off\";\n        }\n        else if (day == 6)\n        {\n        \treturn \"off\";\n        }\n        else\n        {\n            return \"10:00\";\n        }\n    }\n    else\n    {\n    \tif (day == 0)\n        {\n        \treturn \"10:00\";\n        }\n        else if (day == 6)\n        {\n        \treturn \"10:00\";\n        }\n        else\n        {\n            return \"7:00\";\n        }\n    }\n}\n\n"
+      },
+      {
+        "position": 34,
+        "id": "26",
+        "x": 572,
+        "mean_score": 0.4090909090909091,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given a string str and a non-empty word, return a version of the original string where all chars have been replaced by pluses (+), except for appearances of the word which are preserved unchanged.\n\n\n\n##The solution of the given exercise is:\npublic String plusOut(String str, String word)\n{\n    String string = new String();\n    int length = word.length();\n    for (int i = 0; i < str.length() - length; i++)\n    {\n        if (str.substring(i, i + length).equals(word))\n        {\n            string = string + word;\n            i = i + length - 1;\n        }\n        else\n        {\n            string = string + \"+\";\n        }\n    }\n    if (str.substring(str.length() - length, \t\t\tstr.length()).equals(word))\n    {\n        return string + word;\n    }\n    else if (str.substring(str.length() - length - 1, \t\t\tstr.length()).equals(word + \"Z\"))\n    {\n        return string + \"+\";\n    }\n    else if (length == 1)\n    {\n    \treturn string + \"+\";\n    }\n    else if (length == 2)\n    {\n    \treturn string + \"++\";\n    }\n    else\n    {\n    \treturn string + \"+++\";\n    }\n}\n\n"
+      },
+      {
+        "position": 35,
+        "id": "10",
+        "x": 588.6,
+        "mean_score": 0.5681818636363636,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given 2 int values greater than 0, return whichever value is nearest to 21 without going over. Return 0 if they both go over.\n\n\n\n##The solution of the given exercise is:\npublic int blackjack(int a, int b)\n{\n    if (a > 21 && b > 21)\n    {\n        return 0;\n    }\n    else if (a > 21)\n    {\n        return b;\n    }\n    else if (b > 21)\n    {\n        return a;\n    }\n    else if (a > b)\n    {\n        return a;\n    }\n    else\n    {\n        return b;\n    }\n}\n\n"
+      },
+      {
+        "position": 36,
+        "id": "29",
+        "x": 605.2,
+        "mean_score": 0.4707792272727273,
+        "n_scores": 22,
+        "full_text": "Given a string str, find all places where a three-letter combination starting with \"z\" and ending with \"p\" occurs. Return a string where for all such three-letter sequences, the middle letter has been removed. For example, a string like \"zipXzap\" would produce a result of \"zpXzp\".\n\n\n\n##The solution of the given exercise is:\npublic String zipZap(String str)\n{\n    String string = new String();\n    if (str.length() >= 3)\n    {\n    \tfor (int i = 0;  i < str.length() - 2; i++)\n    \t{\n        \tif (str.substring(i, i + 1).equals(\"z\") && \t\t\tstr.substring(i + 2, i + 3).equals(\"p\"))\n     \t   {\n        \t    string = string + \"zp\";\n            \ti = i + 2;\n        \t}\n        \telse\n        \t{\n            \tstring = string + str.substring(i, i + 1);\n        \t}\n    \t}\n    \tif (str.substring(str.length() - 3, str.length() - 2).equals(\"z\"))\n    \t{\n        \treturn string;\n    \t}\n    \telse\n    \t{\n    \t\treturn string + str.substring(str.length() - 2, str.length());\n    \t}\n    }\n    else\n    {\n        return str;\n    }\n}\n\n"
+      },
+      {
+        "position": 37,
+        "id": "20",
+        "x": 621.8,
+        "mean_score": 0.4580419545454546,
+        "n_scores": 22,
+        "full_text": "A sandwich is two pieces of bread with something in between. Write a Java method that takes in a string str and returns the string that is between the first and last appearance of \"bread\" in str. Return the empty string \"\" if there are not two pieces of bread.\n\n\n\n##The solution of the given exercise is:\npublic String getSandwich(String str)\n{\n    int first = str.indexOf(\"bread\");\n    int last = str.lastIndexOf(\"bread\");\n    if((last != -1 ) && (first!=last))\n        return (str.substring(first+5,last)) ;\n    return \"\";\n}\n\n"
+      },
+      {
+        "position": 38,
+        "id": "24",
+        "x": 638.3,
+        "mean_score": 0.4258373181818182,
+        "n_scores": 22,
+        "full_text": "We'll say that a string is xy-balanced if for all the 'x' characterss in the string, there exists a 'y' character somewhere later in the string. So \"xxy\" is balanced, but \"xyx\" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.\n\n\n\n##The solution of the given exercise is:\npublic boolean xyBalance(String str)\n{\n    int x = str.indexOf(\"x\");\n    int xy = str.indexOf(\"xy\");\n    int xxy = str.indexOf(\"xxy\");\n    int xbby = str.indexOf(\"xbby\");\n    int lastx = str.lastIndexOf(\"x\");\n    int length = str.length();\n    if (x == -1)\n    {\n        return true;\n    }\n    else if (lastx == length - 1)\n    {\n        return false;\n    }    \n    else if (xy >= 0 || xxy >= 0 || xbby >= 0)\n    {\n        return true;\n    }\n    else\n    {\n        return false;\n    }\n}\n\n"
+      },
+      {
+        "position": 39,
+        "id": "22",
+        "x": 654.9,
+        "mean_score": 0.5333333181818182,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that returns true if the given string str contains an occurrence of the substring \"xyz\" where \"xyz\" is not directly preceded by a period (\".\"). For example, \"xxyz\" counts, while \"x.xyz\" does not.\n\n\n\n##The solution of the given exercise is:\npublic boolean xyzThere(String str)\n{\n    int occ = str.indexOf(\"xyz\");\n    int occ2 = str.lastIndexOf(\"xyz\");\n    if (occ == 0)\n    {\n        return true;\n    }\n    else if (occ > 0)\n    {\n        String per = str.substring(occ - 1, occ);\n        String per2 = str.substring(occ2 - 1, occ2);\n        if (per.equals(\".\") && per2.equals(\".\"))\n        {\n            return false;\n        }\n        else\n        {\n        \treturn true;\n        }\n    }\n    else\n    {\n        return false;\n    }\n    \n}\n\n"
+      },
+      {
+        "position": 40,
+        "id": "19",
+        "x": 671.5,
+        "mean_score": 0.5045454545454545,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given a string, return a string made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars.\n\n\n\n##The solution of the given exercise is:\npublic String atFirst(String str)\n{\n    if (str.length() > 1)\n    {\n    \treturn str.substring(0, 2);\n    }\n    else if (str.length() == 1)\n    {\n        return str.substring(0, 1) + \"@\";\n    }\n    else\n    {\n        return \"@@\";\n    }\n}\n\n"
+      },
+      {
+        "position": 41,
+        "id": "18",
+        "x": 688.1,
+        "mean_score": 0.5034964136363637,
+        "n_scores": 22,
+        "full_text": "Given a string, if the same 2-character substring appears at both its beginning and end, return the contents of the string without the 2-character substring at the beginning. For example, \"HelloHe\" yields \"lloHe\". Note that the 2-character substring at the beginning may overlap with the one at the end, so \"Hi\" yields \"\". If the two characters at the start and end of the string do not match each other, return the original string unchanged.\n\n\n\n##The solution of the given exercise is:\npublic String without2(String str) \n{\n    if (str.length() > 1)\n    {\n    \tint end = str.length();\n    \tif (str.substring(0, 2).equals(str.substring(end - 2, end)))\n    \t{\n    \t\treturn str.substring(2);\n    \t}\n    \telse\n    \t{\n        \treturn str;\n    \t}\n    }\n    else\n    {\n        return str;\n    }\n}\n\n"
+      },
+      {
+        "position": 42,
+        "id": "2",
+        "x": 704.7,
+        "mean_score": 0.7045455454545453,
+        "n_scores": 22,
+        "full_text": "You and your date are trying to get a table at a restaurant. The parameter you is the stylishness of your clothes, in the range 0..10, and date is the stylishness of your date's clothes. Write a method that returns your chances of getting a table, encoded as an int value with 0 = no, 1 = maybe, 2 = yes. If either of you is very stylish, 8 or more, then the result is 2 (yes). With the exception that if either of you has style of 2 or less, then the result is 0 (no). Otherwise the result is 1 (maybe).\n\n\n\n##The solution of the given exercise is:\npublic int dateFashion(int you, int date)\n{\n    if (you >= 8)\n    {\n        if (date <= 2)\n        {\n            return 0;\n        }\n        else\n        {\n        \treturn 2;\n        }\n    }\n    else if (date >= 8)\n    {\n        if (you <= 2)\n        {\n            return 0;\n        }\n        else\n        {\n        \treturn 2;\n        }\n    }\n    else\n    {\n        if (you <= 2)\n        {\n            return 0;\n        }\n        else if (date <= 2)\n        {\n            return 0;\n        }\n        else\n        {\n        \treturn 1;\n        }\n    }\n    \n}\n\n"
+      },
+      {
+        "position": 43,
+        "id": "27",
+        "x": 721.2,
+        "mean_score": 0.7520660909090909,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given a string and an int n, return a string made of n repetitions of the last n characters of the string. You may assume that n is between 0 and the length of the string, inclusive.\n\n\n\n##The solution of the given exercise is:\npublic String repeatEnd(String str, int n)\n{\n    int length = str.length();\n    int i = 1;\n    String rep = str.substring(length - n, length);\n    while (i < n)\n    {\n        rep = rep + str.substring(length - n, length);\n        i++;\n    }\n    return rep;\n}\n\n"
+      },
+      {
+        "position": 44,
+        "id": "21",
+        "x": 737.8,
+        "mean_score": 0.43636363636363634,
+        "n_scores": 22,
+        "full_text": "Given two strings, return true if either of the strings appears at the very end of the other string, ignoring upper/lower case differences (in other words, the computation should not be \"case sensitive\"). Note: str.toLowerCase() returns the lowercase version of a string.\n\n\n\n##The solution of the given exercise is:\npublic boolean endOther(String a, String b)\n{\n    int aLen = a.length();\n\tint bLen = b.length();\n\tString end;\n\tString temp;\n\ta = a.toLowerCase();\n\tb = b.toLowerCase();\n\tif(aLen >= bLen)\n\t{\n\t\tend = a.substring(aLen - bLen);\n\t\ttemp = b;\n\t}\n\telse\n\t{\n\t\tend = b.substring(bLen - aLen);\n\t\ttemp = a;\n\t}\n\treturn (end.equals(temp));\n}\n\n"
+      },
+      {
+        "position": 45,
+        "id": "28",
+        "x": 754.4,
+        "mean_score": 0.36060604545454544,
+        "n_scores": 22,
+        "full_text": "Write a function in Java that implements the following logic: Given two strings, a and b, create a bigger string made of the first character of a, the first character of b, the second character of a, the second character of b, and so on. Any leftover characters go at the end of the result.\n\n\n\n##The solution of the given exercise is:\npublic String mixString(String a, String b)\n{\n    int minl = Math.min(a.length(), b.length());\n    String string = new String();\n    for (int i = 0;  i < minl; i++)\n    {\n        string = string + a.substring(i, i + 1) + b.substring(i, i + 1);\n    }\n    if (a.length() == b.length())\n    {\n        return string;\n    }\n    else if (a.length() > minl)\n    {\n        return string + a.substring(minl, a.length());\n    }\n    else\n    {\n        return string + b.substring(minl, b.length());\n    }\n}\n\n"
+      },
+      {
+        "position": 46,
+        "id": "44",
+        "x": 771,
+        "mean_score": 0.6909090909090909,
+        "n_scores": 22,
+        "full_text": "Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which case just return a length 0 array. You do not need a separate if statement for the length-0 case; the for loop should naturally execute 0 times in that case, so it just works. The syntax to make a new int array is new int[desired_length].\n\n\n\n##The solution of the given exercise is:\npublic int[] fizzArray(int n)\n{\n    int[] arr = new int[n];\n    for (int i = 0; i < n; i++)\n    {\n        arr[i] = i;\n    }\n    return arr;\n}\n\n"
+      },
+      {
+        "position": 47,
+        "id": "49",
+        "x": 787.6,
+        "mean_score": 0.793388409090909,
+        "n_scores": 22,
+        "full_text": "Return an array that is \"left shifted\" by one--so for an input of {6, 2, 5, 3}, the method returns {2, 5, 3, 6}. You may modify and return the given array, or return a new array.\n\n\n\n##The solution of the given exercise is:\npublic int[] shiftLeft(int[] nums)\n{\n    \n    if (nums.length > 0)\n    {\n        int x = nums[0];\n    for (int i = 0; i < nums.length; i++)\n    {\n        if (i < nums.length - 1)\n        {\n            nums[i] = nums [i + 1];\n        }\n        else\n        {\n            nums[i] = x;\n        }\n    }\n    return nums;\n    }\n    else\n    {\n        return nums;\n    }\n}\n\n"
+      },
+      {
+        "position": 48,
+        "id": "31",
+        "x": 804.1,
+        "mean_score": 0.5909090909090909,
+        "n_scores": 22,
+        "full_text": "Given an int array of any length, return a new array of its first 2 elements. If the array is smaller than length 2, use whatever elements are present.\n\n\n\n##The solution of the given exercise is:\npublic int[] frontPiece(int[] nums)\n{\n    int[] two;\n\tif(nums.length >= 2)\n\t{\n\t\ttwo = new int[2];\n\t\ttwo[0] = nums[0];\n\t\ttwo[1] = nums[1];\n\t}\n\telse if(nums.length == 1)\n\t{\n\t\ttwo = new int[1];\n\t\ttwo[0] = nums[0];\n\t}\n\telse\n\t\ttwo = new int[0];\n\treturn two;\n}\n\n"
+      },
+      {
+        "position": 49,
+        "id": "11",
+        "x": 820.7,
+        "mean_score": 0.4318181818181818,
+        "n_scores": 22,
+        "full_text": "For this problem, we'll round an int value up to the next multiple of 10 if its rightmost digit is 5 or more, so 15 rounds up to 20. Alternately, round down to the previous multiple of 10 if its rightmost digit is less than 5, so 12 rounds down to 10. Given 3 ints, a, b, and c, return the sum of their rounded values. To avoid code repetition, write a separate helper public int round10(int num) and call it 3 times. Write the helper entirely below and at the same indent level as roundSum().\n\n\n\n##The solution of the given exercise is:\npublic int roundSum(int a, int b, int c)\n{\n    return round10(a) + round10(b) + round10(c);\n}\n\npublic int round10(int num)\n{\n    int x = num % 10;\n    if (x >= 5)\n    {\n        return num + (10 - x);\n    }\n    else\n    {\n        return num - x;\n    }\n}\n\n"
+      }
+    ]
+  }
+]
